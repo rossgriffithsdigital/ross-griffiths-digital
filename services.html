@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ross & Griffiths Digital Services — Website design, build, and maintenance for local businesses in Northumberland County, Ontario.">
+  <title>Services & Pricing — Ross & Griffiths Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --slate: #2D3748; --slate-light: #4A5568; --slate-dark: #1A202C;
+      --teal: #0D9488; --teal-light: #14B8A6; --teal-glow: rgba(13,148,136,0.15);
+      --bg: #F8FAFC; --white: #FFFFFF; --text: #2D3748; --text-light: #718096; --border: #E2E8F0;
+      --font-heading: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif;
+      --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,0.08); --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.6; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 1000; background: rgba(26,32,44,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 5%; }
+    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
+    .logo span { color: var(--teal-light); }
+    .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--teal-light); }
+    .nav-cta { background: var(--teal) !important; color: var(--white) !important; padding: 0.55rem 1.2rem; border-radius: 8px; }
+    .nav-cta:hover { background: var(--teal-light) !important; }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    @media(max-width:768px) {
+      .hamburger { display: flex; }
+      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--slate-dark); flex-direction: column; padding: 1.5rem 5%; gap: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
+      .nav-links.open { display: flex; }
+    }
+
+    /* PAGE HERO */
+    .page-hero { background: var(--slate-dark); padding: 120px 5% 100px; position: relative; overflow: hidden; }
+    .page-hero::before { content: ''; position: absolute; top: -30%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 65%); border-radius: 50%; animation: pulse 7s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 1.25rem; }
+    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--teal-light); }
+    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(2rem,5vw,3.2rem); font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
+    .page-hero h1 span { color: var(--teal-light); }
+    .page-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.62); max-width: 560px; line-height: 1.75; }
+
+    /* SECTIONS */
+    section { padding: 100px 5%; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-tag { display: inline-block; color: var(--teal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
+    .section-title { font-family: var(--font-heading); font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 800; color: var(--slate-dark); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1.05rem; color: var(--text-light); max-width: 560px; line-height: 1.7; }
+    .section-header { margin-bottom: 3.5rem; }
+
+    /* WHAT'S INCLUDED GRID */
+    .includes-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .inc-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; transition: all 0.3s; }
+    .inc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--teal); }
+    .inc-icon { width: 52px; height: 52px; background: var(--teal-glow); border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.25rem; }
+    .inc-card h3 { font-family: var(--font-heading); font-size: 1.05rem; font-weight: 700; color: var(--slate-dark); margin-bottom: 0.6rem; }
+    .inc-card p { font-size: 0.88rem; color: var(--text-light); line-height: 1.65; }
+    @media(max-width:768px) { .includes-grid { grid-template-columns: 1fr; } }
+
+    /* PROCESS */
+    .process-bg { background: var(--slate-dark); }
+    .process-steps { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+    .step { position: relative; }
+    .step-num { font-family: var(--font-heading); font-size: 3rem; font-weight: 800; color: rgba(13,148,136,0.25); line-height: 1; margin-bottom: 0.75rem; }
+    .step h4 { font-family: var(--font-heading); font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .step p { font-size: 0.88rem; color: rgba(255,255,255,0.52); line-height: 1.65; }
+    .process-connector { position: absolute; top: 1.5rem; right: -0.75rem; width: 1.5rem; height: 2px; background: rgba(13,148,136,0.3); }
+    @media(max-width:768px) { .process-steps { grid-template-columns: 1fr; } .process-connector { display: none; } }
+
+    /* PRICING */
+    .pricing-wrap { max-width: 560px; margin: 0 auto; }
+    .plan { background: var(--slate-dark); border: 1px solid var(--teal); border-radius: 20px; padding: 3rem; }
+    .plan h3 { font-family: var(--font-heading); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+    .plan-desc { font-size: 0.92rem; color: rgba(255,255,255,0.55); margin-bottom: 2rem; line-height: 1.65; }
+    .plan-prices { display: flex; gap: 2.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .plan-price-item { }
+    .plan-price { font-family: var(--font-heading); font-size: 2.6rem; font-weight: 800; color: var(--teal-light); letter-spacing: -0.03em; line-height: 1; }
+    .plan-period { font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-top: 0.3rem; }
+    .plan-divider { width: 1px; background: rgba(255,255,255,0.1); align-self: stretch; }
+    .plan ul { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2.5rem; }
+    .plan ul li { font-size: 0.9rem; color: rgba(255,255,255,0.75); display: flex; gap: 0.6rem; align-items: flex-start; line-height: 1.5; }
+    .plan ul li::before { content: '✓'; color: var(--teal-light); font-weight: 700; flex-shrink: 0; margin-top: 0.05rem; }
+    .btn-plan { display: block; text-align: center; padding: 0.9rem; border-radius: var(--radius); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; font-family: var(--font-body); background: var(--teal); color: var(--white); border: none; cursor: pointer; }
+    .btn-plan:hover { background: var(--teal-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(13,148,136,0.3); }
+    .plan-note { font-size: 0.78rem; color: rgba(255,255,255,0.35); text-align: center; margin-top: 1rem; }
+
+    /* FAQ */
+    .faq-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.25rem; }
+    .faq-item { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.75rem; }
+    .faq-item h4 { font-family: var(--font-heading); font-weight: 700; color: var(--slate-dark); margin-bottom: 0.6rem; font-size: 0.97rem; }
+    .faq-item p { font-size: 0.88rem; color: var(--text-light); line-height: 1.7; }
+    @media(max-width:768px) { .faq-grid { grid-template-columns: 1fr; } }
+
+    /* CTA */
+    .cta-section { background: linear-gradient(135deg, var(--teal) 0%, #065F55 100%); text-align: center; }
+    .cta-section h2 { font-family: var(--font-heading); font-size: clamp(1.8rem,3.5vw,2.8rem); font-weight: 800; color: var(--white); letter-spacing: -0.02em; margin-bottom: 1rem; }
+    .cta-section p { color: rgba(255,255,255,0.82); font-size: 1.05rem; margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .btn-white { background: var(--white); color: var(--teal); padding: 0.9rem 2.2rem; border-radius: var(--radius); font-weight: 700; font-size: 0.95rem; text-decoration: none; display: inline-block; transition: all 0.2s; font-family: var(--font-body); }
+    .btn-white:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,0.2); }
+
+    /* FOOTER */
+    footer { background: var(--slate-dark); padding: 64px 5% 32px; }
+    .footer-inner { max-width: 1200px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand .logo { display: block; margin-bottom: 1rem; }
+    .footer-brand p { font-size: 0.87rem; line-height: 1.75; color: rgba(255,255,255,0.42); max-width: 260px; }
+    .footer-col h4 { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: 0.88rem; margin-bottom: 1rem; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+    .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
+    .footer-col ul a:hover { color: var(--teal-light); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.82rem; color: rgba(255,255,255,0.35); }
+    @media(max-width:768px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; } }
+
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">Ross & Griffiths <span>Digital</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="nav-cta">Get in Touch</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Services</span></div>
+    <h1>One Simple Package,<br><span>No Surprises</span></h1>
+    <p>We keep it straightforward — one clear offering that covers everything a local business needs to get online and stay online.</p>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<section>
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag">What We Do</span>
+      <h2 class="section-title">What's Included in Every Build</h2>
+      <p class="section-sub">Every site we build comes with the same solid foundation — nothing hidden, nothing extra to pay for upfront.</p>
+    </div>
+    <div class="includes-grid">
+      <div class="inc-card reveal">
+        <div class="inc-icon">&#128421;</div>
+        <h3>Custom Design</h3>
+        <p>A website designed around your business — your colours, your content, your brand. No generic templates.</p>
+      </div>
+      <div class="inc-card reveal">
+        <div class="inc-icon">&#128247;</div>
+        <h3>Mobile Responsive</h3>
+        <p>Your site will look great and work properly on phones, tablets, and desktops — guaranteed.</p>
+      </div>
+      <div class="inc-card reveal">
+        <div class="inc-icon">&#9889;</div>
+        <h3>Fast Load Times</h3>
+        <p>We build lean, optimised sites that load quickly so visitors don't bounce before they see your content.</p>
+      </div>
+      <div class="inc-card reveal">
+        <div class="inc-icon">&#128231;</div>
+        <h3>Contact Form</h3>
+        <p>A working contact form that sends enquiries directly to your email inbox — no extra tools needed.</p>
+      </div>
+      <div class="inc-card reveal">
+        <div class="inc-icon">&#128200;</div>
+        <h3>Basic SEO Setup</h3>
+        <p>Page titles, meta descriptions, and a site structure that gives you a fair shot at ranking in local search.</p>
+      </div>
+      <div class="inc-card reveal">
+        <div class="inc-icon">&#128202;</div>
+        <h3>Google Analytics</h3>
+        <p>We connect your site to Google Analytics so you can see how many people are visiting and where they're from.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process-bg">
+  <div class="section-inner">
+    <div class="section-header reveal">
+      <span class="section-tag" style="color:var(--teal-light)">How It Works</span>
+      <h2 class="section-title" style="color:var(--white)">From First Email to Live Site</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.55)">A clear process so you always know what's happening and what comes next.</p>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal" style="position:relative">
+        <div class="step-num">01</div>
+        <h4>You Get in Touch</h4>
+        <p>Send us a message through the contact form and tell us a bit about your business and what you're looking for.</p>
+        <div class="process-connector"></div>
+      </div>
+      <div class="step reveal" style="position:relative">
+        <div class="step-num">02</div>
+        <h4>We Send a Proposal</h4>
+        <p>We'll reply with a clear outline of what we'll build, what we need from you, and a confirmation of cost.</p>
+        <div class="process-connector"></div>
+      </div>
+      <div class="step reveal" style="position:relative">
+        <div class="step-num">03</div>
+        <h4>We Build Your Site</h4>
+        <p>We design and build your site, sharing it with you for feedback before anything goes live.</p>
+        <div class="process-connector"></div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <h4>Launch & Maintain</h4>
+        <p>We go live, handle all the technical setup, and keep your site running smoothly every month going forward.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section style="background:var(--bg)">
+  <div class="section-inner">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="section-tag">Pricing</span>
+      <h2 class="section-title">Clear Pricing, No Hidden Fees</h2>
+      <p class="section-sub" style="margin:0 auto">One package. Everything included. Prices in CAD.</p>
+    </div>
+    <div class="pricing-wrap reveal">
+      <div class="plan">
+        <h3>Starter Website Package</h3>
+        <p class="plan-desc">Everything a local business needs to get online with a professional, fast, and functional website — plus ongoing care to keep it that way.</p>
+        <div class="plan-prices">
+          <div class="plan-price-item">
+            <div class="plan-price">$800</div>
+            <div class="plan-period">one-time build fee</div>
+          </div>
+          <div class="plan-divider"></div>
+          <div class="plan-price-item">
+            <div class="plan-price">$150</div>
+            <div class="plan-period">per month (maintenance)</div>
+          </div>
+        </div>
+        <ul>
+          <li>Custom designed website (up to 5 pages)</li>
+          <li>Mobile responsive on all devices</li>
+          <li>Contact form sent directly to your inbox</li>
+          <li>Basic on-page SEO setup</li>
+          <li>Google Analytics connected</li>
+          <li>Monthly security updates & backups</li>
+          <li>Content updates on request (text & images)</li>
+          <li>Email support — we respond within 1 business day</li>
+        </ul>
+        <a href="contact.html" class="btn-plan">Get Started — Email Us &rarr;</a>
+        <p class="plan-note">Monthly maintenance is optional but recommended. Cancel any time with 30 days' notice. No contracts.</p>
+      </div>
+    </div>
+    <p class="reveal" style="text-align:center;margin-top:1.75rem;font-size:0.88rem;color:var(--text-light)">Have something more complex in mind? <a href="contact.html" style="color:var(--teal)">Send us a message</a> and we'll discuss.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="section-inner">
+    <div class="section-header reveal" style="text-align:center">
+      <span class="section-tag">Questions</span>
+      <h2 class="section-title">Common Questions</h2>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item reveal">
+        <h4>How long does a website take?</h4>
+        <p>It depends on how quickly we receive your content (logo, text, photos), but most sites are ready to review within 2–3 weeks of getting started.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h4>What do I need to provide?</h4>
+        <p>Ideally your logo, a brief description of your business, and any photos you'd like to use. We can help guide you on what works best if you're not sure.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h4>Do I own my website?</h4>
+        <p>Yes, 100%. Once it's built and paid for, the website is yours. We don't hold anything back.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h4>Is the monthly fee mandatory?</h4>
+        <p>No — it's optional. But without maintenance your site can become outdated and vulnerable over time. We recommend it to keep things running smoothly.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h4>Can I get more than 5 pages?</h4>
+        <p>Possibly, depending on the project. Send us a message and we'll let you know if it's something we can accommodate and at what cost.</p>
+      </div>
+      <div class="faq-item reveal">
+        <h4>How do I get in touch?</h4>
+        <p>Use the contact form on our <a href="contact.html" style="color:var(--teal)">Contact page</a> or email us directly at <a href="mailto:rossgriffithsdigital@gmail.com" style="color:var(--teal)">rossgriffithsdigital@gmail.com</a>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="section-inner">
+    <h2 class="reveal">Ready to Get Your Business Online?</h2>
+    <p class="reveal">Send us a message and we'll get back to you within one business day.</p>
+    <a href="contact.html" class="btn-white reveal">Get in Touch &rarr;</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Ross & Griffiths <span>Digital</span></a>
+        <p>We build and maintain websites for local businesses — clean, fast, and built to grow with you.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Get In Touch</h4>
+        <ul>
+          <li><a href="mailto:rossgriffithsdigital@gmail.com">rossgriffithsdigital@gmail.com</a></li>
+          <li><span style="color:rgba(255,255,255,0.4);font-size:0.87rem">Northumberland County, ON</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Ross &amp; Griffiths Digital. All rights reserved.</span>
+      <span>Northumberland County, Ontario, Canada</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
