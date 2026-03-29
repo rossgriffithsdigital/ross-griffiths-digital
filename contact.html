@@ -13,7 +13,6 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     rel="stylesheet">
-  <script src="https://www.google.com/recaptcha/api.js?render=6LcrdZ0sAAAAAGeIRSPqqtbg8QtCgaPWSWUNnTir"></script>
   <style>
     :root {
       --slate: #2D3748;
@@ -726,7 +725,6 @@
                     placeholder="What does your business do? What would you like your website to achieve?"
                     required></textarea>
                 </div>
-                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response">
                 <button type="submit" class="btn-submit">Send Message &rarr;</button>
                 <p class="form-note">We reply within 1 business day. No spam, ever.</p>
               </form>
@@ -840,17 +838,6 @@
       const btn = this.querySelector('.btn-submit');
       btn.textContent = 'Sending...';
       btn.disabled = true;
-
-      let recaptchaToken;
-      try {
-        recaptchaToken = await grecaptcha.execute('6LcrdZ0sAAAAAGeIRSPqqtbg8QtCgaPWSWUNnTir', { action: 'contact' });
-      } catch {
-        btn.textContent = 'Send Message →';
-        btn.disabled = false;
-        alert('Security check failed. Please refresh the page and try again.');
-        return;
-      }
-      document.getElementById('g-recaptcha-response').value = recaptchaToken;
 
       const data = new FormData(this);
       try {
