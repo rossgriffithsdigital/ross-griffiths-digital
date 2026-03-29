@@ -1,342 +1,873 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Ross & Griffiths Digital — Send us a message and we'll get back to you within one business day. Based in Northumberland County, Ontario.">
+  <meta name="description"
+    content="Contact Ross & Griffiths Digital — Send us a message and we'll get back to you within one business day. Based in Northumberland County, Ontario.">
   <title>Contact — Ross & Griffiths Digital</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet">
   <style>
     :root {
-      --slate: #2D3748; --slate-light: #4A5568; --slate-dark: #1A202C;
-      --teal: #0D9488; --teal-light: #14B8A6; --teal-glow: rgba(13,148,136,0.15);
-      --bg: #F8FAFC; --white: #FFFFFF; --text: #2D3748; --text-light: #718096; --border: #E2E8F0;
-      --font-heading: 'Plus Jakarta Sans', sans-serif; --font-body: 'Inter', sans-serif;
-      --radius: 12px; --shadow: 0 4px 24px rgba(0,0,0,0.08); --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+      --slate: #2D3748;
+      --slate-light: #4A5568;
+      --slate-dark: #1A202C;
+      --teal: #0D9488;
+      --teal-light: #14B8A6;
+      --teal-glow: rgba(13, 148, 136, 0.15);
+      --bg: #F8FAFC;
+      --white: #FFFFFF;
+      --text: #2D3748;
+      --text-light: #718096;
+      --border: #E2E8F0;
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+      --radius: 12px;
+      --shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.12);
     }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); color: var(--text); background: var(--white); line-height: 1.6; }
+
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
 
     /* NAV */
-    nav { position: sticky; top: 0; z-index: 1000; background: rgba(26,32,44,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 5%; }
-    .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 72px; }
-    .logo { font-family: var(--font-heading); font-weight: 700; font-size: 1.15rem; color: var(--white); text-decoration: none; letter-spacing: -0.02em; }
-    .logo span { color: var(--teal-light); }
-    .nav-links { display: flex; list-style: none; gap: 2rem; align-items: center; }
-    .nav-links a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--teal-light); }
-    .nav-cta { background: var(--teal) !important; color: var(--white) !important; padding: 0.55rem 1.2rem; border-radius: 8px; }
-    .nav-cta:hover { background: var(--teal-light) !important; }
-    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 4px; flex-direction: column; gap: 5px; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(26, 32, 44, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0 5%;
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+    }
+
+    .logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.15rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+
+    .logo span {
+      color: var(--teal-light);
+    }
+
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--teal-light);
+    }
+
+    .nav-cta {
+      background: var(--teal) !important;
+      color: var(--white) !important;
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+    }
+
+    .nav-cta:hover {
+      background: var(--teal-light) !important;
+    }
+
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+
     @media(max-width:768px) {
-      .hamburger { display: flex; }
-      .nav-links { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--slate-dark); flex-direction: column; padding: 1.5rem 5%; gap: 1.25rem; border-bottom: 1px solid rgba(255,255,255,0.06); }
-      .nav-links.open { display: flex; }
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        background: var(--slate-dark);
+        flex-direction: column;
+        padding: 1.5rem 5%;
+        gap: 1.25rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
     }
 
     /* PAGE HERO */
-    .page-hero { background: var(--slate-dark); padding: 120px 5% 100px; position: relative; overflow: hidden; }
-    .page-hero::before { content: ''; position: absolute; top: -30%; right: -5%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(13,148,136,0.15) 0%, transparent 65%); border-radius: 50%; animation: pulse 7s ease-in-out infinite; }
-    @keyframes pulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.1); } }
-    .page-hero-inner { max-width: 1200px; margin: 0 auto; position: relative; z-index: 1; }
-    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.45); margin-bottom: 1.25rem; }
-    .breadcrumb a { color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
-    .breadcrumb a:hover { color: var(--teal-light); }
-    .page-hero h1 { font-family: var(--font-heading); font-size: clamp(2rem,5vw,3.2rem); font-weight: 800; color: var(--white); letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 1rem; }
-    .page-hero h1 span { color: var(--teal-light); }
-    .page-hero p { font-size: 1.1rem; color: rgba(255,255,255,0.62); max-width: 560px; line-height: 1.75; }
+    .page-hero {
+      background: var(--slate-dark);
+      padding: 120px 5% 100px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -5%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(13, 148, 136, 0.15) 0%, transparent 65%);
+      border-radius: 50%;
+      animation: pulse 7s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.1);
+      }
+    }
+
+    .page-hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.45);
+      margin-bottom: 1.25rem;
+    }
+
+    .breadcrumb a {
+      color: rgba(255, 255, 255, 0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--teal-light);
+    }
+
+    .page-hero h1 {
+      font-family: var(--font-heading);
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .page-hero h1 span {
+      color: var(--teal-light);
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.62);
+      max-width: 560px;
+      line-height: 1.75;
+    }
 
     /* SECTIONS */
-    section { padding: 100px 5%; }
-    .section-inner { max-width: 1200px; margin: 0 auto; }
-    .section-tag { display: inline-block; color: var(--teal); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.75rem; }
-    .section-title { font-family: var(--font-heading); font-size: clamp(1.8rem,3.5vw,2.6rem); font-weight: 800; color: var(--slate-dark); letter-spacing: -0.02em; line-height: 1.2; margin-bottom: 1rem; }
+    section {
+      padding: 100px 5%;
+    }
+
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-tag {
+      display: inline-block;
+      color: var(--teal);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: var(--slate-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
 
     /* CONTACT LAYOUT */
-    .contact-layout { display: grid; grid-template-columns: 1.2fr 1fr; gap: 5rem; align-items: start; }
-    @media(max-width:768px) { .contact-layout { grid-template-columns: 1fr; gap: 3rem; } }
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    @media(max-width:768px) {
+      .contact-layout {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
 
     /* FORM */
-    .form-card { background: var(--bg); border: 1px solid var(--border); border-radius: 20px; padding: 3rem; }
-    .form-title { font-family: var(--font-heading); font-size: 1.4rem; font-weight: 700; color: var(--slate-dark); margin-bottom: 0.5rem; }
-    .form-sub { font-size: 0.9rem; color: var(--text-light); margin-bottom: 2rem; line-height: 1.6; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-    @media(max-width:768px) { .form-row { grid-template-columns: 1fr; } }
-    .form-group { margin-bottom: 1.25rem; }
-    label { display: block; font-size: 0.85rem; font-weight: 600; color: var(--slate-dark); margin-bottom: 0.45rem; }
-    input, select, textarea {
-      width: 100%; padding: 0.75rem 1rem; border: 1.5px solid var(--border); border-radius: var(--radius);
-      font-family: var(--font-body); font-size: 0.92rem; color: var(--text); background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s; outline: none;
+    .form-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3rem;
     }
-    input:focus, select:focus, textarea:focus { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(13,148,136,0.12); }
-    textarea { resize: vertical; min-height: 130px; }
+
+    .form-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--slate-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .form-sub {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    @media(max-width:768px) {
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--slate-dark);
+      margin-bottom: 0.45rem;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      color: var(--text);
+      background: var(--white);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--teal);
+      box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.12);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 130px;
+    }
+
     select {
       appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23718096' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem;
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
     }
-    .btn-submit { background: var(--teal); color: var(--white); padding: 0.9rem 2rem; border-radius: var(--radius); font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; border: none; cursor: pointer; width: 100%; transition: all 0.2s; display: flex; align-items: center; justify-content: center; gap: 0.5rem; }
-    .btn-submit:hover { background: var(--teal-light); transform: translateY(-1px); box-shadow: 0 8px 24px rgba(13,148,136,0.3); }
-    .form-note { font-size: 0.78rem; color: var(--text-light); text-align: center; margin-top: 0.75rem; }
-    .field-error { border-color: #E53E3E !important; }
+
+    .btn-submit {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-submit:hover {
+      background: var(--teal-light);
+      transform: translateY(-1px);
+      box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+    }
+
+    .form-note {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      text-align: center;
+      margin-top: 0.75rem;
+    }
+
+    .field-error {
+      border-color: #E53E3E !important;
+    }
 
     /* SUCCESS STATE */
-    .form-success { display: none; text-align: center; padding: 3rem 1rem; }
-    .success-icon { width: 64px; height: 64px; background: var(--teal-glow); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; margin: 0 auto 1.5rem; border: 2px solid rgba(13,148,136,0.3); }
-    .form-success h3 { font-family: var(--font-heading); font-weight: 700; color: var(--slate-dark); margin-bottom: 0.75rem; font-size: 1.3rem; }
-    .form-success p { color: var(--text-light); font-size: 0.95rem; line-height: 1.7; }
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: var(--teal-glow);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 1.5rem;
+      border: 2px solid rgba(13, 148, 136, 0.3);
+    }
+
+    .form-success h3 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--slate-dark);
+      margin-bottom: 0.75rem;
+      font-size: 1.3rem;
+    }
+
+    .form-success p {
+      color: var(--text-light);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
 
     /* CONTACT INFO SIDEBAR */
-    .contact-info { display: flex; flex-direction: column; gap: 1.25rem; }
-    .info-heading { font-family: var(--font-heading); font-size: 1.5rem; font-weight: 800; color: var(--slate-dark); letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 0.5rem; }
-    .info-sub { font-size: 0.92rem; color: var(--text-light); line-height: 1.7; margin-bottom: 0.5rem; }
-    .info-card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem 1.5rem; display: flex; gap: 1rem; align-items: flex-start; transition: border-color 0.2s; }
-    .info-card:hover { border-color: var(--teal); }
-    .info-icon { width: 40px; height: 40px; background: var(--teal-glow); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
-    .info-card h4 { font-family: var(--font-heading); font-weight: 700; color: var(--slate-dark); font-size: 0.88rem; margin-bottom: 0.2rem; }
-    .info-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
-    .info-card a { font-size: 0.85rem; color: var(--teal); text-decoration: none; }
-    .info-card a:hover { color: var(--teal-light); }
-    .response-badge { background: var(--teal-glow); border: 1px solid rgba(13,148,136,0.25); border-radius: var(--radius); padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
-    .response-dot { width: 9px; height: 9px; background: var(--teal-light); border-radius: 50%; animation: blink 2s ease-in-out infinite; flex-shrink: 0; }
-    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.3; } }
-    .response-badge span { font-size: 0.85rem; color: var(--slate-dark); line-height: 1.5; }
-    .response-badge strong { color: var(--teal); }
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .info-heading {
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--slate-dark);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-sub {
+      font-size: 0.92rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      transition: border-color 0.2s;
+    }
+
+    .info-card:hover {
+      border-color: var(--teal);
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--teal-glow);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .info-card h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--slate-dark);
+      font-size: 0.88rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .info-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    .info-card a {
+      font-size: 0.85rem;
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    .info-card a:hover {
+      color: var(--teal-light);
+    }
+
+    .response-badge {
+      background: var(--teal-glow);
+      border: 1px solid rgba(13, 148, 136, 0.25);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .response-dot {
+      width: 9px;
+      height: 9px;
+      background: var(--teal-light);
+      border-radius: 50%;
+      animation: blink 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
+    }
+
+    .response-badge span {
+      font-size: 0.85rem;
+      color: var(--slate-dark);
+      line-height: 1.5;
+    }
+
+    .response-badge strong {
+      color: var(--teal);
+    }
 
     /* FOOTER */
-    footer { background: var(--slate-dark); padding: 64px 5% 32px; }
-    .footer-inner { max-width: 1200px; margin: 0 auto; }
-    .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-brand .logo { display: block; margin-bottom: 1rem; }
-    .footer-brand p { font-size: 0.87rem; line-height: 1.75; color: rgba(255,255,255,0.42); max-width: 260px; }
-    .footer-col h4 { font-family: var(--font-heading); font-weight: 700; color: var(--white); font-size: 0.88rem; margin-bottom: 1rem; }
-    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
-    .footer-col ul a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.87rem; transition: color 0.2s; }
-    .footer-col ul a:hover { color: var(--teal-light); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; font-size: 0.82rem; color: rgba(255,255,255,0.35); }
-    @media(max-width:768px) { .footer-top { grid-template-columns: 1fr; gap: 2rem; } .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; } }
+    footer {
+      background: var(--slate-dark);
+      padding: 64px 5% 32px;
+    }
 
-    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand .logo {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.87rem;
+      line-height: 1.75;
+      color: rgba(255, 255, 255, 0.42);
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--white);
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .footer-col ul a {
+      color: rgba(255, 255, 255, 0.5);
+      text-decoration: none;
+      font-size: 0.87rem;
+      transition: color 0.2s;
+    }
+
+    .footer-col ul a:hover {
+      color: var(--teal-light);
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.82rem;
+      color: rgba(255, 255, 255, 0.35);
+    }
+
+    @media(max-width:768px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 0.5rem;
+        text-align: center;
+      }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
+
 <body>
 
-<nav>
-  <div class="nav-inner">
-    <a href="index.html" class="logo">Ross & Griffiths <span>Digital</span></a>
-    <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active nav-cta">Get in Touch</a></li>
-    </ul>
-    <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <nav>
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Ross & Griffiths <span>Digital</span></a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active nav-cta">Get in Touch</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="page-hero-inner">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
+      <h1>Say Hello.<br>We'd Love to <span>Hear From You</span></h1>
+      <p>Fill in the form and we'll get back to you within a day. No obligation, no pressure. Just a real conversation
+        with two people who want to help.</p>
+    </div>
   </div>
-</nav>
 
-<!-- PAGE HERO -->
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><span>Contact</span></div>
-    <h1>Say Hello.<br>We'd Love to <span>Hear From You</span></h1>
-    <p>Fill in the form and we'll get back to you within a day. No obligation, no pressure. Just a real conversation with two people who want to help.</p>
-  </div>
-</div>
+  <!-- CONTACT SECTION -->
+  <section>
+    <div class="section-inner">
+      <div class="contact-layout">
 
-<!-- CONTACT SECTION -->
-<section>
-  <div class="section-inner">
-    <div class="contact-layout">
-
-      <!-- FORM -->
-      <div class="reveal">
-        <div class="form-card">
-          <div id="formWrap">
-            <div class="form-title">Send Us a Message</div>
-            <div class="form-sub">Tell us about your business and what you're looking for. We'll come back to you with an honest view of what we can do and what it would cost.</div>
-            <form id="contactForm" action="https://formspree.io/f/mvzvknak" method="POST" novalidate>
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="firstName">First Name *</label>
-                  <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+        <!-- FORM -->
+        <div class="reveal">
+          <div class="form-card">
+            <div id="formWrap">
+              <div class="form-title">Send Us a Message</div>
+              <div class="form-sub">Tell us about your business and what you're looking for. We'll come back to you with
+                an honest view of what we can do and what it would cost.</div>
+              <form id="contactForm" action="https://formspree.io/f/mvzvknak" method="POST" novalidate>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="firstName">First Name *</label>
+                    <input type="text" id="firstName" name="firstName" placeholder="Your first name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="lastName">Last Name *</label>
+                    <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+                  </div>
                 </div>
                 <div class="form-group">
-                  <label for="lastName">Last Name *</label>
-                  <input type="text" id="lastName" name="lastName" placeholder="Your last name" required>
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input type="email" id="email" name="email" placeholder="you@yourbusiness.com" required>
-              </div>
-              <div class="form-group">
-                <label for="business">Business Name</label>
-                <input type="text" id="business" name="business" placeholder="Your business name (if applicable)">
-              </div>
-              <div class="form-group">
-                <label for="service">What Are You Looking For?</label>
-                <select id="service" name="service">
-                  <option value="">Select an option...</option>
-                  <option>A brand new website</option>
-                  <option>A redesign of an existing site</option>
-                  <option>Monthly website maintenance</option>
-                  <option>Not sure yet, just exploring</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="message">Tell Us About Your Business *</label>
-                <textarea id="message" name="message" placeholder="What does your business do? What would you like your website to achieve?" required></textarea>
-              </div>
-              <button type="submit" class="btn-submit">Send Message &rarr;</button>
-              <p class="form-note">We reply within 1 business day. No spam, ever.</p>
-            </form>
+                <div class="form-group">
+                  <label for="business">Business Name</label>
+                  <input type="text" id="business" name="business" placeholder="Your business name (if applicable)">
+                </div>
+                <div class="form-group">
+                  <label for="service">What Are You Looking For?</label>
+                  <select id="service" name="service">
+                    <option value="">Select an option...</option>
+                    <option>A brand new website</option>
+                    <option>A redesign of an existing site</option>
+                    <option>Monthly website maintenance</option>
+                    <option>Not sure yet, just exploring</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="message">Tell Us About Your Business *</label>
+                  <textarea id="message" name="message"
+                    placeholder="What does your business do? What would you like your website to achieve?"
+                    required></textarea>
+                </div>
+                <button type="submit" class="btn-submit">Send Message &rarr;</button>
+                <p class="form-note">We reply within 1 business day. No spam, ever.</p>
+              </form>
+            </div>
+            <div class="form-success" id="formSuccess">
+              <div class="success-icon">&#10003;</div>
+              <h3>Message Sent!</h3>
+              <p>Thanks for getting in touch. We'll reply to <span id="confirmedEmail"></span> within one business day.
+              </p>
+            </div>
           </div>
-          <div class="form-success" id="formSuccess">
-            <div class="success-icon">&#10003;</div>
-            <h3>Message Sent!</h3>
-            <p>Thanks for getting in touch. We'll reply to <span id="confirmedEmail"></span> within one business day.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- SIDEBAR -->
-      <div class="contact-info reveal">
-        <div>
-          <div class="info-heading">We'd Love to Hear From You</div>
-          <p class="info-sub">We're a small team and we respond to every message personally. No bots, no canned replies.</p>
         </div>
 
-        <div class="response-badge">
-          <div class="response-dot"></div>
-          <span>We typically reply within <strong>a few hours</strong> during business hours.</span>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon">&#128231;</div>
+        <!-- SIDEBAR -->
+        <div class="contact-info reveal">
           <div>
-            <h4>Email</h4>
-            <a href="mailto:rossgriffithsdigital@gmail.com">rossgriffithsdigital@gmail.com</a>
+            <div class="info-heading">We'd Love to Hear From You</div>
+            <p class="info-sub">We're a small team and we respond to every message personally. No bots, no canned
+              replies.</p>
+          </div>
+
+          <div class="response-badge">
+            <div class="response-dot"></div>
+            <span>We typically reply within <strong>a few hours</strong> during business hours.</span>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">&#128231;</div>
+            <div>
+              <h4>Email</h4>
+              <a href="mailto:rossgriffithsdigital@gmail.com">rossgriffithsdigital@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">&#128205;</div>
+            <div>
+              <h4>Location</h4>
+              <p>Northumberland County, Ontario, Canada</p>
+            </div>
+          </div>
+
+          <div class="info-card">
+            <div class="info-icon">&#128336;</div>
+            <div>
+              <h4>Hours</h4>
+              <p>Monday – Friday<br>9am – 6pm EST</p>
+            </div>
           </div>
         </div>
 
-        <div class="info-card">
-          <div class="info-icon">&#128205;</div>
-          <div>
-            <h4>Location</h4>
-            <p>Northumberland County, Ontario, Canada</p>
-          </div>
-        </div>
-
-        <div class="info-card">
-          <div class="info-icon">&#128336;</div>
-          <div>
-            <h4>Hours</h4>
-            <p>Monday – Friday<br>9am – 6pm EST</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a href="index.html" class="logo">Ross & Griffiths <span>Digital</span></a>
-        <p>Two people from Northumberland County building websites for local businesses.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Pages</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="portfolio.html">Portfolio</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Get In Touch</h4>
-        <ul>
-          <li><a href="mailto:rossgriffithsdigital@gmail.com">rossgriffithsdigital@gmail.com</a></li>
-          <li><span style="color:rgba(255,255,255,0.4);font-size:0.87rem">Northumberland County, ON</span></li>
-        </ul>
       </div>
     </div>
-    <div class="footer-bottom">
-      <span>&copy; 2026 Ross &amp; Griffiths Digital. All rights reserved.</span>
-      <span>Northumberland County, Ontario, Canada</span>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">Ross & Griffiths <span>Digital</span></a>
+          <p>Two people from Northumberland County building websites for local businesses.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Pages</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Get In Touch</h4>
+          <ul>
+            <li><a href="mailto:rossgriffithsdigital@gmail.com">rossgriffithsdigital@gmail.com</a></li>
+            <li><span style="color:rgba(255,255,255,0.4);font-size:0.87rem">Northumberland County, ON</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Ross &amp; Griffiths Digital. All rights reserved.</span>
+        <span>Northumberland County, Ontario, Canada</span>
+      </div>
     </div>
-  </div>
-</footer>
+  </footer>
 
-<script>
-  const hamburger = document.getElementById('hamburger');
-  const navLinks = document.getElementById('navLinks');
-  hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('open');
-    navLinks.classList.toggle('open');
-  });
-
-  document.getElementById('contactForm').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const required = this.querySelectorAll('[required]');
-    let valid = true;
-    required.forEach(field => {
-      field.classList.remove('field-error');
-      if (!field.value.trim()) {
-        field.classList.add('field-error');
-        valid = false;
-        field.addEventListener('input', () => field.classList.remove('field-error'), { once: true });
-      }
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      navLinks.classList.toggle('open');
     });
-    if (!valid) return;
 
-    const btn = this.querySelector('.btn-submit');
-    btn.textContent = 'Sending...';
-    btn.disabled = true;
-
-    const data = new FormData(this);
-    try {
-      const res = await fetch(this.action, {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
+    document.getElementById('contactForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const required = this.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.classList.remove('field-error');
+        if (!field.value.trim()) {
+          field.classList.add('field-error');
+          valid = false;
+          field.addEventListener('input', () => field.classList.remove('field-error'), { once: true });
+        }
       });
-      if (res.ok) {
-        const email = document.getElementById('email').value;
-        document.getElementById('confirmedEmail').textContent = email;
-        document.getElementById('formWrap').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      } else {
+      if (!valid) return;
+
+      const btn = this.querySelector('.btn-submit');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const data = new FormData(this);
+      try {
+        const res = await fetch(this.action, {
+          method: 'POST',
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (res.ok) {
+          const email = document.getElementById('email').value;
+          document.getElementById('confirmedEmail').textContent = email;
+          document.getElementById('formWrap').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        } else {
+          btn.textContent = 'Send Message →';
+          btn.disabled = false;
+          alert('Something went wrong. Please email us directly at rossgriffithsdigital@gmail.com');
+        }
+      } catch {
         btn.textContent = 'Send Message →';
         btn.disabled = false;
         alert('Something went wrong. Please email us directly at rossgriffithsdigital@gmail.com');
       }
-    } catch {
-      btn.textContent = 'Send Message →';
-      btn.disabled = false;
-      alert('Something went wrong. Please email us directly at rossgriffithsdigital@gmail.com');
-    }
-  });
+    });
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
-  }, { threshold: 0.15 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
+
 </html>
