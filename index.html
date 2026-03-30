@@ -717,6 +717,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    /* COOKIE BANNER */
+    #cookie-banner { position: fixed; bottom: 0; left: 0; right: 0; z-index: 2000; background: var(--slate-dark); border-top: 1px solid rgba(255,255,255,0.1); padding: 1.25rem 5%; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; box-shadow: 0 -4px 24px rgba(0,0,0,0.2); }
+    #cookie-banner p { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin: 0; line-height: 1.5; flex: 1; min-width: 200px; }
+    .cookie-btns { display: flex; gap: 0.75rem; flex-shrink: 0; }
+    .cookie-accept { background: var(--teal); color: var(--white); border: none; padding: 0.55rem 1.25rem; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: background 0.2s; }
+    .cookie-accept:hover { background: var(--teal-light); }
+    .cookie-decline { background: transparent; color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.2); padding: 0.55rem 1.25rem; border-radius: 8px; font-family: var(--font-body); font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+    .cookie-decline:hover { border-color: rgba(255,255,255,0.45); color: rgba(255,255,255,0.85); }
   </style>
 </head>
 
@@ -903,6 +912,15 @@
     </div>
   </footer>
 
+  <!-- COOKIE BANNER -->
+  <div id="cookie-banner" style="display:none">
+    <p>We use Google Analytics to understand how people use our site. Do you accept cookies?</p>
+    <div class="cookie-btns">
+      <button class="cookie-decline" id="cookieDecline">Decline</button>
+      <button class="cookie-accept" id="cookieAccept">Accept</button>
+    </div>
+  </div>
+
   <script>
     const hamburger = document.getElementById('hamburger');
     const navLinks = document.getElementById('navLinks');
@@ -914,6 +932,34 @@
       entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.15 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    function loadGA() {
+      var s = document.createElement('script');
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41';
+      s.async = true;
+      document.head.appendChild(s);
+      s.onload = function() {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-QVZ1ZBWT41');
+      };
+    }
+    (function() {
+      var consent = localStorage.getItem('cookieConsent');
+      if (consent === 'accepted') { loadGA(); return; }
+      if (consent === 'declined') { return; }
+      document.getElementById('cookie-banner').style.display = 'flex';
+      document.getElementById('cookieAccept').addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        document.getElementById('cookie-banner').style.display = 'none';
+        loadGA();
+      });
+      document.getElementById('cookieDecline').addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'declined');
+        document.getElementById('cookie-banner').style.display = 'none';
+      });
+    })();
   </script>
 </body>
 
