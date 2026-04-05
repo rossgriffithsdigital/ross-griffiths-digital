@@ -1096,22 +1096,8 @@
 
       .hero { padding: 7rem 1.5rem 4rem; }
 
-      /* Replace video with static poster on mobile — 11KB vs 3MB */
-      .hero-video { display: none; }
-      .hero { background: url('hero-poster.webp') center/cover no-repeat; }
-
-      /* Fire animations immediately — no video to sync with */
-      .hero-content {
-        animation-delay: 0.2s !important;
-        animation-duration: 0.5s !important;
-      }
-      .hero-brand-name {
-        animation-delay: 0.4s !important;
-        animation-duration: 1.8s !important;
-      }
-      .hero-main {
-        animation-delay: 1.6s !important;
-      }
+      /* Video plays on mobile — poster shows instantly while it buffers */
+      .hero-video { display: block; }
 
       /* Mobile hero layout */
       .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); }
