@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How It Works — Ross &amp; Griffiths Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.12);
+      --bg: #0a0a0c; --surface: #111114;
+      --border: rgba(255,255,255,0.07);
+      --text-1: #f0f0f2; --text-2: #8a8a9a; --text-3: #4a4a5a;
+      --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit',system-ui,sans-serif; background: var(--bg); color: var(--text-1); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--text-3); border-radius: 4px; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: rgba(10,10,12,0.7); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-1); }
+    .nav-cta { font-size: 0.875rem; font-weight: 600; padding: 0.55rem 1.4rem; background: var(--accent); color: #0a0a0c; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.2s var(--ease-spring); text-decoration: none; }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px) scale(1.02); }
+
+    .page-header { padding: 10rem 3rem 5rem; border-bottom: 1px solid var(--border); animation: slide-up 0.9s var(--ease-out) both; }
+    @keyframes slide-up { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .page-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+    .page-title { font-size: clamp(2.5rem,5vw,4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-1); line-height: 1.05; max-width: 640px; margin-bottom: 1.5rem; }
+    .page-title .muted { color: var(--text-3); }
+    .page-intro { font-size: 1.1rem; color: var(--text-2); max-width: 520px; line-height: 1.75; }
+
+    /* Steps */
+    .steps-section { padding: 6rem 3rem; }
+    .step-item {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      gap: 0 3rem;
+      padding: 3rem 0;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .step-item:last-child { border-bottom: none; }
+    .step-num {
+      font-size: 3.5rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--text-3);
+      line-height: 1;
+      padding-top: 0.25rem;
+    }
+    .step-body {}
+    .step-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.03em; color: var(--text-1); margin-bottom: 0.75rem; }
+    .step-desc { font-size: 0.975rem; color: var(--text-2); line-height: 1.8; max-width: 620px; }
+    .step-tag {
+      display: inline-block;
+      margin-top: 1.25rem;
+      font-size: 0.75rem; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(0,212,255,0.2);
+      border-radius: 100px;
+      padding: 0.3rem 0.85rem;
+    }
+
+    /* Promise strip */
+    .promise { padding: 5rem 3rem; background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-size: clamp(1.75rem,3.5vw,2.75rem); font-weight: 800; letter-spacing: -0.035em; color: var(--text-1); line-height: 1.1; margin-bottom: 3rem; }
+    .section-title .muted { color: var(--text-3); }
+    .promise-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
+    .promise-card { background: var(--bg); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; }
+    .promise-icon { font-size: 1.4rem; margin-bottom: 1rem; display: block; }
+    .promise-title { font-size: 0.975rem; font-weight: 700; color: var(--text-1); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .promise-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
+
+    .cta-section { padding: 5rem 3rem; }
+    .cta-inner { background: linear-gradient(135deg,rgba(0,212,255,0.08) 0%,rgba(0,212,255,0.02) 100%); border: 1px solid rgba(0,212,255,0.2); border-radius: 24px; padding: 5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+    .cta-inner::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+    .cta-title { font-size: clamp(2rem,4vw,3.25rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-1); margin-bottom: 1.25rem; position: relative; }
+    .cta-sub { font-size: 1.05rem; color: var(--text-2); max-width: 440px; margin: 0 auto 2.5rem; position: relative; }
+    .cta-actions { display: flex; justify-content: center; gap: 1rem; position: relative; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0.85rem 2rem; background: var(--accent); color: #0a0a0c; border: none; border-radius: 10px; cursor: pointer; text-decoration: none; transition: opacity 0.2s, transform 0.25s var(--ease-spring); }
+    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px) scale(1.02); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; font-family: inherit; font-size: 0.95rem; font-weight: 500; padding: 0.85rem 1.5rem; background: transparent; color: var(--text-2); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; text-decoration: none; transition: color 0.2s, border-color 0.2s, transform 0.25s var(--ease-spring); }
+    .btn-ghost:hover { color: var(--text-1); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+    footer { padding: 3rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+    .footer-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-3); }
+    .footer-logo span { color: var(--accent); }
+    .footer-copy { font-size: 0.8rem; color: var(--text-3); }
+
+
+    .nav-logo { display: flex; align-items: center; gap: 0.55rem; }
+    .nav-logo-img { height: 30px; width: 30px; object-fit: contain; }
+    .footer-logo { display: flex; align-items: center; gap: 0.55rem; }
+    .footer-logo-img { height: 26px; width: 26px; object-fit: contain; opacity: 0.7; }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
+      .page-header { padding: 8rem 1.5rem 3rem; }
+      .steps-section { padding: 4rem 1.5rem; }
+      .step-item { grid-template-columns: 1fr; gap: 0.5rem; }
+      .step-num { font-size: 2rem; }
+      .promise { padding: 4rem 1.5rem; } .promise-grid { grid-template-columns: 1fr; }
+      .cta-section { padding: 3rem 1.5rem; } .cta-inner { padding: 3rem 2rem; }
+      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag("js", new Date());
+    gtag("config", "G-QVZ1ZBWT41");
+  </script>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="/favicon.png" alt="R&amp;GD" class="nav-logo-img">R&amp;GD<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html">Services</a></li>
+      <li><a href="how-it-works.html" class="active">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+    </ul>
+    <a class="nav-cta" href="contact.html">Get in touch</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-label">The process</p>
+    <h1 class="page-title">Simple from start <span class="muted">to finish.</span></h1>
+    <p class="page-intro">No complicated onboarding, no project management software, no jargon. Just a straightforward process that gets your business online.</p>
+  </div>
+
+  <section class="steps-section">
+    <div class="step-item">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h2 class="step-title">We have a conversation</h2>
+        <p class="step-desc">Tell us about your business — what you do, who your customers are, and what you want your site to achieve. We ask the right questions so nothing important gets missed. No forms, no jargon. Just a chat.</p>
+        <span class="step-tag">No commitment required</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h2 class="step-title">We design it around you</h2>
+        <p class="step-desc">We build a custom design based on your business — your industry, your customers, your tone. You'll see it before a single line of code is written and have full say on every detail until it's right.</p>
+        <span class="step-tag">Custom design, no templates</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h2 class="step-title">We build and launch</h2>
+        <p class="step-desc">Once you're happy with the design, we build the full site — mobile responsive, fast-loading, and set up correctly with SEO basics and Google Analytics from day one. You review it, we make any final tweaks, then it goes live.</p>
+        <span class="step-tag">Ready to launch</span>
+      </div>
+    </div>
+    <div class="step-item">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h2 class="step-title">We stick around</h2>
+        <p class="step-desc">Your site is live — but we don't disappear. Questions, small changes, or ongoing monthly maintenance — we're a message away. You email us, we answer. No support tickets, no waiting on hold.</p>
+        <span class="step-tag">Optional monthly maintenance</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="promise">
+    <p class="section-label">Our commitment</p>
+    <h2 class="section-title">What you can always <span class="muted">count on.</span></h2>
+    <div class="promise-grid">
+      <div class="promise-card">
+        <span class="promise-icon">💬</span>
+        <h3 class="promise-title">Direct communication</h3>
+        <p class="promise-desc">You speak to Connor or Quinn directly — at every stage. No middlemen, no miscommunication.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-icon">⚡</span>
+        <h3 class="promise-title">Fast responses</h3>
+        <p class="promise-desc">During business hours (Mon–Fri, 9am–6pm) you'll typically hear back within the hour.</p>
+      </div>
+      <div class="promise-card">
+        <span class="promise-icon">🔓</span>
+        <h3 class="promise-title">You own everything</h3>
+        <p class="promise-desc">Once your site is paid for and delivered, it's yours outright. No ongoing fees unless you choose maintenance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to get started?</h2>
+      <p class="cta-sub">The first step is just a conversation. No pressure, no commitment.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="contact.html">
+          Get in touch
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-ghost" href="pricing.html">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="/favicon.png" alt="R&amp;GD" class="footer-logo-img">Ross &amp; Griffiths Digital<span>.</span></div>
+    <span class="footer-copy">Northumberland County, ON, Canada &nbsp;·&nbsp; © 2026 Ross &amp; Griffiths Digital</span>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner">
+    <p>We use cookies to improve your experience. <a href="/privacy">Learn more</a></p>
+    <div class="cookie-btns">
+      <button id="cookie-decline">Decline</button>
+      <button id="cookie-accept">Accept</button>
+    </div>
+  </div>
+
+  <style>
+    #cookie-banner { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 9999; display: flex; align-items: center; justify-content: space-between; gap: 2rem; width: calc(100% - 3rem); max-width: 720px; background: #0D1520; border: 1px solid rgba(62, 207, 207, 0.2); border-radius: 6px; padding: 1rem 1.5rem; opacity: 0; pointer-events: none; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: #7A9BAF; }
+    #cookie-banner.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: all; }
+    #cookie-banner a { color: #00d4ff; text-decoration: underline; text-underline-offset: 2px; }
+    .cookie-btns { display: flex; gap: 0.6rem; flex-shrink: 0; }
+    .cookie-btns button { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 3px; cursor: pointer; border: none; transition: all 0.2s ease; }
+    #cookie-decline { background: transparent; color: #7A9BAF; border: 1px solid rgba(122, 155, 175, 0.3) !important; }
+    #cookie-decline:hover { color: #EDF3F7; border-color: rgba(122,155,175,0.7) !important; }
+    #cookie-accept { background: #00d4ff; color: #0a0a0c; }
+    #cookie-accept:hover { background: #33ddff; }
+    @media (max-width: 560px) {
+      #cookie-banner { flex-direction: column; align-items: flex-start; gap: 1rem; bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; border-radius: 12px 12px 0 0; transform: translateY(100px); }
+      #cookie-banner.visible { transform: translateY(0); }
+      .cookie-btns { width: 100%; }
+      .cookie-btns button { flex: 1; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      const KEY = 'rgd_cookie_consent';
+      const banner = document.getElementById('cookie-banner');
+      if (!localStorage.getItem(KEY)) {
+        setTimeout(() => banner.classList.add('visible'), 800);
+      }
+      document.getElementById('cookie-accept').addEventListener('click', () => {
+        localStorage.setItem(KEY, 'accepted');
+        banner.classList.remove('visible');
+      });
+      document.getElementById('cookie-decline').addEventListener('click', () => {
+        localStorage.setItem(KEY, 'declined');
+        banner.classList.remove('visible');
+      });
+    })();
+  </script>
+</body>
+</html>

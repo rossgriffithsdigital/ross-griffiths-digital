@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — Ross &amp; Griffiths Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.12);
+      --bg: #0a0a0c; --surface: #111114;
+      --border: rgba(255,255,255,0.07);
+      --text-1: #f0f0f2; --text-2: #8a8a9a; --text-3: #4a4a5a;
+      --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
+      --ease-out: cubic-bezier(0.16,1,0.3,1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Outfit',system-ui,sans-serif; background: var(--bg); color: var(--text-1); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--text-3); border-radius: 4px; }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: rgba(10,10,12,0.7); border-bottom: 1px solid var(--border); }
+    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); text-decoration: none; }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text-1); }
+    .nav-cta { font-size: 0.875rem; font-weight: 600; padding: 0.55rem 1.4rem; background: var(--accent); color: #0a0a0c; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.2s var(--ease-spring); text-decoration: none; }
+    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px) scale(1.02); }
+
+    .page-header { padding: 10rem 3rem 5rem; border-bottom: 1px solid var(--border); animation: slide-up 0.9s var(--ease-out) both; }
+    @keyframes slide-up { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
+    .page-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
+    .page-title { font-size: clamp(2.5rem,5vw,4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-1); line-height: 1.05; max-width: 680px; margin-bottom: 1.5rem; }
+    .page-title .muted { color: var(--text-3); }
+    .page-intro { font-size: 1.1rem; color: var(--text-2); max-width: 520px; line-height: 1.75; }
+
+    /* Included grid */
+    .included { padding: 6rem 3rem; }
+    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
+    .section-title { font-size: clamp(1.75rem,3.5vw,2.75rem); font-weight: 800; letter-spacing: -0.035em; color: var(--text-1); line-height: 1.1; max-width: 560px; margin-bottom: 3.5rem; }
+    .section-title .muted { color: var(--text-3); }
+
+    .services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    .service-item { background: var(--bg); padding: 2.5rem; position: relative; overflow: hidden; transition: background 0.3s; }
+    .service-item:hover { background: var(--surface); }
+    .service-item::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:0; transition:opacity 0.3s; }
+    .service-item:hover::before { opacity:1; }
+    .service-icon { width:44px; height:44px; border-radius:12px; background:var(--accent-dim); border:1px solid rgba(0,212,255,0.2); display:flex; align-items:center; justify-content:center; margin-bottom:1.5rem; font-size:1.2rem; }
+    .service-title { font-size:1.05rem; font-weight:700; color:var(--text-1); margin-bottom:0.6rem; letter-spacing:-0.02em; }
+    .service-desc { font-size:0.875rem; color:var(--text-2); line-height:1.7; }
+
+    /* Pricing */
+    .pricing { padding: 6rem 3rem; background: var(--surface); border-top: 1px solid var(--border); }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; max-width: 860px; margin-top: 3.5rem; }
+    .price-plan { background: var(--bg); border: 1px solid var(--border); border-radius: 18px; padding: 2.5rem; transition: transform 0.3s var(--ease-spring), border-color 0.3s; }
+    .price-plan:hover { transform: translateY(-5px); border-color: rgba(255,255,255,0.12); }
+    .price-plan.featured { border-color: rgba(0,212,255,0.35); background: linear-gradient(160deg,rgba(0,212,255,0.06) 0%,var(--bg) 50%); }
+    .plan-badge { display:inline-block; font-size:0.7rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; color:#0a0a0c; background:var(--accent); padding:0.25rem 0.7rem; border-radius:100px; margin-bottom:1.25rem; }
+    .plan-name { font-size:1.25rem; font-weight:700; letter-spacing:-0.02em; color:var(--text-1); margin-bottom:0.4rem; }
+    .plan-desc { font-size:0.85rem; color:var(--text-2); margin-bottom:1.75rem; }
+    .plan-price { display:flex; align-items:baseline; gap:0.35rem; margin-bottom:2rem; }
+    .price-amount { font-size:3rem; font-weight:800; letter-spacing:-0.04em; color:var(--text-1); }
+    .price-period { font-size:0.875rem; color:var(--text-3); }
+    .plan-divider { height:1px; background:var(--border); margin-bottom:1.75rem; }
+    .plan-features { display:flex; flex-direction:column; gap:0.85rem; }
+    .plan-feature { display:flex; align-items:center; gap:0.7rem; font-size:0.875rem; color:var(--text-2); }
+    .check { flex-shrink:0; width:16px; height:16px; border-radius:50%; background:var(--accent-dim); border:1px solid rgba(0,212,255,0.25); display:flex; align-items:center; justify-content:center; font-size:0.6rem; color:var(--accent); }
+    .plan-cta { display:block; width:100%; text-align:center; margin-top:2rem; padding:0.85rem; border-radius:10px; font-family:inherit; font-size:0.9rem; font-weight:600; cursor:pointer; text-decoration:none; transition:opacity 0.2s, transform 0.25s var(--ease-spring); }
+    .plan-cta:hover { opacity:0.85; transform:translateY(-2px); }
+    .plan-cta.filled { background:var(--accent); color:#0a0a0c; border:none; }
+    .plan-cta.outlined { background:transparent; color:var(--text-1); border:1px solid var(--border); }
+
+    /* Why us */
+    .why { padding: 6rem 3rem; }
+    .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; margin-top: 4rem; }
+    .why-list { display:flex; flex-direction:column; gap:0; }
+    .why-item { display:flex; gap:1.5rem; padding:2rem 0; border-bottom:1px solid var(--border); }
+    .why-item:last-child { border-bottom:none; }
+    .why-num { flex-shrink:0; width:36px; height:36px; border-radius:10px; background:var(--accent-dim); border:1px solid rgba(0,212,255,0.2); display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; color:var(--accent); }
+    .why-title { font-size:1.05rem; font-weight:700; color:var(--text-1); letter-spacing:-0.02em; margin-bottom:0.4rem; }
+    .why-desc { font-size:0.875rem; color:var(--text-2); line-height:1.65; }
+    .why-callout { background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:3rem; }
+    .why-callout-quote { font-size:1.5rem; font-weight:700; letter-spacing:-0.025em; color:var(--text-1); line-height:1.35; margin-bottom:1.25rem; }
+    .why-callout-attr { font-size:0.875rem; color:var(--text-3); }
+
+    .cta-section { padding: 5rem 3rem; }
+    .cta-inner { background:linear-gradient(135deg,rgba(0,212,255,0.08) 0%,rgba(0,212,255,0.02) 100%); border:1px solid rgba(0,212,255,0.2); border-radius:24px; padding:5rem 4rem; text-align:center; position:relative; overflow:hidden; }
+    .cta-inner::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
+    .cta-title { font-size:clamp(2rem,4vw,3.25rem); font-weight:800; letter-spacing:-0.04em; color:var(--text-1); margin-bottom:1.25rem; position:relative; }
+    .cta-sub { font-size:1.05rem; color:var(--text-2); max-width:440px; margin:0 auto 2.5rem; position:relative; }
+    .cta-actions { display:flex; justify-content:center; gap:1rem; position:relative; }
+    .btn-primary { display:inline-flex; align-items:center; gap:0.5rem; font-family:inherit; font-size:0.95rem; font-weight:600; padding:0.85rem 2rem; background:var(--accent); color:#0a0a0c; border:none; border-radius:10px; cursor:pointer; text-decoration:none; transition:opacity 0.2s,transform 0.25s var(--ease-spring); }
+    .btn-primary:hover { opacity:0.88; transform:translateY(-2px) scale(1.02); }
+    .btn-ghost { display:inline-flex; align-items:center; gap:0.5rem; font-family:inherit; font-size:0.95rem; font-weight:500; padding:0.85rem 1.5rem; background:transparent; color:var(--text-2); border:1px solid var(--border); border-radius:10px; cursor:pointer; text-decoration:none; transition:color 0.2s,border-color 0.2s,transform 0.25s var(--ease-spring); }
+    .btn-ghost:hover { color:var(--text-1); border-color:rgba(255,255,255,0.2); transform:translateY(-2px); }
+
+    footer { padding:3rem; border-top:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; }
+    .footer-logo { font-size:1rem; font-weight:700; letter-spacing:-0.02em; color:var(--text-3); }
+    .footer-logo span { color:var(--accent); }
+    .footer-copy { font-size:0.8rem; color:var(--text-3); }
+
+
+    .nav-logo { display: flex; align-items: center; gap: 0.55rem; }
+    .nav-logo-img { height: 30px; width: 30px; object-fit: contain; }
+    .footer-logo { display: flex; align-items: center; gap: 0.55rem; }
+    .footer-logo-img { height: 26px; width: 26px; object-fit: contain; opacity: 0.7; }
+
+    @media (max-width: 900px) {
+      nav { padding:1rem 1.5rem; } .nav-links { display:none; }
+      .page-header { padding:8rem 1.5rem 3rem; }
+      .included { padding:4rem 1.5rem; } .services-grid { grid-template-columns:1fr; }
+      .pricing { padding:4rem 1.5rem; } .pricing-grid { grid-template-columns:1fr; }
+      .why { padding:4rem 1.5rem; } .why-grid { grid-template-columns:1fr; gap:3rem; }
+      .cta-section { padding:3rem 1.5rem; } .cta-inner { padding:3rem 2rem; }
+      footer { flex-direction:column; gap:0.75rem; text-align:center; padding:2rem 1.5rem; }
+    }
+  </style>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){{dataLayer.push(arguments);}}
+    gtag("js", new Date());
+    gtag("config", "G-QVZ1ZBWT41");
+  </script>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html"><img src="/favicon.png" alt="R&amp;GD" class="nav-logo-img">R&amp;GD<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="how-it-works.html">How it works</a></li>
+      <li><a href="pricing.html">Pricing</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+    </ul>
+    <a class="nav-cta" href="contact.html">Get in touch</a>
+  </nav>
+
+  <div class="page-header">
+    <p class="page-label">What we offer</p>
+    <h1 class="page-title">Everything your business needs online. <span class="muted">Nothing you don't.</span></h1>
+    <p class="page-intro">One clear package. Every site we build comes with the same solid foundation — custom designed, properly coded, and set up to be found.</p>
+  </div>
+
+  <section class="included">
+    <p class="section-label">Included in every build</p>
+    <h2 class="section-title">Six things that come <span class="muted">standard.</span></h2>
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-icon">🎨</div>
+        <h3 class="service-title">Custom Design</h3>
+        <p class="service-desc">We design your site around your business — your colours, your tone, your customers. Not a template with your logo swapped in.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">📱</div>
+        <h3 class="service-title">Mobile Responsive</h3>
+        <p class="service-desc">Your site looks and works great on any device. Most of your customers are on mobile — we build for that first, always.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">⚡</div>
+        <h3 class="service-title">Fast Load Times</h3>
+        <p class="service-desc">Clean, efficient code means your pages load fast. Slow sites lose visitors before they even read a word. We don't build slow sites.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">✉️</div>
+        <h3 class="service-title">Contact Form</h3>
+        <p class="service-desc">Enquiries from your site go straight to your inbox. No third-party accounts, no monthly fees — it just works.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">🔍</div>
+        <h3 class="service-title">SEO Optimisation</h3>
+        <p class="service-desc">Page titles, meta descriptions, heading structure, image alt tags — all set up correctly so search engines can find and rank your site from day one.</p>
+      </div>
+      <div class="service-item">
+        <div class="service-icon">📊</div>
+        <h3 class="service-title">Google Analytics</h3>
+        <p class="service-desc">Know how many people visit your site, where they come from, and what they look at. Real data so you can make real decisions.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing">
+    <p class="section-label">Pricing</p>
+    <h2 class="section-title">Straightforward pricing. <span class="muted">No surprises.</span></h2>
+    <div class="pricing-grid">
+      <div class="price-plan">
+        <h3 class="plan-name">Website Build</h3>
+        <p class="plan-desc">A custom site built from scratch, tailored to your business.</p>
+        <div class="plan-price">
+          <span class="price-amount">$800</span>
+          <span class="price-period">CAD — one time</span>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feature"><div class="check">✓</div> Custom design — no templates</div>
+          <div class="plan-feature"><div class="check">✓</div> Up to 5 pages</div>
+          <div class="plan-feature"><div class="check">✓</div> Mobile responsive</div>
+          <div class="plan-feature"><div class="check">✓</div> Contact form included</div>
+          <div class="plan-feature"><div class="check">✓</div> SEO optimisation</div>
+          <div class="plan-feature"><div class="check">✓</div> Google Analytics setup</div>
+          <div class="plan-feature"><div class="check">✓</div> You own it outright</div>
+        </div>
+        <a class="plan-cta outlined" href="contact.html">Get started</a>
+      </div>
+
+      <div class="price-plan featured">
+        <div class="plan-badge">Optional add-on</div>
+        <h3 class="plan-name">Monthly Maintenance</h3>
+        <p class="plan-desc">Ongoing support so your site stays secure and up to date. Pricing varies based on your project.</p>
+        <div class="plan-price">
+          <span class="price-amount">$80<span style="font-size:1.75rem;color:var(--text-3);">–150</span></span>
+          <span class="price-period">CAD / month</span>
+        </div>
+        <div class="plan-divider"></div>
+        <div class="plan-features">
+          <div class="plan-feature"><div class="check">✓</div> Monthly security updates</div>
+          <div class="plan-feature"><div class="check">✓</div> Regular backups</div>
+          <div class="plan-feature"><div class="check">✓</div> Uptime monitoring</div>
+          <div class="plan-feature"><div class="check">✓</div> Priority email support</div>
+          <div class="plan-feature"><div class="check">✓</div> Response within one business day</div>
+          <div class="plan-feature"><div class="check">✓</div> Cancel with 30 days notice</div>
+          <div class="plan-feature"><div class="check">✓</div> No contracts, ever</div>
+        </div>
+        <a class="plan-cta filled" href="contact.html">Add to my build</a>
+      </div>
+    </div>
+    <p style="margin-top:2rem; font-size:0.875rem; color:var(--text-3);">
+      Need more than 5 pages? <a href="contact.html" style="color:var(--accent);text-decoration:none;">Get in touch</a> and we'll work something out.
+    </p>
+  </section>
+
+  <section class="why">
+    <p class="section-label">Why R&amp;GD</p>
+    <h2 class="section-title">What makes us <span class="muted">different.</span></h2>
+    <div class="why-grid">
+      <div class="why-list">
+        <div class="why-item">
+          <div class="why-num">01</div>
+          <div>
+            <h3 class="why-title">You deal with the owners</h3>
+            <p class="why-desc">No account managers. No support tickets routed through a call centre. When you email us, Connor or Quinn replies.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">02</div>
+          <div>
+            <h3 class="why-title">We're local</h3>
+            <p class="why-desc">We live in Northumberland County. We understand the local market, local customers, and what it takes to stand out here.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">03</div>
+          <div>
+            <h3 class="why-title">No templates, ever</h3>
+            <p class="why-desc">Every site we build is designed from scratch. Your business is unique — your website should be too.</p>
+          </div>
+        </div>
+        <div class="why-item">
+          <div class="why-num">04</div>
+          <div>
+            <h3 class="why-title">No lock-in</h3>
+            <p class="why-desc">You own your site outright. If you add maintenance, cancel any time with 30 days notice. No contracts, no strings.</p>
+          </div>
+        </div>
+      </div>
+      <div class="why-callout">
+        <div class="why-callout-quote">"You email us, we answer."</div>
+        <p style="font-size:0.9rem;color:var(--text-2);line-height:1.75;margin-bottom:1.5rem;">Most web agencies make you feel like a number. We think the people building your site should be accessible, honest, and easy to work with. That's all we're trying to do.</p>
+        <a class="btn-primary" href="contact.html" style="display:inline-flex;">
+          Start the conversation
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to get started?</h2>
+      <p class="cta-sub">Tell us about your business and we'll take it from there. No pressure, no commitment.</p>
+      <div class="cta-actions">
+        <a class="btn-primary" href="contact.html">
+          Get a free consultation
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a class="btn-ghost" href="pricing.html">See pricing</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-logo"><img src="/favicon.png" alt="R&amp;GD" class="footer-logo-img">Ross &amp; Griffiths Digital<span>.</span></div>
+    <span class="footer-copy">Northumberland County, ON, Canada &nbsp;·&nbsp; © 2026 Ross &amp; Griffiths Digital</span>
+  </footer>
+
+  <!-- Cookie Banner -->
+  <div id="cookie-banner">
+    <p>We use cookies to improve your experience. <a href="/privacy">Learn more</a></p>
+    <div class="cookie-btns">
+      <button id="cookie-decline">Decline</button>
+      <button id="cookie-accept">Accept</button>
+    </div>
+  </div>
+
+  <style>
+    #cookie-banner { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 9999; display: flex; align-items: center; justify-content: space-between; gap: 2rem; width: calc(100% - 3rem); max-width: 720px; background: #0D1520; border: 1px solid rgba(62, 207, 207, 0.2); border-radius: 6px; padding: 1rem 1.5rem; opacity: 0; pointer-events: none; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: #7A9BAF; }
+    #cookie-banner.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: all; }
+    #cookie-banner a { color: #00d4ff; text-decoration: underline; text-underline-offset: 2px; }
+    .cookie-btns { display: flex; gap: 0.6rem; flex-shrink: 0; }
+    .cookie-btns button { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 3px; cursor: pointer; border: none; transition: all 0.2s ease; }
+    #cookie-decline { background: transparent; color: #7A9BAF; border: 1px solid rgba(122, 155, 175, 0.3) !important; }
+    #cookie-decline:hover { color: #EDF3F7; border-color: rgba(122,155,175,0.7) !important; }
+    #cookie-accept { background: #00d4ff; color: #0a0a0c; }
+    #cookie-accept:hover { background: #33ddff; }
+    @media (max-width: 560px) {
+      #cookie-banner { flex-direction: column; align-items: flex-start; gap: 1rem; bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; border-radius: 12px 12px 0 0; transform: translateY(100px); }
+      #cookie-banner.visible { transform: translateY(0); }
+      .cookie-btns { width: 100%; }
+      .cookie-btns button { flex: 1; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      const KEY = 'rgd_cookie_consent';
+      const banner = document.getElementById('cookie-banner');
+      if (!localStorage.getItem(KEY)) {
+        setTimeout(() => banner.classList.add('visible'), 800);
+      }
+      document.getElementById('cookie-accept').addEventListener('click', () => {
+        localStorage.setItem(KEY, 'accepted');
+        banner.classList.remove('visible');
+      });
+      document.getElementById('cookie-decline').addEventListener('click', () => {
+        localStorage.setItem(KEY, 'declined');
+        banner.classList.remove('visible');
+      });
+    })();
+  </script>
+</body>
+</html>
