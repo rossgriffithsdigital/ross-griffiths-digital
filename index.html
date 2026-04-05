@@ -1140,7 +1140,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <video class="hero-video" autoplay muted loop playsinline>
+    <video class="hero-video" autoplay muted playsinline id="heroVideo">
       <source src="hero-bg.mp4" type="video/mp4">
       <track kind="captions" src="" label="English">
     </video>
@@ -1282,6 +1282,9 @@
   </footer>
 
   <script>
+    document.getElementById('heroVideo').addEventListener('ended', function () {
+      this.pause();
+    });
   </script>
 
   <!-- Cookie Banner -->
