@@ -108,6 +108,15 @@
     .footer-logo { display: flex; align-items: center; gap: 0.55rem; }
     .footer-logo-img { height: 26px; width: 26px; object-fit: contain; opacity: 0.7; }
 
+
+    .service-tag-icon svg, .why-icon svg, .feature-icon svg,
+    .service-icon svg, .promise-icon svg, .detail-icon svg {
+      display: block; stroke: var(--accent);
+    }
+    .service-tag-icon, .why-icon, .promise-icon, .detail-icon {
+      display: flex; align-items: center; justify-content: center;
+    }
+
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .page-header { padding: 8rem 1.5rem 3rem; }
@@ -188,17 +197,17 @@
     <h2 class="section-title">What you can always <span class="muted">count on.</span></h2>
     <div class="promise-grid">
       <div class="promise-card">
-        <span class="promise-icon">💬</span>
+        <span class="promise-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></span>
         <h3 class="promise-title">Direct communication</h3>
         <p class="promise-desc">You speak to Connor or Quinn directly — at every stage. No middlemen, no miscommunication.</p>
       </div>
       <div class="promise-card">
-        <span class="promise-icon">⚡</span>
+        <span class="promise-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></span>
         <h3 class="promise-title">Fast responses</h3>
         <p class="promise-desc">During business hours (Mon–Fri, 9am–6pm) you'll typically hear back within the hour.</p>
       </div>
       <div class="promise-card">
-        <span class="promise-icon">🔓</span>
+        <span class="promise-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></span>
         <h3 class="promise-title">You own everything</h3>
         <p class="promise-desc">Once your site is paid for and delivered, it's yours outright. No ongoing fees unless you choose maintenance.</p>
       </div>

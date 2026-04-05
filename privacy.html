@@ -68,6 +68,15 @@
     .footer-logo { display: flex; align-items: center; gap: 0.55rem; }
     .footer-logo-img { height: 26px; width: 26px; object-fit: contain; opacity: 0.7; }
 
+
+    .service-tag-icon svg, .why-icon svg, .feature-icon svg,
+    .service-icon svg, .promise-icon svg, .detail-icon svg {
+      display: block; stroke: var(--accent);
+    }
+    .service-tag-icon, .why-icon, .promise-icon, .detail-icon {
+      display: flex; align-items: center; justify-content: center;
+    }
+
     @media (max-width: 900px) {
       nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
       .page-header { padding: 8rem 1.5rem 3rem; }
