@@ -6,37 +6,37 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/about.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/about</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/services.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/services</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/pricing.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/pricing</loc>
     <priority>0.9</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/how-it-works.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/how-it-works</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/portfolio.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/portfolio</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/contact.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/contact</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.rossgriffithsdigital.com/privacy.html</loc>
+    <loc>https://www.rossgriffithsdigital.com/privacy</loc>
     <priority>0.3</priority>
     <changefreq>yearly</changefreq>
   </url>
