@@ -1,0 +1,36 @@
+# Ross & Griffiths Digital
+
+> Custom web design for small businesses, restaurants, non-profits, politicians, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.
+
+## About
+
+Ross & Griffiths Digital is a web design studio founded by Connor Ross and Quinn Griffiths. We build custom websites from scratch — no templates, no lock-in. We are based in Northumberland County, Ontario and work with clients worldwide.
+
+## Services
+
+- Custom website design and development
+- SEO optimisation
+- Mobile-responsive builds
+- Contact form setup
+- Ongoing monthly maintenance
+
+## Pricing
+
+- Website build: from $800 CAD (flat fee)
+- Monthly maintenance: $80–$150 CAD/month
+
+## Contact
+
+- Email: cq@rossgriffithsdigital.com
+- Website: https://www.rossgriffithsdigital.com
+- Location: Northumberland County, Ontario, Canada
+
+## Pages
+
+- [Home](https://www.rossgriffithsdigital.com/)
+- [About](https://www.rossgriffithsdigital.com/about)
+- [Services](https://www.rossgriffithsdigital.com/services)
+- [Pricing](https://www.rossgriffithsdigital.com/pricing)
+- [How It Works](https://www.rossgriffithsdigital.com/how-it-works)
+- [Portfolio](https://www.rossgriffithsdigital.com/portfolio)
+- [Contact](https://www.rossgriffithsdigital.com/contact)
