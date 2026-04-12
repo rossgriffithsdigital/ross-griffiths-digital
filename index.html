@@ -1,16 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#07101f">
 
-  <meta name="description" content="We build custom websites for small businesses, restaurants, non-profits, politicians, and more — anywhere in the world. Based in Northumberland County, Ontario.">
-  <meta name="keywords" content="web design, website design, small business website, custom website, affordable web design, SEO optimisation, web developer Canada, Ontario web design, restaurant website, non-profit website, startup website, politician website, web design worldwide, custom website small business">
+  <meta name="description"
+    content="We build custom websites for small businesses, restaurants, non-profits, politicians, and more — anywhere in the world. Based in Northumberland County, Ontario.">
+  <meta name="keywords"
+    content="web design, website design, small business website, custom website, affordable web design, SEO optimisation, web developer Canada, Ontario web design, restaurant website, non-profit website, startup website, politician website, web design worldwide, custom website small business">
   <meta property="og:title" content="Ross & Griffiths Digital — Custom Web Design for Small Businesses">
-  <meta property="og:description" content="We build custom websites for small businesses, restaurants, non-profits, politicians, and more — anywhere in the world. Based in Northumberland County, Ontario.">
+  <meta property="og:description"
+    content="We build custom websites for small businesses, restaurants, non-profits, politicians, and more — anywhere in the world. Based in Northumberland County, Ontario.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.rossgriffithsdigital.com">
   <meta property="og:image" content="https://www.rossgriffithsdigital.com/favicon-512.png">
@@ -25,28 +33,39 @@
   <title>Ross & Griffiths Digital — Custom Web Design for Small Businesses</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print"
+    onload="this.media='all'">
 
   <style>
     /* ── Reset & Base ──────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --accent:     #00d4ff;
-      --accent-dim: rgba(0, 212, 255, 0.12);
-      --bg:         #07101f;
-      --surface:    #0d1929;
-      --border:     rgba(255,255,255,0.07);
-      --text-1:     #f0f0f2;
-      --text-2:     #ABABAB;
-      --text-3:     #4a4a5a;
-
-      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-      --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
-    html { scroll-behavior: smooth; }
+    :root {
+      --accent: #00d4ff;
+      --accent-dim: rgba(0, 212, 255, 0.12);
+      --bg: #07101f;
+      --surface: #0d1929;
+      --border: rgba(255, 255, 255, 0.07);
+      --text-1: #f0f0f2;
+      --text-2: #ABABAB;
+      --text-3: #4a4a5a;
+
+      --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: 'Outfit', system-ui, sans-serif;
@@ -59,24 +78,37 @@
     }
 
     /* ── Scrollbar ─────────────────────────────────────────────────── */
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: var(--text-3); border-radius: 4px; }
+    ::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--text-3);
+      border-radius: 4px;
+    }
 
     /* ── Utility ───────────────────────────────────────────────────── */
-    .accent { color: var(--accent); }
+    .accent {
+      color: var(--accent);
+    }
 
     /* ── Nav ───────────────────────────────────────────────────────── */
     nav {
       position: fixed;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 1.25rem 3rem;
       backdrop-filter: blur(18px) saturate(160%);
-      background: rgba(10,10,12,0.7);
+      background: rgba(10, 10, 12, 0.7);
       border-bottom: 1px solid var(--border);
     }
 
@@ -88,7 +120,9 @@
       text-decoration: none;
     }
 
-    .nav-logo span { color: var(--accent); }
+    .nav-logo span {
+      color: var(--accent);
+    }
 
     .nav-links {
       display: flex;
@@ -104,7 +138,9 @@
       transition: color 0.2s;
     }
 
-    .nav-links a:hover { color: var(--text-1); }
+    .nav-links a:hover {
+      color: var(--text-1);
+    }
 
     .nav-cta {
       font-size: 0.875rem;
@@ -167,10 +203,10 @@
       z-index: 2;
       pointer-events: none;
       background:
-        linear-gradient(to bottom, var(--bg) 0%,       transparent 16%),
-        linear-gradient(to top,    var(--bg) 0%,       transparent 30%),
-        linear-gradient(to right,  var(--bg) 0%,       transparent 12%),
-        linear-gradient(to left,   var(--bg) 0%,       transparent 12%);
+        linear-gradient(to bottom, var(--bg) 0%, transparent 16%),
+        linear-gradient(to top, var(--bg) 0%, transparent 30%),
+        linear-gradient(to right, var(--bg) 0%, transparent 12%),
+        linear-gradient(to left, var(--bg) 0%, transparent 12%);
     }
 
     .hero-content {
@@ -182,13 +218,40 @@
     }
 
     @keyframes screen-on {
-      0%   { opacity: 0;    filter: brightness(1)   blur(0px); }
-      4%   { opacity: 1;    filter: brightness(5)   blur(6px); }
-      8%   { opacity: 0.05; filter: brightness(1)   blur(0px); }
-      14%  { opacity: 1;    filter: brightness(3.5) blur(3px); }
-      22%  { opacity: 0.6;  filter: brightness(1.2) blur(0px); }
-      35%  { opacity: 1;    filter: brightness(1.8) blur(1px); }
-      100% { opacity: 1;    filter: brightness(1)   blur(0px); }
+      0% {
+        opacity: 0;
+        filter: brightness(1) blur(0px);
+      }
+
+      4% {
+        opacity: 1;
+        filter: brightness(5) blur(6px);
+      }
+
+      8% {
+        opacity: 0.05;
+        filter: brightness(1) blur(0px);
+      }
+
+      14% {
+        opacity: 1;
+        filter: brightness(3.5) blur(3px);
+      }
+
+      22% {
+        opacity: 0.6;
+        filter: brightness(1.2) blur(0px);
+      }
+
+      35% {
+        opacity: 1;
+        filter: brightness(1.8) blur(1px);
+      }
+
+      100% {
+        opacity: 1;
+        filter: brightness(1) blur(0px);
+      }
     }
 
     /* Grid overlay — brand name and main content share the same cell */
@@ -205,7 +268,7 @@
       letter-spacing: -0.04em;
       color: var(--text-1);
       text-align: center;
-      text-shadow: 0 4px 32px rgba(0,0,0,0.8);
+      text-shadow: 0 4px 32px rgba(0, 0, 0, 0.8);
       line-height: 1.05;
       transform: translateY(-1rem);
       animation: brand-show 1.6s ease 1.2s forwards;
@@ -216,10 +279,21 @@
     }
 
     @keyframes brand-show {
-      0%   { opacity: 0; }
-      18%  { opacity: 1; }
-      72%  { opacity: 1; }
-      100% { opacity: 0; }
+      0% {
+        opacity: 0;
+      }
+
+      18% {
+        opacity: 1;
+      }
+
+      72% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
     }
 
     .hero-main {
@@ -233,8 +307,15 @@
     }
 
     @keyframes fade-up {
-      from { opacity: 0; transform: translateY(10px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .hero-badge {
@@ -247,7 +328,7 @@
       text-transform: uppercase;
       color: var(--accent);
       background: var(--accent-dim);
-      border: 1px solid rgba(0,212,255,0.25);
+      border: 1px solid rgba(0, 212, 255, 0.25);
       border-radius: 100px;
       padding: 0.35rem 1rem;
       margin-bottom: 2rem;
@@ -255,15 +336,23 @@
 
     .hero-badge::before {
       content: '';
-      width: 6px; height: 6px;
+      width: 6px;
+      height: 6px;
       border-radius: 50%;
       background: var(--accent);
       animation: blink 2s ease-in-out infinite;
     }
 
     @keyframes blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.3; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.3;
+      }
     }
 
     .hero-title {
@@ -273,7 +362,7 @@
       letter-spacing: -0.04em;
       color: var(--text-1);
       margin-bottom: 1.5rem;
-      text-shadow: 0 2px 24px rgba(0,0,0,0.65);
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.65);
     }
 
     .hero-title .line-2 {
@@ -288,7 +377,7 @@
       max-width: 520px;
       margin-bottom: 2.5rem;
       line-height: 1.7;
-      text-shadow: 0 1px 14px rgba(0,0,0,0.55);
+      text-shadow: 0 1px 14px rgba(0, 0, 0, 0.55);
     }
 
     .hero-actions {
@@ -340,7 +429,7 @@
 
     .btn-ghost:hover {
       color: var(--text-1);
-      border-color: rgba(255,255,255,0.2);
+      border-color: rgba(255, 255, 255, 0.2);
       transform: translateY(-2px);
     }
 
@@ -356,7 +445,7 @@
       background: rgba(10, 10, 12, 0.45);
       backdrop-filter: blur(14px) saturate(140%);
       -webkit-backdrop-filter: blur(14px) saturate(140%);
-      border: 1px solid rgba(255,255,255,0.1);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: 100px;
     }
 
@@ -367,13 +456,13 @@
       padding: 0 1.15rem;
       font-size: 0.8rem;
       font-weight: 600;
-      color: rgba(240,240,242,0.92);
+      color: rgba(240, 240, 242, 0.92);
       white-space: nowrap;
       letter-spacing: 0.01em;
     }
 
-    .service-tag + .service-tag {
-      border-left: 1px solid rgba(255,255,255,0.12);
+    .service-tag+.service-tag {
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .service-tag-icon {
@@ -394,7 +483,7 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 40px 100px rgba(0,0,0,0.5), 0 0 0 1px var(--border);
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--border);
       transform: perspective(1000px) rotateY(-4deg) rotateX(2deg);
       transition: transform 0.6s var(--ease-out);
     }
@@ -404,7 +493,7 @@
     }
 
     .browser-bar {
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border-bottom: 1px solid var(--border);
       padding: 0.875rem 1.25rem;
       display: flex;
@@ -412,20 +501,32 @@
       gap: 1rem;
     }
 
-    .browser-dots { display: flex; gap: 6px; }
+    .browser-dots {
+      display: flex;
+      gap: 6px;
+    }
 
     .browser-dot {
-      width: 10px; height: 10px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
     }
 
-    .dot-red   { background: #ff5f56; }
-    .dot-yellow{ background: #ffbd2e; }
-    .dot-green { background: #27c93f; }
+    .dot-red {
+      background: #ff5f56;
+    }
+
+    .dot-yellow {
+      background: #ffbd2e;
+    }
+
+    .dot-green {
+      background: #27c93f;
+    }
 
     .browser-url {
       flex: 1;
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--border);
       border-radius: 6px;
       padding: 0.3rem 0.75rem;
@@ -434,7 +535,9 @@
       font-family: 'Outfit', monospace;
     }
 
-    .browser-body { padding: 1.5rem; }
+    .browser-body {
+      padding: 1.5rem;
+    }
 
     /* Simulated site being built */
     .generated-ui {
@@ -445,7 +548,7 @@
 
     .gen-nav {
       height: 36px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -454,17 +557,21 @@
     }
 
     .gen-nav-dot {
-      width: 28px; height: 6px;
+      width: 28px;
+      height: 6px;
       border-radius: 3px;
-      background: rgba(255,255,255,0.12);
+      background: rgba(255, 255, 255, 0.12);
     }
 
-    .gen-nav-dot.accent-bar { background: var(--accent); width: 40px; }
+    .gen-nav-dot.accent-bar {
+      background: var(--accent);
+      width: 40px;
+    }
 
     .gen-hero-block {
       height: 120px;
-      background: linear-gradient(135deg, rgba(0,212,255,0.06) 0%, rgba(0,212,255,0.01) 100%);
-      border: 1px solid rgba(0,212,255,0.12);
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.06) 0%, rgba(0, 212, 255, 0.01) 100%);
+      border: 1px solid rgba(0, 212, 255, 0.12);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -477,32 +584,59 @@
     .gen-hero-block::after {
       content: '';
       position: absolute;
-      right: -20px; top: -30px;
-      width: 80px; height: 80px;
+      right: -20px;
+      top: -30px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,212,255,0.15) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.15) 0%, transparent 70%);
     }
 
-    .gen-text-stack { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+    .gen-text-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
 
     .gen-line {
       height: 8px;
       border-radius: 4px;
-      background: rgba(255,255,255,0.15);
+      background: rgba(255, 255, 255, 0.15);
     }
 
-    .gen-line.w-full  { width: 100%; }
-    .gen-line.w-75    { width: 75%; }
-    .gen-line.w-50    { width: 50%; }
-    .gen-line.w-30    { width: 30%; animation: shimmer-pulse 2s ease-in-out infinite; }
+    .gen-line.w-full {
+      width: 100%;
+    }
+
+    .gen-line.w-75 {
+      width: 75%;
+    }
+
+    .gen-line.w-50 {
+      width: 50%;
+    }
+
+    .gen-line.w-30 {
+      width: 30%;
+      animation: shimmer-pulse 2s ease-in-out infinite;
+    }
 
     @keyframes shimmer-pulse {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0.4; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0.4;
+      }
     }
 
     .gen-btn-block {
-      width: 60px; height: 22px;
+      width: 60px;
+      height: 22px;
       border-radius: 5px;
       background: var(--accent);
       flex-shrink: 0;
@@ -516,7 +650,7 @@
 
     .gen-card {
       height: 64px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 0.6rem;
@@ -526,9 +660,10 @@
     }
 
     .gen-card-icon {
-      width: 18px; height: 18px;
+      width: 18px;
+      height: 18px;
       border-radius: 4px;
-      background: rgba(0,212,255,0.18);
+      background: rgba(0, 212, 255, 0.18);
       margin-bottom: 2px;
     }
 
@@ -540,23 +675,31 @@
     }
 
     .cursor {
-      width: 2px; height: 14px;
+      width: 2px;
+      height: 14px;
       background: var(--accent);
       border-radius: 1px;
       animation: cursor-blink 1.1s step-end infinite;
     }
 
     @keyframes cursor-blink {
-      0%, 100% { opacity: 1; }
-      50%       { opacity: 0; }
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
     }
 
     /* Build progress bar */
     .build-progress {
       margin-top: 1rem;
       padding: 0.75rem 1rem;
-      background: rgba(0,212,255,0.05);
-      border: 1px solid rgba(0,212,255,0.15);
+      background: rgba(0, 212, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.15);
       border-radius: 8px;
       display: flex;
       align-items: center;
@@ -566,7 +709,7 @@
     .progress-track {
       flex: 1;
       height: 4px;
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.08);
       border-radius: 2px;
       overflow: hidden;
     }
@@ -581,9 +724,20 @@
     }
 
     @keyframes progress-grow {
-      0%   { opacity: 0.5; transform: scaleX(0.4); }
-      60%  { opacity: 1;   transform: scaleX(1); }
-      100% { opacity: 0.5; transform: scaleX(0.4); }
+      0% {
+        opacity: 0.5;
+        transform: scaleX(0.4);
+      }
+
+      60% {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+      100% {
+        opacity: 0.5;
+        transform: scaleX(0.4);
+      }
     }
 
     .progress-label {
@@ -621,7 +775,9 @@
       line-height: 1.1;
     }
 
-    .section-title .muted { color: var(--text-3); }
+    .section-title .muted {
+      color: var(--text-3);
+    }
 
     .features-grid {
       display: grid;
@@ -641,25 +797,32 @@
       transition: background 0.3s;
     }
 
-    .feature-item:hover { background: var(--surface); }
+    .feature-item:hover {
+      background: var(--surface);
+    }
 
     .feature-item::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
+      top: 0;
+      left: 0;
+      right: 0;
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--accent), transparent);
       opacity: 0;
       transition: opacity 0.3s;
     }
 
-    .feature-item:hover::before { opacity: 1; }
+    .feature-item:hover::before {
+      opacity: 1;
+    }
 
     .feature-icon {
-      width: 44px; height: 44px;
+      width: 44px;
+      height: 44px;
       border-radius: 12px;
       background: var(--accent-dim);
-      border: 1px solid rgba(0,212,255,0.2);
+      border: 1px solid rgba(0, 212, 255, 0.2);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -697,7 +860,11 @@
       margin-top: 4rem;
     }
 
-    .steps-list { display: flex; flex-direction: column; gap: 0; }
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
 
     .step-item {
       display: flex;
@@ -709,11 +876,14 @@
       transition: opacity 0.2s;
     }
 
-    .step-item:last-child { border-bottom: none; }
+    .step-item:last-child {
+      border-bottom: none;
+    }
 
     .step-num {
       flex-shrink: 0;
-      width: 36px; height: 36px;
+      width: 36px;
+      height: 36px;
       border-radius: 10px;
       background: var(--bg);
       border: 1px solid var(--border);
@@ -728,7 +898,7 @@
 
     .step-item:hover .step-num {
       background: var(--accent-dim);
-      border-color: rgba(0,212,255,0.3);
+      border-color: rgba(0, 212, 255, 0.3);
       color: var(--accent);
     }
 
@@ -754,11 +924,11 @@
       border: 1px solid var(--border);
       border-radius: 14px;
       overflow: hidden;
-      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
     }
 
     .terminal-bar {
-      background: rgba(255,255,255,0.03);
+      background: rgba(255, 255, 255, 0.03);
       border-bottom: 1px solid var(--border);
       padding: 0.75rem 1.25rem;
       display: flex;
@@ -766,7 +936,9 @@
       gap: 0.75rem;
     }
 
-    .terminal-bar .browser-dots { flex-shrink: 0; }
+    .terminal-bar .browser-dots {
+      flex-shrink: 0;
+    }
 
     .terminal-title {
       font-size: 0.75rem;
@@ -781,12 +953,29 @@
       line-height: 2;
     }
 
-    .t-prompt { color: var(--text-3); }
-    .t-cmd    { color: var(--text-1); }
-    .t-accent { color: var(--accent); }
-    .t-green  { color: #4ade80; }
-    .t-muted  { color: var(--text-3); }
-    .t-line   { display: block; }
+    .t-prompt {
+      color: var(--text-3);
+    }
+
+    .t-cmd {
+      color: var(--text-1);
+    }
+
+    .t-accent {
+      color: var(--accent);
+    }
+
+    .t-green {
+      color: #4ade80;
+    }
+
+    .t-muted {
+      color: var(--text-3);
+    }
+
+    .t-line {
+      display: block;
+    }
 
     /* ── Why row ───────────────────────────────────────────────────── */
     .why-row {
@@ -806,7 +995,9 @@
       transition: background 0.3s;
     }
 
-    .why-point:hover { background: #16161a; }
+    .why-point:hover {
+      background: #16161a;
+    }
 
     .why-icon {
       display: block;
@@ -873,7 +1064,7 @@
       font-weight: 600;
       color: var(--accent);
       background: var(--accent-dim);
-      border: 1px solid rgba(0,212,255,0.2);
+      border: 1px solid rgba(0, 212, 255, 0.2);
       border-radius: 100px;
       padding: 0.3rem 0.9rem;
     }
@@ -901,12 +1092,12 @@
 
     .price-plan:hover {
       transform: translateY(-6px);
-      border-color: rgba(255,255,255,0.12);
+      border-color: rgba(255, 255, 255, 0.12);
     }
 
     .price-plan.featured {
-      border-color: rgba(0,212,255,0.35);
-      background: linear-gradient(160deg, rgba(0,212,255,0.06) 0%, var(--surface) 50%);
+      border-color: rgba(0, 212, 255, 0.35);
+      background: linear-gradient(160deg, rgba(0, 212, 255, 0.06) 0%, var(--surface) 50%);
     }
 
     .plan-badge {
@@ -961,7 +1152,11 @@
       margin-bottom: 1.75rem;
     }
 
-    .plan-features { display: flex; flex-direction: column; gap: 0.85rem; }
+    .plan-features {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
 
     .plan-feature {
       display: flex;
@@ -973,10 +1168,11 @@
 
     .check {
       flex-shrink: 0;
-      width: 16px; height: 16px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background: var(--accent-dim);
-      border: 1px solid rgba(0,212,255,0.25);
+      border: 1px solid rgba(0, 212, 255, 0.25);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -999,7 +1195,10 @@
       transition: opacity 0.2s, transform 0.25s var(--ease-spring);
     }
 
-    .plan-cta:hover { opacity: 0.85; transform: translateY(-2px); }
+    .plan-cta:hover {
+      opacity: 0.85;
+      transform: translateY(-2px);
+    }
 
     .plan-cta.filled {
       background: var(--accent);
@@ -1021,8 +1220,8 @@
     }
 
     .cta-inner {
-      background: linear-gradient(135deg, rgba(0,212,255,0.08) 0%, rgba(0,212,255,0.02) 100%);
-      border: 1px solid rgba(0,212,255,0.2);
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.08) 0%, rgba(0, 212, 255, 0.02) 100%);
+      border: 1px solid rgba(0, 212, 255, 0.2);
       border-radius: 24px;
       padding: 5rem 4rem;
       text-align: center;
@@ -1033,10 +1232,12 @@
     .cta-inner::before {
       content: '';
       position: absolute;
-      width: 500px; height: 500px;
+      width: 500px;
+      height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,212,255,0.07) 0%, transparent 70%);
-      top: 50%; left: 50%;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.07) 0%, transparent 70%);
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
     }
@@ -1081,7 +1282,9 @@
       color: var(--text-3);
     }
 
-    .footer-logo span { color: var(--accent); }
+    .footer-logo span {
+      color: var(--accent);
+    }
 
     .footer-copy {
       font-size: 0.8rem;
@@ -1090,43 +1293,112 @@
 
     /* ── Responsive ────────────────────────────────────────────────── */
 
-    .nav-logo { display: flex; align-items: center; gap: 0.55rem; }
-    .nav-logo-img { height: 30px; width: 30px; object-fit: contain; }
-    .footer-logo { display: flex; align-items: center; gap: 0.55rem; }
-    .footer-logo-img { height: 26px; width: 26px; object-fit: contain; opacity: 0.7; }
-
-
-    .service-tag-icon svg, .why-icon svg, .feature-icon svg,
-    .service-icon svg, .promise-icon svg, .detail-icon svg {
-      display: block; stroke: var(--accent);
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
     }
-    .service-tag-icon, .why-icon, .promise-icon, .detail-icon {
-      display: flex; align-items: center; justify-content: center;
+
+    .nav-logo-img {
+      height: 30px;
+      width: 30px;
+      object-fit: contain;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .footer-logo-img {
+      height: 26px;
+      width: 26px;
+      object-fit: contain;
+      opacity: 0.7;
+    }
+
+
+    .service-tag-icon svg,
+    .why-icon svg,
+    .feature-icon svg,
+    .service-icon svg,
+    .promise-icon svg,
+    .detail-icon svg {
+      display: block;
+      stroke: var(--accent);
+    }
+
+    .service-tag-icon,
+    .why-icon,
+    .promise-icon,
+    .detail-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
+      nav {
+        padding: 1rem 1.5rem;
+      }
 
-      .hero { padding: 7rem 1.5rem 4rem; }
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        padding: 7rem 1.5rem 4rem;
+      }
 
       /* Video plays on mobile — poster shows instantly while it buffers */
-      .hero-video { display: block; }
+      .hero-video {
+        display: block;
+      }
 
       /* Mobile hero layout */
-      .hero-title { font-size: clamp(2rem, 8vw, 2.8rem); }
-      .hero-services { flex-wrap: wrap; justify-content: center; gap: 0.5rem; }
-      .service-tag { font-size: 0.75rem; padding: 0.35rem 0.8rem; }
+      .hero-title {
+        font-size: clamp(2rem, 8vw, 2.8rem);
+      }
 
-      .features { padding: 4rem 1.5rem; }
-      .features-grid { grid-template-columns: 1fr; }
+      .hero-services {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+      }
 
-      .how-it-works { padding: 4rem 1.5rem; }
-      .why-row { grid-template-columns: 1fr 1fr; }
+      .service-tag {
+        font-size: 0.75rem;
+        padding: 0.35rem 0.8rem;
+      }
 
-      .cta-section { padding: 3rem 1.5rem; }
-      .cta-inner { padding: 3rem 1.5rem; }
-      .cta-title { font-size: clamp(1.8rem, 6vw, 2.5rem); }
+      .features {
+        padding: 4rem 1.5rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .how-it-works {
+        padding: 4rem 1.5rem;
+      }
+
+      .why-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .cta-section {
+        padding: 3rem 1.5rem;
+      }
+
+      .cta-inner {
+        padding: 3rem 1.5rem;
+      }
+
+      .cta-title {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+      }
 
       footer {
         flex-direction: column;
@@ -1134,20 +1406,33 @@
         text-align: center;
         padding: 2rem 1.5rem;
       }
-      .footer-copy { font-size: 0.75rem; }
+
+      .footer-copy {
+        font-size: 0.75rem;
+      }
     }
 
     @media (max-width: 560px) {
-      .why-row { grid-template-columns: 1fr; }
-      .cta-actions { flex-direction: column; align-items: stretch; }
-      .cta-actions a { text-align: center; justify-content: center; }
+      .why-row {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .cta-actions a {
+        text-align: center;
+        justify-content: center;
+      }
     }
   </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){{dataLayer.push(arguments);}}
+    function gtag() { dataLayer.push(arguments); }
     gtag("js", new Date());
     gtag("config", "G-QVZ1ZBWT41");
   </script>
@@ -1162,6 +1447,7 @@
   }
   </script>
 </head>
+
 <body>
 
   <!-- Nav -->
@@ -1197,28 +1483,51 @@
 
           <a class="btn-primary" href="/contact">
             Get in touch
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
           </a>
 
           <div class="hero-services">
             <div class="service-tag">
-              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                  <circle cx="12" cy="9" r="2.5" />
+                </svg></span>
               Community-Driven
             </div>
             <div class="service-tag">
-              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></span>
+              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M21 21l-4.35-4.35" />
+                </svg></span>
               SEO Optimised
             </div>
             <div class="service-tag">
-              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span>
+              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="4" width="20" height="16" rx="2" />
+                  <path d="M2 7l10 7 10-7" />
+                </svg></span>
               Contact Forms
             </div>
             <div class="service-tag">
-              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></span>
+              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M23 4v6h-6" />
+                  <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+                </svg></span>
               Ongoing Maintenance
             </div>
             <div class="service-tag">
-              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+              <span class="service-tag-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                </svg></span>
               Unique Every Time
             </div>
           </div>
@@ -1239,24 +1548,45 @@
     </div>
     <div class="features-grid">
       <div class="feature-item">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10c0 2.21-1.79 4-4 4h-1.5a2 2 0 0 0-2 2 2 2 0 0 1-2 2C6.48 20 2 16.52 2 12z"/><circle cx="8.5" cy="10.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="12" cy="7.5" r="1.5" fill="currentColor" stroke="none"/><circle cx="15.5" cy="10.5" r="1.5" fill="currentColor" stroke="none"/></svg></div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M2 12C2 6.48 6.48 2 12 2s10 4.48 10 10c0 2.21-1.79 4-4 4h-1.5a2 2 0 0 0-2 2 2 2 0 0 1-2 2C6.48 20 2 16.52 2 12z" />
+            <circle cx="8.5" cy="10.5" r="1.5" fill="currentColor" stroke="none" />
+            <circle cx="12" cy="7.5" r="1.5" fill="currentColor" stroke="none" />
+            <circle cx="15.5" cy="10.5" r="1.5" fill="currentColor" stroke="none" />
+          </svg></div>
         <h3 class="feature-title">Website Design &amp; Build</h3>
-        <p class="feature-desc">Custom websites built from scratch — designed around your business, not a template library.</p>
+        <p class="feature-desc">Custom websites built from scratch — designed around your business, not a template
+          library.</p>
       </div>
       <div class="feature-item">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M23 4v6h-6" />
+            <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
+          </svg></div>
         <h3 class="feature-title">Ongoing Maintenance</h3>
-        <p class="feature-desc">Monthly support to keep your site secure, up to date, and running without you having to think about it.</p>
+        <p class="feature-desc">Monthly support to keep your site secure, up to date, and running without you having to
+          think about it.</p>
       </div>
       <div class="feature-item">
-        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="7" />
+            <path d="M21 21l-4.35-4.35" />
+          </svg></div>
         <h3 class="feature-title">SEO Optimisation</h3>
-        <p class="feature-desc">Every site we build is set up to be found — structured correctly from day one so search engines can rank you.</p>
+        <p class="feature-desc">Every site we build is set up to be found — structured correctly from day one so search
+          engines can rank you.</p>
       </div>
     </div>
     <div style="margin-top:2.5rem;">
       <a class="btn-ghost" href="/services">See full services
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
       </a>
     </div>
   </section>
@@ -1272,29 +1602,51 @@
     </div>
     <div class="why-row">
       <div class="why-point">
-        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+            <circle cx="12" cy="9" r="2.5" />
+          </svg></span>
         <h3 class="why-title">We care about community</h3>
-        <p class="why-desc">We started R&amp;GD because we watched great businesses in our community lose customers online — and we knew we could fix that. That same care drives every project, wherever you're based.</p>
+        <p class="why-desc">We started R&amp;GD because we watched great businesses in our community lose customers
+          online — and we knew we could fix that. That same care drives every project, wherever you're based.</p>
       </div>
       <div class="why-point">
-        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.58-7 8-7s8 3 8 7"/></svg></span>
+        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4" />
+            <path d="M4 20c0-4 3.58-7 8-7s8 3 8 7" />
+          </svg></span>
         <h3 class="why-title">You deal with us directly</h3>
-        <p class="why-desc">No account managers, no support tickets. You email Connor or Quinn and get a reply — fast.</p>
+        <p class="why-desc">No account managers, no support tickets. You email Connor or Quinn and get a reply — fast.
+        </p>
       </div>
       <div class="why-point">
-        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></span>
+        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+          </svg></span>
         <h3 class="why-title">Unique every time</h3>
-        <p class="why-desc">We don't touch templates. Every site is designed from scratch around your business and no one else's.</p>
+        <p class="why-desc">We don't touch templates. Every site is designed from scratch around your business and no
+          one else's.</p>
       </div>
       <div class="why-point">
-        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg></span>
+        <span class="why-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+            stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" />
+            <path d="M7 11V7a5 5 0 0 1 9.9-1" />
+          </svg></span>
         <h3 class="why-title">No lock-in</h3>
         <p class="why-desc">You own your site outright. Cancel maintenance any time with 30 days notice.</p>
       </div>
     </div>
     <div style="margin-top:3rem;">
       <a class="btn-ghost" href="/about">Meet Connor &amp; Quinn
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
       </a>
     </div>
   </section>
@@ -1303,11 +1655,15 @@
   <section class="cta-section">
     <div class="cta-inner">
       <h2 class="cta-title">You email us,<br>we answer.</h2>
-      <p class="cta-sub">No pressure, no commitment. Just a conversation about your business and what a better website could do for it.</p>
+      <p class="cta-sub">No pressure, no commitment. Just a conversation about your business and what a better website
+        could do for it.</p>
       <div class="cta-actions">
         <a class="btn-primary" href="/contact">
           Get in touch
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+            <path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
         </a>
         <a class="btn-ghost" href="/services">View services</a>
       </div>
@@ -1315,24 +1671,27 @@
   </section>
 
   <!-- Footer -->
-  </main>
-
   <footer role="contentinfo">
-    <div class="footer-logo"><img loading="lazy" src="/logo.png" alt="R&amp;GD" class="footer-logo-img">Ross &amp; Griffiths Digital<span>.</span></div>
-    <span class="footer-copy">Northumberland County, ON, Canada &nbsp;·&nbsp; © 2026 Ross &amp; Griffiths Digital &nbsp;·&nbsp; <a href="/privacy" style="color:inherit;text-decoration:none;opacity:0.7;">Privacy Policy</a></span>
+    <div class="footer-logo"><img loading="lazy" src="/logo.png" alt="R&amp;GD" class="footer-logo-img">Ross &amp;
+      Griffiths Digital<span>.</span></div>
+    <span class="footer-copy">Northumberland County, ON, Canada &nbsp;·&nbsp; © 2026 Ross &amp; Griffiths Digital
+      &nbsp;·&nbsp; <a href="/privacy" style="color:inherit;text-decoration:none;opacity:0.7;">Privacy Policy</a></span>
   </footer>
 
   <script>
     var v = document.getElementById('heroVideo');
     // Pause on last frame when done
     v.addEventListener('ended', function () { this.pause(); });
-    // Start playing as early as possible
+    // Start playing as early as possible — explicit play() needed on mobile
     v.load();
+    var p = v.play();
+    if (p !== undefined) { p.catch(function () { }); }
   </script>
 
   <!-- Cookie Banner -->
   <div id="cookie-banner">
-    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a></p>
+    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies"
+        target="_blank" rel="noopener">Learn more</a></p>
     <div class="cookie-btns">
       <button id="cookie-decline">Decline</button>
       <button id="cookie-accept">Accept</button>
@@ -1340,20 +1699,106 @@
   </div>
 
   <style>
-    #cookie-banner { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 9999; display: flex; align-items: center; justify-content: space-between; gap: 2rem; width: calc(100% - 3rem); max-width: 720px; background: #0D1520; border: 1px solid rgba(62, 207, 207, 0.2); border-radius: 6px; padding: 1rem 1.5rem; opacity: 0; pointer-events: none; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: #7A9BAF; }
-    #cookie-banner.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: all; }
-    #cookie-banner a { color: #00d4ff; text-decoration: underline; text-underline-offset: 2px; }
-    .cookie-btns { display: flex; gap: 0.6rem; flex-shrink: 0; }
-    .cookie-btns button { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 3px; cursor: pointer; border: none; transition: all 0.2s ease; }
-    #cookie-decline { background: transparent; color: #7A9BAF; border: 1px solid rgba(122, 155, 175, 0.3) !important; }
-    #cookie-decline:hover { color: #EDF3F7; border-color: rgba(122,155,175,0.7) !important; }
-    #cookie-accept { background: #00d4ff; color: #0a0a0c; }
-    #cookie-accept:hover { background: #33ddff; }
+    #cookie-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(100px);
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      width: calc(100% - 3rem);
+      max-width: 720px;
+      background: #0D1520;
+      border: 1px solid rgba(62, 207, 207, 0.2);
+      border-radius: 6px;
+      padding: 1rem 1.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: #7A9BAF;
+    }
+
+    #cookie-banner.visible {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    #cookie-banner a {
+      color: #00d4ff;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    .cookie-btns {
+      display: flex;
+      gap: 0.6rem;
+      flex-shrink: 0;
+    }
+
+    .cookie-btns button {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.5rem 1.1rem;
+      border-radius: 3px;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+    }
+
+    #cookie-decline {
+      background: transparent;
+      color: #7A9BAF;
+      border: 1px solid rgba(122, 155, 175, 0.3) !important;
+    }
+
+    #cookie-decline:hover {
+      color: #EDF3F7;
+      border-color: rgba(122, 155, 175, 0.7) !important;
+    }
+
+    #cookie-accept {
+      background: #00d4ff;
+      color: #0a0a0c;
+    }
+
+    #cookie-accept:hover {
+      background: #33ddff;
+    }
+
     @media (max-width: 560px) {
-      #cookie-banner { flex-direction: column; align-items: flex-start; gap: 1rem; bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; border-radius: 12px 12px 0 0; transform: translateY(100px); }
-      #cookie-banner.visible { transform: translateY(0); }
-      .cookie-btns { width: 100%; }
-      .cookie-btns button { flex: 1; }
+      #cookie-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 12px 12px 0 0;
+        transform: translateY(100px);
+      }
+
+      #cookie-banner.visible {
+        transform: translateY(0);
+      }
+
+      .cookie-btns {
+        width: 100%;
+      }
+
+      .cookie-btns button {
+        flex: 1;
+      }
     }
   </style>
 
@@ -1375,4 +1820,5 @@
     })();
   </script>
 </body>
+
 </html>
