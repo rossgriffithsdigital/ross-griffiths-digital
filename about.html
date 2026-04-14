@@ -2,239 +2,713 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#080C12">
 
+  <meta name="description" content="Ross &amp; Griffiths Digital is a web design studio based in Northumberland County, Ontario. Founded by Connor Ross and Quinn Griffiths, we build custom websites for businesses worldwide.">
   <meta name="keywords" content="web design studio Ontario, web designers Canada, Ross Griffiths Digital, small business web design worldwide, custom web design">
-  <meta name="description" content="Ross & Griffiths Digital is a web design studio based in Northumberland County, Ontario. Founded by Connor Ross and Quinn Griffiths, we build custom websites for businesses worldwide.">
-  <meta property="og:title" content="About — Ross & Griffiths Digital">
-  <meta property="og:description" content="Ross & Griffiths Digital is a web design studio based in Northumberland County, Ontario. Founded by Connor Ross and Quinn Griffiths, we build custom websites for businesses worldwide.">
+  <meta property="og:title" content="About — Ross &amp; Griffiths Digital">
+  <meta property="og:description" content="Ross &amp; Griffiths Digital is a web design studio based in Northumberland County, Ontario. Founded by Connor Ross and Quinn Griffiths, we build custom websites for businesses worldwide.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.rossgriffithsdigital.com">
+  <meta property="og:url" content="https://www.rossgriffithsdigital.com/about">
   <meta property="og:image" content="https://www.rossgriffithsdigital.com/favicon-512.png">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="About — Ross & Griffiths Digital">
+  <meta name="twitter:title" content="About — Ross &amp; Griffiths Digital">
   <meta name="twitter:image" content="https://www.rossgriffithsdigital.com/favicon-512.png">
   <link rel="canonical" href="https://www.rossgriffithsdigital.com/about">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About — Ross & Griffiths Digital</title>
+  <title>About — Ross &amp; Griffiths Digital</title>
+
+  <!-- Fonts: Space Grotesk + Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.12);
-      --bg: #07101f; --surface: #0d1929;
-      --border: rgba(255,255,255,0.07);
-      --text-1: #f0f0f2; --text-2: #ABABAB; --text-3: #4a4a5a;
-      --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
-      --ease-out: cubic-bezier(0.16,1,0.3,1);
-    }
-    html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit',system-ui,sans-serif; background: var(--bg); color: var(--text-1); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
-    ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--text-3); border-radius: 4px; }
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: rgba(10,10,12,0.7); border-bottom: 1px solid var(--border); }
-    .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); text-decoration: none; }
-    .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--text-2); text-decoration: none; transition: color 0.2s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--text-1); }
-    .nav-cta { font-size: 0.875rem; font-weight: 600; padding: 0.55rem 1.4rem; background: var(--accent); color: #0a0a0c; border: none; border-radius: 8px; cursor: pointer; transition: opacity 0.2s, transform 0.2s var(--ease-spring); text-decoration: none; }
-    .nav-cta:hover { opacity: 0.88; transform: translateY(-1px) scale(1.02); }
-
-    .page-header { padding: 10rem 3rem 5rem; border-bottom: 1px solid var(--border); animation: slide-up 0.9s var(--ease-out) both; }
-    @keyframes slide-up { from { opacity:0; transform:translateY(30px); } to { opacity:1; transform:translateY(0); } }
-    .page-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.25rem; }
-    .page-title { font-size: clamp(2.5rem,5vw,4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-1); line-height: 1.05; max-width: 640px; margin-bottom: 1.5rem; }
-    .page-title .muted { color: var(--text-3); }
-    .page-intro { font-size: 1.1rem; color: var(--text-2); max-width: 540px; line-height: 1.75; }
-
-    .story { padding: 6rem 3rem; display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: start; }
-    .story-text h2 { font-size: 1.75rem; font-weight: 800; letter-spacing: -0.03em; color: var(--text-1); margin-bottom: 1.5rem; line-height: 1.15; }
-    .story-text p { font-size: 0.975rem; color: var(--text-2); line-height: 1.8; margin-bottom: 1.25rem; }
-    .story-text p:last-child { margin-bottom: 0; }
-
-    .values-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
-    .value-card { background: var(--bg); padding: 2rem; transition: background 0.3s; }
-    .value-card:hover { background: var(--surface); }
-    .value-name { font-size: 1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem; letter-spacing: -0.01em; }
-    .value-desc { font-size: 0.875rem; color: var(--text-2); line-height: 1.7; }
-
-    .team { padding: 6rem 3rem; background: var(--surface); border-top: 1px solid var(--border); }
-    .section-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; }
-    .section-title { font-size: clamp(2rem,4vw,3rem); font-weight: 800; letter-spacing: -0.035em; color: var(--text-1); line-height: 1.1; margin-bottom: 3.5rem; }
-    .section-title .muted { color: var(--text-3); }
-    .team-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-    .team-card { background: var(--bg); border: 1px solid var(--border); border-radius: 18px; padding: 2.5rem; transition: transform 0.3s var(--ease-spring), border-color 0.3s; }
-    .team-card:hover { transform: translateY(-4px); border-color: rgba(255,255,255,0.12); }
-    .team-initial { width: 56px; height: 56px; border-radius: 14px; background: var(--accent-dim); border: 1px solid rgba(0,212,255,0.25); display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: 800; color: var(--accent); margin-bottom: 1.5rem; }
-    .team-name { font-size: 1.25rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); margin-bottom: 0.4rem; }
-    .team-role { font-size: 0.8rem; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 1.25rem; }
-    .team-bio { font-size: 0.9rem; color: var(--text-2); line-height: 1.75; }
-
-    .cta-section { padding: 5rem 3rem; }
-    .cta-inner { background: linear-gradient(135deg,rgba(0,212,255,0.08) 0%,rgba(0,212,255,0.02) 100%); border: 1px solid rgba(0,212,255,0.2); border-radius: 24px; padding: 5rem 4rem; text-align: center; position: relative; overflow: hidden; }
-    .cta-inner::before { content:''; position:absolute; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(0,212,255,0.07) 0%,transparent 70%); top:50%; left:50%; transform:translate(-50%,-50%); pointer-events:none; }
-    .cta-title { font-size: clamp(2rem,4vw,3.25rem); font-weight: 800; letter-spacing: -0.04em; color: var(--text-1); margin-bottom: 1.25rem; position: relative; }
-    .cta-sub { font-size: 1.05rem; color: var(--text-2); max-width: 440px; margin: 0 auto 2.5rem; position: relative; }
-    .cta-actions { display: flex; justify-content: center; gap: 1rem; position: relative; }
-    .btn-primary { display: inline-flex; align-items: center; gap: 0.5rem; font-family: inherit; font-size: 0.95rem; font-weight: 600; padding: 0.85rem 2rem; background: var(--accent); color: #0a0a0c; border: none; border-radius: 10px; cursor: pointer; text-decoration: none; transition: opacity 0.2s, transform 0.25s var(--ease-spring); }
-    .btn-primary:hover { opacity: 0.88; transform: translateY(-2px) scale(1.02); }
-    .btn-ghost { display: inline-flex; align-items: center; gap: 0.5rem; font-family: inherit; font-size: 0.95rem; font-weight: 500; padding: 0.85rem 1.5rem; background: transparent; color: var(--text-2); border: 1px solid var(--border); border-radius: 10px; cursor: pointer; text-decoration: none; transition: color 0.2s, border-color 0.2s, transform 0.25s var(--ease-spring); }
-    .btn-ghost:hover { color: var(--text-1); border-color: rgba(255,255,255,0.2); transform: translateY(-2px); }
-
-    footer { padding: 3rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
-    .footer-logo { font-size: 1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-3); }
-    .footer-logo span { color: var(--accent); }
-    .footer-copy { font-size: 0.8rem; color: var(--text-3); }
-
-
-    .nav-logo { display: flex; align-items: center; gap: 0.55rem; }
-    .nav-logo-img { height: 30px; width: 30px; object-fit: contain; }
-    .footer-logo { display: flex; align-items: center; gap: 0.55rem; }
-    .footer-logo-img { height: 26px; width: 26px; object-fit: contain; opacity: 0.7; }
-
-
-    .service-tag-icon svg, .why-icon svg, .feature-icon svg,
-    .service-icon svg, .promise-icon svg, .detail-icon svg {
-      display: block; stroke: var(--accent);
-    }
-    .service-tag-icon, .why-icon, .promise-icon, .detail-icon {
-      display: flex; align-items: center; justify-content: center;
-    }
-
-    @media (max-width: 900px) {
-      nav { padding: 1rem 1.5rem; } .nav-links { display: none; }
-      .page-header { padding: 8rem 1.5rem 3rem; }
-      .story { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 1.5rem; }
-      .values-grid { grid-template-columns: 1fr; }
-      .team { padding: 4rem 1.5rem; } .team-grid { grid-template-columns: 1fr; }
-      .cta-section { padding: 3rem 1.5rem; } .cta-inner { padding: 3rem 2rem; }
-      footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
-    }
-  </style>
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){{dataLayer.push(arguments);}}
-    gtag("js", new Date());
-    gtag("config", "G-QVZ1ZBWT41");
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Ross & Griffiths Digital",
-    "description": "Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.",
-    "url": "https://www.rossgriffithsdigital.com",
-    "areaServed": "Worldwide"
-  }
-  </script>
-  <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="shortcut icon" href="/favicon.ico" />
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-  <link rel="manifest" href="/site.webmanifest" />
-  <meta name="theme-color" content="#07101f">
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Ross & Griffiths Digital","description":"Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.","url":"https://www.rossgriffithsdigital.com","areaServed":"Worldwide"}</script>
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:     #080C12;
+      --navy:   #0D1520;
+      --accent: #3ECFCF;
+      --text:   #EDF3F7;
+      --muted:  #7A9BAF;
+      --border: rgba(255,255,255,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100dvh;
+      overflow-x: hidden;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: rgba(62,207,207,0.25); border-radius: 4px; }
+
+    /* ── Outlined button ─────────────────────────────────────────── */
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-variant: small-caps;
+      letter-spacing: 0.12em;
+      padding: 0.65rem 1.5rem;
+      color: var(--accent);
+      border: 1px solid var(--accent);
+      background: transparent;
+      text-decoration: none;
+      position: relative;
+      overflow: hidden;
+      transition: color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-outline::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--accent);
+      transform: translateX(-101%);
+      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
+      z-index: 0;
+    }
+
+    .btn-outline:hover::before { transform: translateX(0); }
+    .btn-outline:hover { color: #080C12; }
+    .btn-outline > span { position: relative; z-index: 1; }
+    .btn-outline > svg  { position: relative; z-index: 1; }
+
+    /* ── Nav ─────────────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.6rem 3rem;
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(8,12,18,0.92);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      padding: 1rem 3rem;
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .nav-logo .dot { color: var(--accent); }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem;
+      font-variant: small-caps;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--text); }
+
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 4px;
+      z-index: 201;
+    }
+
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--text);
+      transition: all 0.3s ease;
+    }
+
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* Mobile fullscreen overlay */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: var(--bg);
+      z-index: 190;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2.75rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+
+    .nav-overlay a {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-overlay a:hover,
+    .nav-overlay a.active { color: var(--text); }
+
+    /* ── Page Header ─────────────────────────────────────────────── */
+    .page-header {
+      padding: 11rem 3rem 6rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 1200px;
+      margin: 0 auto;
+      animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .page-eyebrow {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-variant: small-caps;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .page-h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      color: var(--text);
+      margin-bottom: 1.75rem;
+    }
+
+    .page-h1 .line2 { color: var(--muted); display: block; }
+
+    .page-intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 560px;
+      line-height: 1.8;
+    }
+
+    /* ── Scroll Reveal ───────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Section common ──────────────────────────────────────────── */
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-variant: small-caps;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    .section-h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 3.5rem;
+    }
+
+    /* ── Section 1: Story ────────────────────────────────────────── */
+    .story {
+      padding: 6rem 3rem;
+      background: var(--bg);
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .story-h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 2rem;
+    }
+
+    .story-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .story-text p:last-child { margin-bottom: 0; }
+
+    /* Values (right column) */
+    .values-rows {
+      border-top: 1px solid var(--border);
+    }
+
+    .value-row {
+      padding: 1.75rem 0;
+      border-bottom: 1px solid var(--border);
+      border-left: 2px solid transparent;
+      padding-left: 1.25rem;
+      margin-left: -1.25rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .value-row.visible {
+      border-left-color: var(--accent);
+    }
+
+    .value-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .value-desc {
+      font-size: 0.875rem;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    /* ── Section 2: Team ─────────────────────────────────────────── */
+    .team {
+      padding: 6rem 3rem;
+      background: var(--navy);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .team-card {
+      border: 1px solid var(--border);
+      padding: 2.75rem;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .team-initial {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+      opacity: 0.7;
+    }
+
+    .team-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .team-role {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-variant: small-caps;
+      letter-spacing: 0.16em;
+      color: var(--accent);
+      margin-top: -0.75rem;
+    }
+
+    .team-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── CTA Section ─────────────────────────────────────────────── */
+    .cta-section {
+      padding: 6rem 3rem;
+      text-align: center;
+      border-top: 1px solid var(--accent);
+      border-bottom: 1px solid var(--accent);
+      background: var(--bg);
+    }
+
+    .cta-h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 3vw, 2.75rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .cta-sub {
+      font-size: 0.975rem;
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
+    }
+
+    /* ── Footer ──────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      padding: 4rem 3rem 0;
+    }
+
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .footer-logo {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--text);
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo .dot { color: var(--accent); }
+
+    .footer-tagline {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 280px;
+    }
+
+    .footer-col-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem;
+      font-variant: small-caps;
+      letter-spacing: 0.18em;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .footer-nav {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+
+    .footer-nav a {
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--text); }
+
+    .footer-contact-location {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .footer-contact-link {
+      font-size: 0.85rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .footer-contact-link:hover { opacity: 0.75; }
+
+    .footer-bar {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.5rem 0;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-copy {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-privacy {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .footer-privacy:hover { color: var(--text); }
+
+    /* ── Responsive ──────────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 3.5rem; }
+      .team-grid  { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 1.2rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links, .nav-cta-wrap { display: none; }
+      .nav-hamburger { display: flex; }
+
+      .page-header { padding: 8rem 1.5rem 4rem; }
+      .story, .team { padding: 4rem 1.5rem; }
+      .cta-section { padding: 4rem 1.5rem; }
+      footer { padding: 3rem 1.5rem 0; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+  </style>
 </head>
 <body>
 
-  <nav role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/"><img src="/logo.png" alt="R&amp;GD" class="nav-logo-img">R&amp;GD<span>.</span></a>
+  <!-- Nav -->
+  <nav id="nav">
+    <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="/services">Services</a></li>
-      <li><a href="/how-it-works">How it works</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/about" class="active">About</a></li>
-      <li><a href="/portfolio">Portfolio</a></li>
     </ul>
-    <a class="nav-cta" href="/contact">Get in touch</a>
+    <div class="nav-cta-wrap">
+      <a href="/contact" class="btn-outline"><span>Get in touch</span></a>
+    </div>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
-  <main role="main">
-  <div class="page-header">
-    <p class="page-label">Who we are</p>
-    <h1 class="page-title">Two friends. <span class="muted">One goal.</span></h1>
-    <p class="page-intro">R&amp;GD is the result of years of friendship, shared skills, and a genuine belief that every business deserves a proper presence online.</p>
+  <!-- Mobile overlay -->
+  <div class="nav-overlay" id="nav-overlay">
+    <a href="/services">Services</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/pricing">Pricing</a>
+    <a href="/about" class="active">About</a>
+    <a href="/contact" class="btn-outline" style="margin-top:1rem;"><span>Get in touch</span></a>
   </div>
 
+  <!-- Page Header -->
+  <header class="page-header">
+    <span class="page-eyebrow">Who we are</span>
+    <h1 class="page-h1">
+      Two friends.
+      <span class="line2">One goal.</span>
+    </h1>
+    <p class="page-intro">R&amp;GD is the result of years of friendship, shared skills, and a genuine belief that every business deserves a proper presence online.</p>
+  </header>
+
+  <!-- Section 1: Story -->
   <section class="story">
-    <div class="story-text">
-      <h2>We've been friends for years — and frequent faces around Northumberland.</h2>
-      <p>Connor and Quinn both grew up in Northumberland County. We've spent years as regulars at local shops, restaurants, and businesses across the area — places we genuinely care about and want to see thrive.</p>
-      <p>The idea for R&amp;GD came naturally. We kept noticing great businesses in our community without a proper website — or with one that didn't reflect how good they actually were. Between our combined skills and a lot of time spent in this community, we knew we could help.</p>
-      <p>So we built a service around that. Every client works directly with us — no handoffs, no account managers, no runaround. Just two people who take the work seriously and care about getting it right.</p>
-      <p>We started close to home, but we work with businesses everywhere. Whether you're in Northumberland or on the other side of the world, we're just an email away.</p>
-    </div>
+    <div class="section-inner">
+      <div class="story-grid">
 
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-name">Honest</div>
-        <div class="value-desc">We give you straight feedback, even when it's not what you were hoping to hear. You deserve advice that actually helps.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Community-rooted</div>
-        <div class="value-desc">We started this because community matters to us. That same care — for the people behind every business — shapes how we work with every client, everywhere.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Simple</div>
-        <div class="value-desc">No jargon, no unnecessary complexity. We explain what we're doing and why, in plain language, every time.</div>
-      </div>
-      <div class="value-card">
-        <div class="value-name">Real Results</div>
-        <div class="value-desc">A website that looks great but doesn't drive customers isn't a good website. We build sites that work.</div>
+        <!-- Left: text -->
+        <div class="story-text">
+          <h2 class="story-h2 reveal">We've been friends for years — and frequent faces around Northumberland.</h2>
+          <p class="reveal" style="transition-delay: 0.08s;">Connor and Quinn both grew up in Northumberland County. We've spent years as regulars at local shops, restaurants, and businesses across the area — places we genuinely care about and want to see thrive.</p>
+          <p class="reveal" style="transition-delay: 0.14s;">The idea for R&amp;GD came naturally. We kept noticing great businesses in our community without a proper website — or with one that didn't reflect how good they actually were. Between our combined skills and a lot of time spent in this community, we knew we could help.</p>
+          <p class="reveal" style="transition-delay: 0.2s;">So we built a service around that. Every client works directly with us — no handoffs, no account managers, no runaround. Just two people who take the work seriously and care about getting it right.</p>
+          <p class="reveal" style="transition-delay: 0.26s;">We started close to home, but we work with businesses everywhere. Whether you're in Northumberland or on the other side of the world, we're just an email away.</p>
+        </div>
+
+        <!-- Right: values -->
+        <div>
+          <div class="values-rows">
+
+            <div class="value-row reveal" style="transition-delay: 0.12s;">
+              <div class="value-name">Honest</div>
+              <div class="value-desc">We give you straight feedback, even when it's not what you were hoping to hear. You deserve advice that actually helps.</div>
+            </div>
+
+            <div class="value-row reveal" style="transition-delay: 0.2s;">
+              <div class="value-name">Community-rooted</div>
+              <div class="value-desc">We started this because community matters to us. That same care — for the people behind every business — shapes how we work with every client, everywhere.</div>
+            </div>
+
+            <div class="value-row reveal" style="transition-delay: 0.28s;">
+              <div class="value-name">Simple</div>
+              <div class="value-desc">No jargon, no unnecessary complexity. We explain what we're doing and why, in plain language, every time.</div>
+            </div>
+
+            <div class="value-row reveal" style="transition-delay: 0.36s;">
+              <div class="value-name">Real Results</div>
+              <div class="value-desc">A website that looks great but doesn't drive customers isn't a good website. We build sites that work.</div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- Section 2: Team -->
   <section class="team">
-    <p class="section-label">The team</p>
-    <h2 class="section-title">Just the two of us. <span class="muted">On every project.</span></h2>
-    <div class="team-grid">
-      <div class="team-card">
-        <div class="team-initial">C</div>
-        <div class="team-name">Connor Ross</div>
-        <div class="team-role">Co-founder</div>
-        <p class="team-bio">Connor is one half of R&amp;GD. From design and development to client conversations and strategy, he's involved in every part of every project.</p>
-      </div>
-      <div class="team-card">
-        <div class="team-initial">Q</div>
-        <div class="team-name">Quinn Griffiths</div>
-        <div class="team-role">Co-founder</div>
-        <p class="team-bio">Quinn is the other half of R&amp;GD. Design, development, client work, strategy — he's hands-on across all of it, from the first message to launch day.</p>
+    <div class="section-inner">
+      <span class="section-label reveal">The team</span>
+      <h2 class="section-h2 reveal" style="transition-delay: 0.08s;">Just the two of us. On every project.</h2>
+
+      <div class="team-grid">
+
+        <div class="team-card reveal" style="transition-delay: 0.12s;">
+          <div class="team-initial">C</div>
+          <div>
+            <div class="team-name">Connor Ross</div>
+            <div class="team-role">Co-founder</div>
+          </div>
+          <p class="team-bio">Connor is one half of R&amp;GD. From design and development to client conversations and strategy, he's involved in every part of every project.</p>
+        </div>
+
+        <div class="team-card reveal" style="transition-delay: 0.2s;">
+          <div class="team-initial">Q</div>
+          <div>
+            <div class="team-name">Quinn Griffiths</div>
+            <div class="team-role">Co-founder</div>
+          </div>
+          <p class="team-bio">Quinn is the other half of R&amp;GD. Design, development, client work, strategy — he's hands-on across all of it, from the first message to launch day.</p>
+        </div>
+
       </div>
     </div>
   </section>
 
+  <!-- CTA Section -->
   <section class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title">Ready to work together?</h2>
-      <p class="cta-sub">Drop us a message and we'll get back to you within one business day. No forms, no funnels — just a conversation.</p>
-      <div class="cta-actions">
-        <a class="btn-primary" href="/contact">
-          Get in touch
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </a>
-        <a class="btn-ghost" href="/services">View services</a>
+    <div class="section-inner">
+      <h2 class="cta-h2 reveal">Ready to work together?</h2>
+      <p class="cta-sub reveal" style="transition-delay: 0.1s;">Drop us a message and we'll get back to you within one business day. No forms, no funnels — just a conversation.</p>
+      <div class="reveal" style="transition-delay: 0.18s;">
+        <a href="/contact" class="btn-outline"><span>Get in touch</span></a>
       </div>
     </div>
   </section>
 
-  </main>
-
-  <footer role="contentinfo">
-    <div class="footer-logo"><img loading="lazy" src="/logo.png" alt="R&amp;GD" class="footer-logo-img">Ross &amp; Griffiths Digital<span>.</span></div>
-    <span class="footer-copy">Northumberland County, ON, Canada &nbsp;·&nbsp; © 2026 Ross &amp; Griffiths Digital &nbsp;·&nbsp; <a href="/privacy" style="color:inherit;text-decoration:none;opacity:0.7;">Privacy Policy</a></span>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <a href="/" class="footer-logo">R&amp;GD<span class="dot">.</span></a>
+        <p class="footer-tagline">Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world.</p>
+      </div>
+      <div>
+        <span class="footer-col-label">Navigate</span>
+        <ul class="footer-nav">
+          <li><a href="/services">Services</a></li>
+          <li><a href="/portfolio">Portfolio</a></li>
+          <li><a href="/pricing">Pricing</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <span class="footer-col-label">Contact</span>
+        <p class="footer-contact-location">Northumberland County, ON, Canada</p>
+        <a href="/contact" class="footer-contact-link">Get in touch &rarr;</a>
+      </div>
+    </div>
+    <div class="footer-bar">
+      <span class="footer-copy">&copy; 2026 Ross &amp; Griffiths Digital</span>
+      <a href="/privacy" class="footer-privacy">Privacy Policy</a>
+    </div>
   </footer>
 
-  <!-- Cookie Banner -->
+  <!-- Cookie banner -->
   <div id="cookie-banner">
     <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a></p>
     <div class="cookie-btns">
@@ -242,41 +716,57 @@
       <button id="cookie-accept">Accept</button>
     </div>
   </div>
-
   <style>
-    #cookie-banner { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(100px); z-index: 9999; display: flex; align-items: center; justify-content: space-between; gap: 2rem; width: calc(100% - 3rem); max-width: 720px; background: #0D1520; border: 1px solid rgba(62, 207, 207, 0.2); border-radius: 6px; padding: 1rem 1.5rem; opacity: 0; pointer-events: none; transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease; font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: #7A9BAF; }
-    #cookie-banner.visible { transform: translateX(-50%) translateY(0); opacity: 1; pointer-events: all; }
-    #cookie-banner a { color: #00d4ff; text-decoration: underline; text-underline-offset: 2px; }
-    .cookie-btns { display: flex; gap: 0.6rem; flex-shrink: 0; }
-    .cookie-btns button { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.5rem 1.1rem; border-radius: 3px; cursor: pointer; border: none; transition: all 0.2s ease; }
-    #cookie-decline { background: transparent; color: #7A9BAF; border: 1px solid rgba(122, 155, 175, 0.3) !important; }
-    #cookie-decline:hover { color: #EDF3F7; border-color: rgba(122,155,175,0.7) !important; }
-    #cookie-accept { background: #00d4ff; color: #0a0a0c; }
-    #cookie-accept:hover { background: #33ddff; }
-    @media (max-width: 560px) {
-      #cookie-banner { flex-direction: column; align-items: flex-start; gap: 1rem; bottom: 0; left: 0; right: 0; width: 100%; max-width: 100%; border-radius: 12px 12px 0 0; transform: translateY(100px); }
-      #cookie-banner.visible { transform: translateY(0); }
-      .cookie-btns { width: 100%; }
-      .cookie-btns button { flex: 1; }
-    }
+    #cookie-banner { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(100px); z-index:9999; display:flex; align-items:center; justify-content:space-between; gap:2rem; width:calc(100% - 3rem); max-width:720px; background:#0D1520; border:1px solid rgba(62,207,207,0.2); border-radius:6px; padding:1rem 1.5rem; opacity:0; pointer-events:none; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s ease; font-family:'Outfit',sans-serif; font-size:0.82rem; color:#7A9BAF; }
+    #cookie-banner.visible { transform:translateX(-50%) translateY(0); opacity:1; pointer-events:all; }
+    #cookie-banner a { color:#00d4ff; text-decoration:underline; text-underline-offset:2px; }
+    .cookie-btns { display:flex; gap:0.6rem; flex-shrink:0; }
+    .cookie-btns button { font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; padding:0.5rem 1.1rem; border-radius:3px; cursor:pointer; border:none; transition:all 0.2s ease; }
+    #cookie-decline { background:transparent; color:#7A9BAF; border:1px solid rgba(122,155,175,0.3) !important; }
+    #cookie-decline:hover { color:#EDF3F7; border-color:rgba(122,155,175,0.7) !important; }
+    #cookie-accept { background:#00d4ff; color:#0a0a0c; }
+    #cookie-accept:hover { background:#33ddff; }
+    @media (max-width:560px) { #cookie-banner { flex-direction:column; align-items:flex-start; gap:1rem; bottom:0; left:0; right:0; width:100%; max-width:100%; border-radius:12px 12px 0 0; transform:translateY(100px); } #cookie-banner.visible { transform:translateY(0); } .cookie-btns { width:100%; } .cookie-btns button { flex:1; } }
   </style>
+  <script>
+    (function(){ const KEY='rgd_cookie_consent'; const banner=document.getElementById('cookie-banner'); if(!localStorage.getItem(KEY)){ setTimeout(()=>banner.classList.add('visible'),800); } document.getElementById('cookie-accept').addEventListener('click',()=>{ localStorage.setItem(KEY,'accepted'); banner.classList.remove('visible'); }); document.getElementById('cookie-decline').addEventListener('click',()=>{ localStorage.setItem(KEY,'declined'); banner.classList.remove('visible'); }); })();
+  </script>
 
   <script>
-    (function () {
-      const KEY = 'rgd_cookie_consent';
-      const banner = document.getElementById('cookie-banner');
-      if (!localStorage.getItem(KEY)) {
-        setTimeout(() => banner.classList.add('visible'), 800);
-      }
-      document.getElementById('cookie-accept').addEventListener('click', () => {
-        localStorage.setItem(KEY, 'accepted');
-        banner.classList.remove('visible');
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    }, { passive: true });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const overlay = document.getElementById('nav-overlay');
+    hamburger.addEventListener('click', () => {
+      const open = hamburger.classList.toggle('open');
+      overlay.classList.toggle('open', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    overlay.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
       });
-      document.getElementById('cookie-decline').addEventListener('click', () => {
-        localStorage.setItem(KEY, 'declined');
-        banner.classList.remove('visible');
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
       });
-    })();
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+
 </body>
 </html>
