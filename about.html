@@ -11,10 +11,10 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#080C12">
 
-  <meta name="description" content="Ross &amp; Griffiths Digital is a web design studio based in Northumberland County, Ontario. Founded by Connor Ross and Quinn Griffiths, we build custom websites for businesses worldwide.">
+  <meta name="description" content="Ross &amp; Griffiths Digital — a web design studio in Northumberland County, Ontario, built by Connor Ross and Quinn Griffiths. Custom websites for businesses worldwide.">
   <meta name="keywords" content="web design studio Ontario, web designers Canada, Ross Griffiths Digital, small business web design worldwide, custom web design">
   <meta property="og:title" content="About — Ross &amp; Griffiths Digital">
-  <meta property="og:description" content="Ross &amp; Griffiths Digital is a web design studio based in Northumberland County, Ontario. Founded by Connor Ross and Quinn Griffiths, we build custom websites for businesses worldwide.">
+  <meta property="og:description" content="Ross &amp; Griffiths Digital — a web design studio in Northumberland County, Ontario, built by Connor Ross and Quinn Griffiths. Custom websites for businesses worldwide.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.rossgriffithsdigital.com/about">
   <meta property="og:image" content="https://www.rossgriffithsdigital.com/favicon-512.png">
@@ -544,7 +544,7 @@
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       nav.scrolled { padding: 0.9rem 1.5rem; }
-      .nav-links, .nav-cta-wrap { display: none; }
+      .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
 
       .page-header { padding: 8rem 1.5rem 4rem; }
@@ -562,25 +562,25 @@
     <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="/services">Services</a></li>
-      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/how-it-works">How it works</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/about" class="active">About</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
     </ul>
-    <div class="nav-cta-wrap">
-      <a href="/contact" class="btn-outline"><span>Get in touch</span></a>
-    </div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- Mobile overlay -->
-  <div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="Navigation menu">
     <a href="/services">Services</a>
-    <a href="/portfolio">Portfolio</a>
+    <a href="/how-it-works">How it works</a>
     <a href="/pricing">Pricing</a>
-    <a href="/about" class="active">About</a>
-    <a href="/contact" class="btn-outline" style="margin-top:1rem;"><span>Get in touch</span></a>
+    <a href="/about">About</a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/contact" class="overlay-cta">Get in touch</a>
   </div>
 
   <!-- Page Header -->

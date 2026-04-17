@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#080C12">
 
-  <meta name="keywords" content="web design pricing, affordable website design, flat fee web design, website maintenance cost, how much does a website cost">
-  <meta name="description" content="Flat-fee web design from $800 CAD. Ongoing maintenance from $80/mo. Transparent pricing, no hidden costs, no surprises. Available worldwide.">
-  <meta property="og:title" content="Web Design Pricing — Ross & Griffiths Digital">
-  <meta property="og:description" content="Flat-fee web design from $800 CAD. Ongoing maintenance from $80/mo. Transparent pricing, no hidden costs, no surprises. Available worldwide.">
+  <meta name="keywords" content="web design pricing, affordable website design, flat fee web design, website support cost, how much does a website cost">
+  <meta name="description" content="Flat-fee web design for $999 CAD. Monthly support from $50/mo. Transparent pricing, no hidden costs, no surprises. Available worldwide.">
+  <meta property="og:title" content="Web Design Pricing — Ross &amp; Griffiths Digital">
+  <meta property="og:description" content="Flat-fee web design for $999 CAD. Monthly support from $50/mo. Transparent pricing, no hidden costs, no surprises. Available worldwide.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.rossgriffithsdigital.com/pricing">
   <meta property="og:image" content="https://www.rossgriffithsdigital.com/favicon-512.png">
@@ -50,20 +54,22 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 3rem;
+      padding: 1.6rem 3rem;
       background: transparent;
-      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
       border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
     }
     nav.scrolled {
       background: rgba(8,12,18,0.92);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      padding: 1rem 3rem;
       border-bottom-color: var(--border);
     }
-    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.15rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
     .nav-logo .dot { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a { font-family: 'Outfit', sans-serif; font-size: 0.8rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-variant: small-caps; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--text); }
 
@@ -90,17 +96,21 @@
     }
     .btn-outline-filled:hover { opacity: 0.85; }
 
-    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 210; }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s ease; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
-    .nav-overlay { display: none; position: fixed; inset: 0; z-index: 190; background: rgba(8,12,18,0.97); flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem; }
-    .nav-overlay.open { display: flex; }
-    .nav-overlay a { font-family: 'Outfit', sans-serif; font-size: 1.1rem; font-variant: small-caps; letter-spacing: 0.12em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .nav-overlay {
+      position: fixed; inset: 0; background: var(--bg); z-index: 190;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.75rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+    }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+    .nav-overlay a { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 600; letter-spacing: -0.025em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-overlay a:hover { color: var(--text); }
-    .nav-overlay a.active { color: var(--text); }
+    .nav-overlay .overlay-cta { color: var(--accent) !important; }
 
     /* ===== PAGE HEADER ===== */
     @keyframes slideUp {
@@ -116,7 +126,7 @@
 
     /* ===== PRICING SECTION ===== */
     .pricing-section { background: var(--bg); padding: 0 3rem 6rem; }
-    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
 
     .pricing-card {
       border: 1px solid var(--border);
@@ -168,13 +178,35 @@
     }
     .card-cta { width: 100%; justify-content: center; text-align: center; }
 
-    .pricing-note {
-      margin-top: 2rem;
+    .price-period {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.88rem; color: var(--muted);
+      font-size: 1rem; color: var(--muted); font-weight: 400;
+      letter-spacing: 0; margin-left: 0.15em;
     }
-    .pricing-note a { color: var(--accent); text-decoration: none; }
-    .pricing-note a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .price-range {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem;
+    }
+    .price-range-inline {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.4rem; font-weight: 600;
+      color: var(--muted); letter-spacing: -0.02em; margin-left: 0.1em;
+    }
+    .price-note {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem;
+    }
+
+    .pages-callout {
+      margin-top: 2.5rem;
+      padding: 1.1rem 1.6rem;
+      border: 1px solid rgba(62,207,207,0.18);
+      background: rgba(62,207,207,0.03);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem; color: var(--muted); line-height: 1.6;
+    }
+    .pages-callout a { color: var(--accent); text-decoration: none; }
+    .pages-callout a:hover { text-decoration: underline; text-underline-offset: 3px; }
 
     /* ===== FAQ SECTION ===== */
     .faq-section { background: var(--navy); padding: 6rem 3rem; }
@@ -231,13 +263,16 @@
     .reveal-d2 { transition-delay: 0.2s; }
 
     /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1.25rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
       .page-header { padding: 7rem 1.5rem 3rem; }
       .pricing-section { padding: 0 1.5rem 4rem; }
-      .pricing-grid { grid-template-columns: 1fr; }
       .faq-section { padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
       footer { padding: 3rem 1.5rem 0; }
@@ -249,36 +284,36 @@
 <body>
 
 <!-- NAV -->
-<nav id="mainNav">
-  <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
+<nav role="navigation" aria-label="Main navigation" id="nav">
+  <a class="nav-logo" href="/">R&amp;GD<span class="dot">.</span></a>
   <ul class="nav-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/how-it-works">How it works</a></li>
     <li><a href="/pricing" class="active">Pricing</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/contact" class="btn-outline"><span>Get in touch</span></a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
+  <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE OVERLAY -->
-<div class="nav-overlay" id="navOverlay">
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="Navigation menu">
   <a href="/services">Services</a>
   <a href="/how-it-works">How it works</a>
-  <a href="/pricing" class="active">Pricing</a>
+  <a href="/pricing">Pricing</a>
   <a href="/about">About</a>
   <a href="/portfolio">Portfolio</a>
-  <a href="/contact">Contact</a>
+  <a href="/contact" class="overlay-cta">Get in touch</a>
 </div>
 
 <!-- PAGE HEADER -->
 <header class="page-header">
   <span class="eyebrow">Pricing</span>
   <h1>Straightforward pricing.<br><span class="muted-line">No surprises.</span></h1>
-  <p>One build fee, one optional maintenance plan. That's it. No hidden costs, no upsells, no lock-in.</p>
+  <p>One build fee, one optional support plan. That is it. No hidden costs, no upsells, no lock-in.</p>
 </header>
 
 <!-- PRICING SECTION -->
@@ -290,30 +325,30 @@
       <h2 class="card-name">Website Build</h2>
       <p class="card-desc">A custom site built from scratch, tailored to your business.</p>
       <div class="card-price">
-        <div class="price-main">from $800</div>
-        <div class="price-sub">CAD — flat fee</div>
+        <div class="price-main">$999</div>
+        <div class="price-sub">CAD flat fee</div>
       </div>
       <div class="card-divider"></div>
       <ul class="card-features">
-        <li>Custom design — no templates</li>
+        <li>Custom design, no templates</li>
         <li>Up to 5 pages</li>
-        <li>Mobile responsive</li>
+        <li>Looks great on any phone or tablet</li>
         <li>Contact form included</li>
-        <li>SEO optimisation</li>
-        <li>Google Analytics setup</li>
+        <li>Shows up on Google</li>
+        <li>See how many people visit your site</li>
         <li>You own it outright</li>
       </ul>
       <a href="/contact" class="btn-outline card-cta"><span>Get started</span></a>
     </div>
 
-    <!-- Card 2: Monthly Maintenance -->
+    <!-- Card 2: Monthly Support -->
     <div class="pricing-card featured reveal reveal-d1">
       <div class="card-badge">Optional add-on</div>
-      <h2 class="card-name">Monthly Maintenance</h2>
+      <h2 class="card-name">Monthly Support</h2>
       <p class="card-desc">Ongoing support so you never have to think about it. Pricing varies based on your project.</p>
       <div class="card-price">
-        <div class="price-main">$80–150</div>
-        <div class="price-sub">CAD / month</div>
+        <div class="price-main">$50<span class="price-period">/month</span></div>
+        <div class="price-range">up to $150 depending on scope</div>
       </div>
       <div class="card-divider"></div>
       <ul class="card-features">
@@ -327,9 +362,30 @@
       <a href="/contact" class="btn-outline-filled card-cta">Add to my build</a>
     </div>
 
+    <!-- Card 3: Business Card Design + Print -->
+    <div class="pricing-card reveal reveal-d2">
+      <h2 class="card-name">Business Card Design + Print</h2>
+      <p class="card-desc">Your new website, in their pocket.</p>
+      <div class="card-price">
+        <div class="price-main">$50<span class="price-range-inline">–$150 CAD</span></div>
+        <div class="price-note">Final price depends on quantity and card type.</div>
+      </div>
+      <div class="card-divider"></div>
+      <ul class="card-features">
+        <li>Professional card design</li>
+        <li>QR code linked to your website</li>
+        <li>Every handshake becomes a site visit</li>
+        <li>We handle design and printing</li>
+        <li>Delivered right to your door</li>
+      </ul>
+      <a href="/contact" class="btn-outline card-cta"><span>Get started</span></a>
+    </div>
+
   </div>
 
-  <p class="pricing-note">Need more than 5 pages? <a href="/contact">Get in touch</a> and we'll work something out.</p>
+  <div class="pages-callout reveal">
+    Need more than 5 pages? <a href="/contact">Get in touch</a> and we'll work something out.
+  </div>
 </section>
 
 <!-- FAQ SECTION -->
@@ -342,20 +398,20 @@
       <p class="faq-a">Yes, completely. Once your site is paid for and delivered, it's yours. You're not renting it from us.</p>
     </div>
     <div class="faq-item reveal">
-      <p class="faq-q">Is the maintenance plan mandatory?</p>
-      <p class="faq-a">Not at all — it's entirely optional. Some clients prefer to manage their own site after launch, and that's completely fine. The maintenance plan is there if you'd rather not think about it.</p>
+      <p class="faq-q">Is the monthly support plan mandatory?</p>
+      <p class="faq-a">Not at all. It's entirely optional. Some clients prefer to manage their own site after launch, and that's completely fine. The monthly support plan is there if you'd rather not think about it.</p>
     </div>
     <div class="faq-item reveal">
-      <p class="faq-q">Can I cancel maintenance if I change my mind?</p>
+      <p class="faq-q">Can I cancel monthly support if I change my mind?</p>
       <p class="faq-a">Yes. Cancel any time with 30 days notice.</p>
     </div>
     <div class="faq-item reveal">
       <p class="faq-q">What if I need more than 5 pages?</p>
-      <p class="faq-a">Just get in touch and we'll put together a custom quote. Larger projects are priced based on scope — we'll always be upfront about the cost before any work begins.</p>
+      <p class="faq-a">Just get in touch and we'll put together a custom quote. Larger projects are priced based on scope. We'll always be upfront about the cost before any work begins.</p>
     </div>
     <div class="faq-item reveal">
       <p class="faq-q">How long does a build take?</p>
-      <p class="faq-a">Most sites are designed, built, and live within a couple of days. Timeline depends on how quickly we hear back from you on revisions — the faster you respond, the faster we move.</p>
+      <p class="faq-a">Most sites are designed, built, and live within a couple of days. Timeline depends on how quickly we hear back from you on revisions. The faster you respond, the faster we move.</p>
     </div>
   </div>
 </section>
@@ -409,23 +465,25 @@
 
 <script>
   // Nav scroll
-  const nav = document.getElementById('mainNav');
+  const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
 
   // Hamburger
   const hamburger = document.getElementById('hamburger');
-  const navOverlay = document.getElementById('navOverlay');
+  const overlay = document.getElementById('nav-overlay');
   hamburger.addEventListener('click', () => {
     const open = hamburger.classList.toggle('open');
-    navOverlay.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  navOverlay.querySelectorAll('a').forEach(a => {
+  overlay.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       hamburger.classList.remove('open');
-      navOverlay.classList.remove('open');
+      overlay.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });

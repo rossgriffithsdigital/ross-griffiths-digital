@@ -11,10 +11,10 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#080C12">
 
-  <meta name="description" content="Custom web design, mobile-responsive builds, SEO optimisation, contact forms, and ongoing maintenance. We work with businesses of any size, anywhere in the world.">
-  <meta name="keywords" content="web design services, SEO optimisation, mobile website design, website maintenance, custom web development, contact form setup">
+  <meta name="description" content="Custom web design, built to show up on Google, look great on any phone, and come with ongoing monthly support. We work with businesses of any size, anywhere in the world.">
+  <meta name="keywords" content="web design services, show up on Google, mobile website design, website monthly support, custom web development, contact form setup">
   <meta property="og:title" content="Web Design Services — Ross &amp; Griffiths Digital">
-  <meta property="og:description" content="Custom web design, mobile-responsive builds, SEO optimisation, contact forms, and ongoing maintenance. We work with businesses of any size, anywhere in the world.">
+  <meta property="og:description" content="Custom web design, built to show up on Google, look great on any phone, and come with ongoing monthly support. We work with businesses of any size, anywhere in the world.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.rossgriffithsdigital.com/services">
   <meta property="og:image" content="https://www.rossgriffithsdigital.com/favicon-512.png">
@@ -708,7 +708,7 @@
     @media (max-width: 768px) {
       nav { padding: 1.2rem 1.5rem; }
       nav.scrolled { padding: 0.9rem 1.5rem; }
-      .nav-links, .nav-cta-wrap { display: none; }
+      .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
 
       .page-header { padding: 8rem 1.5rem 4rem; }
@@ -732,25 +732,25 @@
     <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
     <ul class="nav-links">
       <li><a href="/services" class="active">Services</a></li>
-      <li><a href="/portfolio">Portfolio</a></li>
+      <li><a href="/how-it-works">How it works</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/about">About</a></li>
+      <li><a href="/portfolio">Portfolio</a></li>
     </ul>
-    <div class="nav-cta-wrap">
-      <a href="/contact" class="btn-outline"><span>Get in touch</span></a>
-    </div>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+    <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </nav>
 
   <!-- Mobile overlay -->
-  <div class="nav-overlay" id="nav-overlay">
+  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="Navigation menu">
     <a href="/services" class="active">Services</a>
-    <a href="/portfolio">Portfolio</a>
+    <a href="/how-it-works">How it works</a>
     <a href="/pricing">Pricing</a>
     <a href="/about">About</a>
-    <a href="/contact" class="btn-outline" style="margin-top:1rem;"><span>Get in touch</span></a>
+    <a href="/portfolio">Portfolio</a>
+    <a href="/contact" class="overlay-cta">Get in touch</a>
   </div>
 
   <!-- Page Header -->
@@ -760,7 +760,7 @@
       Everything your business needs online.
       <span class="line2">Nothing you don't.</span>
     </h1>
-    <p class="page-intro">One clear package. Every site we build comes with the same solid foundation — custom designed, properly coded, and set up to be found.</p>
+    <p class="page-intro">One clear package. Every site we build comes with the same solid foundation: custom designed, properly coded, and set up to be found.</p>
   </header>
 
   <!-- Section 1: Included in every build -->
@@ -775,15 +775,15 @@
           <span class="service-num">01</span>
           <div class="service-body">
             <div class="service-title">Custom Design</div>
-            <div class="service-desc">We design your site around your business — your colours, your tone, your customers. Not a template with your logo swapped in.</div>
+            <div class="service-desc">We design your site around your business: your colours, your tone, your customers. Not a template with your logo swapped in.</div>
           </div>
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.15s;">
           <span class="service-num">02</span>
           <div class="service-body">
-            <div class="service-title">Mobile Responsive</div>
-            <div class="service-desc">Your site looks and works great on any device. Most of your customers are on mobile — we build for that first, always.</div>
+            <div class="service-title">Looks great on any phone or tablet</div>
+            <div class="service-desc">Your site looks and works great on any device. Most of your customers are on mobile, so we build for that first, always.</div>
           </div>
         </div>
 
@@ -799,22 +799,22 @@
           <span class="service-num">04</span>
           <div class="service-body">
             <div class="service-title">Contact Form</div>
-            <div class="service-desc">Enquiries from your site go straight to your inbox. No third-party accounts, no monthly fees — it just works.</div>
+            <div class="service-desc">Enquiries from your site go straight to your inbox. No third-party accounts, no monthly fees. It just works.</div>
           </div>
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.3s;">
           <span class="service-num">05</span>
           <div class="service-body">
-            <div class="service-title">SEO Optimisation</div>
-            <div class="service-desc">Page titles, meta descriptions, heading structure, image alt tags — all set up correctly so search engines can find and rank your site from day one.</div>
+            <div class="service-title">Shows up on Google</div>
+            <div class="service-desc">Page titles, descriptions, heading structure, image tags. All set up correctly so Google can find and rank your site from day one.</div>
           </div>
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.35s;">
           <span class="service-num">06</span>
           <div class="service-body">
-            <div class="service-title">Google Analytics</div>
+            <div class="service-title">See how many people visit your site</div>
             <div class="service-desc">Know how many people visit your site, where they come from, and what they look at. Real data so you can make real decisions.</div>
           </div>
         </div>
@@ -835,27 +835,27 @@
         <div class="pricing-card reveal" style="transition-delay: 0.1s;">
           <div class="card-name">Website Build</div>
           <div class="card-desc">A custom site built from scratch, tailored to your business.</div>
-          <div class="card-price">from $800 CAD</div>
+          <div class="card-price">$999 CAD</div>
           <span class="card-price-label">flat fee</span>
           <ul class="card-features">
-            <li>Custom design — no templates</li>
+            <li>Custom design, no templates</li>
             <li>Up to 5 pages</li>
-            <li>Mobile responsive</li>
+            <li>Looks great on any phone or tablet</li>
             <li>Contact form included</li>
-            <li>SEO optimisation</li>
-            <li>Google Analytics setup</li>
+            <li>Shows up on Google</li>
+            <li>See how many people visit your site</li>
             <li>You own it outright</li>
           </ul>
           <a href="/contact" class="btn-outline"><span>Get started</span></a>
         </div>
 
-        <!-- Right card: Monthly Maintenance (featured) -->
+        <!-- Right card: Monthly Support (featured) -->
         <div class="pricing-card featured reveal" style="transition-delay: 0.18s;">
           <span class="pricing-badge">Optional add-on</span>
-          <div class="card-name">Monthly Maintenance</div>
+          <div class="card-name">Monthly Support</div>
           <div class="card-desc">Ongoing support so your site stays secure and up to date. Pricing varies based on your project.</div>
-          <div class="card-price">$80–150 CAD</div>
-          <span class="card-price-label">per month</span>
+          <div class="card-price">$50 CAD</div>
+          <span class="card-price-label">per month, up to $150 depending on scope</span>
           <ul class="card-features">
             <li>Monthly security updates</li>
             <li>Regular backups</li>
@@ -893,13 +893,13 @@
           <div class="why-row reveal" style="transition-delay: 0.17s;">
             <span class="why-row-num">02</span>
             <div class="why-row-title">We care about community</div>
-            <div class="why-row-desc">We're rooted in Northumberland County, but we work with businesses everywhere. We understand what it takes to stand out online — wherever your customers are.</div>
+            <div class="why-row-desc">We're rooted in Northumberland County, but we work with businesses everywhere. We understand what it takes to stand out online, wherever your customers are.</div>
           </div>
 
           <div class="why-row reveal" style="transition-delay: 0.24s;">
             <span class="why-row-num">03</span>
             <div class="why-row-title">No templates, ever</div>
-            <div class="why-row-desc">Every site we build is designed from scratch. Your business is unique — your website should be too.</div>
+            <div class="why-row-desc">Every site we build is designed from scratch. Your business is unique, and your website should be too.</div>
           </div>
 
           <div class="why-row reveal" style="transition-delay: 0.31s;">

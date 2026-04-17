@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#080C12">
 
   <meta name="keywords" content="contact web designer, hire web designer, get a website built, web design quote">
   <meta name="description" content="Get in touch with Ross & Griffiths Digital. We work with businesses worldwide and reply fast — typically within the hour during business hours.">
@@ -50,35 +54,22 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 3rem;
+      padding: 1.6rem 3rem;
       background: transparent;
-      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
       border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
     }
     nav.scrolled {
       background: rgba(8,12,18,0.92);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      padding: 1rem 3rem;
       border-bottom-color: var(--border);
     }
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.15rem;
-      color: var(--text);
-      text-decoration: none;
-      letter-spacing: -0.01em;
-    }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
     .nav-logo .dot { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.8rem;
-      font-variant: small-caps;
-      letter-spacing: 0.1em;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-variant: small-caps; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--text); }
 
@@ -91,42 +82,28 @@
       background: transparent; text-decoration: none;
       position: relative; overflow: hidden; transition: color 0.3s; cursor: pointer;
     }
-    .btn-outline::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--accent); transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0;
-    }
+    .btn-outline::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0; }
     .btn-outline:hover::before { transform: translateX(0); }
     .btn-outline:hover { color: #080C12; }
     .btn-outline > span, .btn-outline > svg { position: relative; z-index: 1; }
 
     /* Hamburger */
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px; z-index: 210;
-    }
-    .hamburger span {
-      display: block; width: 24px; height: 2px;
-      background: var(--text); transition: all 0.3s ease;
-    }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     /* Mobile overlay */
     .nav-overlay {
-      display: none; position: fixed; inset: 0; z-index: 190;
-      background: rgba(8,12,18,0.97);
-      flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+      position: fixed; inset: 0; background: var(--bg); z-index: 190;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.75rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
-    .nav-overlay.open { display: flex; }
-    .nav-overlay a {
-      font-family: 'Outfit', sans-serif; font-size: 1.1rem;
-      font-variant: small-caps; letter-spacing: 0.12em;
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+    .nav-overlay a { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 600; letter-spacing: -0.025em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-overlay a:hover { color: var(--text); }
-    .nav-overlay a.active { color: var(--text); }
+    .nav-overlay .overlay-cta { color: var(--accent) !important; }
 
     /* ===== CONTACT LAYOUT ===== */
     .contact-layout {
@@ -344,9 +321,10 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1.25rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
 
       .contact-layout {
         grid-template-columns: 1fr;
@@ -366,29 +344,29 @@
 <body>
 
 <!-- NAV -->
-<nav id="mainNav">
-  <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
+<nav role="navigation" aria-label="Main navigation" id="nav">
+  <a class="nav-logo" href="/">R&amp;GD<span class="dot">.</span></a>
   <ul class="nav-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/how-it-works">How it works</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/contact" class="btn-outline active"><span>Get in touch</span></a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
+  <a class="btn-outline nav-cta active" href="/contact"><span>Get in touch</span></a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE OVERLAY -->
-<div class="nav-overlay" id="navOverlay">
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="Navigation menu">
   <a href="/services">Services</a>
   <a href="/how-it-works">How it works</a>
   <a href="/pricing">Pricing</a>
   <a href="/about">About</a>
   <a href="/portfolio">Portfolio</a>
-  <a href="/contact" class="active">Contact</a>
+  <a href="/contact" class="overlay-cta">Get in touch</a>
 </div>
 
 <!-- CONTACT LAYOUT -->
@@ -518,23 +496,25 @@
 
 <script>
   // Nav scroll
-  const nav = document.getElementById('mainNav');
+  const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
 
   // Hamburger
   const hamburger = document.getElementById('hamburger');
-  const navOverlay = document.getElementById('navOverlay');
+  const overlay = document.getElementById('nav-overlay');
   hamburger.addEventListener('click', () => {
     const open = hamburger.classList.toggle('open');
-    navOverlay.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  navOverlay.querySelectorAll('a').forEach(a => {
+  overlay.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       hamburger.classList.remove('open');
-      navOverlay.classList.remove('open');
+      overlay.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });

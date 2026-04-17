@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
-  <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#080C12">
 
   <meta name="keywords" content="web design process, how to get a website built, website design steps, fast website design">
   <meta name="description" content="Our web design process is simple: we talk, we design, we build, we launch. Most sites are live within days. No jargon, no runaround.">
@@ -50,28 +54,22 @@
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 200;
       display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 3rem;
+      padding: 1.6rem 3rem;
       background: transparent;
-      transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
       border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
     }
     nav.scrolled {
       background: rgba(8,12,18,0.92);
-      backdrop-filter: blur(16px);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      padding: 1rem 3rem;
       border-bottom-color: var(--border);
     }
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.15rem;
-      color: var(--text); text-decoration: none; letter-spacing: -0.01em;
-    }
+    .nav-logo { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--text); text-decoration: none; letter-spacing: -0.01em; }
     .nav-logo .dot { color: var(--accent); }
-    .nav-links { display: flex; gap: 2.5rem; list-style: none; align-items: center; }
-    .nav-links a {
-      font-family: 'Outfit', sans-serif; font-size: 0.8rem;
-      font-variant: small-caps; letter-spacing: 0.1em;
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a { font-family: 'Outfit', sans-serif; font-size: 0.75rem; font-variant: small-caps; letter-spacing: 0.14em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--text); }
 
@@ -83,37 +81,26 @@
       background: transparent; text-decoration: none;
       position: relative; overflow: hidden; transition: color 0.3s; cursor: pointer;
     }
-    .btn-outline::before {
-      content: ''; position: absolute; inset: 0;
-      background: var(--accent); transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0;
-    }
+    .btn-outline::before { content: ''; position: absolute; inset: 0; background: var(--accent); transform: translateX(-101%); transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); z-index: 0; }
     .btn-outline:hover::before { transform: translateX(0); }
     .btn-outline:hover { color: #080C12; }
     .btn-outline > span, .btn-outline > svg { position: relative; z-index: 1; }
 
-    .hamburger {
-      display: none; flex-direction: column; gap: 5px; cursor: pointer;
-      background: none; border: none; padding: 4px; z-index: 210;
-    }
-    .hamburger span { display: block; width: 24px; height: 2px; background: var(--text); transition: all 0.3s ease; }
-    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s ease; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
 
     .nav-overlay {
-      display: none; position: fixed; inset: 0; z-index: 190;
-      background: rgba(8,12,18,0.97);
-      flex-direction: column; align-items: center; justify-content: center; gap: 2.5rem;
+      position: fixed; inset: 0; background: var(--bg); z-index: 190;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.75rem;
+      opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
     }
-    .nav-overlay.open { display: flex; }
-    .nav-overlay a {
-      font-family: 'Outfit', sans-serif; font-size: 1.1rem;
-      font-variant: small-caps; letter-spacing: 0.12em;
-      color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
+    .nav-overlay.open { opacity: 1; pointer-events: all; }
+    .nav-overlay a { font-family: 'Space Grotesk', sans-serif; font-size: 2rem; font-weight: 600; letter-spacing: -0.025em; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-overlay a:hover { color: var(--text); }
-    .nav-overlay a.active { color: var(--text); }
+    .nav-overlay .overlay-cta { color: var(--accent) !important; }
 
     /* ===== PAGE HEADER ===== */
     @keyframes slideUp {
@@ -302,9 +289,10 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .hamburger { display: flex; }
+      nav { padding: 1.25rem 1.5rem; }
+      nav.scrolled { padding: 0.9rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
       .page-header { padding: 7rem 1.5rem 3rem; }
       .steps-section { padding: 0 1.5rem 4rem; }
       .step-row { grid-template-columns: 1fr; gap: 0.5rem; }
@@ -322,46 +310,50 @@
 <body>
 
 <!-- NAV -->
-<nav id="mainNav">
-  <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
+<nav role="navigation" aria-label="Main navigation" id="nav">
+  <a class="nav-logo" href="/">R&amp;GD<span class="dot">.</span></a>
   <ul class="nav-links">
     <li><a href="/services">Services</a></li>
     <li><a href="/how-it-works" class="active">How it works</a></li>
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
     <li><a href="/portfolio">Portfolio</a></li>
-    <li><a href="/contact" class="btn-outline"><span>Get in touch</span></a></li>
   </ul>
-  <button class="hamburger" id="hamburger" aria-label="Open menu">
+  <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
 </nav>
 
 <!-- MOBILE OVERLAY -->
-<div class="nav-overlay" id="navOverlay">
+<div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="Navigation menu">
   <a href="/services">Services</a>
-  <a href="/how-it-works" class="active">How it works</a>
+  <a href="/how-it-works">How it works</a>
   <a href="/pricing">Pricing</a>
   <a href="/about">About</a>
   <a href="/portfolio">Portfolio</a>
-  <a href="/contact">Contact</a>
+  <a href="/contact" class="overlay-cta">Get in touch</a>
 </div>
 
 <!-- PAGE HEADER -->
 <header class="page-header">
   <span class="eyebrow">The process</span>
   <h1>Simple from start<br><span class="muted-line">to finish.</span></h1>
-  <p>No complicated onboarding, no project management software, no jargon. Just a straightforward process that gets your business online.</p>
+  <p>No complicated setup, no software to learn, no confusing back-and-forth. Just a straightforward process that gets your business online.</p>
 </header>
 
-<!-- STEPS SECTION -->
+<!-- STEPS CALLOUT -->
 <section class="steps-section">
+
+  <div style="background:rgba(62,207,207,0.04);border:1px solid rgba(62,207,207,0.18);padding:1.5rem 2rem;margin-bottom:2rem;font-family:'Outfit',sans-serif;font-size:0.95rem;color:var(--muted);line-height:1.8;">
+    Most businesses in your area still do not have a proper website. The ones that do get more calls, more walk-ins, and more customers. You do not need to know anything about how websites work. That is exactly what we are here for.
+  </div>
 
   <div class="step-row reveal">
     <div class="step-number">01</div>
     <div class="step-content">
       <h2 class="step-title">We have a conversation</h2>
-      <p class="step-desc">Tell us about your business — what you do, who your customers are, and what you want your site to achieve. We ask the right questions so nothing important gets missed. No forms, no jargon. Just a chat.</p>
+      <p class="step-desc">You tell us about your business, what you do, who your customers are, and what matters to you. We ask the right questions. No forms, no tech speak. Just a normal conversation.</p>
       <span class="step-tag">No commitment required</span>
     </div>
   </div>
@@ -370,7 +362,7 @@
     <div class="step-number">02</div>
     <div class="step-content">
       <h2 class="step-title">We design it around you</h2>
-      <p class="step-desc">We build a custom design based on your business — your industry, your customers, your tone. You'll see it before a single line of code is written and have full say on every detail until it's right.</p>
+      <p class="step-desc">We put together a custom design built around your business specifically. You see it before we build anything and we adjust it until it feels right. You are always in control.</p>
       <span class="step-tag">Custom design, no templates</span>
     </div>
   </div>
@@ -379,7 +371,7 @@
     <div class="step-number">03</div>
     <div class="step-content">
       <h2 class="step-title">We build and launch</h2>
-      <p class="step-desc">Once you're happy with the design, we build the full site — mobile responsive, fast-loading, and set up correctly with SEO basics and Google Analytics from day one. You review it, we make any final tweaks, then it goes live.</p>
+      <p class="step-desc">Once you are happy, we build it and get it live. It will show up on Google, look great on any phone, and load fast.</p>
       <span class="step-tag">Ready to launch</span>
     </div>
   </div>
@@ -388,8 +380,8 @@
     <div class="step-number">04</div>
     <div class="step-content">
       <h2 class="step-title">We stick around</h2>
-      <p class="step-desc">Your site is live — but we don't disappear. Questions, small changes, or ongoing monthly maintenance — we're a message away. You email us, we answer. No support tickets, no waiting on hold.</p>
-      <span class="step-tag">Optional monthly maintenance</span>
+      <p class="step-desc">We do not disappear after launch. Questions, small changes, or ongoing monthly support, we are just a message away. You email us, we answer.</p>
+      <span class="step-tag">Optional monthly support</span>
     </div>
   </div>
 
@@ -403,7 +395,7 @@
     <div class="commitment-item reveal">
       <span class="commit-num">01</span>
       <h3 class="commit-title">Direct communication</h3>
-      <p class="commit-desc">You speak to Connor or Quinn directly — at every stage. No middlemen, no miscommunication.</p>
+      <p class="commit-desc">You speak to Connor or Quinn directly at every stage. No middlemen, no miscommunication.</p>
     </div>
     <div class="commitment-item reveal reveal-d1">
       <span class="commit-num">02</span>
@@ -467,23 +459,25 @@
 
 <script>
   // Nav scroll
-  const nav = document.getElementById('mainNav');
+  const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 30);
   }, { passive: true });
 
   // Hamburger
   const hamburger = document.getElementById('hamburger');
-  const navOverlay = document.getElementById('navOverlay');
+  const overlay = document.getElementById('nav-overlay');
   hamburger.addEventListener('click', () => {
     const open = hamburger.classList.toggle('open');
-    navOverlay.classList.toggle('open', open);
+    overlay.classList.toggle('open', open);
+    hamburger.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  navOverlay.querySelectorAll('a').forEach(a => {
+  overlay.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => {
       hamburger.classList.remove('open');
-      navOverlay.classList.remove('open');
+      overlay.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
       document.body.style.overflow = '';
     });
   });
