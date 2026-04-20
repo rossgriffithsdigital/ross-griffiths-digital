@@ -291,6 +291,112 @@
     .form-status.success { background: rgba(62,207,207,0.1); border: 1px solid rgba(62,207,207,0.3); color: var(--accent); display: block; }
     .form-status.error { background: rgba(255,80,80,0.08); border: 1px solid rgba(255,80,80,0.25); color: #ff8080; display: block; }
 
+    /* ===== SERVICE CARDS ===== */
+    .service-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-top: 0.1rem;
+    }
+    .service-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      padding: 1rem 1rem 0.85rem;
+      background: var(--navy);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      text-align: left;
+      cursor: pointer;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .service-card:hover { border-color: rgba(62,207,207,0.35); }
+    .service-card.selected { border-color: var(--accent); background: rgba(62,207,207,0.05); }
+    .service-card-check {
+      position: absolute;
+      top: 0.75rem; right: 0.75rem;
+      width: 18px; height: 18px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex; align-items: center; justify-content: center;
+      color: transparent;
+      background: transparent;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+    .service-card.selected .service-card-check {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: #080C12;
+    }
+    .service-card-body {
+      display: flex;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      padding-right: 1.5rem;
+    }
+    .service-card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 600;
+      font-size: 0.92rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .service-card-price {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+    .service-card-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .service-card-explore .service-card-price { color: var(--muted); }
+
+    .package-summary {
+      margin-top: 0.75rem;
+      padding: 1rem 1.25rem;
+      background: rgba(62,207,207,0.05);
+      border: 1px solid rgba(62,207,207,0.25);
+      border-left: 2px solid var(--accent);
+    }
+    .package-summary-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .package-summary-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .package-summary-list li {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .package-summary-list li::before {
+      content: '—';
+      color: var(--accent);
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 560px) {
+      .service-cards { grid-template-columns: 1fr; }
+    }
+
     /* ===== FOOTER ===== */
     footer {
       background: var(--navy);
@@ -467,14 +573,46 @@
           <input type="email" id="email" name="email" placeholder="jane@example.com" required>
         </div>
         <div class="form-field full">
-          <label for="service">What are you looking for?</label>
-          <select id="service" name="service">
-            <option value="">Select a service…</option>
-            <option value="Website Build ($800 CAD)">Website Build ($800 CAD)</option>
-            <option value="Website Build + Maintenance">Website Build + Maintenance</option>
-            <option value="Maintenance only (existing site)">Maintenance only (existing site)</option>
-            <option value="Not sure yet — just exploring">Not sure yet — just exploring</option>
-          </select>
+          <label>What are you looking for?</label>
+          <div class="service-cards" id="serviceCards">
+            <button type="button" class="service-card" data-value="Website Build ($999 CAD)" data-price="$999 CAD">
+              <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="service-card-body">
+                <span class="service-card-name">Website Build</span>
+                <span class="service-card-price">$999 CAD</span>
+              </div>
+              <span class="service-card-desc">Custom site built from scratch — up to 5 pages, contact form, SEO, analytics.</span>
+            </button>
+            <button type="button" class="service-card" data-value="Monthly Support ($50–$150/month)" data-price="from $50/mo">
+              <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="service-card-body">
+                <span class="service-card-name">Monthly Support</span>
+                <span class="service-card-price">from $50/mo</span>
+              </div>
+              <span class="service-card-desc">Security updates, backups, uptime monitoring, and priority support. Optional add-on.</span>
+            </button>
+            <button type="button" class="service-card" data-value="Business Card Design + Print ($50–$150 CAD)" data-price="$50–$150 CAD">
+              <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="service-card-body">
+                <span class="service-card-name">Business Cards</span>
+                <span class="service-card-price">$50–$150 CAD</span>
+              </div>
+              <span class="service-card-desc">Design + print with a QR code linked to your site. Delivered to your door.</span>
+            </button>
+            <button type="button" class="service-card service-card-explore" data-value="Not sure yet — just exploring" data-price="">
+              <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              <div class="service-card-body">
+                <span class="service-card-name">Not sure yet</span>
+                <span class="service-card-price">Just exploring</span>
+              </div>
+              <span class="service-card-desc">No problem — tell us what you're thinking and we'll figure it out together.</span>
+            </button>
+          </div>
+          <input type="hidden" id="service" name="service">
+          <div class="package-summary" id="packageSummary" style="display:none;">
+            <p class="package-summary-label">Your package</p>
+            <ul class="package-summary-list" id="packageList"></ul>
+          </div>
         </div>
         <div class="form-field full">
           <label for="message">Tell us more</label>
@@ -563,6 +701,50 @@
     });
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Service card package builder
+  const serviceCards = document.querySelectorAll('.service-card');
+  const serviceInput = document.getElementById('service');
+  const packageSummary = document.getElementById('packageSummary');
+  const packageList = document.getElementById('packageList');
+  const exploreCard = document.querySelector('.service-card-explore');
+
+  function updatePackage() {
+    const selected = [...document.querySelectorAll('.service-card.selected')];
+    packageList.innerHTML = '';
+    if (selected.length === 0) {
+      packageSummary.style.display = 'none';
+      serviceInput.value = '';
+      return;
+    }
+    packageSummary.style.display = 'block';
+    selected.forEach(card => {
+      const li = document.createElement('li');
+      const name = card.querySelector('.service-card-name').textContent;
+      const price = card.querySelector('.service-card-price').textContent;
+      li.textContent = price ? name + ' — ' + price : name;
+      packageList.appendChild(li);
+    });
+    serviceInput.value = selected.map(c => c.dataset.value).join(', ');
+  }
+
+  serviceCards.forEach(card => {
+    card.addEventListener('click', () => {
+      const isExplore = card.classList.contains('service-card-explore');
+      const wasSelected = card.classList.contains('selected');
+
+      if (isExplore) {
+        // Exploring is mutually exclusive with real services
+        serviceCards.forEach(c => c.classList.remove('selected'));
+        if (!wasSelected) card.classList.add('selected');
+      } else {
+        // Deselect "exploring" if a real service is picked
+        exploreCard.classList.remove('selected');
+        card.classList.toggle('selected');
+      }
+      updatePackage();
+    });
+  });
 
   // Form submission
   const form = document.getElementById('contactForm');
