@@ -505,7 +505,7 @@
     /* icon + glow */
     .success-icon-wrap {
       position: relative;
-      width: 80px; height: 80px;
+      width: 96px; height: 96px;
       flex-shrink: 0;
       margin-bottom: 1.75rem;
     }
@@ -541,13 +541,13 @@
     /* SVG draw-on */
     .success-check { overflow: visible; }
     .success-check .check-circle {
-      stroke-dasharray: 170;
-      stroke-dashoffset: 170;
+      stroke-dasharray: 226;
+      stroke-dashoffset: 226;
       transition: stroke-dashoffset 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s;
     }
     .success-check .check-mark {
-      stroke-dasharray: 34;
-      stroke-dashoffset: 34;
+      stroke-dasharray: 44;
+      stroke-dashoffset: 44;
       transition: stroke-dashoffset 0.4s cubic-bezier(0.16,1,0.3,1) 0.8s;
     }
     #form-success.visible .success-check .check-circle { stroke-dashoffset: 0; }
@@ -640,10 +640,28 @@
       color: var(--muted);
       opacity: 0;
       transition: opacity 0.4s ease 1.35s;
+      margin-bottom: 2rem;
     }
     .success-email a { color: var(--accent); text-decoration: none; }
     .success-email a:hover { text-decoration: underline; text-underline-offset: 3px; }
     #form-success.visible .success-email { opacity: 1; }
+
+    /* back link */
+    .success-back {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      opacity: 0;
+      transition: opacity 0.4s ease 1.5s, color 0.2s;
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
+    .success-back:hover { color: var(--text); }
+    #form-success.visible .success-back { opacity: 1; }
 
     @media (max-width: 768px) {
       nav { padding: 1.25rem 1.5rem; }
@@ -736,7 +754,7 @@
     </div>
 
     <div class="response-note">
-      We reply fast. Send us a message during our available hours (every day, 7–9pm EST) and you'll typically hear back within the hour. Outside of those hours, we'll pick it up the following evening — no waiting around.
+      We reply fast. Send us a message during our available hours (every day, 7am–9pm EST) and you'll typically hear back within the hour. Outside of those hours, we'll pick it up the following evening — no waiting around.
     </div>
   </section>
 
@@ -838,37 +856,39 @@
 
     <div id="form-success" style="display:none;">
       <div class="success-icon-wrap">
-        <svg class="success-check" width="80" height="80" viewBox="0 0 80 80" fill="none" aria-hidden="true">
-          <circle class="check-circle" cx="40" cy="40" r="30" stroke="#3ECFCF" stroke-width="1.5"/>
-          <path class="check-mark" d="M25 40.5l11 11 19-23" stroke="#3ECFCF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="success-check" width="96" height="96" viewBox="0 0 96 96" fill="none" aria-hidden="true">
+          <circle class="check-circle-fill" cx="48" cy="48" r="36" fill="rgba(62,207,207,0.08)"/>
+          <circle class="check-circle" cx="48" cy="48" r="36" stroke="#3ECFCF" stroke-width="2"/>
+          <path class="check-mark" d="M30 49l13 13 23-27" stroke="#3ECFCF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </div>
       <h2 class="success-heading">We've got your message.</h2>
-      <p class="success-sub">You'll hear from Connor or Quinn during our next available hours — every day, 7–9pm EST.</p>
+      <p class="success-sub">You'll hear from Connor or Quinn during our next available hours — every day, 7am–9pm EST.</p>
 
       <div class="success-steps">
         <p class="success-steps-label">What happens next</p>
         <div class="success-step">
           <span class="step-num">1</span>
           <p class="step-text">We review your message
-            <span>Usually within the hour during 7–9pm EST</span>
+            <span>Usually within the hour during 7am–9pm EST</span>
           </p>
         </div>
         <div class="success-step">
           <span class="step-num">2</span>
-          <p class="step-text">We send a personal reply
-            <span>No templates — just a real response from Connor or Quinn</span>
+          <p class="step-text">We do market research on your business
+            <span>We look into your industry and competitors before we reply</span>
           </p>
         </div>
         <div class="success-step">
           <span class="step-num">3</span>
-          <p class="step-text">We kick off a free discovery call
-            <span>30 minutes to scope your project and answer any questions</span>
+          <p class="step-text">We email you to book an in-person consult
+            <span>A free face-to-face to scope your project properly</span>
           </p>
         </div>
       </div>
 
       <p class="success-email">Or reach us directly at <a href="mailto:cq@rossgriffithsdigital.com">cq@rossgriffithsdigital.com</a></p>
+      <button class="success-back" id="successBack">← Back to the website</button>
     </div>
   </section>
 
@@ -1007,6 +1027,11 @@
   const btn = document.getElementById('submitBtn');
   const status = document.getElementById('formStatus');
   const formSuccess = document.getElementById('form-success');
+  document.getElementById('successBack').addEventListener('click', () => {
+    formSuccess.style.transition = 'opacity 0.4s ease';
+    formSuccess.style.opacity = '0';
+    setTimeout(() => { formSuccess.style.display = 'none'; document.body.style.overflow = ''; }, 400);
+  });
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
     btn.disabled = true; btn.textContent = 'Sending…';
