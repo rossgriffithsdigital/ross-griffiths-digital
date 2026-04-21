@@ -792,6 +792,19 @@
     });
   });
 
+  // Pre-select card from URL ?plan= param
+  (function() {
+    const planMap = { 'website': 'Website Build', 'monthly-support': 'Monthly Support', 'business-cards': 'Business Cards' };
+    const plan = new URLSearchParams(location.search).get('plan');
+    const label = planMap[plan];
+    if (!label) return;
+    const match = [...serviceCards].find(c => c.querySelector('.service-card-name').textContent === label);
+    if (!match) return;
+    exploreCard.classList.remove('selected');
+    match.classList.add('selected');
+    updatePackage();
+  })();
+
   // Form submission
   const form = document.getElementById('contactForm');
   const btn = document.getElementById('submitBtn');
