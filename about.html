@@ -534,6 +534,45 @@
 
     .footer-privacy:hover { color: var(--text); }
 
+    /* ── Team card hover ─────────────────────────────────────────── */
+    .team-card {
+      transition: border-color 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .team-card:hover {
+      border-color: rgba(62,207,207,0.4);
+      box-shadow: 0 0 40px rgba(62,207,207,0.1);
+    }
+    .team-initial {
+      transition: color 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.35s cubic-bezier(0.16,1,0.3,1);
+    }
+    .team-card:hover .team-initial {
+      color: #3ECFCF;
+      opacity: 1;
+    }
+
+    /* ── Value row alternating slides ────────────────────────────── */
+    .value-row.reveal { transform: translateX(-40px); }
+    .value-row.reveal:nth-child(even) { transform: translateX(40px); }
+    .value-row.reveal.visible { transform: translateX(0); }
+
+    /* ── Hero word entrance ──────────────────────────────────────── */
+    @keyframes wordIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      animation: wordIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     /* ── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 900px) {
       .story-grid { grid-template-columns: 1fr; gap: 3.5rem; }
@@ -766,6 +805,42 @@
     }, { threshold: 0.12 });
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Word-by-word entrance on page-h1
+  (function() {
+    var h1 = document.querySelector('.page-h1');
+    if (!h1) return;
+    var delay = 0.2;
+    var newNodes = [];
+    h1.childNodes.forEach(function(node) {
+      if (node.nodeType === 3) {
+        var words = node.textContent.trim().split(/\s+/).filter(Boolean);
+        words.forEach(function(w, i) {
+          var span = document.createElement('span');
+          span.className = 'hero-word';
+          span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+          span.style.animationDelay = delay + 's';
+          delay += 0.08;
+          newNodes.push(span);
+        });
+      } else if (node.nodeType === 1) {
+        var lineSpan = document.createElement('span');
+        lineSpan.className = node.className;
+        var words = node.textContent.trim().split(/\s+/).filter(Boolean);
+        words.forEach(function(w, i) {
+          var span = document.createElement('span');
+          span.className = 'hero-word';
+          span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
+          span.style.animationDelay = delay + 's';
+          delay += 0.08;
+          lineSpan.appendChild(span);
+        });
+        newNodes.push(lineSpan);
+      }
+    });
+    h1.innerHTML = '';
+    newNodes.forEach(function(n) { h1.appendChild(n); });
+  })();
   </script>
 
 </body>

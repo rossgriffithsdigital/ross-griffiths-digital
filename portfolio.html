@@ -227,6 +227,66 @@
     .reveal-d1 { transition-delay: 0.1s; }
     .reveal-d2 { transition-delay: 0.2s; }
 
+    /* ===== PLACEHOLDER CARDS ===== */
+    .ph-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .ph-card {
+      background: #0D1520;
+      border: 1px solid rgba(62,207,207,0.1);
+      border-radius: 4px;
+      height: 300px;
+      position: relative;
+      overflow: hidden;
+    }
+    .ph-card-inner {
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    @keyframes shimmer {
+      0%   { transform: translateX(-100%); }
+      100% { transform: translateX(200%); }
+    }
+    .ph-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(62,207,207,0.04) 50%, transparent 100%);
+      animation: shimmer 2.5s ease-in-out infinite;
+      z-index: 1;
+    }
+    .ph-badge {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.6rem;
+      font-variant: small-caps;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+      border: 1px solid rgba(62,207,207,0.25);
+      padding: 0.25rem 0.6rem;
+      z-index: 2;
+    }
+    .ph-caption {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+      opacity: 0.65;
+    }
+    .empty-inner.wide { max-width: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       nav { padding: 1.25rem 1.5rem; }
@@ -242,6 +302,7 @@
       footer { padding: 3rem 1.5rem 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .ph-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -283,10 +344,22 @@
 <!-- EMPTY STATE SECTION -->
 <section class="empty-section">
   <div class="empty-rule"></div>
-  <div class="empty-inner reveal">
-    <p class="empty-headline">We haven't launched a client site yet.</p>
-    <p class="empty-sub">That means whoever comes on board first is going to get our full attention and our best work — two people genuinely invested in making it great from day one.</p>
-    <a href="/contact" class="btn-outline"><span>Be our first client</span></a>
+  <div class="empty-inner wide">
+    <div class="ph-grid">
+      <div class="ph-card reveal">
+        <div class="ph-card-inner"></div>
+        <span class="ph-badge">In progress</span>
+      </div>
+      <div class="ph-card reveal reveal-d1">
+        <div class="ph-card-inner"></div>
+        <span class="ph-badge">In progress</span>
+      </div>
+      <div class="ph-card reveal reveal-d2">
+        <div class="ph-card-inner"></div>
+        <span class="ph-badge">In progress</span>
+      </div>
+    </div>
+    <p class="ph-caption">First builds launching soon.</p>
   </div>
 </section>
 

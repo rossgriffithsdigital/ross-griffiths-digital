@@ -317,6 +317,26 @@
       flex-shrink: 0;
     }
 
+    /* ── SVG icon draw-on ────────────────────────────────────────── */
+    .svc-icon {
+      display: block;
+      margin-bottom: 0.6rem;
+    }
+    .svc-icon path,
+    .svc-icon circle,
+    .svc-icon line,
+    .svc-icon polyline {
+      stroke-dasharray: 100;
+      stroke-dashoffset: 100;
+      transition: stroke-dashoffset 0.8s ease;
+    }
+    .service-row.visible .svc-icon path,
+    .service-row.visible .svc-icon circle,
+    .service-row.visible .svc-icon line,
+    .service-row.visible .svc-icon polyline {
+      stroke-dashoffset: 0;
+    }
+
     .service-body {}
 
     .service-title {
@@ -601,6 +621,13 @@
     @media (max-width: 480px) {
       .cta-actions { flex-direction: column; gap: 1.25rem; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -652,6 +679,7 @@
         <div class="service-row reveal" style="transition-delay: 0.1s;">
           <span class="item-accent"></span>
           <div class="service-body">
+            <svg class="svc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M16 3l5 5L8 21H3v-5L16 3z" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="service-title">Custom Design</div>
             <div class="service-desc">We design your site around your business: your colours, your tone, your customers. Not a template with your logo swapped in.</div>
           </div>
@@ -660,6 +688,7 @@
         <div class="service-row reveal" style="transition-delay: 0.15s;">
           <span class="item-accent"></span>
           <div class="service-body">
+            <svg class="svc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 15h10" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="service-title">Looks great on any phone or tablet</div>
             <div class="service-desc">Your site looks and works great on any device. Most of your customers are on mobile, so we build for that first, always.</div>
           </div>
@@ -668,6 +697,7 @@
         <div class="service-row reveal" style="transition-delay: 0.2s;">
           <span class="item-accent"></span>
           <div class="service-body">
+            <svg class="svc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7L13 2z" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="service-title">Fast Load Times</div>
             <div class="service-desc">Clean, efficient code means your pages load fast. Slow sites lose visitors before they even read a word. We don't build slow sites.</div>
           </div>
@@ -676,6 +706,7 @@
         <div class="service-row reveal" style="transition-delay: 0.25s;">
           <span class="item-accent"></span>
           <div class="service-body">
+            <svg class="svc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 7h18v13H3V7zm0 0l9 7 9-7" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="service-title">Contact Form</div>
             <div class="service-desc">Enquiries from your site route straight to your inbox. Simple to use and reliable from day one.</div>
           </div>
@@ -684,6 +715,7 @@
         <div class="service-row reveal" style="transition-delay: 0.3s;">
           <span class="item-accent"></span>
           <div class="service-body">
+            <svg class="svc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M10 3a7 7 0 1 0 0 14A7 7 0 0 0 10 3zM21 21l-5-5" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             <div class="service-title">Shows up on Google</div>
             <div class="service-desc">Page titles, descriptions, heading structure, image tags. All set up correctly so Google can find and rank your site from day one.</div>
           </div>
@@ -692,6 +724,7 @@
         <div class="service-row reveal" style="transition-delay: 0.35s;">
           <span class="item-accent"></span>
           <div class="service-body">
+            <svg class="svc-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 20V9M12 20V4M20 20v-7" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round"/></svg>
             <div class="service-title">See how many people visit your site</div>
             <div class="service-desc">Know how many people visit your site, where they come from, and what they look at. Real data so you can make real decisions.</div>
           </div>

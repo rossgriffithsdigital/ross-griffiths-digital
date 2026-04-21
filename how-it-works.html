@@ -287,6 +287,49 @@
     .reveal-d2 { transition-delay: 0.2s; }
     .reveal-d3 { transition-delay: 0.3s; }
 
+    /* ===== TIMELINE ===== */
+    .steps-timeline {
+      position: relative;
+      padding-left: 1.75rem;
+    }
+    .tl-track {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 2px;
+      background: rgba(62,207,207,0.15);
+    }
+    .tl-progress {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 0%;
+      background: var(--accent);
+      transition: height 0.08s linear;
+    }
+    .steps-timeline .step-row::after {
+      content: '';
+      position: absolute;
+      left: calc(-1.75rem - 4px);
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #3ECFCF;
+      opacity: 0.2;
+      transition: opacity 0.5s ease, box-shadow 0.5s ease;
+      z-index: 2;
+    }
+    .steps-timeline .step-row.visible::after {
+      opacity: 1;
+      box-shadow: 0 0 12px rgba(62,207,207,0.6);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
     /* ===== RESPONSIVE ===== */
     @media (max-width: 768px) {
       nav { padding: 1.25rem 1.5rem; }
@@ -297,6 +340,8 @@
       .steps-section { padding: 0 1.5rem 4rem; }
       .step-row { grid-template-columns: 1fr; gap: 0.5rem; }
       .step-number { font-size: 3rem; }
+      .steps-timeline { padding-left: 1rem; }
+      .steps-timeline .step-row::after { left: calc(-1rem - 4px); }
       .commitment-section { padding: 4rem 1.5rem; }
       .commitment-grid { grid-template-columns: 1fr; }
       .commitment-item { border-right: none !important; border-top: 1px solid var(--border); padding: 1.75rem 0 !important; }
@@ -349,6 +394,9 @@
     Most businesses in your area still do not have a proper website. The ones that do get more calls, more walk-ins, and more customers. You do not need to know anything about how websites work. That is exactly what we are here for.
   </div>
 
+  <div class="steps-timeline" id="steps-wrapper">
+    <div class="tl-track"><div class="tl-progress" id="tl-progress"></div></div>
+
   <div class="step-row reveal">
     <div class="step-number">01</div>
     <div class="step-content">
@@ -383,6 +431,8 @@
       <p class="step-desc">We do not disappear after launch. Questions, small changes, or ongoing monthly support, we are just a message away. You email us, we answer.</p>
       <span class="step-tag">Optional monthly support</span>
     </div>
+  </div>
+
   </div>
 
 </section>
@@ -492,6 +542,19 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Timeline scroll progress
+  const stepsWrapper = document.getElementById('steps-wrapper');
+  const tlProgress = document.getElementById('tl-progress');
+  function updateTimeline() {
+    if (!stepsWrapper || !tlProgress) return;
+    const rect = stepsWrapper.getBoundingClientRect();
+    const progress = Math.max(0, Math.min(1, (window.innerHeight * 0.85 - rect.top) / rect.height));
+    tlProgress.style.height = (progress * 100) + '%';
+  }
+  window.addEventListener('scroll', updateTimeline, { passive: true });
+  window.addEventListener('resize', updateTimeline, { passive: true });
+  updateTimeline();
 </script>
 
 </body>
