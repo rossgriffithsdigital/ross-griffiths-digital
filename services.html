@@ -300,20 +300,21 @@
 
     .service-row {
       display: grid;
-      grid-template-columns: 5rem 1fr;
+      grid-template-columns: auto 1fr;
       gap: 2rem;
-      align-items: baseline;
+      align-items: start;
       padding: 2.25rem 0;
       border-bottom: 1px solid var(--border);
     }
 
-    .service-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1rem;
-      font-weight: 700;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      opacity: 0.7;
+    .item-accent {
+      display: block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.3;
+      margin-top: 0.65rem;
+      flex-shrink: 0;
     }
 
     .service-body {}
@@ -379,17 +380,6 @@
 
     .why-row.visible {
       border-left-color: var(--accent);
-    }
-
-    .why-row-num {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.65rem;
-      font-variant: small-caps;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      opacity: 0.6;
-      margin-bottom: 0.5rem;
-      display: block;
     }
 
     .why-row-title {
@@ -605,7 +595,7 @@
       footer { padding: 3rem 1.5rem 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
 
-      .service-row { grid-template-columns: 3.5rem 1fr; gap: 1rem; padding: 1.75rem 0; }
+      .service-row { gap: 1rem; padding: 1.75rem 0; }
     }
 
     @media (max-width: 480px) {
@@ -660,7 +650,7 @@
       <div class="service-rows">
 
         <div class="service-row reveal" style="transition-delay: 0.1s;">
-          <span class="service-num">01</span>
+          <span class="item-accent"></span>
           <div class="service-body">
             <div class="service-title">Custom Design</div>
             <div class="service-desc">We design your site around your business: your colours, your tone, your customers. Not a template with your logo swapped in.</div>
@@ -668,7 +658,7 @@
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.15s;">
-          <span class="service-num">02</span>
+          <span class="item-accent"></span>
           <div class="service-body">
             <div class="service-title">Looks great on any phone or tablet</div>
             <div class="service-desc">Your site looks and works great on any device. Most of your customers are on mobile, so we build for that first, always.</div>
@@ -676,7 +666,7 @@
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.2s;">
-          <span class="service-num">03</span>
+          <span class="item-accent"></span>
           <div class="service-body">
             <div class="service-title">Fast Load Times</div>
             <div class="service-desc">Clean, efficient code means your pages load fast. Slow sites lose visitors before they even read a word. We don't build slow sites.</div>
@@ -684,7 +674,7 @@
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.25s;">
-          <span class="service-num">04</span>
+          <span class="item-accent"></span>
           <div class="service-body">
             <div class="service-title">Contact Form</div>
             <div class="service-desc">Enquiries from your site route straight to your inbox. Simple to use and reliable from day one.</div>
@@ -692,7 +682,7 @@
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.3s;">
-          <span class="service-num">05</span>
+          <span class="item-accent"></span>
           <div class="service-body">
             <div class="service-title">Shows up on Google</div>
             <div class="service-desc">Page titles, descriptions, heading structure, image tags. All set up correctly so Google can find and rank your site from day one.</div>
@@ -700,7 +690,7 @@
         </div>
 
         <div class="service-row reveal" style="transition-delay: 0.35s;">
-          <span class="service-num">06</span>
+          <span class="item-accent"></span>
           <div class="service-body">
             <div class="service-title">See how many people visit your site</div>
             <div class="service-desc">Know how many people visit your site, where they come from, and what they look at. Real data so you can make real decisions.</div>
@@ -735,25 +725,21 @@
         <div class="why-rows">
 
           <div class="why-row reveal" style="transition-delay: 0.1s;">
-            <span class="why-row-num">01</span>
             <div class="why-row-title">You deal with the owners</div>
             <div class="why-row-desc">No account managers. No support tickets routed through a call centre. When you email us, Connor or Quinn replies.</div>
           </div>
 
           <div class="why-row reveal" style="transition-delay: 0.17s;">
-            <span class="why-row-num">02</span>
             <div class="why-row-title">We care about community</div>
             <div class="why-row-desc">We're rooted in Northumberland County, but we work with businesses everywhere. We understand what it takes to stand out online, wherever your customers are.</div>
           </div>
 
           <div class="why-row reveal" style="transition-delay: 0.24s;">
-            <span class="why-row-num">03</span>
             <div class="why-row-title">No templates, ever</div>
             <div class="why-row-desc">Every site we build is designed from scratch. Your business is unique, and your website should be too.</div>
           </div>
 
           <div class="why-row reveal" style="transition-delay: 0.31s;">
-            <span class="why-row-num">04</span>
             <div class="why-row-title">No lock-in</div>
             <div class="why-row-desc">You own your site outright. If you add maintenance, cancel any time with 30 days notice.</div>
           </div>

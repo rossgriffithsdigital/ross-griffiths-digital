@@ -416,7 +416,7 @@
 
     .service-row {
       display: grid;
-      grid-template-columns: 5rem 1fr;
+      grid-template-columns: auto 1fr;
       gap: 1.5rem;
       align-items: start;
       padding: 2rem 0;
@@ -425,13 +425,14 @@
 
     .service-row:last-child { border-bottom: 1px solid var(--border); }
 
-    .service-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      letter-spacing: -0.03em;
+    .item-accent {
+      display: block;
+      width: 1.5rem;
+      height: 2px;
+      background: var(--accent);
+      opacity: 0.3;
+      margin-top: 0.65rem;
+      flex-shrink: 0;
     }
 
     .service-info h3 {
@@ -459,7 +460,7 @@
 
     .why-point {
       display: grid;
-      grid-template-columns: 5.5rem 1fr;
+      grid-template-columns: 1fr;
       gap: 1.5rem;
       align-items: start;
       padding: 2.5rem 0;
@@ -482,16 +483,6 @@
     }
 
     .why-point.visible::before { transform: scaleY(1); }
-
-    .why-num {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 3rem;
-      font-weight: 700;
-      color: var(--accent);
-      opacity: 0.14;
-      line-height: 1;
-      letter-spacing: -0.03em;
-    }
 
     .why-body { padding-top: 0.2rem; }
 
@@ -693,11 +684,9 @@
 
       .services-left p { max-width: 100%; }
 
-      .service-row { grid-template-columns: 3.5rem 1fr; gap: 1rem; }
-      .service-num { font-size: 2rem; }
+      .service-row { gap: 1rem; }
 
-      .why-point { grid-template-columns: 3.5rem 1fr; gap: 1rem; padding-left: 1rem; }
-      .why-num { font-size: 2.25rem; }
+      .why-point { gap: 0; padding-left: 1rem; }
       .why-divider { margin-left: 1rem; }
 
       .footer-grid {
@@ -785,21 +774,21 @@
 
       <div class="services-right">
         <div class="service-row reveal" style="transition-delay:0.1s">
-          <div class="service-num">01</div>
+          <span class="item-accent"></span>
           <div class="service-info">
             <h3>Website Design &amp; Build</h3>
             <p>Custom websites built from scratch, designed around your business, not a template library.</p>
           </div>
         </div>
         <div class="service-row reveal" style="transition-delay:0.2s">
-          <div class="service-num">02</div>
+          <span class="item-accent"></span>
           <div class="service-info">
             <h3>Monthly Support</h3>
             <p>Ongoing support to keep your site secure, up to date, and running without you having to think about it.</p>
           </div>
         </div>
         <div class="service-row reveal" style="transition-delay:0.3s">
-          <div class="service-num">03</div>
+          <span class="item-accent"></span>
           <div class="service-info">
             <h3>Shows up on Google</h3>
             <p>Every site we build is set up to be found. Structured correctly from day one so search engines can rank you.</p>
@@ -816,7 +805,6 @@
 
     <div>
       <div class="why-point reveal" style="transition-delay:0.1s">
-        <div class="why-num">01</div>
         <div class="why-body">
           <h3>We care about community</h3>
           <p>We started R&amp;GD because we watched great businesses in our community lose customers online, and we knew we could fix that. That same care drives every project, wherever you're based.</p>
@@ -825,7 +813,6 @@
       <div class="why-divider"></div>
 
       <div class="why-point reveal" style="transition-delay:0.2s">
-        <div class="why-num">02</div>
         <div class="why-body">
           <h3>You deal with us directly</h3>
           <p>No account managers, no support tickets. You email Connor or Quinn and get a reply. Fast.</p>
@@ -834,7 +821,6 @@
       <div class="why-divider"></div>
 
       <div class="why-point reveal" style="transition-delay:0.3s">
-        <div class="why-num">03</div>
         <div class="why-body">
           <h3>Unique every time</h3>
           <p>We don't touch templates. Every site is designed from scratch around your business and no one else's.</p>
@@ -843,7 +829,6 @@
       <div class="why-divider"></div>
 
       <div class="why-point reveal" style="transition-delay:0.4s">
-        <div class="why-num">04</div>
         <div class="why-body">
           <h3>No lock-in</h3>
           <p>You own your site outright. Cancel maintenance any time with 30 days notice.</p>
