@@ -135,12 +135,12 @@
       position: absolute;
       inset: 0;
       background: var(--accent);
-      transform: translateX(-101%);
+      transform: translateY(101%);
       transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
       z-index: 0;
     }
 
-    .btn-outline:hover::before { transform: translateX(0); }
+    .btn-outline:hover::before { transform: translateY(0); }
     .btn-outline:hover { color: #080C12; }
     .btn-outline > span { position: relative; z-index: 1; }
     .btn-outline > svg  { position: relative; z-index: 1; }
@@ -192,9 +192,23 @@
       color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
+      position: relative;
     }
 
     .nav-links a:hover { color: var(--text); }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: #3ECFCF;
+      transition: width 0.3s cubic-bezier(0.16,1,0.3,1);
+    }
+
+    .nav-links a:hover::after { width: 100%; }
 
     /* Hamburger */
     .nav-hamburger {
@@ -356,6 +370,15 @@
       transform: translateY(0);
     }
 
+    /* Staggered card reveals */
+    .service-row:nth-child(1) { transition-delay: 0.1s; }
+    .service-row:nth-child(2) { transition-delay: 0.2s; }
+    .service-row:nth-child(3) { transition-delay: 0.3s; }
+    .why-point:nth-child(1)   { transition-delay: 0.1s; }
+    .why-point:nth-child(3)   { transition-delay: 0.2s; }
+    .why-point:nth-child(5)   { transition-delay: 0.3s; }
+    .why-point:nth-child(7)   { transition-delay: 0.4s; }
+
     /* ── Section base ────────────────────────────────────────────── */
     .section-label {
       font-family: 'Outfit', sans-serif;
@@ -421,9 +444,16 @@
       align-items: start;
       padding: 2rem 0;
       border-top: 1px solid var(--border);
+      transition: opacity 0.7s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
     }
 
     .service-row:last-child { border-bottom: 1px solid var(--border); }
+
+    .service-row:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(62,207,207,0.08);
+      transition-delay: 0s;
+    }
 
     .item-accent {
       display: block;
@@ -453,7 +483,8 @@
     /* ── Why Us ──────────────────────────────────────────────────── */
     .why-us {
       padding: 7rem 6vw;
-      background: var(--navy);
+      background-color: var(--navy);
+      background-image: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(62,207,207,0.03), transparent);
     }
 
     .why-us .section-title { margin-bottom: 4rem; }
@@ -466,6 +497,13 @@
       padding: 2.5rem 0;
       position: relative;
       padding-left: 1.5rem;
+      transition: opacity 0.7s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s ease;
+    }
+
+    .why-point:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(62,207,207,0.08);
+      transition-delay: 0s;
     }
 
     /* Left accent border — animates in on scroll */
@@ -539,6 +577,7 @@
       padding: 7rem 6vw;
       background: var(--bg);
       text-align: center;
+      border-top: 1px solid rgba(62,207,207,0.12);
     }
 
     .cta-title {
@@ -705,6 +744,13 @@
     @media (max-width: 480px) {
       .hero-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
   </style>
 </head>
 
@@ -773,21 +819,21 @@
       </div>
 
       <div class="services-right">
-        <div class="service-row reveal" style="transition-delay:0.1s">
+        <div class="service-row reveal">
           <span class="item-accent"></span>
           <div class="service-info">
             <h3>Website Design &amp; Build</h3>
             <p>Custom websites built from scratch, designed around your business, not a template library.</p>
           </div>
         </div>
-        <div class="service-row reveal" style="transition-delay:0.2s">
+        <div class="service-row reveal">
           <span class="item-accent"></span>
           <div class="service-info">
             <h3>Monthly Support</h3>
             <p>Ongoing support to keep your site secure, up to date, and running without you having to think about it.</p>
           </div>
         </div>
-        <div class="service-row reveal" style="transition-delay:0.3s">
+        <div class="service-row reveal">
           <span class="item-accent"></span>
           <div class="service-info">
             <h3>Shows up on Google</h3>
@@ -804,7 +850,7 @@
     <h2 class="section-title reveal" style="transition-delay:0.1s">Built on trust,<br>rooted in community.</h2>
 
     <div>
-      <div class="why-point reveal" style="transition-delay:0.1s">
+      <div class="why-point reveal">
         <div class="why-body">
           <h3>We care about community</h3>
           <p>We started R&amp;GD because we watched great businesses in our community lose customers online, and we knew we could fix that. That same care drives every project, wherever you're based.</p>
@@ -812,7 +858,7 @@
       </div>
       <div class="why-divider"></div>
 
-      <div class="why-point reveal" style="transition-delay:0.2s">
+      <div class="why-point reveal">
         <div class="why-body">
           <h3>You deal with us directly</h3>
           <p>No account managers, no support tickets. You email Connor or Quinn and get a reply. Fast.</p>
@@ -820,7 +866,7 @@
       </div>
       <div class="why-divider"></div>
 
-      <div class="why-point reveal" style="transition-delay:0.3s">
+      <div class="why-point reveal">
         <div class="why-body">
           <h3>Unique every time</h3>
           <p>We don't touch templates. Every site is designed from scratch around your business and no one else's.</p>
@@ -828,7 +874,7 @@
       </div>
       <div class="why-divider"></div>
 
-      <div class="why-point reveal" style="transition-delay:0.4s">
+      <div class="why-point reveal">
         <div class="why-body">
           <h3>No lock-in</h3>
           <p>You own your site outright. Cancel maintenance any time with 30 days notice.</p>
