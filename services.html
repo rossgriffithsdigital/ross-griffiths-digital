@@ -333,133 +333,22 @@
       max-width: 640px;
     }
 
-    /* ── Section 2: Pricing ──────────────────────────────────────── */
-    .pricing {
+    /* ── Section 2: Pricing CTA ─────────────────────────────────── */
+    .pricing-cta {
       padding: 6rem 3rem;
       background: var(--navy);
+      text-align: center;
     }
 
-    .pricing-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
-    }
+    .pricing-cta .section-label { display: block; margin-bottom: 1rem; }
+    .pricing-cta .section-h2 { margin-bottom: 1rem; }
 
-    .pricing-card {
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      position: relative;
-      background: var(--bg);
-    }
-
-    .pricing-card.featured {
-      border-color: var(--accent);
-      background: rgba(62,207,207,0.03);
-    }
-
-    .pricing-badge {
-      display: inline-block;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.65rem;
-      font-variant: small-caps;
-      letter-spacing: 0.14em;
-      color: var(--accent);
-      border: 1px solid rgba(62,207,207,0.3);
-      padding: 0.25rem 0.65rem;
-      margin-bottom: 1.25rem;
-    }
-
-    .card-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
-
-    .card-desc {
-      font-size: 0.875rem;
+    .pricing-cta-sub {
+      font-size: 0.975rem;
       color: var(--muted);
-      margin-bottom: 2rem;
-      line-height: 1.6;
-    }
-
-    .card-price {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.4rem, 4vw, 3.2rem);
-      font-weight: 700;
-      color: var(--text);
-      letter-spacing: -0.03em;
-      line-height: 1;
-      margin-bottom: 0.4rem;
-    }
-
-    .card-price-label {
-      font-size: 0.78rem;
-      color: var(--muted);
-      letter-spacing: 0.04em;
-      margin-bottom: 2rem;
-      display: block;
-    }
-
-    .card-features {
-      list-style: none;
-      margin-bottom: 2.25rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .card-features li {
-      font-size: 0.875rem;
-      color: var(--muted);
-      display: flex;
-      align-items: flex-start;
-      gap: 0.65rem;
-      line-height: 1.5;
-    }
-
-    .card-features li::before {
-      content: '✓';
-      color: var(--accent);
-      font-size: 0.8rem;
-      flex-shrink: 0;
-      margin-top: 0.1rem;
-    }
-
-    .btn-filled {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.78rem;
-      font-variant: small-caps;
-      letter-spacing: 0.12em;
-      padding: 0.65rem 1.5rem;
-      color: #080C12;
-      border: 1px solid var(--accent);
-      background: var(--accent);
-      text-decoration: none;
-      cursor: pointer;
-      transition: background 0.25s ease, color 0.25s ease;
-    }
-
-    .btn-filled:hover {
-      background: transparent;
-      color: var(--accent);
-    }
-
-    .pricing-note {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-top: 1rem;
-    }
-
-    .pricing-note a {
-      color: var(--accent);
-      text-decoration: underline;
-      text-underline-offset: 2px;
+      max-width: 420px;
+      margin: 0 auto 2.5rem;
+      line-height: 1.75;
     }
 
     /* ── Section 3: Why R&GD ─────────────────────────────────────── */
@@ -699,7 +588,6 @@
 
     /* ── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; gap: 3rem; }
       .why-callout { position: static; }
       .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
@@ -712,7 +600,7 @@
       .nav-hamburger { display: flex; }
 
       .page-header { padding: 8rem 1.5rem 4rem; }
-      .included, .pricing, .why { padding: 4rem 1.5rem; }
+      .included, .pricing-cta, .why { padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
       footer { padding: 3rem 1.5rem 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -823,53 +711,15 @@
     </div>
   </section>
 
-  <!-- Section 2: Pricing -->
-  <section class="pricing">
+  <!-- Section 2: Pricing CTA -->
+  <section class="pricing-cta">
     <div class="section-inner">
       <span class="section-label reveal">Pricing</span>
-      <h2 class="section-h2 reveal" style="transition-delay: 0.08s;">Straightforward pricing. No surprises.</h2>
-
-      <div class="pricing-grid">
-
-        <!-- Left card: Website Build -->
-        <div class="pricing-card reveal" style="transition-delay: 0.1s;">
-          <div class="card-name">Website Build</div>
-          <div class="card-desc">A custom site built from scratch, tailored to your business.</div>
-          <div class="card-price">$999 CAD</div>
-          <span class="card-price-label">flat fee</span>
-          <ul class="card-features">
-            <li>Custom design, no templates</li>
-            <li>Up to 5 pages</li>
-            <li>Looks great on any phone or tablet</li>
-            <li>Contact form included</li>
-            <li>Shows up on Google</li>
-            <li>See how many people visit your site</li>
-            <li>You own it outright</li>
-          </ul>
-          <a href="/contact" class="btn-outline"><span>Get started</span></a>
-        </div>
-
-        <!-- Right card: Monthly Support (featured) -->
-        <div class="pricing-card featured reveal" style="transition-delay: 0.18s;">
-          <span class="pricing-badge">Optional add-on</span>
-          <div class="card-name">Monthly Support</div>
-          <div class="card-desc">Ongoing support so your site stays secure and up to date. Pricing varies based on your project.</div>
-          <div class="card-price">$50 CAD</div>
-          <span class="card-price-label">per month, up to $150 depending on scope</span>
-          <ul class="card-features">
-            <li>Monthly security updates</li>
-            <li>Regular backups</li>
-            <li>Uptime monitoring</li>
-            <li>Priority email support</li>
-            <li>Response within one business day</li>
-            <li>Cancel with 30 days notice</li>
-          </ul>
-          <a href="/contact" class="btn-filled"><span>Add to my build</span></a>
-        </div>
-
+      <h2 class="section-h2 reveal" style="transition-delay: 0.08s;">Simple, transparent pricing.</h2>
+      <p class="pricing-cta-sub reveal" style="transition-delay: 0.16s;">One flat build fee. One optional monthly plan. No surprises.</p>
+      <div class="reveal" style="transition-delay: 0.24s;">
+        <a href="/pricing" class="btn-outline"><span>See pricing →</span></a>
       </div>
-
-      <p class="pricing-note reveal" style="transition-delay: 0.24s;">Need more than 5 pages? <a href="/contact">Get in touch</a> and we'll work something out.</p>
     </div>
   </section>
 
