@@ -35,6 +35,7 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
     media="print" onload="this.media='all'">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&display=swap">
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
@@ -752,6 +753,360 @@
       }
     }
   </style>
+
+  <style>
+    /* ═══ Hero Browser Mockup (hbm-*) ══════════════════════════════ */
+    @keyframes hbm-float {
+      0%,100% { transform: perspective(900px) rotateY(-7deg) rotateX(2.5deg) translateY(0); }
+      50%      { transform: perspective(900px) rotateY(-7deg) rotateX(2.5deg) translateY(-12px); }
+    }
+    @keyframes hbm-candle-flicker {
+      0%,100% { transform: scaleX(1)   scaleY(1); }
+      25%     { transform: scaleX(.85) scaleY(1.1); }
+      50%     { transform: scaleX(1.1) scaleY(.9); }
+      75%     { transform: scaleX(.9)  scaleY(1.05); }
+    }
+    @keyframes hbm-steam {
+      0%   { opacity:0; transform: translateY(0) scaleX(1); }
+      30%  { opacity:.55; }
+      100% { opacity:0; transform: translateY(-18px) scaleX(1.4); }
+    }
+    @keyframes hbm-pulse-dot {
+      0%,100% { opacity:1; }
+      50%     { opacity:.3; }
+    }
+    @keyframes hbm-progress {
+      from { width:0% }
+      to   { width:100% }
+    }
+
+    .hbm-wrap {
+      position: absolute;
+      right: 6vw;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .65rem;
+      pointer-events: none;
+    }
+    .hbm-browser {
+      width: 440px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow:
+        0 0 0 1px rgba(62,207,207,.22),
+        0 0 35px rgba(62,207,207,.14),
+        0 0 80px rgba(62,207,207,.07),
+        0 24px 70px rgba(0,0,0,.65);
+      animation: hbm-float 7s ease-in-out infinite;
+    }
+    .hbm-chrome {
+      background: #1c1c1c;
+      height: 32px;
+      padding: 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .hbm-dots { display:flex; gap:5px; flex-shrink:0; }
+    .hbm-dot  { width:8px; height:8px; border-radius:50%; display:block; }
+    .hbm-dot-red    { background:#ff5f57; }
+    .hbm-dot-yellow { background:#febc2e; }
+    .hbm-dot-green  { background:#28c840; }
+    .hbm-urlbar {
+      flex:1;
+      background:#2a2a2a;
+      border-radius:4px;
+      height:20px;
+      display:flex;
+      align-items:center;
+      gap:5px;
+      padding:0 8px;
+      overflow:hidden;
+    }
+    .hbm-ssl { width:7px; height:7px; border-radius:50%; background:#28c840; flex-shrink:0; }
+    .hbm-url-text {
+      font-family:'DM Sans',system-ui,sans-serif;
+      font-size:9px;
+      color:rgba(255,255,255,.5);
+      letter-spacing:.02em;
+      white-space:nowrap;
+      transition:opacity .5s ease;
+    }
+    .hbm-url-text.hbm-fading { opacity:0; }
+    .hbm-viewport { position:relative; height:272px; overflow:hidden; }
+    .hbm-slide { position:absolute; inset:0; opacity:0; transition:opacity 1s ease; overflow:hidden; }
+    .hbm-slide.hbm-active { opacity:1; }
+    .hbm-progress-track {
+      position:absolute; bottom:0; left:0; right:0;
+      height:2px; background:rgba(62,207,207,.12); z-index:20;
+    }
+    .hbm-progress-bar { height:100%; background:#3ECFCF; width:0; }
+    .hbm-progress-bar.hbm-running { animation:hbm-progress 5.5s linear forwards; }
+    .hbm-label {
+      font-family:'DM Sans',system-ui,sans-serif;
+      font-size:.6rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.22);
+    }
+    @media (max-width:960px) { .hbm-wrap { display:none; } }
+
+    /* ── Slide 1 · Harbour & Co. ──────────────────── */
+    .hbm-slide-1 { background:#0b0804; display:flex; flex-direction:column; }
+    .hbm-s1-nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 14px; flex-shrink:0;
+    }
+    .hbm-s1-logo { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:11px; letter-spacing:.22em; color:#c9a96e; }
+    .hbm-s1-nav-links { display:flex; gap:10px; }
+    .hbm-s1-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.14em; text-transform:uppercase; color:rgba(201,169,110,.45); }
+    .hbm-s1-body { flex:1; display:flex; position:relative; overflow:hidden; }
+    .hbm-s1-text {
+      width:55%; padding:10px 14px;
+      display:flex; flex-direction:column; justify-content:center; gap:7px;
+      position:relative; z-index:2;
+    }
+    .hbm-s1-eyebrow { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.2em; text-transform:uppercase; color:#c9a96e; }
+    .hbm-s1-headline { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:15px; line-height:1.3; color:#f0e8d8; }
+    .hbm-s1-divider { width:24px; height:1px; background:rgba(201,169,110,.35); }
+    .hbm-s1-copy { font-family:'DM Sans',sans-serif; font-size:7.5px; color:rgba(240,232,216,.4); line-height:1.5; }
+    .hbm-s1-cta { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:#c9a96e; border:1px solid rgba(201,169,110,.5); padding:4px 8px; width:fit-content; }
+    .hbm-s1-image {
+      position:absolute; right:0; top:0; bottom:0; width:50%;
+      background:linear-gradient(140deg,#2a1a08,#1a0e04);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .hbm-s1-image::before {
+      content:''; position:absolute; left:0; top:0; bottom:0; width:50px;
+      background:linear-gradient(to right,#0b0804,transparent); z-index:1; pointer-events:none;
+    }
+    .hbm-s1-plate {
+      width:76px; height:76px; border-radius:50%;
+      background:radial-gradient(circle,#e8d5b7 0%,#c9a870 50%,#8b6340 100%);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .hbm-s1-plate-inner {
+      width:54px; height:54px; border-radius:50%;
+      background:radial-gradient(circle at 38% 35%,#5a3a1a,#3d2010);
+      position:relative;
+    }
+    .hbm-s1-plate-inner::before {
+      content:''; position:absolute; top:10px; left:14px;
+      width:5px; height:5px;
+      background:radial-gradient(circle,#6a9a40,#4a7a20);
+      border-radius:50%;
+      box-shadow:8px 2px 0 -1px #5a8a30, 2px 10px 0 -2px #4a7a20;
+    }
+    .hbm-s1-candle {
+      position:absolute; right:16px; bottom:18px;
+      display:flex; flex-direction:column; align-items:center; z-index:2;
+    }
+    .hbm-s1-candle-flame {
+      width:6px; height:10px;
+      background:radial-gradient(ellipse at 50% 70%,#fff7a0,#ffb830 55%,transparent 100%);
+      border-radius:50% 50% 30% 30%;
+      animation:hbm-candle-flicker 1.5s ease-in-out infinite;
+      margin-bottom:-1px;
+    }
+    .hbm-s1-candle-glow {
+      width:14px; height:5px;
+      background:radial-gradient(ellipse,rgba(255,184,48,.35),transparent 70%);
+      border-radius:50%; margin-bottom:-1px;
+    }
+    .hbm-s1-candle-body {
+      width:5px; height:22px;
+      background:linear-gradient(to bottom,#f0e8d8,#d4c8a8);
+      border-radius:1px 1px 0 0;
+    }
+
+    /* ── Slide 2 · Summit Build ───────────────────── */
+    .hbm-slide-2 { background:#101010; display:flex; flex-direction:column; overflow:hidden; }
+    .hbm-slide-2::before {
+      content:''; position:absolute; top:-25px; right:-25px; width:180px; height:110px;
+      background:repeating-linear-gradient(-45deg,#f5a623 0,#f5a623 9px,#101010 9px,#101010 22px);
+      opacity:.11; transform:skewY(-6deg); pointer-events:none; z-index:0;
+    }
+    .hbm-s2-nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 14px; flex-shrink:0; position:relative; z-index:2;
+    }
+    .hbm-s2-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:13px; letter-spacing:.04em; color:#fff; }
+    .hbm-s2-logo em { color:#f5a623; font-style:normal; }
+    .hbm-s2-nav-links { display:flex; gap:10px; }
+    .hbm-s2-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.35); }
+    .hbm-s2-body {
+      flex:1; padding:8px 14px;
+      display:flex; flex-direction:column; justify-content:center; gap:7px;
+      position:relative; z-index:2;
+    }
+    .hbm-s2-watermark {
+      position:absolute; bottom:-14px; right:8px;
+      font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:90px;
+      color:rgba(255,255,255,.025); line-height:1; pointer-events:none; z-index:0;
+    }
+    .hbm-s2-tag {
+      display:flex; align-items:center; gap:6px;
+      font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.15em; text-transform:uppercase; color:#f5a623;
+      position:relative; z-index:2;
+    }
+    .hbm-s2-tag::before { content:''; display:inline-block; width:16px; height:1px; background:#f5a623; }
+    .hbm-s2-headline { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:38px; line-height:.92; color:#fff; position:relative; z-index:2; }
+    .hbm-s2-headline em { color:#f5a623; font-style:normal; display:block; }
+    .hbm-s2-stats { display:flex; gap:16px; position:relative; z-index:2; }
+    .hbm-s2-stat-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:17px; color:#f5a623; line-height:1; }
+    .hbm-s2-stat-label { font-family:'DM Sans',sans-serif; font-size:6.5px; color:rgba(255,255,255,.35); letter-spacing:.04em; }
+    .hbm-s2-cta { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:#101010; background:#f5a623; padding:5px 10px; width:fit-content; position:relative; z-index:2; }
+
+    /* ── Slide 3 · Maison Elara ───────────────────── */
+    .hbm-slide-3 { background:#f7f2eb; display:flex; flex-direction:column; }
+    .hbm-s3-nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 14px; flex-shrink:0;
+    }
+    .hbm-s3-logo { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:11px; letter-spacing:.22em; color:#5a4030; }
+    .hbm-s3-nav-links { display:flex; gap:10px; }
+    .hbm-s3-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:rgba(90,64,48,.5); }
+    .hbm-s3-body { display:grid; grid-template-columns:1fr 1fr; flex:1; overflow:hidden; }
+    .hbm-s3-text { padding:10px 14px; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+    .hbm-s3-eyebrow { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.2em; text-transform:uppercase; color:rgba(90,64,48,.6); }
+    .hbm-s3-headline { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:15px; line-height:1.3; color:#2a1a10; }
+    .hbm-s3-copy { font-family:'DM Sans',sans-serif; font-size:7.5px; color:rgba(42,26,16,.5); line-height:1.5; }
+    .hbm-s3-cta { font-family:'DM Sans',sans-serif; font-size:7.5px; color:#5a4030; text-decoration:underline; text-underline-offset:2px; width:fit-content; }
+    .hbm-s3-image {
+      background:linear-gradient(155deg,#ddc9b0,#a07850);
+      position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .hbm-s3-ring-1,.hbm-s3-ring-2 { position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.28); }
+    .hbm-s3-ring-1 { width:80px; height:80px; top:-22px; right:-18px; }
+    .hbm-s3-ring-2 { width:50px; height:50px; top:5px; right:12px; }
+    .hbm-s3-figure { display:flex; flex-direction:column; align-items:center; gap:2px; }
+    .hbm-s3-figure-head { width:16px; height:16px; border-radius:50%; background:#d4a882; }
+    .hbm-s3-figure-body { width:36px; height:48px; background:#8b6040; clip-path:polygon(22% 0%,78% 0%,100% 100%,0% 100%); }
+    .hbm-s3-price-tag { position:absolute; bottom:10px; left:8px; background:rgba(255,255,255,.78); padding:5px 8px; border-radius:3px; }
+    .hbm-s3-price-label { font-family:'DM Sans',sans-serif; font-size:6.5px; letter-spacing:.12em; text-transform:uppercase; color:rgba(42,26,16,.5); margin-bottom:2px; }
+    .hbm-s3-price-amt { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:14px; color:#2a1a10; line-height:1; }
+
+    /* ── Slide 4 · Ironwood Café ──────────────────── */
+    .hbm-slide-4 { background:#18110a; display:flex; flex-direction:column; }
+    .hbm-s4-nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 14px; flex-shrink:0;
+    }
+    .hbm-s4-logo { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:11px; letter-spacing:.18em; color:#c9a050; }
+    .hbm-s4-nav-links { display:flex; gap:10px; }
+    .hbm-s4-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:rgba(201,160,80,.38); }
+    .hbm-s4-body { display:grid; grid-template-columns:1fr 1fr; flex:1; overflow:hidden; }
+    .hbm-s4-text { padding:8px 14px; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+    .hbm-s4-badge { display:flex; align-items:center; gap:5px; background:rgba(201,160,80,.08); border:1px solid rgba(201,160,80,.25); padding:3px 7px; border-radius:12px; width:fit-content; }
+    .hbm-s4-badge-dot { width:5px; height:5px; border-radius:50%; background:#c9a050; animation:hbm-pulse-dot 2s ease-in-out infinite; }
+    .hbm-s4-badge-text { font-family:'DM Sans',sans-serif; font-size:6.5px; letter-spacing:.12em; text-transform:uppercase; color:#c9a050; }
+    .hbm-s4-headline { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:14px; line-height:1.3; color:#f0e0c0; }
+    .hbm-s4-copy { font-family:'DM Sans',sans-serif; font-size:7px; color:rgba(240,224,192,.4); line-height:1.5; }
+    .hbm-s4-cta { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:#18110a; background:#c9a050; padding:4px 8px; width:fit-content; }
+    .hbm-s4-image {
+      background:linear-gradient(155deg,#2e1e0a,#1a0e04);
+      position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;
+    }
+    .hbm-s4-ring-1,.hbm-s4-ring-2 { position:absolute; border-radius:50%; border:1px solid rgba(201,160,80,.14); }
+    .hbm-s4-ring-1 { width:120px; height:120px; }
+    .hbm-s4-ring-2 { width:80px; height:80px; }
+    .hbm-s4-cup-wrap {
+      position:relative; z-index:2;
+      display:flex; flex-direction:column; align-items:center;
+      padding-top:20px;
+    }
+    .hbm-s4-steam {
+      position:absolute; top:2px;
+      width:2px; height:14px;
+      background:rgba(201,160,80,.4);
+      border-radius:1px;
+      animation:hbm-steam 2s ease-in-out infinite;
+    }
+    .hbm-s4-steam:nth-child(1) { left:11px; animation-delay:0s; }
+    .hbm-s4-steam:nth-child(2) { left:18px; animation-delay:.4s; }
+    .hbm-s4-steam:nth-child(3) { left:25px; animation-delay:.8s; }
+    .hbm-s4-cup-rim { width:46px; height:6px; background:linear-gradient(180deg,#3a2810,#2a1a08); border-radius:3px 3px 0 0; }
+    .hbm-s4-cup-body {
+      width:44px; height:36px;
+      background:linear-gradient(155deg,#e8d8a0,#c9a050);
+      clip-path:polygon(5% 0%,95% 0%,87% 100%,13% 100%);
+      position:relative;
+    }
+    .hbm-s4-cup-handle {
+      position:absolute; right:-9px; top:8px;
+      width:9px; height:15px;
+      border:2px solid #c9a050; border-left:none;
+      border-radius:0 6px 6px 0;
+    }
+    .hbm-s4-cup-saucer { width:56px; height:7px; background:linear-gradient(180deg,#c9a050,#a07830); border-radius:50%; }
+
+    /* ── Slide 5 · Apex Fit ───────────────────────── */
+    .hbm-slide-5 { background:#080808; display:flex; flex-direction:column; overflow:hidden; position:relative; }
+    .hbm-slide-5::before {
+      content:''; position:absolute; inset:0;
+      background-image:
+        linear-gradient(0deg,rgba(57,255,20,.04) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(57,255,20,.04) 1px,transparent 1px);
+      background-size:22px 22px; pointer-events:none; z-index:0;
+    }
+    .hbm-slide-5::after {
+      content:''; position:absolute; right:0; top:0; bottom:0; width:52%;
+      background:linear-gradient(160deg,rgba(57,255,20,.05),rgba(57,255,20,.01));
+      clip-path:polygon(14% 0%,100% 0%,100% 100%,0% 100%);
+      border-left:1px solid rgba(57,255,20,.1);
+      pointer-events:none; z-index:0;
+    }
+    .hbm-s5-nav {
+      display:flex; align-items:center; justify-content:space-between;
+      padding:8px 14px; flex-shrink:0; position:relative; z-index:2;
+    }
+    .hbm-s5-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:13px; letter-spacing:.04em; color:#fff; }
+    .hbm-s5-logo em { color:#39ff14; font-style:normal; }
+    .hbm-s5-nav-links { display:flex; gap:10px; }
+    .hbm-s5-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.28); }
+    .hbm-s5-body {
+      display:grid; grid-template-columns:1fr 1fr;
+      flex:1; overflow:hidden; position:relative; z-index:2;
+    }
+    .hbm-s5-text { padding:8px 14px; display:flex; flex-direction:column; justify-content:center; gap:6px; }
+    .hbm-s5-tag {
+      display:flex; align-items:center; gap:5px;
+      font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.15em; text-transform:uppercase; color:#39ff14;
+    }
+    .hbm-s5-tag::before { content:''; display:inline-block; width:14px; height:1px; background:#39ff14; }
+    .hbm-s5-headline { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:40px; line-height:.88; color:#fff; }
+    .hbm-s5-headline em { color:#39ff14; font-style:normal; display:block; }
+    .hbm-s5-bars { display:flex; flex-direction:column; gap:4px; }
+    .hbm-s5-bar-row { display:flex; flex-direction:column; gap:2px; }
+    .hbm-s5-bar-head { display:flex; justify-content:space-between; font-family:'DM Sans',sans-serif; font-size:6.5px; }
+    .hbm-s5-bar-lbl { color:rgba(255,255,255,.45); }
+    .hbm-s5-bar-pct { color:#39ff14; }
+    .hbm-s5-bar-track { height:3px; background:rgba(255,255,255,.07); border-radius:2px; overflow:hidden; }
+    .hbm-s5-bar-fill { height:100%; background:#39ff14; border-radius:2px; }
+    .hbm-s5-cta { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:#080808; background:#39ff14; padding:4px 8px; width:fit-content; box-shadow:0 0 10px rgba(57,255,20,.4); }
+    .hbm-s5-right { position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden; }
+    .hbm-s5-ghost {
+      position:absolute; font-family:'Barlow Condensed',sans-serif; font-weight:900;
+      font-size:95px; color:rgba(255,255,255,.02); line-height:1; pointer-events:none; z-index:0;
+    }
+    .hbm-s5-ring-1,.hbm-s5-ring-2,.hbm-s5-ring-3 { position:absolute; border-radius:50%; border:1px solid rgba(57,255,20,.2); }
+    .hbm-s5-ring-1 { width:110px; height:110px; }
+    .hbm-s5-ring-2 { width:78px; height:78px; }
+    .hbm-s5-ring-3 {
+      width:48px; height:48px;
+      display:flex; align-items:center; justify-content:center;
+      border-color:rgba(57,255,20,.4);
+    }
+    .hbm-s5-ring-text {
+      font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:6.5px;
+      letter-spacing:.06em; text-transform:uppercase; color:#39ff14; text-align:center; line-height:1.25;
+    }
+  </style>
 </head>
 
 <body>
@@ -799,6 +1154,184 @@
 
     <div class="scroll-indicator" aria-hidden="true">
       <div class="scroll-line"></div>
+    </div>
+
+    <!-- Hero browser mockup -->
+    <div class="hbm-wrap" aria-hidden="true">
+      <div class="hbm-browser">
+        <div class="hbm-chrome">
+          <div class="hbm-dots">
+            <span class="hbm-dot hbm-dot-red"></span>
+            <span class="hbm-dot hbm-dot-yellow"></span>
+            <span class="hbm-dot hbm-dot-green"></span>
+          </div>
+          <div class="hbm-urlbar">
+            <span class="hbm-ssl"></span>
+            <span class="hbm-url-text" id="hbm-url-text">harbourandco.ca</span>
+          </div>
+        </div>
+        <div class="hbm-viewport">
+
+          <!-- Slide 1: Harbour & Co. -->
+          <div class="hbm-slide hbm-slide-1 hbm-active">
+            <div class="hbm-s1-nav">
+              <span class="hbm-s1-logo">HARBOUR &amp; CO.</span>
+              <div class="hbm-s1-nav-links">
+                <span>Menu</span><span>Reserve</span><span>About</span>
+              </div>
+            </div>
+            <div class="hbm-s1-body">
+              <div class="hbm-s1-text">
+                <span class="hbm-s1-eyebrow">Fine Dining</span>
+                <p class="hbm-s1-headline">Where the water<br>meets the table.</p>
+                <div class="hbm-s1-divider"></div>
+                <p class="hbm-s1-copy">Seasonal tasting menus<br>on the waterfront.</p>
+                <span class="hbm-s1-cta">Reserve a table</span>
+              </div>
+              <div class="hbm-s1-image">
+                <div class="hbm-s1-plate">
+                  <div class="hbm-s1-plate-inner"></div>
+                </div>
+                <div class="hbm-s1-candle">
+                  <div class="hbm-s1-candle-flame"></div>
+                  <div class="hbm-s1-candle-glow"></div>
+                  <div class="hbm-s1-candle-body"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2: Summit Build -->
+          <div class="hbm-slide hbm-slide-2">
+            <div class="hbm-s2-nav">
+              <span class="hbm-s2-logo">SUMMIT<em>BUILD</em></span>
+              <div class="hbm-s2-nav-links">
+                <span>Services</span><span>Projects</span><span>Contact</span>
+              </div>
+            </div>
+            <div class="hbm-s2-body">
+              <div class="hbm-s2-watermark">20+</div>
+              <span class="hbm-s2-tag">General Contractor</span>
+              <div class="hbm-s2-headline">Built to<em>Last.</em></div>
+              <div class="hbm-s2-stats">
+                <div><div class="hbm-s2-stat-num">20+</div><div class="hbm-s2-stat-label">Yrs exp.</div></div>
+                <div><div class="hbm-s2-stat-num">300+</div><div class="hbm-s2-stat-label">Projects</div></div>
+                <div><div class="hbm-s2-stat-num">100%</div><div class="hbm-s2-stat-label">Licensed</div></div>
+              </div>
+              <span class="hbm-s2-cta">Get a quote</span>
+            </div>
+          </div>
+
+          <!-- Slide 3: Maison Elara -->
+          <div class="hbm-slide hbm-slide-3">
+            <div class="hbm-s3-nav">
+              <span class="hbm-s3-logo">MAISON ELARA</span>
+              <div class="hbm-s3-nav-links">
+                <span>Shop</span><span>Collections</span><span>About</span>
+              </div>
+            </div>
+            <div class="hbm-s3-body">
+              <div class="hbm-s3-text">
+                <span class="hbm-s3-eyebrow">Spring Collection</span>
+                <p class="hbm-s3-headline">Dressed for<br>the moment.</p>
+                <p class="hbm-s3-copy">Curated pieces for the<br>modern wardrobe.</p>
+                <span class="hbm-s3-cta">Shop the collection</span>
+              </div>
+              <div class="hbm-s3-image">
+                <div class="hbm-s3-ring-1"></div>
+                <div class="hbm-s3-ring-2"></div>
+                <div class="hbm-s3-figure">
+                  <div class="hbm-s3-figure-head"></div>
+                  <div class="hbm-s3-figure-body"></div>
+                </div>
+                <div class="hbm-s3-price-tag">
+                  <div class="hbm-s3-price-label">New arrival</div>
+                  <div class="hbm-s3-price-amt">$148</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 4: Ironwood Café -->
+          <div class="hbm-slide hbm-slide-4">
+            <div class="hbm-s4-nav">
+              <span class="hbm-s4-logo">IRONWOOD CAF&Eacute;</span>
+              <div class="hbm-s4-nav-links">
+                <span>Menu</span><span>Hours</span><span>Find us</span>
+              </div>
+            </div>
+            <div class="hbm-s4-body">
+              <div class="hbm-s4-text">
+                <div class="hbm-s4-badge">
+                  <div class="hbm-s4-badge-dot"></div>
+                  <span class="hbm-s4-badge-text">Now open</span>
+                </div>
+                <p class="hbm-s4-headline">Coffee worth<br>waking up for.</p>
+                <p class="hbm-s4-copy">Freshly roasted, every<br>morning, no excuses.</p>
+                <span class="hbm-s4-cta">See our menu</span>
+              </div>
+              <div class="hbm-s4-image">
+                <div class="hbm-s4-ring-1"></div>
+                <div class="hbm-s4-ring-2"></div>
+                <div class="hbm-s4-cup-wrap">
+                  <div class="hbm-s4-steam"></div>
+                  <div class="hbm-s4-steam"></div>
+                  <div class="hbm-s4-steam"></div>
+                  <div class="hbm-s4-cup-rim"></div>
+                  <div class="hbm-s4-cup-body">
+                    <div class="hbm-s4-cup-handle"></div>
+                  </div>
+                  <div class="hbm-s4-cup-saucer"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 5: Apex Fit -->
+          <div class="hbm-slide hbm-slide-5">
+            <div class="hbm-s5-nav">
+              <span class="hbm-s5-logo">APEX<em>FIT</em></span>
+              <div class="hbm-s5-nav-links">
+                <span>Programs</span><span>Pricing</span><span>Join</span>
+              </div>
+            </div>
+            <div class="hbm-s5-body">
+              <div class="hbm-s5-text">
+                <span class="hbm-s5-tag">Performance gym</span>
+                <div class="hbm-s5-headline">NO<em>LIMITS.</em></div>
+                <div class="hbm-s5-bars">
+                  <div class="hbm-s5-bar-row">
+                    <div class="hbm-s5-bar-head"><span class="hbm-s5-bar-lbl">Strength</span><span class="hbm-s5-bar-pct">88%</span></div>
+                    <div class="hbm-s5-bar-track"><div class="hbm-s5-bar-fill" style="width:88%"></div></div>
+                  </div>
+                  <div class="hbm-s5-bar-row">
+                    <div class="hbm-s5-bar-head"><span class="hbm-s5-bar-lbl">Cardio</span><span class="hbm-s5-bar-pct">72%</span></div>
+                    <div class="hbm-s5-bar-track"><div class="hbm-s5-bar-fill" style="width:72%"></div></div>
+                  </div>
+                  <div class="hbm-s5-bar-row">
+                    <div class="hbm-s5-bar-head"><span class="hbm-s5-bar-lbl">Recovery</span><span class="hbm-s5-bar-pct">64%</span></div>
+                    <div class="hbm-s5-bar-track"><div class="hbm-s5-bar-fill" style="width:64%"></div></div>
+                  </div>
+                </div>
+                <span class="hbm-s5-cta">Join today</span>
+              </div>
+              <div class="hbm-s5-right">
+                <div class="hbm-s5-ghost">NO</div>
+                <div class="hbm-s5-ring-1"></div>
+                <div class="hbm-s5-ring-2"></div>
+                <div class="hbm-s5-ring-3">
+                  <span class="hbm-s5-ring-text">JOIN<br>TODAY</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hbm-progress-track">
+            <div class="hbm-progress-bar" id="hbm-progress-bar"></div>
+          </div>
+        </div>
+      </div>
+      <p class="hbm-label">Sites we build</p>
     </div>
   </section>
 
@@ -1084,6 +1617,37 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach(function (el) { revealObs.observe(el); });
+  </script>
+
+  <script>
+    (function () {
+      var urls    = ['harbourandco.ca','summitbuild.ca','maisonelara.ca','ironwoodcafe.ca','apexfit.ca'];
+      var slides  = document.querySelectorAll('.hbm-slide');
+      var urlEl   = document.getElementById('hbm-url-text');
+      var barEl   = document.getElementById('hbm-progress-bar');
+      var current = 0;
+
+      function startProgress() {
+        barEl.classList.remove('hbm-running');
+        void barEl.offsetWidth;
+        barEl.classList.add('hbm-running');
+      }
+
+      function goTo(n) {
+        slides[current].classList.remove('hbm-active');
+        current = n % slides.length;
+        slides[current].classList.add('hbm-active');
+        urlEl.classList.add('hbm-fading');
+        setTimeout(function () {
+          urlEl.textContent = urls[current];
+          urlEl.classList.remove('hbm-fading');
+        }, 500);
+        startProgress();
+      }
+
+      startProgress();
+      setInterval(function () { goTo(current + 1); }, 5500);
+    })();
   </script>
 
   <!-- Cookie Banner -->
