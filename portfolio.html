@@ -280,6 +280,81 @@
     }
     .empty-inner.wide { max-width: none; }
 
+    /* ===== REAL PORTFOLIO CARD ===== */
+    .portfolio-card {
+      background: #0D1520;
+      border: 1px solid rgba(62,207,207,0.1);
+      border-radius: 4px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .portfolio-card:hover {
+      border-color: rgba(62,207,207,0.35);
+      box-shadow: 0 8px 32px rgba(62,207,207,0.07);
+    }
+    .portfolio-card-img {
+      width: 100%;
+      height: 175px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .portfolio-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      transition: transform 0.4s cubic-bezier(0.16,1,0.3,1);
+    }
+    .portfolio-card:hover .portfolio-card-img img { transform: scale(1.03); }
+    .portfolio-card-body {
+      padding: 1.1rem 1.25rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+    .portfolio-card-descriptor {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem;
+      font-variant: small-caps;
+      letter-spacing: 0.12em;
+      color: var(--accent);
+    }
+    .portfolio-card-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
+    .portfolio-card-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      line-height: 1.6;
+      flex: 1;
+    }
+    .portfolio-card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      font-variant: small-caps;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(62,207,207,0.3);
+      padding-bottom: 1px;
+      align-self: flex-start;
+      margin-top: 0.25rem;
+      transition: border-color 0.2s, opacity 0.2s;
+    }
+    .portfolio-card-link:hover { border-color: var(--accent); opacity: 0.8; }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -346,9 +421,16 @@
   <div class="empty-rule"></div>
   <div class="empty-inner wide">
     <div class="ph-grid">
-      <div class="ph-card reveal">
-        <div class="ph-card-inner"></div>
-        <span class="ph-badge">In progress</span>
+      <div class="portfolio-card reveal">
+        <div class="portfolio-card-img">
+          <img src="/BM.png" alt="Badali Media website screenshot" loading="lazy">
+        </div>
+        <div class="portfolio-card-body">
+          <p class="portfolio-card-descriptor">Sports Photography · Northumberland County, ON</p>
+          <h3 class="portfolio-card-name">Badali Media</h3>
+          <p class="portfolio-card-desc">Booking site with portfolio gallery, service packages, and athlete testimonials.</p>
+          <a href="https://admirable-gecko-07d4b5.netlify.app/" target="_blank" rel="noopener" class="portfolio-card-link">View Site →</a>
+        </div>
       </div>
       <div class="ph-card reveal reveal-d1">
         <div class="ph-card-inner"></div>
