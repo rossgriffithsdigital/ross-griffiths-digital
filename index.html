@@ -865,294 +865,60 @@
     }
     @media (max-width:960px) { .hbm-wrap { display:none; } }
 
-    /* ── Slide 1 · Harbour & Co. ──────────────────── */
-    .hbm-slide-1 { background:#0b0804; display:flex; flex-direction:column; }
-    .hbm-s1-nav {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:9px 14px; flex-shrink:0;
-      border-bottom:1px solid rgba(201,169,110,.08);
+    /* ── In Progress slide ─────────────────────────── */
+    .hbm-slide-ip {
+      background:#050810; display:flex; align-items:center; justify-content:center;
+      flex-direction:column; position:relative; overflow:hidden;
     }
-    .hbm-s1-logo { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:12px; letter-spacing:.28em; color:#c9a96e; }
-    .hbm-s1-nav-links { display:flex; gap:10px; }
-    .hbm-s1-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.14em; text-transform:uppercase; color:rgba(201,169,110,.38); }
-    .hbm-s1-body { flex:1; display:flex; position:relative; overflow:hidden; min-height:0; }
-    .hbm-s1-text {
-      width:56%; padding:14px 16px;
-      display:flex; flex-direction:column; justify-content:center; gap:9px;
-      position:relative; z-index:2;
-    }
-    .hbm-s1-eyebrow { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.22em; text-transform:uppercase; color:rgba(201,169,110,.65); }
-    .hbm-s1-headline { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.2; color:#f0e8d8; }
-    .hbm-s1-divider { width:30px; height:1px; background:linear-gradient(to right,rgba(201,169,110,.6),transparent); }
-    .hbm-s1-copy { font-family:'DM Sans',sans-serif; font-size:8px; color:rgba(240,232,216,.35); line-height:1.6; }
-    .hbm-s1-cta {
-      font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.14em; text-transform:uppercase;
-      color:#c9a96e; border:1px solid rgba(201,169,110,.38); padding:5px 10px; width:fit-content;
-    }
-    .hbm-s1-image {
-      position:absolute; right:0; top:0; bottom:0; width:48%;
-      background:radial-gradient(ellipse at 55% 38%,#3a2010 0%,#1e0e04 55%,#0b0804 100%);
-      display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .hbm-s1-image::before {
-      content:''; position:absolute; left:0; top:0; bottom:0; width:64px;
-      background:linear-gradient(to right,#0b0804,transparent); z-index:1; pointer-events:none;
-    }
-    .hbm-s1-plate {
-      width:100px; height:100px; border-radius:50%;
-      background:radial-gradient(circle,#ede0c8 0%,#d4b07a 40%,#9a7048 72%,#5a3818 100%);
-      display:flex; align-items:center; justify-content:center;
-      box-shadow:0 8px 28px rgba(0,0,0,.55),0 0 0 2px rgba(201,169,110,.12),inset 0 2px 4px rgba(255,220,160,.15);
-    }
-    .hbm-s1-plate-inner {
-      width:72px; height:72px; border-radius:50%;
-      background:radial-gradient(circle at 36% 30%,#6a4020 0%,#3d2010 45%,#221208 100%);
-      position:relative;
-    }
-    .hbm-s1-plate-inner::before {
-      content:''; position:absolute; top:14px; left:16px;
-      width:6px; height:6px;
-      background:radial-gradient(circle,#7aaa48,#508828);
-      border-radius:50%;
-      box-shadow:10px 2px 0 -1px #68a030, 3px 12px 0 -2px #508828, 16px 8px 0 -2px #7aaa48;
-    }
-    .hbm-s1-candle {
-      position:absolute; right:18px; bottom:20px;
-      display:flex; flex-direction:column; align-items:center; z-index:2;
-    }
-    .hbm-s1-candle-flame {
-      width:7px; height:13px;
-      background:radial-gradient(ellipse at 50% 75%,#fffde0,#ffcc44 42%,#ff8800 72%,transparent 100%);
-      border-radius:50% 50% 28% 28%;
-      animation:hbm-candle-flicker 1.8s ease-in-out infinite;
-      filter:blur(.3px);
-    }
-    .hbm-s1-candle-glow {
-      width:20px; height:7px; margin-top:-2px;
-      background:radial-gradient(ellipse,rgba(255,170,30,.32),transparent 70%);
-      border-radius:50%;
-    }
-    .hbm-s1-candle-body {
-      width:6px; height:30px;
-      background:linear-gradient(to bottom,#f8f0e0 0%,#ddd0b0 55%,#c8ba98 100%);
-      border-radius:1px 1px 0 0;
-    }
-
-    /* ── Slide 2 · Summit Build ───────────────────── */
-    .hbm-slide-2 { background:#0e0e0e; display:flex; flex-direction:column; overflow:hidden; }
-    .hbm-slide-2::before {
-      content:''; position:absolute; top:-30px; right:-30px; width:220px; height:140px;
-      background:repeating-linear-gradient(-45deg,#f5a623 0,#f5a623 10px,transparent 10px,transparent 26px);
-      opacity:.12; transform:skewY(-5deg); pointer-events:none; z-index:0;
-    }
-    .hbm-s2-nav {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:9px 14px; flex-shrink:0; position:relative; z-index:2;
-      border-bottom:1px solid rgba(255,255,255,.05);
-    }
-    .hbm-s2-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:14px; letter-spacing:.06em; color:#fff; }
-    .hbm-s2-logo em { color:#f5a623; font-style:normal; }
-    .hbm-s2-nav-links { display:flex; gap:10px; }
-    .hbm-s2-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.28); }
-    .hbm-s2-body {
-      flex:1; padding:12px 14px 14px;
-      display:flex; flex-direction:column; justify-content:center; gap:9px;
-      position:relative; z-index:2; min-height:0;
-    }
-    .hbm-s2-watermark {
-      position:absolute; bottom:-20px; right:4px;
-      font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:130px;
-      color:rgba(255,255,255,.028); line-height:1; pointer-events:none; z-index:0; letter-spacing:-.02em;
-    }
-    .hbm-s2-tag {
-      display:flex; align-items:center; gap:7px;
-      font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.18em; text-transform:uppercase; color:#f5a623;
-      position:relative; z-index:2;
-    }
-    .hbm-s2-tag::before { content:''; display:inline-block; width:18px; height:1px; background:#f5a623; }
-    .hbm-s2-headline { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:50px; line-height:.86; color:#fff; position:relative; z-index:2; letter-spacing:-.01em; }
-    .hbm-s2-headline em { color:#f5a623; font-style:normal; display:block; }
-    .hbm-s2-stats {
-      display:flex; gap:0; position:relative; z-index:2;
-      border-top:1px solid rgba(255,255,255,.07); padding-top:9px;
-    }
-    .hbm-s2-stats > div { flex:1; padding-right:12px; border-right:1px solid rgba(255,255,255,.07); margin-right:12px; }
-    .hbm-s2-stats > div:last-child { border-right:none; margin-right:0; padding-right:0; }
-    .hbm-s2-stat-num { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:22px; color:#f5a623; line-height:1; }
-    .hbm-s2-stat-label { font-family:'DM Sans',sans-serif; font-size:6.5px; color:rgba(255,255,255,.28); letter-spacing:.05em; margin-top:2px; }
-    .hbm-s2-cta {
-      font-family:'DM Sans',sans-serif; font-size:7px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
-      color:#0e0e0e; background:#f5a623; padding:6px 12px; width:fit-content; position:relative; z-index:2;
-    }
-
-    /* ── Slide 3 · Maison Elara ───────────────────── */
-    .hbm-slide-3 { background:#f7f2eb; display:flex; flex-direction:column; }
-    .hbm-s3-nav {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:9px 14px; flex-shrink:0;
-      border-bottom:1px solid rgba(90,64,48,.08);
-    }
-    .hbm-s3-logo { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:12px; letter-spacing:.3em; color:#5a4030; }
-    .hbm-s3-nav-links { display:flex; gap:10px; }
-    .hbm-s3-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:rgba(90,64,48,.4); }
-    .hbm-s3-body { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr; flex:1; min-height:0; overflow:hidden; }
-    .hbm-s3-text { padding:14px 16px; display:flex; flex-direction:column; justify-content:center; gap:8px; }
-    .hbm-s3-eyebrow { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.22em; text-transform:uppercase; color:rgba(90,64,48,.5); }
-    .hbm-s3-headline { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:20px; line-height:1.18; color:#2a1a10; }
-    .hbm-s3-copy { font-family:'DM Sans',sans-serif; font-size:8px; color:rgba(42,26,16,.42); line-height:1.6; }
-    .hbm-s3-cta {
-      font-family:'DM Sans',sans-serif; font-size:7.5px; color:#5a4030;
-      text-decoration:underline; text-underline-offset:3px; text-decoration-color:rgba(90,64,48,.35); width:fit-content;
-    }
-    .hbm-s3-image {
-      background:linear-gradient(148deg,#e8d4b4 0%,#c8a478 45%,#9a6840 100%);
-      position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .hbm-s3-ring-1,.hbm-s3-ring-2 { position:absolute; border-radius:50%; border:1px solid rgba(255,255,255,.32); }
-    .hbm-s3-ring-1 { width:108px; height:108px; top:-30px; right:-26px; }
-    .hbm-s3-ring-2 { width:66px; height:66px; top:2px; right:10px; }
-    .hbm-s3-figure { display:flex; flex-direction:column; align-items:center; gap:3px; }
-    .hbm-s3-figure-head { width:19px; height:19px; border-radius:50%; background:#d8ab88; box-shadow:0 2px 8px rgba(0,0,0,.14); }
-    .hbm-s3-figure-body {
-      width:42px; height:56px;
-      background:linear-gradient(170deg,#6a4020 0%,#4a2808 100%);
-      clip-path:polygon(20% 0%,80% 0%,100% 100%,0% 100%);
-    }
-    .hbm-s3-price-tag {
-      position:absolute; bottom:12px; left:10px;
-      background:rgba(255,255,255,.84);
-      padding:6px 10px; border-radius:4px;
-      box-shadow:0 4px 14px rgba(0,0,0,.14);
-    }
-    .hbm-s3-price-label { font-family:'DM Sans',sans-serif; font-size:6.5px; letter-spacing:.15em; text-transform:uppercase; color:rgba(42,26,16,.42); margin-bottom:3px; }
-    .hbm-s3-price-amt { font-family:'Cormorant Garamond',serif; font-weight:600; font-size:18px; color:#2a1a10; line-height:1; }
-
-    /* ── Slide 4 · Ironwood Café ──────────────────── */
-    .hbm-slide-4 { background:#18110a; display:flex; flex-direction:column; }
-    .hbm-s4-nav {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:9px 14px; flex-shrink:0;
-      border-bottom:1px solid rgba(201,160,80,.07);
-    }
-    .hbm-s4-logo { font-family:'Cormorant Garamond',serif; font-weight:300; font-size:12px; letter-spacing:.22em; color:#c9a050; }
-    .hbm-s4-nav-links { display:flex; gap:10px; }
-    .hbm-s4-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.12em; text-transform:uppercase; color:rgba(201,160,80,.3); }
-    .hbm-s4-body { display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr; flex:1; min-height:0; overflow:hidden; }
-    .hbm-s4-text { padding:12px 16px; display:flex; flex-direction:column; justify-content:center; gap:8px; }
-    .hbm-s4-badge {
-      display:flex; align-items:center; gap:6px;
-      background:rgba(201,160,80,.07); border:1px solid rgba(201,160,80,.2);
-      padding:4px 9px; border-radius:20px; width:fit-content;
-    }
-    .hbm-s4-badge-dot { width:5px; height:5px; border-radius:50%; background:#c9a050; animation:hbm-pulse-dot 2s ease-in-out infinite; flex-shrink:0; }
-    .hbm-s4-badge-text { font-family:'DM Sans',sans-serif; font-size:6.5px; letter-spacing:.14em; text-transform:uppercase; color:#c9a050; }
-    .hbm-s4-headline { font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:18px; line-height:1.25; color:#f0e0c0; }
-    .hbm-s4-copy { font-family:'DM Sans',sans-serif; font-size:7.5px; color:rgba(240,224,192,.32); line-height:1.6; }
-    .hbm-s4-cta {
-      font-family:'DM Sans',sans-serif; font-size:7px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
-      color:#18110a; background:#c9a050; padding:5px 10px; width:fit-content;
-    }
-    .hbm-s4-image {
-      background:radial-gradient(ellipse at 50% 28%,#2e1e0a 0%,#180e04 65%,#0f0804 100%);
-      position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;
-    }
-    .hbm-s4-ring-1,.hbm-s4-ring-2 { position:absolute; border-radius:50%; border:1px solid rgba(201,160,80,.12); }
-    .hbm-s4-ring-1 { width:148px; height:148px; }
-    .hbm-s4-ring-2 { width:100px; height:100px; }
-    .hbm-s4-cup-wrap {
-      position:relative; z-index:2;
-      display:flex; flex-direction:column; align-items:center;
-      padding-top:24px;
-    }
-    .hbm-s4-steam {
-      position:absolute; top:0;
-      width:2px; height:16px;
-      background:linear-gradient(to top,rgba(201,160,80,.45),transparent);
-      border-radius:1px;
-      animation:hbm-steam 2.2s ease-in-out infinite;
-    }
-    .hbm-s4-steam:nth-child(1) { left:14px; animation-delay:0s; }
-    .hbm-s4-steam:nth-child(2) { left:22px; animation-delay:.5s; }
-    .hbm-s4-steam:nth-child(3) { left:30px; animation-delay:1s; }
-    .hbm-s4-cup-rim { width:56px; height:7px; background:linear-gradient(180deg,#3a2810,#2a1a08); border-radius:4px 4px 0 0; }
-    .hbm-s4-cup-body {
-      width:54px; height:44px;
-      background:linear-gradient(155deg,#f2e8b8,#c9a050);
-      clip-path:polygon(4% 0%,96% 0%,88% 100%,12% 100%);
-      position:relative;
-    }
-    .hbm-s4-cup-handle {
-      position:absolute; right:-11px; top:9px;
-      width:11px; height:18px;
-      border:2px solid #c9a050; border-left:none;
-      border-radius:0 8px 8px 0;
-    }
-    .hbm-s4-cup-saucer { width:66px; height:8px; background:linear-gradient(180deg,#c9a050,#a07830); border-radius:50%; }
-
-    /* ── Slide 5 · Apex Fit ───────────────────────── */
-    .hbm-slide-5 { background:#080808; display:flex; flex-direction:column; overflow:hidden; position:relative; }
-    .hbm-slide-5::before {
+    .hbm-slide-ip::before {
       content:''; position:absolute; inset:0;
       background-image:
-        linear-gradient(0deg,rgba(57,255,20,.032) 1px,transparent 1px),
-        linear-gradient(90deg,rgba(57,255,20,.032) 1px,transparent 1px);
-      background-size:22px 22px; pointer-events:none; z-index:0;
+        linear-gradient(rgba(0,201,167,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(0,201,167,.035) 1px,transparent 1px);
+      background-size:28px 28px; pointer-events:none;
     }
-    .hbm-s5-nav {
-      display:flex; align-items:center; justify-content:space-between;
-      padding:9px 14px; flex-shrink:0; position:relative; z-index:2;
-      border-bottom:1px solid rgba(57,255,20,.07);
-    }
-    .hbm-s5-logo { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:14px; letter-spacing:.06em; color:#fff; }
-    .hbm-s5-logo em { color:#39ff14; font-style:normal; }
-    .hbm-s5-nav-links { display:flex; gap:10px; }
-    .hbm-s5-nav-links span { font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.22); }
-    .hbm-s5-body {
-      display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr;
-      flex:1; min-height:0; overflow:hidden; position:relative; z-index:2;
-    }
-    .hbm-s5-text { padding:10px 14px; display:flex; flex-direction:column; justify-content:center; gap:7px; }
-    .hbm-s5-tag {
-      display:flex; align-items:center; gap:6px;
-      font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.18em; text-transform:uppercase; color:#39ff14;
-    }
-    .hbm-s5-tag::before { content:''; display:inline-block; width:14px; height:1px; background:#39ff14; }
-    .hbm-s5-headline { font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:52px; line-height:.84; color:#fff; letter-spacing:-.01em; }
-    .hbm-s5-headline em { color:#39ff14; font-style:normal; display:block; }
-    .hbm-s5-bars { display:flex; flex-direction:column; gap:5px; }
-    .hbm-s5-bar-row { display:flex; flex-direction:column; gap:2px; }
-    .hbm-s5-bar-head { display:flex; justify-content:space-between; font-family:'DM Sans',sans-serif; font-size:6.5px; }
-    .hbm-s5-bar-lbl { color:rgba(255,255,255,.38); }
-    .hbm-s5-bar-pct { color:#39ff14; }
-    .hbm-s5-bar-track { height:4px; background:rgba(57,255,20,.1); border-radius:2px; overflow:hidden; }
-    .hbm-s5-bar-fill { height:100%; background:linear-gradient(to right,#39ff14,#80ff50); border-radius:2px; }
-    .hbm-s5-cta {
-      font-family:'DM Sans',sans-serif; font-size:7px; font-weight:600; letter-spacing:.12em; text-transform:uppercase;
-      color:#080808; background:#39ff14; padding:5px 10px; width:fit-content;
-      box-shadow:0 0 18px rgba(57,255,20,.55);
-    }
-    .hbm-s5-right {
-      position:relative; display:flex; align-items:center; justify-content:center; overflow:hidden;
-      background:linear-gradient(150deg,rgba(57,255,20,.08) 0%,rgba(57,255,20,.02) 100%);
-      border-left:1px solid rgba(57,255,20,.12);
-    }
-    .hbm-s5-ghost {
+    .hbm-ip-ghost {
       position:absolute; font-family:'Barlow Condensed',sans-serif; font-weight:900;
-      font-size:145px; color:rgba(57,255,20,.045); line-height:1; pointer-events:none; z-index:0; letter-spacing:-.02em;
+      font-size:160px; color:rgba(0,201,167,.028); line-height:1;
+      pointer-events:none; letter-spacing:-.02em;
     }
-    .hbm-s5-ring-1,.hbm-s5-ring-2,.hbm-s5-ring-3 { position:absolute; border-radius:50%; border:1px solid rgba(57,255,20,.22); }
-    .hbm-s5-ring-1 { width:175px; height:175px; }
-    .hbm-s5-ring-2 { width:124px; height:124px; }
-    .hbm-s5-ring-3 {
-      width:76px; height:76px;
-      display:flex; align-items:center; justify-content:center;
-      border:1px solid rgba(57,255,20,.55);
-      background:rgba(57,255,20,.04);
+    .hbm-ip-ring-1,.hbm-ip-ring-2,.hbm-ip-ring-3 { position:absolute; border-radius:50%; }
+    .hbm-ip-ring-1 { width:280px; height:280px; border:1px solid rgba(0,201,167,.08); }
+    .hbm-ip-ring-2 { width:196px; height:196px; border:1px solid rgba(0,201,167,.12); }
+    .hbm-ip-ring-3 { width:112px; height:112px; border:1px solid rgba(0,201,167,.18); }
+    .hbm-ip-center {
+      position:relative; z-index:2;
+      display:flex; flex-direction:column; align-items:center; gap:10px; text-align:center;
     }
-    .hbm-s5-ring-text {
-      font-family:'Barlow Condensed',sans-serif; font-weight:900; font-size:9.5px;
-      letter-spacing:.06em; text-transform:uppercase; color:#39ff14; text-align:center; line-height:1.2;
+    .hbm-ip-badge {
+      display:flex; align-items:center; gap:6px;
+      border:1px solid rgba(0,201,167,.22); padding:4px 10px; border-radius:20px;
     }
+    .hbm-ip-dot {
+      width:5px; height:5px; border-radius:50%; background:#00C9A7;
+      animation:hbm-pulse-dot 1.5s ease-in-out infinite;
+      box-shadow:0 0 8px rgba(0,201,167,.7);
+    }
+    .hbm-ip-badge-text {
+      font-family:'DM Sans',sans-serif; font-size:7px; letter-spacing:.2em;
+      text-transform:uppercase; color:rgba(0,201,167,.75);
+    }
+    .hbm-ip-headline {
+      font-family:'Barlow Condensed',sans-serif; font-weight:900;
+      font-size:42px; line-height:1; letter-spacing:-.01em; color:#ffffff;
+    }
+    .hbm-ip-sub {
+      font-family:'DM Sans',sans-serif; font-size:8px;
+      color:rgba(255,255,255,.24); letter-spacing:.06em;
+    }
+    .hbm-ip-bar-wrap { width:110px; margin-top:2px; }
+    .hbm-ip-bar-track { height:2px; background:rgba(255,255,255,.07); border-radius:2px; overflow:hidden; }
+    .hbm-ip-bar-fill {
+      height:100%; border-radius:2px;
+      background:linear-gradient(90deg,#00C9A7,#00ffcc);
+      animation:hbm-ip-build 3.2s ease-in-out infinite alternate;
+    }
+    @keyframes hbm-ip-build { 0% { width:40%; } 100% { width:75%; } }
   </style>
 </head>
 
@@ -1219,162 +985,29 @@
         </div>
         <div class="hbm-viewport">
 
-          <!-- Slide 1: Harbour & Co. -->
-          <div class="hbm-slide hbm-slide-1 hbm-active">
-            <div class="hbm-s1-nav">
-              <span class="hbm-s1-logo">HARBOUR &amp; CO.</span>
-              <div class="hbm-s1-nav-links">
-                <span>Menu</span><span>Reserve</span><span>About</span>
+          <!-- Slide 1: Badali Media -->
+          <div class="hbm-slide hbm-slide-6 hbm-active" style="background:url('BM.png') top center / cover no-repeat #0a0a12;"></div>
+
+          <!-- Slide 2: In Progress -->
+          <div class="hbm-slide hbm-slide-ip">
+            <div class="hbm-ip-ghost">RGD</div>
+            <div class="hbm-ip-ring-1"></div>
+            <div class="hbm-ip-ring-2"></div>
+            <div class="hbm-ip-ring-3"></div>
+            <div class="hbm-ip-center">
+              <div class="hbm-ip-badge">
+                <div class="hbm-ip-dot"></div>
+                <span class="hbm-ip-badge-text">RGD Client</span>
               </div>
-            </div>
-            <div class="hbm-s1-body">
-              <div class="hbm-s1-text">
-                <span class="hbm-s1-eyebrow">Fine Dining</span>
-                <p class="hbm-s1-headline">Where the water<br>meets the table.</p>
-                <div class="hbm-s1-divider"></div>
-                <p class="hbm-s1-copy">Seasonal tasting menus<br>on the waterfront.</p>
-                <span class="hbm-s1-cta">Reserve a table</span>
-              </div>
-              <div class="hbm-s1-image">
-                <div class="hbm-s1-plate">
-                  <div class="hbm-s1-plate-inner"></div>
-                </div>
-                <div class="hbm-s1-candle">
-                  <div class="hbm-s1-candle-flame"></div>
-                  <div class="hbm-s1-candle-glow"></div>
-                  <div class="hbm-s1-candle-body"></div>
+              <div class="hbm-ip-headline">IN PROGRESS</div>
+              <div class="hbm-ip-sub">New site launching soon</div>
+              <div class="hbm-ip-bar-wrap">
+                <div class="hbm-ip-bar-track">
+                  <div class="hbm-ip-bar-fill"></div>
                 </div>
               </div>
             </div>
           </div>
-
-          <!-- Slide 2: Summit Build -->
-          <div class="hbm-slide hbm-slide-2">
-            <div class="hbm-s2-nav">
-              <span class="hbm-s2-logo">SUMMIT<em>BUILD</em></span>
-              <div class="hbm-s2-nav-links">
-                <span>Services</span><span>Projects</span><span>Contact</span>
-              </div>
-            </div>
-            <div class="hbm-s2-body">
-              <div class="hbm-s2-watermark">20+</div>
-              <span class="hbm-s2-tag">General Contractor</span>
-              <div class="hbm-s2-headline">Built to<em>Last.</em></div>
-              <div class="hbm-s2-stats">
-                <div><div class="hbm-s2-stat-num">20+</div><div class="hbm-s2-stat-label">Yrs exp.</div></div>
-                <div><div class="hbm-s2-stat-num">300+</div><div class="hbm-s2-stat-label">Projects</div></div>
-                <div><div class="hbm-s2-stat-num">100%</div><div class="hbm-s2-stat-label">Licensed</div></div>
-              </div>
-              <span class="hbm-s2-cta">Get a quote</span>
-            </div>
-          </div>
-
-          <!-- Slide 3: Maison Elara -->
-          <div class="hbm-slide hbm-slide-3">
-            <div class="hbm-s3-nav">
-              <span class="hbm-s3-logo">MAISON ELARA</span>
-              <div class="hbm-s3-nav-links">
-                <span>Shop</span><span>Collections</span><span>About</span>
-              </div>
-            </div>
-            <div class="hbm-s3-body">
-              <div class="hbm-s3-text">
-                <span class="hbm-s3-eyebrow">Spring Collection</span>
-                <p class="hbm-s3-headline">Dressed for<br>the moment.</p>
-                <p class="hbm-s3-copy">Curated pieces for the<br>modern wardrobe.</p>
-                <span class="hbm-s3-cta">Shop the collection</span>
-              </div>
-              <div class="hbm-s3-image">
-                <div class="hbm-s3-ring-1"></div>
-                <div class="hbm-s3-ring-2"></div>
-                <div class="hbm-s3-figure">
-                  <div class="hbm-s3-figure-head"></div>
-                  <div class="hbm-s3-figure-body"></div>
-                </div>
-                <div class="hbm-s3-price-tag">
-                  <div class="hbm-s3-price-label">New arrival</div>
-                  <div class="hbm-s3-price-amt">$148</div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 4: Ironwood Café -->
-          <div class="hbm-slide hbm-slide-4">
-            <div class="hbm-s4-nav">
-              <span class="hbm-s4-logo">IRONWOOD CAF&Eacute;</span>
-              <div class="hbm-s4-nav-links">
-                <span>Menu</span><span>Hours</span><span>Find us</span>
-              </div>
-            </div>
-            <div class="hbm-s4-body">
-              <div class="hbm-s4-text">
-                <div class="hbm-s4-badge">
-                  <div class="hbm-s4-badge-dot"></div>
-                  <span class="hbm-s4-badge-text">Now open</span>
-                </div>
-                <p class="hbm-s4-headline">Coffee worth<br>waking up for.</p>
-                <p class="hbm-s4-copy">Freshly roasted, every<br>morning, no excuses.</p>
-                <span class="hbm-s4-cta">See our menu</span>
-              </div>
-              <div class="hbm-s4-image">
-                <div class="hbm-s4-ring-1"></div>
-                <div class="hbm-s4-ring-2"></div>
-                <div class="hbm-s4-cup-wrap">
-                  <div class="hbm-s4-steam"></div>
-                  <div class="hbm-s4-steam"></div>
-                  <div class="hbm-s4-steam"></div>
-                  <div class="hbm-s4-cup-rim"></div>
-                  <div class="hbm-s4-cup-body">
-                    <div class="hbm-s4-cup-handle"></div>
-                  </div>
-                  <div class="hbm-s4-cup-saucer"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 5: Apex Fit -->
-          <div class="hbm-slide hbm-slide-5">
-            <div class="hbm-s5-nav">
-              <span class="hbm-s5-logo">APEX<em>FIT</em></span>
-              <div class="hbm-s5-nav-links">
-                <span>Programs</span><span>Pricing</span><span>Join</span>
-              </div>
-            </div>
-            <div class="hbm-s5-body">
-              <div class="hbm-s5-text">
-                <span class="hbm-s5-tag">Performance gym</span>
-                <div class="hbm-s5-headline">NO<em>LIMITS.</em></div>
-                <div class="hbm-s5-bars">
-                  <div class="hbm-s5-bar-row">
-                    <div class="hbm-s5-bar-head"><span class="hbm-s5-bar-lbl">Strength</span><span class="hbm-s5-bar-pct">88%</span></div>
-                    <div class="hbm-s5-bar-track"><div class="hbm-s5-bar-fill" style="width:88%"></div></div>
-                  </div>
-                  <div class="hbm-s5-bar-row">
-                    <div class="hbm-s5-bar-head"><span class="hbm-s5-bar-lbl">Cardio</span><span class="hbm-s5-bar-pct">72%</span></div>
-                    <div class="hbm-s5-bar-track"><div class="hbm-s5-bar-fill" style="width:72%"></div></div>
-                  </div>
-                  <div class="hbm-s5-bar-row">
-                    <div class="hbm-s5-bar-head"><span class="hbm-s5-bar-lbl">Recovery</span><span class="hbm-s5-bar-pct">64%</span></div>
-                    <div class="hbm-s5-bar-track"><div class="hbm-s5-bar-fill" style="width:64%"></div></div>
-                  </div>
-                </div>
-                <span class="hbm-s5-cta">Join today</span>
-              </div>
-              <div class="hbm-s5-right">
-                <div class="hbm-s5-ghost">NO</div>
-                <div class="hbm-s5-ring-1"></div>
-                <div class="hbm-s5-ring-2"></div>
-                <div class="hbm-s5-ring-3">
-                  <span class="hbm-s5-ring-text">JOIN<br>TODAY</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Slide 6: Badali Media -->
-          <div class="hbm-slide hbm-slide-6" style="background:url('BM.png') top center / cover no-repeat #0a0a12;"></div>
 
           <div class="hbm-progress-track">
             <div class="hbm-progress-bar" id="hbm-progress-bar"></div>
@@ -1671,7 +1304,7 @@
 
   <script>
     (function () {
-      var urls    = ['harbourandco.ca','summitbuild.ca','maisonelara.ca','ironwoodcafe.ca','apexfit.ca','badalimedia.ca'];
+      var urls    = ['badalimedia.ca', 'in progress'];
       var slides  = document.querySelectorAll('.hbm-slide');
       var urlEl   = document.getElementById('hbm-url-text');
       var barEl   = document.getElementById('hbm-progress-bar');
