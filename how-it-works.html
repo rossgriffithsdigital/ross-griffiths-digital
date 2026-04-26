@@ -42,7 +42,7 @@
       --navy: #0D1520;
       --accent: #3ECFCF;
       --text: #EDF3F7;
-      --muted: #7A9BAF;
+      --muted: #B8CDD8;
       --border: rgba(255,255,255,0.06);
     }
 
@@ -188,6 +188,28 @@
       transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
     }
     .step-row.visible::before { transform: scaleY(1); }
+
+    /* ===== ASK CALLOUT ===== */
+    .ask-callout {
+      background: var(--navy);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 3rem;
+      text-align: center;
+    }
+    .ask-quote {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.25rem, 2.5vw, 1.9rem);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      max-width: 680px;
+      margin: 0 auto;
+      line-height: 1.3;
+      border: none;
+      font-style: normal;
+    }
+    .ask-quote span { color: var(--accent); }
 
     /* ===== COMMITMENT SECTION ===== */
     .commitment-section {
@@ -415,8 +437,8 @@
     <div class="step-number">03</div>
     <div class="step-content">
       <h2 class="step-title">We sit down together</h2>
-      <p class="step-desc">If you're in Northumberland County or nearby, we meet in person. If you're further out, we set up a phone or video call. Either way, this is where we learn everything we need to build something that actually works for your business.</p>
-      <span class="step-tag">Local first, always reachable</span>
+      <p class="step-desc">This is a needs assessment, not a catch-up. We come prepared with research on your business, your industry, and your competitors — then we ask questions and listen. What do your customers need? What does success look like for you? What isn't working right now? Most agencies skip this step entirely and jump straight to design. We don't. Until we understand your business, we don't touch a design tool.</p>
+      <span class="step-tag">Needs assessment — not just a chat</span>
     </div>
   </div>
 
@@ -449,6 +471,11 @@
 
   </div>
 
+</section>
+
+<!-- ASK CALLOUT -->
+<section class="ask-callout">
+  <blockquote class="ask-quote">"We never assume we know what your business needs. <span>We ask.</span>"</blockquote>
 </section>
 
 <!-- COMMITMENT SECTION -->

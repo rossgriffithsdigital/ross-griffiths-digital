@@ -91,7 +91,7 @@
       --navy:   #0D1520;
       --accent: #3ECFCF;
       --text:   #EDF3F7;
-      --muted:  #7A9BAF;
+      --muted:  #B8CDD8;
       --border: rgba(255,255,255,0.06);
     }
 
@@ -325,7 +325,7 @@
     }
 
     .hero-title .line-2 {
-      color: var(--muted);
+      color: var(--text);
       display: block;
     }
 
@@ -384,6 +384,7 @@
     .service-row:nth-child(1) { transition-delay: 0.1s; }
     .service-row:nth-child(2) { transition-delay: 0.2s; }
     .service-row:nth-child(3) { transition-delay: 0.3s; }
+    .service-row:nth-child(4) { transition-delay: 0.4s; }
     .why-point:nth-child(1)   { transition-delay: 0.1s; }
     .why-point:nth-child(3)   { transition-delay: 0.2s; }
     .why-point:nth-child(5)   { transition-delay: 0.3s; }
@@ -751,6 +752,28 @@
       }
     }
 
+    /* ── Conversation First section ─────────────────────────────── */
+    .convo-section {
+      padding: 7rem 6vw;
+      background: var(--navy);
+      background-image: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(62,207,207,0.03), transparent);
+    }
+
+    .convo-inner { max-width: 720px; }
+
+    .convo-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+
+    .convo-body p {
+      font-size: 1rem;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
     @media (max-width: 480px) {
       .hero-title { font-size: clamp(2.5rem, 10vw, 3.5rem); }
     }
@@ -1060,6 +1083,26 @@
             <p>Every site we build is set up to be found. Structured correctly from day one so search engines can rank you.</p>
           </div>
         </div>
+        <div class="service-row reveal">
+          <span class="item-accent"></span>
+          <div class="service-info">
+            <h3>Needs assessment included</h3>
+            <p>Before we design anything, we sit down with you to understand your business and your goals. No guessing, no assumptions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Conversation First -->
+  <section class="convo-section">
+    <div class="convo-inner">
+      <span class="section-label reveal">How we start</span>
+      <h2 class="section-title reveal" style="transition-delay:0.1s">We start with a conversation,<br>not a quote.</h2>
+      <div class="convo-body">
+        <p class="reveal" style="transition-delay:0.15s">Before we touch a design tool, we sit down with you — in person if you're local, by phone or call if you're not. We ask questions. We listen. We try to understand your business, your customers, and what success actually looks like for you.</p>
+        <p class="reveal" style="transition-delay:0.2s">Most agencies skip this step. They assume they know what you need and start building. We don't. Every business is different, and the only way to build something that actually works is to understand yours first.</p>
+        <p class="reveal" style="transition-delay:0.25s">It's not a sales call. There's no pitch. It's a conversation — and by the end of it, you'll know exactly what we're going to build and why.</p>
       </div>
     </div>
   </section>
