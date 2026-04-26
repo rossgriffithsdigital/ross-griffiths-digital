@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -38,16 +38,38 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #080C12;
-      --navy: #0D1520;
-      --accent: #3ECFCF;
-      --text: #EDF3F7;
-      --muted: #B8CDD8;
-      --border: rgba(255,255,255,0.06);
+      --bg-primary:     #0a0a0c;
+      --bg-secondary:   #0D1520;
+      --bg-card:        #111820;
+      --text-primary:   #EDF3F7;
+      --text-secondary: #B0C4D0;
+      --text-muted:     #7A9BAF;
+      --border:         rgba(62, 207, 207, 0.15);
+      --accent:         #00d4ff;
+      --nav-bg:         rgba(10,10,12,0.95);
+      --bg:    var(--bg-primary);
+      --navy:  var(--bg-secondary);
+      --text:  var(--text-primary);
+      --muted: var(--text-secondary);
+    }
+
+    [data-theme="light"] {
+      --bg-primary:     #F4F4EF;
+      --bg-secondary:   #EAEAE4;
+      --bg-card:        #E2E2DC;
+      --text-primary:   #0A0A0C;
+      --text-secondary: #2A2A2A;
+      --text-muted:     #555555;
+      --border:         rgba(0,0,0,0.1);
+      --accent:         #0099BB;
+      --nav-bg:         rgba(244,244,239,0.97);
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background-color 0.3s ease, color 0.3s ease; }
+
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-secondary); cursor: pointer; font-size: 1rem; line-height: 1; padding: 0.4rem 0.55rem; border-radius: 4px; transition: border-color 0.2s, color 0.2s; display: flex; align-items: center; justify-content: center; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
     ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--muted); border-radius: 4px; }
 
     /* ===== NAV ===== */
@@ -60,7 +82,7 @@
       transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
     }
     nav.scrolled {
-      background: rgba(8,12,18,0.92);
+      background: var(--nav-bg);
       backdrop-filter: blur(20px) saturate(160%);
       -webkit-backdrop-filter: blur(20px) saturate(160%);
       padding: 1rem 3rem;
@@ -386,6 +408,7 @@
     <li><a href="/about">About</a></li>
     <li><a href="/portfolio">Portfolio</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☽</button>
   <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -596,6 +619,10 @@
   window.addEventListener('scroll', updateTimeline, { passive: true });
   window.addEventListener('resize', updateTimeline, { passive: true });
   updateTimeline();
+</script>
+
+<script>
+  (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
 </script>
 
 </body>

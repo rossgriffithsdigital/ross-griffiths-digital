@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -38,18 +38,43 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --accent: #00d4ff; --accent-dim: rgba(0,212,255,0.12);
-      --bg: #07101f; --surface: #0d1929;
-      --border: rgba(255,255,255,0.07);
-      --text-1: #f0f0f2; --text-2: #ABABAB; --text-3: #4a4a5a;
+      --bg-primary:     #0a0a0c;
+      --bg-secondary:   #0D1520;
+      --text-primary:   #EDF3F7;
+      --text-secondary: #B0C4D0;
+      --text-muted:     #7A9BAF;
+      --border:         rgba(62, 207, 207, 0.15);
+      --accent:         #00d4ff;
+      --nav-bg:         rgba(10,10,12,0.85);
+      --accent-dim: rgba(0,212,255,0.12);
+      --surface: var(--bg-secondary);
       --ease-spring: cubic-bezier(0.34,1.56,0.64,1);
       --ease-out: cubic-bezier(0.16,1,0.3,1);
+      --text-1: var(--text-primary);
+      --text-2: var(--text-secondary);
+      --text-3: var(--text-muted);
+      --bg:     var(--bg-primary);
     }
+
+    [data-theme="light"] {
+      --bg-primary:     #F4F4EF;
+      --bg-secondary:   #EAEAE4;
+      --text-primary:   #0A0A0C;
+      --text-secondary: #2A2A2A;
+      --text-muted:     #555555;
+      --border:         rgba(0,0,0,0.1);
+      --accent:         #0099BB;
+      --nav-bg:         rgba(244,244,239,0.92);
+    }
+
     html { scroll-behavior: smooth; }
-    body { font-family: 'Outfit',system-ui,sans-serif; background: var(--bg); color: var(--text-1); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Outfit',system-ui,sans-serif; background: var(--bg); color: var(--text-1); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background-color 0.3s ease, color 0.3s ease; }
+
+    .theme-toggle { background: none; border: 1px solid var(--border); color: var(--text-2); cursor: pointer; font-size: 1rem; line-height: 1; padding: 0.4rem 0.55rem; border-radius: 4px; transition: border-color 0.2s, color 0.2s; display: flex; align-items: center; justify-content: center; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
     ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--text-3); border-radius: 4px; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: rgba(10,10,12,0.7); border-bottom: 1px solid var(--border); }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: var(--nav-bg); border-bottom: 1px solid var(--border); transition: background-color 0.3s ease; }
     .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -122,6 +147,7 @@
       <li><a href="/about">About</a></li>
       <li><a href="/portfolio">Portfolio</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☽</button>
     <a class="nav-cta" href="/contact">Get in touch</a>
   </nav>
 
@@ -246,6 +272,10 @@
         banner.classList.remove('visible');
       });
     })();
+  </script>
+
+  <script>
+    (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
   </script>
 
 </body>
