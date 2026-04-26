@@ -1,0 +1,155 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Contact form handler — Lambda + SES + HTTP API Gateway (reusable per client)
+
+Parameters:
+  ClientName:
+    Type: String
+    Description: Client name used for naming resources (e.g. badali-media)
+  SESRegion:
+    Type: String
+    Default: us-east-2
+    Description: AWS region where SES is configured
+  FromEmail:
+    Type: String
+    Description: Verified SES sender address
+  ToEmail:
+    Type: String
+    Description: Where form submissions get delivered
+
+Resources:
+
+  LambdaExecutionRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: !Sub "${ClientName}-contact-form-role"
+      AssumeRolePolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+        - arn:aws:iam::aws:policy/AmazonSESFullAccess
+
+  ContactFormFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: !Sub "${ClientName}-contact-form"
+      Runtime: nodejs22.x
+      Handler: index.handler
+      Role: !GetAtt LambdaExecutionRole.Arn
+      Environment:
+        Variables:
+          SES_REGION: !Ref SESRegion
+          FROM_EMAIL: !Ref FromEmail
+          TO_EMAIL: !Ref ToEmail
+      Code:
+        ZipFile: |
+          const { SESClient, SendEmailCommand } = require("@aws-sdk/client-ses");
+
+          const ses = new SESClient({ region: process.env.SES_REGION });
+
+          const CORS = {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Headers": "Content-Type",
+            "Access-Control-Allow-Methods": "POST,OPTIONS",
+          };
+
+          exports.handler = async (event) => {
+            if (event.requestContext?.http?.method === "OPTIONS") {
+              return { statusCode: 204, headers: CORS, body: "" };
+            }
+
+            let body;
+            try {
+              body = JSON.parse(event.body || "{}");
+            } catch {
+              return {
+                statusCode: 400,
+                headers: CORS,
+                body: JSON.stringify({ error: "Invalid JSON body" }),
+              };
+            }
+
+            const { name, email, message } = body;
+
+            if (!name || !email || !message) {
+              return {
+                statusCode: 400,
+                headers: CORS,
+                body: JSON.stringify({ error: "name, email, and message are required" }),
+              };
+            }
+
+            try {
+              await ses.send(new SendEmailCommand({
+                Source: process.env.FROM_EMAIL,
+                Destination: { ToAddresses: [process.env.TO_EMAIL] },
+                Message: {
+                  Subject: { Data: `New contact form submission from ${name}` },
+                  Body: {
+                    Text: {
+                      Data: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+                    },
+                  },
+                },
+                ReplyToAddresses: [email],
+              }));
+
+              return {
+                statusCode: 200,
+                headers: CORS,
+                body: JSON.stringify({ success: true }),
+              };
+            } catch (err) {
+              console.error("SES error:", err);
+              return {
+                statusCode: 500,
+                headers: CORS,
+                body: JSON.stringify({ error: "Failed to send message" }),
+              };
+            }
+          };
+
+  HttpApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: !Sub "${ClientName}-contact-api"
+      ProtocolType: HTTP
+
+  LambdaIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref HttpApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub "arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactFormFunction.Arn}/invocations"
+      PayloadFormatVersion: "2.0"
+
+  ContactRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref HttpApi
+      RouteKey: "POST /contact"
+      Target: !Sub "integrations/${LambdaIntegration}"
+
+  DefaultStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref HttpApi
+      StageName: "$default"
+      AutoDeploy: true
+
+  LambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !GetAtt ContactFormFunction.Arn
+      Action: lambda:InvokeFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub "arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${HttpApi}/*/*/contact"
+
+Outputs:
+  ContactFormUrl:
+    Description: POST to this URL from your contact form
+    Value: !Sub "https://${HttpApi}.execute-api.${AWS::Region}.amazonaws.com/contact"
