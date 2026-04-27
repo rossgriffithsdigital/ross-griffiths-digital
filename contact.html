@@ -1064,6 +1064,21 @@
     updatePackage();
   })();
 
+  // Pre-populate textarea from pricing page URL params (?package=, ?monthly=, ?onetime=)
+  (function() {
+    const params = new URLSearchParams(location.search);
+    const pkg = params.get('package');
+    const monthly = params.get('monthly');
+    const onetime = params.get('onetime');
+    if (!pkg && !monthly && !onetime) return;
+    const parts = [];
+    if (pkg) parts.push('I\'m interested in: ' + pkg + '.');
+    if (monthly && monthly !== '0') parts.push('Monthly total: $' + monthly + '/mo.');
+    if (onetime) parts.push('One-time total: $' + onetime + ' CAD.');
+    const textarea = document.getElementById('message');
+    if (textarea && parts.length) textarea.value = parts.join(' ');
+  })();
+
   // Form submission
   const form = document.getElementById('contactForm');
   const btn = document.getElementById('submitBtn');

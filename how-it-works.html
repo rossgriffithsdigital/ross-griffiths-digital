@@ -384,6 +384,68 @@
       box-shadow: 0 0 12px rgba(62,207,207,0.6);
     }
 
+    /* ===== STEP IMAGES ===== */
+    .step-with-image .step-content {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 2rem;
+      align-items: start;
+    }
+    .step-content-text {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      padding-top: 0.5rem;
+    }
+    .step-image-wrap {
+      overflow: hidden;
+      border: 1px solid var(--border);
+      height: 180px;
+      margin-top: 0.5rem;
+    }
+    .step-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.75;
+      transition: opacity 0.3s;
+    }
+    [data-theme="light"] .step-image-wrap img { opacity: 0.85; }
+
+    /* ===== VIDEO DIVIDER ===== */
+    .video-divider {
+      position: relative;
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+    }
+    .video-divider video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .video-divider-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(8,12,18,0.5);
+    }
+    [data-theme="light"] .video-divider-overlay { background: rgba(244,244,239,0.55); }
+    .video-divider-text {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
         animation-duration: 0.01ms !important;
@@ -403,6 +465,8 @@
       .step-number { font-size: 3rem; }
       .steps-timeline { padding-left: 1rem; }
       .steps-timeline .step-row::after { left: calc(-1rem - 4px); }
+      .step-with-image .step-content { grid-template-columns: 1fr; }
+      .step-image-wrap { display: none; }
       .commitment-section { padding: 4rem 1.5rem; }
       .commitment-grid { grid-template-columns: 1fr; }
       .commitment-item { border-right: none !important; border-top: 1px solid var(--border); padding: 1.75rem 0 !important; }
@@ -482,21 +546,31 @@
     </div>
   </div>
 
-  <div class="step-row reveal reveal-d3">
+  <div class="step-row step-with-image reveal reveal-d3">
     <div class="step-number">04</div>
     <div class="step-content">
-      <h2 class="step-title">Custom design, built around you</h2>
-      <p class="step-desc">We put together a design tailored to your business specifically — your customers, your industry, your feel. You see it before we write a single line of code and we refine it until it's right.</p>
-      <span class="step-tag">You approve before we build</span>
+      <div class="step-content-text">
+        <h2 class="step-title">Custom design, built around you</h2>
+        <p class="step-desc">We put together a design tailored to your business specifically — your customers, your industry, your feel. You see it before we write a single line of code and we refine it until it's right.</p>
+        <span class="step-tag">You approve before we build</span>
+      </div>
+      <div class="step-image-wrap">
+        <img src="/assets/higgsfield/wireframe-grid.jpg" alt="Custom design wireframe" loading="lazy">
+      </div>
     </div>
   </div>
 
-  <div class="step-row reveal reveal-d1">
+  <div class="step-row step-with-image reveal reveal-d1">
     <div class="step-number">05</div>
     <div class="step-content">
-      <h2 class="step-title">We get you live</h2>
-      <p class="step-desc">Once the design is locked in, we build the full site and get it published. It will load fast, look sharp on any device, and be set up correctly for Google from day one.</p>
-      <span class="step-tag">Ready to rank</span>
+      <div class="step-content-text">
+        <h2 class="step-title">We get you live</h2>
+        <p class="step-desc">Once the design is locked in, we build the full site and get it published. It will load fast, look sharp on any device, and be set up correctly for Google from day one.</p>
+        <span class="step-tag">Ready to rank</span>
+      </div>
+      <div class="step-image-wrap">
+        <img src="/assets/higgsfield/launch-horizon.jpg" alt="Website launch" loading="lazy" style="object-position: bottom;">
+      </div>
     </div>
   </div>
 
@@ -540,6 +614,15 @@
     </div>
   </div>
 </section>
+
+<!-- VIDEO DIVIDER -->
+<div class="video-divider">
+  <video autoplay muted loop playsinline>
+    <source src="/assets/higgsfield/light-point.mp4" type="video/mp4">
+  </video>
+  <div class="video-divider-overlay"></div>
+  <p class="video-divider-text">Your site. Live. Yours.</p>
+</div>
 
 <!-- CTA SECTION -->
 <section class="cta-section">

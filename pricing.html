@@ -125,16 +125,6 @@
     .btn-outline:hover { color: #080C12; }
     .btn-outline > span, .btn-outline > svg { position: relative; z-index: 1; }
 
-    .btn-outline-filled {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-variant: small-caps;
-      letter-spacing: 0.12em; padding: 0.65rem 1.5rem;
-      color: #080C12; border: 1px solid var(--accent);
-      background: var(--accent); text-decoration: none;
-      position: relative; overflow: hidden; transition: opacity 0.3s; cursor: pointer;
-    }
-    .btn-outline-filled:hover { opacity: 0.85; }
-
     .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
     .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s ease; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -163,89 +153,140 @@
     .page-header h1 .muted-line { color: var(--muted); }
     .page-header p { font-family: 'Outfit', sans-serif; font-size: clamp(1rem, 1.8vw, 1.1rem); color: var(--muted); line-height: 1.7; max-width: 560px; animation: slideUp 0.7s cubic-bezier(0.16,1,0.3,1) 0.2s both; }
 
-    /* ===== PRICING SECTION ===== */
-    .pricing-section { background: var(--bg); padding: 0 3rem 6rem; }
-    .pricing-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2rem; }
+    /* ===== FOUNDING BANNER ===== */
+    .founding-banner {
+      border-left: 3px solid var(--accent);
+      background: rgba(0,212,255,0.04);
+      padding: 1rem 3rem;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    [data-theme="light"] .founding-banner { background: rgba(0,136,170,0.06); }
+    .founding-text { display: block; max-width: 860px; }
 
-    .pricing-card {
-      border: 1px solid var(--border);
-      padding: 2.5rem;
+    /* ===== PACKAGE BUILDER ===== */
+    .builder-section { background: var(--bg); padding: 0 3rem 6rem; }
+    .builder-header { padding: 4rem 0 2rem; }
+    .builder-subtitle { font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--muted); margin-top: 0.75rem; }
+    .builder-inner { display: flex; gap: 3rem; align-items: flex-start; }
+    .builder-steps { flex: 1; min-width: 0; }
+    .builder-step { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+    .step-head { margin-bottom: 1.5rem; }
+    .step-num { font-family: 'Outfit', sans-serif; font-size: 0.72rem; font-variant: small-caps; letter-spacing: 0.12em; color: var(--accent); display: block; margin-bottom: 0.3rem; }
+    .step-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.2rem; color: var(--text); letter-spacing: -0.02em; }
+    .step-required { font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 400; color: var(--accent); font-variant: normal; letter-spacing: 0; }
+    .step-optional { font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-weight: 400; color: var(--muted); font-variant: normal; letter-spacing: 0; }
+
+    .pkg-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .pkg-cards.single { grid-template-columns: 1fr; max-width: 420px; }
+    .pkg-cards.three-col { grid-template-columns: repeat(3, 1fr); }
+
+    .pkg-card {
       position: relative;
-      display: flex; flex-direction: column; gap: 0;
+      border: 1px solid var(--border);
+      padding: 1.5rem;
+      cursor: pointer;
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+      min-height: 110px;
     }
-    .pricing-card.featured { border-color: var(--accent); }
+    .pkg-card.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .pkg-card.locked { cursor: default; }
+    .pkg-card-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+    .pkg-card-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.15; pointer-events: none; display: block; }
+    [data-theme="light"] .pkg-card-bg img { opacity: 0.2; }
+    .pkg-card-content { position: relative; z-index: 1; }
+    .pkg-card-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1rem; color: var(--text); margin-bottom: 0.2rem; }
+    .pkg-card-price { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.3rem; color: var(--accent); margin-bottom: 0.4rem; letter-spacing: -0.02em; }
+    .pkg-card-freq { font-family: 'Outfit', sans-serif; font-size: 0.78rem; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+    .pkg-card-desc { font-family: 'Outfit', sans-serif; font-size: 0.83rem; color: var(--muted); line-height: 1.65; margin-top: 0.4rem; }
+    .pkg-card-note { font-family: 'Outfit', sans-serif; font-size: 0.76rem; color: var(--accent); margin-top: 0.5rem; opacity: 0.85; }
+    .pkg-card-check {
+      position: absolute; top: 0.6rem; right: 0.6rem;
+      width: 18px; height: 18px;
+      background: var(--accent); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.6rem; color: #080C12; font-weight: 700;
+      opacity: 0; transition: opacity 0.2s; z-index: 2;
+    }
+    .pkg-card.selected .pkg-card-check { opacity: 1; }
 
-    .card-badge {
-      position: absolute; top: -1px; right: 2rem;
-      font-family: 'Outfit', sans-serif; font-size: 0.65rem;
-      font-variant: small-caps; letter-spacing: 0.1em;
-      color: #080C12; background: var(--accent);
-      padding: 0.25rem 0.75rem;
+    .card-support-bg {
+      position: absolute; inset: 0; opacity: 0.12;
+      background-image:
+        linear-gradient(rgba(0,212,255,0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,255,0.4) 1px, transparent 1px);
+      background-size: 32px 32px;
+      animation: grid-drift 8s ease-in-out infinite alternate;
     }
+    @keyframes grid-drift {
+      from { background-position: 0 0; }
+      to   { background-position: 16px 16px; }
+    }
+    [data-theme="light"] .card-support-bg { opacity: 0.08; }
 
-    .card-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.25rem;
-      color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.02em;
+    /* Sticky panel */
+    .sticky-panel {
+      width: 280px; flex-shrink: 0;
+      position: sticky; top: 100px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      display: flex; flex-direction: column; gap: 1rem;
     }
-    .card-desc {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 2rem;
-    }
-    .card-price {
-      margin-bottom: 1.5rem;
-    }
-    .price-main {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 800; font-size: clamp(2.8rem, 5vw, 3.8rem);
-      color: var(--text); letter-spacing: -0.04em; line-height: 1;
-    }
-    .price-sub {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.82rem; color: var(--muted); margin-top: 0.4rem;
-    }
-    .card-divider { height: 1px; background: var(--border); margin: 1.5rem 0; }
-    .card-features { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; margin-bottom: 2.5rem; flex-grow: 1; }
-    .card-features li {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem; color: var(--muted);
-      display: flex; align-items: flex-start; gap: 0.6rem;
-    }
-    .card-features li::before {
-      content: '—';
-      color: var(--accent); font-weight: 600; flex-shrink: 0;
-    }
-    .card-cta { width: 100%; justify-content: center; text-align: center; }
+    .panel-totals { display: flex; flex-direction: column; gap: 0.75rem; }
+    .panel-total-label { font-family: 'Outfit', sans-serif; font-size: 0.7rem; font-variant: small-caps; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.15rem; }
+    .panel-total-amount { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2rem; color: var(--accent); letter-spacing: -0.04em; line-height: 1; }
+    .panel-total-currency { font-family: 'Outfit', sans-serif; font-size: 0.7rem; color: var(--muted); margin-top: 0.1rem; }
+    .panel-monthly { font-size: 1.4rem; }
+    .panel-mo { font-size: 0.8rem; font-weight: 400; color: var(--muted); letter-spacing: 0; }
+    .panel-divider { height: 1px; background: var(--border); }
+    .panel-breakdown { border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 0.75rem 0; display: flex; flex-direction: column; gap: 0.4rem; min-height: 2.5rem; }
+    .breakdown-item { display: flex; justify-content: space-between; font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--muted); }
+    .breakdown-item em { font-style: normal; font-size: 0.7rem; opacity: 0.8; }
+    .panel-cta { width: 100%; justify-content: center; text-align: center; }
 
-    .price-period {
-      font-family: 'Outfit', sans-serif;
-      font-size: 1rem; color: var(--muted); font-weight: 400;
-      letter-spacing: 0; margin-left: 0.15em;
-    }
-    .price-range {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem;
-    }
-    .price-range-inline {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.4rem; font-weight: 600;
-      color: var(--muted); letter-spacing: -0.02em; margin-left: 0.1em;
-    }
-    .price-note {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem;
-    }
+    /* Mobile panel */
+    .mobile-panel { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 150; background: var(--bg-card); border-top: 1px solid var(--border); height: 80px; }
+    .mobile-panel-inner { display: flex; align-items: center; justify-content: space-between; padding: 0 1.5rem; height: 100%; gap: 1rem; }
+    .mobile-totals { display: flex; gap: 1.5rem; align-items: center; }
+    .mobile-label { font-family: 'Outfit', sans-serif; font-size: 0.62rem; color: var(--muted); font-variant: small-caps; letter-spacing: 0.08em; display: block; }
+    .mobile-amount { font-family: 'Space Grotesk', sans-serif; font-size: 0.95rem; font-weight: 700; color: var(--accent); letter-spacing: -0.02em; }
+    .mobile-cta { flex-shrink: 0; }
 
-    .pages-callout {
-      margin-top: 2.5rem;
-      padding: 1.1rem 1.6rem;
-      border: 1px solid rgba(62,207,207,0.18);
-      background: rgba(62,207,207,0.03);
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.9rem; color: var(--muted); line-height: 1.6;
-    }
-    .pages-callout a { color: var(--accent); text-decoration: none; }
-    .pages-callout a:hover { text-decoration: underline; text-underline-offset: 3px; }
+    /* Add-ons */
+    .addons-section { padding: 2.5rem 0; border-top: 1px solid var(--border); }
+    .addons-heading { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .addons-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .addon-card { border: 1px solid var(--border); padding: 1.25rem 1.5rem; flex: 1; min-width: 200px; }
+    .addon-card-discuss { opacity: 0.65; pointer-events: none; }
+    .addon-card-active { border-color: var(--accent); }
+    .addon-name { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.6rem; }
+    .addon-price { font-family: 'Outfit', sans-serif; font-size: 0.83rem; color: var(--muted); margin-bottom: 0.4rem; }
+    .addon-note { font-family: 'Outfit', sans-serif; font-size: 0.78rem; color: var(--muted); font-style: italic; }
+    .addon-qty { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.25rem; }
+    .qty-btn { background: none; border: 1px solid var(--border); color: var(--muted); font-family: 'Outfit', sans-serif; font-size: 0.75rem; padding: 0.3rem 0.7rem; cursor: pointer; transition: border-color 0.2s, color 0.2s, background 0.2s; border-radius: 2px; }
+    .qty-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .qty-btn.active { border-color: var(--accent); color: var(--accent); background: rgba(0,212,255,0.07); }
+
+    /* ===== WHAT'S INCLUDED ===== */
+    .included-section { background: var(--navy); padding: 6rem 3rem; }
+    .included-header { margin-bottom: 3rem; }
+    .included-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
+    .included-col h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
+    .included-col > p { font-family: 'Outfit', sans-serif; font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.65; }
+    .included-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+    .included-list li { font-family: 'Outfit', sans-serif; font-size: 0.87rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem; }
+    .included-list li::before { content: '—'; color: var(--accent); font-weight: 600; flex-shrink: 0; }
+
+    /* ===== VIDEO DIVIDER ===== */
+    .video-divider { position: relative; width: 100%; height: 200px; overflow: hidden; }
+    .video-divider video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .video-divider-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; transition: background 0.3s ease; }
+    [data-theme="light"] .video-divider-overlay { background: rgba(0,0,0,0.7); }
+    .video-divider-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.4rem, 3vw, 2.2rem); color: #EDF3F7; letter-spacing: -0.02em; text-align: center; padding: 0 2rem; }
 
     /* ===== FAQ SECTION ===== */
     .faq-section { background: var(--navy); padding: 6rem 3rem; }
@@ -253,20 +294,9 @@
     .section-title { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.8rem, 3.5vw, 2.8rem); color: var(--text); letter-spacing: -0.03em; margin-bottom: 3rem; max-width: 560px; }
 
     .faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
-    .faq-item {
-      padding: 2rem 0;
-      border-bottom: 1px solid var(--border);
-    }
-    .faq-q {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700; font-size: 1.05rem;
-      color: var(--text); margin-bottom: 0.85rem; letter-spacing: -0.01em;
-    }
-    .faq-a {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.95rem; color: var(--muted); line-height: 1.75;
-      max-width: 680px;
-    }
+    .faq-item { padding: 2rem 0; border-bottom: 1px solid var(--border); }
+    .faq-q { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); margin-bottom: 0.85rem; letter-spacing: -0.01em; }
+    .faq-a { font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 680px; }
 
     /* ===== CTA SECTION ===== */
     .cta-section { background: var(--bg); padding: 6rem 3rem; text-align: center; }
@@ -303,7 +333,12 @@
 
     /* ===== RESPONSIVE ===== */
     @media (max-width: 900px) {
-      .pricing-grid { grid-template-columns: 1fr; }
+      .builder-inner { flex-direction: column; }
+      .sticky-panel { display: none; }
+      .mobile-panel { display: block; }
+      body { padding-bottom: 88px; }
+      .included-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pkg-cards.three-col { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 768px) {
       nav { padding: 1.25rem 1.5rem; }
@@ -311,12 +346,17 @@
       .nav-links, .nav-cta { display: none; }
       .nav-hamburger { display: flex; }
       .page-header { padding: 7rem 1.5rem 3rem; }
-      .pricing-section { padding: 0 1.5rem 4rem; }
+      .founding-banner { padding: 1rem 1.5rem; }
+      .builder-section { padding: 0 1.5rem 5rem; }
+      .included-section { padding: 4rem 1.5rem; }
       .faq-section { padding: 4rem 1.5rem; }
       .cta-section { padding: 4rem 1.5rem; }
       footer { padding: 3rem 1.5rem 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+      .video-divider { height: 140px; }
+      .pkg-cards { grid-template-columns: 1fr; }
+      .pkg-cards.three-col { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -352,47 +392,202 @@
 <!-- PAGE HEADER -->
 <header class="page-header">
   <span class="eyebrow">Pricing</span>
-  <h1>Straightforward pricing.<br><span class="muted-line">No surprises.</span></h1>
-  <p>One build fee, one optional support plan. That is it. No hidden costs, no upsells, no lock-in.</p>
+  <h1>Build your package.<br><span class="muted-line">Know your price.</span></h1>
+  <p>One flat build fee. Optional support and marketing packages. No hidden costs, no lock-in. Build exactly what you need.</p>
 </header>
 
-<!-- PRICING SECTION -->
-<section class="pricing-section">
-  <div class="pricing-grid">
+<!-- FOUNDING RATE BANNER -->
+<div class="founding-banner">
+  <span class="founding-text">Founding Client Rate — Our first 10 clients receive the full website build at $999 CAD. Regular price $1,500 CAD.</span>
+</div>
 
-    <!-- Card 1: Website Build -->
-    <div class="pricing-card reveal">
-      <h2 class="card-name">Website Build</h2>
-      <p class="card-desc">A custom site built from scratch, tailored to your business.</p>
-      <div class="card-price">
-        <div class="price-main">$999</div>
-        <div class="price-sub">CAD flat fee</div>
-        <div class="price-note" style="margin-top:0.75rem;">Includes a discovery session before we start — we sit down with you first to make sure we're building exactly what your business needs.</div>
+<!-- PACKAGE BUILDER -->
+<section class="builder-section" id="builder">
+  <div class="builder-header">
+    <span class="section-label">Package builder</span>
+    <h2 class="section-title">Build your package</h2>
+    <p class="builder-subtitle">Select what your business needs. Your total updates instantly.</p>
+  </div>
+
+  <div class="builder-inner">
+
+    <!-- Steps column -->
+    <div class="builder-steps">
+
+      <!-- Step 01 — Website (required, locked) -->
+      <div class="builder-step">
+        <div class="step-head">
+          <span class="step-num">Step 01</span>
+          <h3 class="step-heading">Your Website <span class="step-required">(required)</span></h3>
+        </div>
+        <div class="pkg-cards single">
+          <div class="pkg-card selected locked" id="card-website">
+            <div class="pkg-card-bg">
+              <img src="/assets/higgsfield/card-website.jpg" alt="" loading="lazy">
+            </div>
+            <div class="pkg-card-content">
+              <div class="pkg-card-name">Website Build</div>
+              <div class="pkg-card-price">$999 CAD <span class="pkg-card-freq">one-time</span></div>
+              <div class="pkg-card-desc">Custom site built from scratch. Up to 5 pages, contact form, SEO setup, mobile optimized. Includes a discovery session.</div>
+            </div>
+            <div class="pkg-card-check">✓</div>
+          </div>
+        </div>
       </div>
-      <div class="card-divider"></div>
-      <ul class="card-features">
+
+      <!-- Step 02 — Support (optional toggle) -->
+      <div class="builder-step">
+        <div class="step-head">
+          <span class="step-num">Step 02</span>
+          <h3 class="step-heading">Monthly Support <span class="step-optional">(optional)</span></h3>
+        </div>
+        <div class="pkg-cards" id="support-cards">
+          <div class="pkg-card selected" id="card-no-support" data-group="support" data-monthly="0">
+            <div class="pkg-card-content">
+              <div class="pkg-card-name">No support plan</div>
+              <div class="pkg-card-price">$0<span class="pkg-card-freq">/mo</span></div>
+            </div>
+            <div class="pkg-card-check">✓</div>
+          </div>
+          <div class="pkg-card" id="card-support" data-group="support" data-monthly="50">
+            <div class="card-support-bg"></div>
+            <div class="pkg-card-content">
+              <div class="pkg-card-name">Monthly Support</div>
+              <div class="pkg-card-price">$50<span class="pkg-card-freq">/mo</span></div>
+              <div class="pkg-card-desc">Security updates, backups, uptime monitoring, priority email. Cancel with 30 days notice.</div>
+            </div>
+            <div class="pkg-card-check">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 03 — Marketing (three-way toggle) -->
+      <div class="builder-step">
+        <div class="step-head">
+          <span class="step-num">Step 03</span>
+          <h3 class="step-heading">Digital Marketing <span class="step-optional">(optional)</span></h3>
+        </div>
+        <div class="pkg-cards three-col" id="marketing-cards">
+          <div class="pkg-card selected" id="card-no-marketing" data-group="marketing" data-monthly="0" data-setup="0">
+            <div class="pkg-card-content">
+              <div class="pkg-card-name">Not yet</div>
+              <div class="pkg-card-price">$0<span class="pkg-card-freq">/mo</span></div>
+            </div>
+            <div class="pkg-card-check">✓</div>
+          </div>
+          <div class="pkg-card" id="card-content" data-group="marketing" data-monthly="200" data-setup="300">
+            <div class="pkg-card-bg">
+              <img src="/assets/higgsfield/card-marketing.jpg" alt="" loading="lazy">
+            </div>
+            <div class="pkg-card-content">
+              <div class="pkg-card-name">Content Delivery</div>
+              <div class="pkg-card-price">$200<span class="pkg-card-freq">/mo</span></div>
+              <div class="pkg-card-desc">8–12 pieces of professional content per month. Delivered to your Google Drive. You post on your own schedule.</div>
+              <div class="pkg-card-note">+ $300 one-time setup fee</div>
+            </div>
+            <div class="pkg-card-check">✓</div>
+          </div>
+          <div class="pkg-card" id="card-managed" data-group="marketing" data-monthly="350" data-setup="300">
+            <div class="pkg-card-bg">
+              <img src="/assets/higgsfield/card-marketing.jpg" alt="" loading="lazy">
+            </div>
+            <div class="pkg-card-content">
+              <div class="pkg-card-name">Full Management</div>
+              <div class="pkg-card-price">$350<span class="pkg-card-freq">/mo</span></div>
+              <div class="pkg-card-desc">Everything in Content Delivery plus we manage your Instagram and Facebook. You don't lift a finger.</div>
+              <div class="pkg-card-note">+ $300 one-time setup fee</div>
+            </div>
+            <div class="pkg-card-check">✓</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add-ons -->
+      <div class="addons-section">
+        <h3 class="addons-heading">Add-ons</h3>
+        <div class="addons-row">
+          <div class="addon-card">
+            <div class="addon-name">Business Cards</div>
+            <div class="addon-qty">
+              <button class="qty-btn" data-price="0">None</button>
+              <button class="qty-btn" data-price="50">25 cards — $50</button>
+              <button class="qty-btn" data-price="100">50 cards — $100</button>
+              <button class="qty-btn" data-price="150">100 cards — $150</button>
+            </div>
+          </div>
+          <div class="addon-card addon-card-discuss" id="addon-extra-pages">
+            <div class="addon-name">Extra Pages</div>
+            <div class="addon-price">Contact for pricing</div>
+            <div class="addon-note">Discuss with us during your discovery session.</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /builder-steps -->
+
+    <!-- Sticky total panel (desktop) -->
+    <aside class="sticky-panel" id="sticky-panel">
+      <div class="panel-totals">
+        <div class="panel-total-block">
+          <div class="panel-total-label">One-time total</div>
+          <div class="panel-total-amount">$<span id="counter-onetime">999</span></div>
+          <div class="panel-total-currency">CAD</div>
+        </div>
+        <div class="panel-divider"></div>
+        <div class="panel-total-block">
+          <div class="panel-total-label">Monthly total</div>
+          <div class="panel-total-amount panel-monthly">$<span id="counter-monthly">0</span><span class="panel-mo">/mo</span></div>
+        </div>
+      </div>
+      <div class="panel-breakdown" id="panel-breakdown"></div>
+      <a class="btn-outline panel-cta" id="panel-cta-link" href="/contact"><span>Get started</span></a>
+    </aside>
+
+  </div><!-- /builder-inner -->
+</section>
+
+<!-- MOBILE BOTTOM PANEL -->
+<div class="mobile-panel" id="mobile-panel">
+  <div class="mobile-panel-inner">
+    <div class="mobile-totals">
+      <div>
+        <span class="mobile-label">One-time</span>
+        <div class="mobile-amount">$<span id="mobile-counter-onetime">999</span> CAD</div>
+      </div>
+      <div>
+        <span class="mobile-label">Monthly</span>
+        <div class="mobile-amount">$<span id="mobile-counter-monthly">0</span>/mo</div>
+      </div>
+    </div>
+    <a class="btn-outline mobile-cta" id="mobile-cta-link" href="/contact"><span>Get started</span></a>
+  </div>
+</div>
+
+<!-- WHAT'S INCLUDED -->
+<section class="included-section">
+  <div class="included-header">
+    <span class="section-label">What you get</span>
+    <h2 class="section-title">Everything that comes with each package.</h2>
+  </div>
+  <div class="included-grid">
+    <div class="included-col reveal">
+      <h3>Website Build</h3>
+      <p>Your entire site, built from scratch to fit your brand.</p>
+      <ul class="included-list">
         <li>Custom design, no templates</li>
         <li>Up to 5 pages</li>
-        <li>Looks great on any phone or tablet</li>
-        <li>Contact form included</li>
+        <li>Mobile and tablet optimized</li>
+        <li>Contact form</li>
         <li>Shows up on Google</li>
-        <li>See how many people visit your site</li>
+        <li>Analytics included</li>
         <li>You own it outright</li>
+        <li>Discovery session included</li>
       </ul>
-      <a href="/contact?plan=website" class="btn-outline card-cta"><span>Get started</span></a>
     </div>
-
-    <!-- Card 2: Monthly Support -->
-    <div class="pricing-card featured reveal reveal-d1">
-      <div class="card-badge">Optional add-on</div>
-      <h2 class="card-name">Monthly Support</h2>
-      <p class="card-desc">Ongoing support so you never have to think about it. Pricing varies based on your project.</p>
-      <div class="card-price">
-        <div class="price-main">$50<span class="price-period">/month</span></div>
-        <div class="price-range">up to $150 depending on scope</div>
-      </div>
-      <div class="card-divider"></div>
-      <ul class="card-features">
+    <div class="included-col reveal reveal-d1">
+      <h3>Monthly Support</h3>
+      <p>We keep it running. You focus on your business.</p>
+      <ul class="included-list">
         <li>Monthly security updates</li>
         <li>Regular backups</li>
         <li>Uptime monitoring</li>
@@ -400,34 +595,30 @@
         <li>Response within one business day</li>
         <li>Cancel with 30 days notice</li>
       </ul>
-      <a href="/contact?plan=monthly-support" class="btn-outline-filled card-cta">Add to my build</a>
     </div>
-
-    <!-- Card 3: Business Card Design + Print -->
-    <div class="pricing-card reveal reveal-d2">
-      <h2 class="card-name">Business Card Design + Print</h2>
-      <p class="card-desc">Your new website, in their pocket.</p>
-      <div class="card-price">
-        <div class="price-main">$50<span class="price-range-inline">–$150 CAD</span></div>
-        <div class="price-note">Final price depends on quantity and card type.</div>
-      </div>
-      <div class="card-divider"></div>
-      <ul class="card-features">
-        <li>Professional card design</li>
-        <li>QR code linked to your website</li>
-        <li>Every handshake becomes a site visit</li>
-        <li>We handle design and printing</li>
-        <li>Delivered right to your door</li>
+    <div class="included-col reveal reveal-d2">
+      <h3>Digital Marketing</h3>
+      <p>Professional content, done for you.</p>
+      <ul class="included-list">
+        <li>8–12 content pieces per month</li>
+        <li>Short video clips and static images</li>
+        <li>Styled to your brand</li>
+        <li>Delivered to Google Drive</li>
+        <li>Optional full posting management</li>
+        <li>Style guide created in setup session</li>
       </ul>
-      <a href="/contact?plan=business-cards" class="btn-outline card-cta"><span>Get started</span></a>
     </div>
-
-  </div>
-
-  <div class="pages-callout reveal">
-    Need more than 5 pages? <a href="/contact">Get in touch</a> and we'll work something out.
   </div>
 </section>
+
+<!-- VIDEO DIVIDER -->
+<div class="video-divider">
+  <video autoplay muted loop playsinline>
+    <source src="/assets/higgsfield/smoke-teal.mp4" type="video/mp4">
+  </video>
+  <div class="video-divider-overlay"></div>
+  <p class="video-divider-text">Every project starts with a conversation.</p>
+</div>
 
 <!-- FAQ SECTION -->
 <section class="faq-section">
@@ -436,27 +627,23 @@
   <div class="faq-list">
     <div class="faq-item reveal">
       <p class="faq-q">What happens before you start building?</p>
-      <p class="faq-a">We start with a discovery session — a conversation where we ask questions about your business, your customers, and your goals. We never start designing until we understand what you actually need. Most agencies skip this step. We don't.</p>
+      <p class="faq-a">We kick off every project with a discovery session. That's a real conversation where we ask questions about your business, your customers, and your goals before we design anything. We never start until we understand what you actually need.</p>
     </div>
     <div class="faq-item reveal">
-      <p class="faq-q">Do I own my website after it's built?</p>
-      <p class="faq-a">Yes, completely. Once your site is paid for and delivered, it's yours. You're not renting it from us.</p>
+      <p class="faq-q">Do I own my website?</p>
+      <p class="faq-a">Yes, completely. You own the domain, the code, and all the content. We don't hold anything hostage.</p>
     </div>
     <div class="faq-item reveal">
-      <p class="faq-q">Is the monthly support plan mandatory?</p>
-      <p class="faq-a">Not at all. It's entirely optional. Some clients prefer to manage their own site after launch, and that's completely fine. The monthly support plan is there if you'd rather not think about it.</p>
-    </div>
-    <div class="faq-item reveal">
-      <p class="faq-q">Can I cancel monthly support if I change my mind?</p>
-      <p class="faq-a">Yes. Cancel any time with 30 days notice.</p>
+      <p class="faq-q">Can I cancel my support plan?</p>
+      <p class="faq-a">Yes. Cancel any time with 30 days notice. No contracts, no penalties.</p>
     </div>
     <div class="faq-item reveal">
       <p class="faq-q">What if I need more than 5 pages?</p>
-      <p class="faq-a">Just get in touch and we'll put together a custom quote. Larger projects are priced based on scope. We'll always be upfront about the cost before any work begins.</p>
+      <p class="faq-a">Get in touch and we'll scope it out together. Larger projects are priced based on what's actually involved.</p>
     </div>
     <div class="faq-item reveal">
       <p class="faq-q">How long does a build take?</p>
-      <p class="faq-a">Most sites are designed, built, and live within a couple of days. Timeline depends on how quickly we hear back from you on revisions. The faster you respond, the faster we move.</p>
+      <p class="faq-a">Most sites are designed, built, and live within 2 to 3 weeks of the discovery session.</p>
     </div>
   </div>
 </section>
@@ -543,6 +730,164 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+<script>
+  // ── Package Builder ────────────────────────────────────────────────
+  (function () {
+    var state = {
+      onetime: 999,
+      monthly: 0,
+      marketingSetup: 0,
+      cardPrice: 0,
+      selectedSupport: false,
+      selectedMarketing: 'none',
+      extraPagesInterested: false,
+    };
+
+    function animateCounter(el, from, to) {
+      if (!el) return;
+      var duration = 400;
+      var start = null;
+      var range = to - from;
+      function step(ts) {
+        if (!start) start = ts;
+        var elapsed = Math.min(ts - start, duration);
+        var progress = elapsed / duration;
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + range * eased);
+        if (elapsed < duration) requestAnimationFrame(step);
+        else el.textContent = to;
+      }
+      requestAnimationFrame(step);
+    }
+
+    function getOnetime() { return state.onetime + state.marketingSetup + state.cardPrice; }
+    function getMonthly() { return state.monthly; }
+
+    function updateCounters() {
+      var oEl  = document.getElementById('counter-onetime');
+      var mEl  = document.getElementById('counter-monthly');
+      var moEl = document.getElementById('mobile-counter-onetime');
+      var mmEl = document.getElementById('mobile-counter-monthly');
+      var prevO = parseInt(oEl ? oEl.textContent : 0) || 0;
+      var prevM = parseInt(mEl ? mEl.textContent : 0) || 0;
+      animateCounter(oEl,  prevO, getOnetime());
+      animateCounter(mEl,  prevM, getMonthly());
+      animateCounter(moEl, prevO, getOnetime());
+      animateCounter(mmEl, prevM, getMonthly());
+      updateBreakdown();
+      updateCTA();
+    }
+
+    function updateBreakdown() {
+      var bd = document.getElementById('panel-breakdown');
+      if (!bd) return;
+      var items = [{ label: 'Website Build', amount: 999, mo: false }];
+      if (state.selectedSupport) items.push({ label: 'Monthly Support', amount: 50, mo: true });
+      if (state.selectedMarketing === 'content') {
+        items.push({ label: 'Content Delivery', amount: 200, mo: true });
+        items.push({ label: 'Marketing setup', amount: 300, mo: false });
+      }
+      if (state.selectedMarketing === 'managed') {
+        items.push({ label: 'Full Management', amount: 350, mo: true });
+        items.push({ label: 'Marketing setup', amount: 300, mo: false });
+      }
+      if (state.cardPrice > 0) items.push({ label: 'Business Cards', amount: state.cardPrice, mo: false });
+      bd.innerHTML = items.map(function (i) {
+        return '<div class="breakdown-item"><span>' + i.label + (i.mo ? ' <em>/mo</em>' : '') + '</span><span>$' + i.amount + '</span></div>';
+      }).join('');
+    }
+
+    function updateCTA() {
+      var pkgs = ['Website Build'];
+      if (state.selectedSupport) pkgs.push('Monthly Support');
+      if (state.selectedMarketing === 'content') pkgs.push('Content Delivery');
+      if (state.selectedMarketing === 'managed') pkgs.push('Full Management');
+      if (state.cardPrice > 0) pkgs.push('Business Cards');
+      if (state.extraPagesInterested) pkgs.push('Extra Pages');
+      var params = 'package=' + encodeURIComponent(pkgs.join(','))
+        + '&monthly=' + getMonthly()
+        + '&onetime=' + getOnetime()
+        + (state.extraPagesInterested ? '&extra_pages=interested' : '');
+      var href = '/contact?' + params;
+      var pCTA = document.getElementById('panel-cta-link');
+      var mCTA = document.getElementById('mobile-cta-link');
+      if (pCTA) pCTA.href = href;
+      if (mCTA) mCTA.href = href;
+    }
+
+    // Support card clicks
+    document.querySelectorAll('[data-group="support"]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        document.querySelectorAll('[data-group="support"]').forEach(function (c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+        state.selectedSupport = (card.id === 'card-support');
+        var suppMo = state.selectedSupport ? 50 : 0;
+        var mktMo  = state.selectedMarketing === 'content' ? 200 : state.selectedMarketing === 'managed' ? 350 : 0;
+        state.monthly = suppMo + mktMo;
+        updateCounters();
+      });
+    });
+
+    // Marketing card clicks
+    document.querySelectorAll('[data-group="marketing"]').forEach(function (card) {
+      card.addEventListener('click', function () {
+        document.querySelectorAll('[data-group="marketing"]').forEach(function (c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+        var setup = parseInt(card.dataset.setup) || 0;
+        var mo    = parseInt(card.dataset.monthly) || 0;
+        if (card.id === 'card-no-marketing') state.selectedMarketing = 'none';
+        else if (card.id === 'card-content')   state.selectedMarketing = 'content';
+        else if (card.id === 'card-managed')    state.selectedMarketing = 'managed';
+        state.marketingSetup = setup;
+        var suppMo = state.selectedSupport ? 50 : 0;
+        state.monthly = suppMo + mo;
+        updateCounters();
+      });
+    });
+
+    // Business card qty buttons
+    document.querySelectorAll('.qty-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        document.querySelectorAll('.qty-btn').forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        state.cardPrice = parseInt(btn.dataset.price) || 0;
+        updateCounters();
+      });
+    });
+
+    // Extra pages interest toggle
+    var extraCard = document.getElementById('addon-extra-pages');
+    if (extraCard) {
+      extraCard.style.pointerEvents = 'auto';
+      extraCard.style.cursor = 'pointer';
+      extraCard.addEventListener('click', function () {
+        extraCard.classList.toggle('addon-card-active');
+        state.extraPagesInterested = extraCard.classList.contains('addon-card-active');
+        updateCTA();
+      });
+    }
+
+    // Mobile panel: show when builder is in view
+    var mobilePanel = document.getElementById('mobile-panel');
+    var builder     = document.getElementById('builder');
+    if (mobilePanel && builder && window.IntersectionObserver) {
+      var panelObs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (window.innerWidth <= 900) {
+            mobilePanel.style.display = entry.isIntersecting ? 'block' : 'none';
+          }
+        });
+      }, { threshold: 0 });
+      panelObs.observe(builder);
+    }
+
+    // Initialise default state
+    document.querySelector('.qty-btn').classList.add('active');
+    updateBreakdown();
+    updateCTA();
+  })();
 </script>
 
 <script>

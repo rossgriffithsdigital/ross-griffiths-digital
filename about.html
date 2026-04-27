@@ -346,7 +346,24 @@
     .story {
       padding: 6rem 3rem;
       background: var(--bg);
+      position: relative;
     }
+    .story-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .story-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.2;
+      mix-blend-mode: luminosity;
+    }
+    [data-theme="light"] .story-bg img { mix-blend-mode: multiply; }
+    .story .section-inner { position: relative; z-index: 1; }
 
     .story-grid {
       display: grid;
@@ -688,6 +705,9 @@
 
   <!-- Section 1: Story -->
   <section class="story">
+    <div class="story-bg">
+      <img src="/assets/higgsfield/about-workspace.jpg" alt="" role="presentation" loading="lazy">
+    </div>
     <div class="section-inner">
       <div class="story-grid">
 
