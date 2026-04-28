@@ -203,24 +203,8 @@
 
     /* ===== VIDEO DIVIDER ===== */
     .video-divider { position: relative; width: 100%; height: 200px; overflow: hidden; }
-    .video-crossfade-container { position: absolute; inset: 0; overflow: hidden; }
-    .video-layer { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .video-a { animation: crossfade-main 5.042s linear infinite; }
-    .video-b { animation: crossfade-offset 5.042s linear infinite; }
-    @keyframes crossfade-main {
-      0%, 85% { opacity: 1; }
-      92% { opacity: 0; }
-      93% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-    @keyframes crossfade-offset {
-      0% { opacity: 0; }
-      8% { opacity: 0; }
-      15% { opacity: 1; }
-      85% { opacity: 1; }
-      92% { opacity: 0; }
-      100% { opacity: 0; }
-    }
+    .video-pingpong-container { position: absolute; inset: 0; overflow: hidden; }
+    .smoke-canvas { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .video-divider-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); z-index: 1; transition: background 0.3s ease; }
     [data-theme="light"] .video-divider-overlay { background: rgba(0,0,0,0.7); }
     .video-divider-text { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: clamp(1.4rem, 3vw, 2.2rem); color: #EDF3F7; letter-spacing: -0.02em; text-align: center; padding: 0 2rem; }
@@ -445,9 +429,8 @@
 
 <!-- VIDEO DIVIDER -->
 <div class="video-divider">
-  <div class="video-crossfade-container">
-    <video class="video-layer video-a" src="/assets/higgsfield/smoke-teal.mp4" autoplay muted playsinline loop></video>
-    <video class="video-layer video-b" src="/assets/higgsfield/smoke-teal.mp4" autoplay muted playsinline loop></video>
+  <div class="video-pingpong-container">
+    <canvas id="smoke-canvas" class="smoke-canvas"></canvas>
   </div>
   <div class="video-divider-overlay"></div>
   <p class="video-divider-text">Every project starts with a conversation.</p>
@@ -570,14 +553,75 @@
 </script>
 
 <script>
-  var vb = document.querySelector('.video-b');
-  if (vb) {
-    vb.addEventListener('loadedmetadata', function() {
-      var half = this.duration / 2;
-      this.currentTime = half;
-      this.style.animationDelay = '-' + half + 's';
-    });
+(function() {
+  const canvas = document.getElementById('smoke-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  const video = document.createElement('video');
+  video.src = '/assets/higgsfield/smoke-teal.mp4';
+  video.muted = true;
+  video.playsInline = true;
+  video.preload = 'auto';
+
+  let direction = 1;
+  let playing = false;
+  let animFrame;
+  const SPEED = 1.0;
+  const REVERSE_SPEED = 1.0;
+  const STEP = 1 / 30;
+
+  function resizeCanvas() {
+    const container = canvas.parentElement;
+    canvas.width = container.offsetWidth;
+    canvas.height = container.offsetHeight;
   }
+
+  function drawFrame() {
+    resizeCanvas();
+    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+  }
+
+  function step() {
+    if (!playing) return;
+
+    if (direction === 1) {
+      video.currentTime = Math.min(video.currentTime + STEP * SPEED, video.duration);
+      if (video.currentTime >= video.duration - 0.05) {
+        direction = -1;
+      }
+    } else {
+      video.currentTime = Math.max(video.currentTime - STEP * REVERSE_SPEED, 0);
+      if (video.currentTime <= 0.05) {
+        direction = 1;
+      }
+    }
+
+    drawFrame();
+    animFrame = requestAnimationFrame(step);
+  }
+
+  video.addEventListener('loadeddata', () => {
+    resizeCanvas();
+    drawFrame();
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !playing) {
+        playing = true;
+        video.currentTime = 0;
+        direction = 1;
+        step();
+      } else if (!entry.isIntersecting && playing) {
+        playing = false;
+        cancelAnimationFrame(animFrame);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  observer.observe(canvas);
+  window.addEventListener('resize', resizeCanvas);
+})();
 </script>
 
 </body>
