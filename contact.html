@@ -1149,7 +1149,11 @@
       selectCard('service-digital-marketing');
     }
 
-    if (params.get('support') === 'true' || params.get('marketing') === 'true') {
+    if (params.get('build') === 'true') {
+      selectCard('service-website');
+    }
+
+    if (params.get('support') === 'true' || params.get('marketing') === 'true' || params.get('build') === 'true') {
       setTimeout(() => {
         const section = document.querySelector('#service-website')
           ?.closest('section, .contact-form-panel, .form-group');
