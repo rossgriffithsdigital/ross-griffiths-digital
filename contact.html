@@ -1134,16 +1134,9 @@
   (function() {
     const params = new URLSearchParams(window.location.search);
 
-    function selectCard(inputId) {
-      const input = document.getElementById(inputId);
-      if (!input) return;
-      const card = input.closest('label, .service-card, [class*="card"]') || input;
-      if (card) {
-        card.click();
-      } else {
-        input.checked = true;
-        input.dispatchEvent(new Event('change', { bubbles: true }));
-      }
+    function selectCard(id) {
+      const el = document.getElementById(id);
+      if (el) el.click();
     }
 
     if (params.get('support') === 'true') {
