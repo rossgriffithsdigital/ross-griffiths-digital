@@ -397,6 +397,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
     }
     .video-divider-overlay {
       position: absolute;
@@ -683,6 +685,16 @@
 
 <script>
   (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
+</script>
+
+<script>
+  document.querySelectorAll('.video-divider video').forEach(function(v) {
+    v.addEventListener('timeupdate', function() {
+      if (this.duration && this.currentTime > this.duration - 0.3) {
+        this.currentTime = 0;
+      }
+    });
+  });
 </script>
 
 </body>
