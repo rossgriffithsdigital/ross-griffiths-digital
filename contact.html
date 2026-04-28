@@ -842,7 +842,7 @@
       <div class="form-group">
         <p class="form-group-label">What are you looking for?</p>
         <div class="service-cards" id="serviceCards">
-          <button type="button" class="service-card" data-value="Website Build ($999 CAD)" data-price="$999 CAD">
+          <button type="button" id="service-website" class="service-card" data-value="Website Build ($999 CAD)" data-price="$999 CAD">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div class="service-card-body">
               <span class="service-card-name">Website Build</span>
@@ -850,7 +850,7 @@
             </div>
             <span class="service-card-desc">Custom site built from scratch — up to 5 pages, contact form, SEO, analytics.</span>
           </button>
-          <button type="button" class="service-card" data-value="Monthly Support ($50–$150/month)" data-price="from $50/mo">
+          <button type="button" id="service-support" class="service-card" data-value="Monthly Support ($50–$150/month)" data-price="from $50/mo">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div class="service-card-body">
               <span class="service-card-name">Monthly Support</span>
@@ -858,13 +858,13 @@
             </div>
             <span class="service-card-desc">Security updates, backups, uptime monitoring, and priority support. Optional add-on.</span>
           </button>
-          <button type="button" class="service-card" data-value="Business Card Design + Print ($50–$150 CAD)" data-price="$50–$150 CAD">
+          <button type="button" id="service-digital-marketing" class="service-card" data-value="Digital Marketing (from $200/mo)" data-price="from $200/mo">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div class="service-card-body">
-              <span class="service-card-name">Business Cards</span>
-              <span class="service-card-price">$50–$150 CAD</span>
+              <span class="service-card-name">Digital Marketing</span>
+              <span class="service-card-price">from $200/mo</span>
             </div>
-            <span class="service-card-desc">Design + print with a QR code linked to your site. Delivered to your door.</span>
+            <span class="service-card-desc">Professional content created and delivered monthly. Instagram and Facebook. Optional full management.</span>
           </button>
           <button type="button" class="service-card service-card-explore" data-value="Not sure yet — just exploring" data-price="">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1128,6 +1128,42 @@
 
 <script>
   (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
+</script>
+
+<script>
+  (function() {
+    const params = new URLSearchParams(window.location.search);
+
+    function selectCard(inputId) {
+      const input = document.getElementById(inputId);
+      if (!input) return;
+      const card = input.closest('label, .service-card, [class*="card"]') || input;
+      if (card) {
+        card.click();
+      } else {
+        input.checked = true;
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    }
+
+    if (params.get('support') === 'true') {
+      selectCard('service-website');
+      selectCard('service-support');
+    }
+
+    if (params.get('marketing') === 'true') {
+      selectCard('service-website');
+      selectCard('service-digital-marketing');
+    }
+
+    if (params.get('support') === 'true' || params.get('marketing') === 'true') {
+      setTimeout(() => {
+        const section = document.querySelector('#service-website')
+          ?.closest('section, .contact-form-panel, .form-group');
+        if (section) section.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 300);
+    }
+  })();
 </script>
 
 </body>
