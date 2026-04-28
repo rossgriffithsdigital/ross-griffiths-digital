@@ -26,13 +26,12 @@
   <link rel="canonical" href="https://www.rossgriffithsdigital.com/pricing">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Ross & Griffiths Digital","description":"Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.","url":"https://www.rossgriffithsdigital.com","areaServed":"Worldwide"}</script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"></noscript>
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -507,7 +506,7 @@
 </footer>
 
 <!-- COOKIE BANNER -->
-<div id="cookie-banner"><p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a></p><div class="cookie-btns"><button id="cookie-decline">Decline</button><button id="cookie-accept">Accept</button></div></div>
+<div id="cookie-banner"><p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p><div class="cookie-btns"><button id="cookie-decline">Decline</button><button id="cookie-accept">Accept</button></div></div>
 <style>#cookie-banner{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(100px);z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:2rem;width:calc(100% - 3rem);max-width:720px;background:#0D1520;border:1px solid rgba(62,207,207,0.2);border-radius:6px;padding:1rem 1.5rem;opacity:0;pointer-events:none;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s ease;font-family:'Outfit',sans-serif;font-size:0.82rem;color:#7A9BAF;}#cookie-banner.visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all;}#cookie-banner a{color:#00d4ff;text-decoration:underline;text-underline-offset:2px;}.cookie-btns{display:flex;gap:0.6rem;flex-shrink:0;}.cookie-btns button{font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:3px;cursor:pointer;border:none;transition:all 0.2s ease;}#cookie-decline{background:transparent;color:#7A9BAF;border:1px solid rgba(122,155,175,0.3)!important;}#cookie-decline:hover{color:#EDF3F7;border-color:rgba(122,155,175,0.7)!important;}#cookie-accept{background:#00d4ff;color:#0a0a0c;}#cookie-accept:hover{background:#33ddff;}@media(max-width:560px){#cookie-banner{flex-direction:column;align-items:flex-start;gap:1rem;bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:12px 12px 0 0;transform:translateY(100px);}#cookie-banner.visible{transform:translateY(0);}.cookie-btns{width:100%;}.cookie-btns button{flex:1;}}</style>
 <script>(function(){const KEY='rgd_cookie_consent';const banner=document.getElementById('cookie-banner');if(!localStorage.getItem(KEY)){setTimeout(()=>banner.classList.add('visible'),800);}document.getElementById('cookie-accept').addEventListener('click',()=>{localStorage.setItem(KEY,'accepted');banner.classList.remove('visible');});document.getElementById('cookie-decline').addEventListener('click',()=>{localStorage.setItem(KEY,'declined');banner.classList.remove('visible');});})();</script>
 
@@ -624,5 +623,7 @@
 })();
 </script>
 
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
 </body>
 </html>

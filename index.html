@@ -35,16 +35,8 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
     media="print" onload="this.media='all'">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&display=swap">
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag("js", new Date());
-    gtag("config", "G-QVZ1ZBWT41");
-  </script>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&display=swap"></noscript>
 
   <script type="application/ld+json">
   {
@@ -690,8 +682,7 @@
 
     .footer-tagline {
       font-size: 0.82rem;
-      color: var(--muted);
-      opacity: 0.55;
+      color: var(--text-secondary);
       line-height: 1.65;
       max-width: 260px;
     }
@@ -750,10 +741,9 @@
     .footer-bottom span,
     .footer-bottom a {
       font-size: 0.75rem;
-      color: var(--muted);
-      opacity: 0.45;
+      color: var(--text-secondary);
       text-decoration: none;
-      transition: opacity 0.2s, color 0.2s;
+      transition: color 0.2s;
     }
 
     .footer-bottom a:hover { opacity: 1; color: var(--accent); }
@@ -1064,7 +1054,7 @@
         <div class="hbm-viewport">
 
           <!-- Slide 1: Badali Media -->
-          <div class="hbm-slide hbm-slide-6 hbm-active" style="background:url('BM.png') top center / cover no-repeat #0a0a12; cursor:pointer;" onclick="window.open('https://dreamy-lily-061422.netlify.app/','_blank','noopener')"></div>
+          <div class="hbm-slide hbm-slide-6 hbm-active" style="background:url('BM.webp') top center / cover no-repeat #0a0a12; cursor:pointer;" onclick="window.open('https://dreamy-lily-061422.netlify.app/','_blank','noopener')"></div>
 
           <!-- Slide 2: In Progress -->
           <div class="hbm-slide hbm-slide-ip">
@@ -1471,7 +1461,7 @@
   <!-- Cookie Banner -->
   <div id="cookie-banner">
     <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies"
-        target="_blank" rel="noopener">Learn more</a></p>
+        target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p>
     <div class="cookie-btns">
       <button id="cookie-decline">Decline</button>
       <button id="cookie-accept">Accept</button>
@@ -1600,6 +1590,8 @@
     })();
   </script>
 
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
 </body>
 
 </html>

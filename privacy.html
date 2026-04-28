@@ -27,14 +27,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag("js", new Date());
-    gtag("config", "G-QVZ1ZBWT41");
-  </script>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -157,7 +149,7 @@
 <body>
 
   <nav role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/"><img src="/logo.png" alt="R&amp;GD" class="nav-logo-img">R&amp;GD<span>.</span></a>
+    <a class="nav-logo" href="/"><img src="/logo.png" alt="R&amp;GD" class="nav-logo-img" width="256" height="256">R&amp;GD<span>.</span></a>
     <ul class="nav-links">
       <li><a href="/services">Services</a></li>
       <li><a href="/how-it-works">How it works</a></li>
@@ -245,13 +237,13 @@
   </main>
 
   <footer role="contentinfo">
-    <div class="footer-logo"><img loading="lazy" src="/logo.png" alt="R&amp;GD" class="footer-logo-img">Ross &amp; Griffiths Digital<span>.</span></div>
+    <div class="footer-logo"><img loading="lazy" src="/logo.png" alt="R&amp;GD" class="footer-logo-img" width="256" height="256">Ross &amp; Griffiths Digital<span>.</span></div>
     <span class="footer-copy">Northumberland County, ON, Canada &nbsp;·&nbsp; © 2026 Ross &amp; Griffiths Digital &nbsp;·&nbsp; <a href="/privacy" style="color:inherit;text-decoration:none;opacity:0.7;">Privacy Policy</a></span>
   </footer>
 
   <!-- Cookie Banner -->
   <div id="cookie-banner">
-    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a></p>
+    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p>
     <div class="cookie-btns">
       <button id="cookie-decline">Decline</button>
       <button id="cookie-accept">Accept</button>
@@ -296,5 +288,7 @@
     (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
   </script>
 
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
 </body>
 </html>

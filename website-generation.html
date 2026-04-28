@@ -14,7 +14,8 @@
   <title>Ross &amp; Griffiths Digital — Web Design for Northumberland Businesses</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"></noscript>
 
   <style>
     /* ── Reset & Base ──────────────────────────────────────────────── */
@@ -1286,7 +1287,7 @@
   </script>
 
   <!-- Cookie Banner -->
-  <div id="cookie-banner"><p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a></p><div class="cookie-btns"><button id="cookie-decline">Decline</button><button id="cookie-accept">Accept</button></div></div>
+  <div id="cookie-banner"><p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p><div class="cookie-btns"><button id="cookie-decline">Decline</button><button id="cookie-accept">Accept</button></div></div>
   <style>
     #cookie-banner { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(100px); z-index:9999; background:#111418; border:1px solid rgba(0,212,255,0.15); border-radius:8px; padding:1rem 1.4rem; display:flex; align-items:center; gap:1.4rem; max-width:680px; width:calc(100% - 3rem); box-shadow:0 8px 32px rgba(0,0,0,0.45); opacity:0; pointer-events:none; transition:transform 0.4s ease,opacity 0.4s ease; font-family:'Outfit',sans-serif; font-size:0.82rem; color:#7A9BAF; }
     #cookie-banner.visible { transform:translateX(-50%) translateY(0); opacity:1; pointer-events:all; }

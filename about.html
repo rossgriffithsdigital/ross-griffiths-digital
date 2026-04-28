@@ -32,10 +32,6 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
-
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Ross & Griffiths Digital","description":"Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.","url":"https://www.rossgriffithsdigital.com","areaServed":"Worldwide"}</script>
 
   <style>
@@ -706,7 +702,7 @@
   <!-- Section 1: Story -->
   <section class="story">
     <div class="story-bg">
-      <img src="/assets/higgsfield/about-workspace.png" alt="" role="presentation" loading="lazy">
+      <img src="/assets/higgsfield/about-workspace.png" alt="" role="presentation" loading="lazy" width="5504" height="3072">
     </div>
     <div class="section-inner">
       <div class="story-grid">
@@ -828,7 +824,7 @@
 
   <!-- Cookie banner -->
   <div id="cookie-banner">
-    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener">Learn more</a></p>
+    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p>
     <div class="cookie-btns">
       <button id="cookie-decline">Decline</button>
       <button id="cookie-accept">Accept</button>
@@ -926,5 +922,7 @@
   (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
 </script>
 
+<script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
 </body>
 </html>
