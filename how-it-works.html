@@ -579,7 +579,7 @@
 
 <!-- VIDEO DIVIDER -->
 <div class="video-divider">
-  <video autoplay muted loop playsinline>
+  <video autoplay muted playsinline>
     <source src="/assets/higgsfield/light-point.mp4" type="video/mp4">
   </video>
   <div class="video-divider-overlay"></div>
@@ -689,10 +689,22 @@
 
 <script>
   document.querySelectorAll('.video-divider video').forEach(function(v) {
-    v.addEventListener('timeupdate', function() {
-      if (this.duration && this.currentTime > this.duration - 0.3) {
-        this.currentTime = 0;
+    var raf;
+    var lastTs;
+    function reverseStep(ts) {
+      var delta = lastTs ? (ts - lastTs) / 1000 : 0;
+      lastTs = ts;
+      v.currentTime = Math.max(0, v.currentTime - delta);
+      if (v.currentTime <= 0) {
+        lastTs = null;
+        v.play();
+      } else {
+        raf = requestAnimationFrame(reverseStep);
       }
+    }
+    v.addEventListener('ended', function() {
+      lastTs = null;
+      raf = requestAnimationFrame(reverseStep);
     });
   });
 </script>
