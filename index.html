@@ -1032,6 +1032,93 @@
     }
     @keyframes hbm-ip-build { 0% { width:40%; } 100% { width:75%; } }
   </style>
+
+  <style>
+    /* ── Portfolio carousel: tablet + mobile responsive ─────────────
+       At ≤1099px the mockup can't sit beside the hero text; reflow
+       it above the copy as a stacked flex column. The display:none
+       at ≤960px (line above) is overridden by display:flex here.  */
+
+    @media (max-width: 1099px) {
+      .hero {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-end !important;
+        height: auto !important;
+        min-height: 100dvh !important;
+        padding-top: 100px !important;
+      }
+
+      .hero-content {
+        position: relative !important;
+        bottom: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 32px 48px 32px !important;
+      }
+
+      /* Override display:none from the ≤960px rule above */
+      .hbm-wrap {
+        display: flex !important;
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        transform: none !important;
+        width: 100% !important;
+        max-width: 600px !important;
+        margin: 0 auto 32px auto !important;
+        order: -1;
+      }
+
+      /* Disable 3-D float animation in stacked layout */
+      .hbm-browser {
+        width: 100% !important;
+        animation: none !important;
+        box-shadow:
+          0 0 0 1px rgba(62,207,207,.22),
+          0 0 20px rgba(62,207,207,.10),
+          0 8px 30px rgba(0,0,0,.5) !important;
+      }
+
+      .hbm-viewport { height: 260px !important; }
+
+      .scroll-indicator { display: none !important; }
+    }
+
+    /* Phone overrides (≤767px) */
+    @media (max-width: 767px) {
+      .hero { padding-top: 80px !important; }
+
+      .hbm-wrap {
+        max-width: 100% !important;
+        padding: 0 16px !important;
+        margin-bottom: 24px !important;
+      }
+
+      .hbm-viewport { height: 210px !important; }
+
+      .hero-content { padding: 0 16px 40px 16px !important; }
+    }
+
+    /* ── Portfolio prominence at 1440px+ ─────────────────────────── */
+    @media (min-width: 1440px) {
+      .hbm-browser {
+        width: clamp(620px, 43vw, 780px);
+      }
+
+      .hbm-viewport {
+        height: clamp(380px, 27vw, 490px);
+      }
+
+      .hbm-label {
+        font-size: 0.72rem;
+        letter-spacing: 0.26em;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -1464,6 +1551,16 @@
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
 
     revealEls.forEach(function (el) { revealObs.observe(el); });
+
+    // ── Reset hbm-wrap transform on narrow viewports ────────────────
+    // Guards against any scroll/RAF code applying a matrix transform
+    // to .hbm-wrap while it is in normal flow (below 1100px).
+    window.addEventListener('resize', function () {
+      if (window.innerWidth < 1100) {
+        var hbmWrap = document.querySelector('.hbm-wrap');
+        if (hbmWrap) hbmWrap.style.transform = 'none';
+      }
+    });
   </script>
 
   <script>
