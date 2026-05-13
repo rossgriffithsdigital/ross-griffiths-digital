@@ -223,7 +223,7 @@
       text-decoration: none;
       position: relative;
       overflow: hidden;
-      transition: color 0.3s ease;
+      transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
       cursor: pointer;
     }
 
@@ -238,7 +238,8 @@
     }
 
     .btn-outline:hover::before { transform: translateY(0); }
-    .btn-outline:hover { color: #080C12; }
+    .btn-outline:hover { background: #3ecfcf; color: #0b1a2b; border-color: #3ecfcf; }
+    .nav-cta.btn-outline:hover { background: #3ecfcf; color: #0b1a2b; border-color: #3ecfcf; }
     .btn-outline > span { position: relative; z-index: 1; }
     .btn-outline > svg  { position: relative; z-index: 1; }
 
@@ -534,6 +535,9 @@
     }
 
     .text-link:hover { gap: 1rem; }
+
+    .arrow-char { display: inline-block; transition: transform 0.2s ease; }
+    a:hover .arrow-char { transform: translateX(4px); }
 
     .service-row {
       display: grid;
@@ -839,7 +843,7 @@
 
     /* ── Conversation First section ─────────────────────────────── */
     .convo-section {
-      padding: 7rem 6vw;
+      padding: 3rem 6vw;
       background: var(--navy);
       background-image: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(62,207,207,0.03), transparent);
     }
@@ -1277,7 +1281,7 @@
   <!-- Conversation First -->
   <section class="convo-section">
     <div class="convo-inner">
-      <p class="reveal">We sit down with every client before we start. <a href="/how-it-works" class="text-link">Here's how it works →</a></p>
+      <p class="reveal">We sit down with every client before we start. <a href="/how-it-works" class="text-link">Here's how it works <span class="arrow-char">→</span></a></p>
     </div>
   </section>
 
@@ -1373,7 +1377,7 @@
       <div>
         <span class="footer-col-label">Contact</span>
         <div class="footer-contact-item">Northumberland County, ON, Canada</div>
-        <div class="footer-contact-item"><a href="/contact">Get in touch &rarr;</a></div>
+        <div class="footer-contact-item"><a href="/contact">Get in touch <span class="arrow-char">→</span></a></div>
       </div>
     </div>
     <div class="footer-bottom">
