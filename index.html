@@ -35,8 +35,8 @@
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap"
     media="print" onload="this.media='all'">
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&display=swap"></noscript>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Barlow+Condensed:wght@800;900&family=DM+Sans:wght@300;400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"></noscript>
 
   <script type="application/ld+json">
   {
@@ -1219,139 +1219,350 @@
     </div>
   </section>
 
-  <!-- Services -->
-  <section class="services" id="services">
-    <div class="services-inner">
-      <div class="services-left">
-        <span class="section-label reveal">What we do</span>
-        <h2 class="section-title reveal" style="transition-delay:0.1s">Simple services,<br>real impact.</h2>
-        <p class="reveal" style="transition-delay:0.2s">We build websites that work as hard as you do. Custom, clean, and built to grow your business. No templates, no compromises.</p>
-        <a class="text-link reveal" href="/services" style="transition-delay:0.3s">
-          See our web design services
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6"
-              stroke-linecap="round" stroke-linejoin="round" />
-          </svg>
-        </a>
-      </div>
+<style>
+/* ── HOMEPAGE REDESIGN — BELOW HERO ── */
+:root{
+  --hm-navy:#080C12;
+  --hm-card:#0f1622;
+  --hm-teal:#3ECFCF;
+  --hm-off-white:#EDF3F7;
+  --hm-muted:#5a7190;
+  --hm-text:#8ba5c0;
+  --hm-border:rgba(255,255,255,0.08);
+  --hm-teal-border:rgba(62,207,207,0.25);
+}
+.hm-section{padding:6rem 3rem;border-top:1px solid var(--hm-border);}
+.hm-label{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--hm-teal);margin-bottom:0.65rem;font-weight:500;display:block;}
+.hm-title{font-family:'DM Serif Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-0.02em;color:var(--hm-off-white);margin-bottom:2.5rem;}
+.hm-title em{font-style:italic;opacity:0.6;}
+.hm-reveal{opacity:0;transform:translateY(28px);transition:opacity 0.65s cubic-bezier(0.4,0,0.2,1),transform 0.65s cubic-bezier(0.4,0,0.2,1);}
+.hm-reveal.hm-visible{opacity:1;transform:translateY(0);}
+.hm-d1{transition-delay:0.08s;}.hm-d2{transition-delay:0.16s;}.hm-d3{transition-delay:0.24s;}.hm-d4{transition-delay:0.32s;}
+.hm-services{padding:6rem 0;border-top:1px solid var(--hm-border);}
+.hm-services-head{padding:0 3rem;max-width:1200px;margin:0 auto 2.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;}
+.hm-carousel-nav{display:flex;gap:0.5rem;}
+.hm-arrow{width:40px;height:40px;border-radius:50%;background:var(--hm-card);border:1px solid var(--hm-border);color:var(--hm-off-white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.hm-arrow:hover{border-color:rgba(255,255,255,0.25);background:#111827;}
+.hm-carousel-wrap{position:relative;}
+.hm-carousel-wrap::before,.hm-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
+.hm-carousel-wrap::before{left:0;background:linear-gradient(to right,var(--hm-navy),transparent);}
+.hm-carousel-wrap::after{right:0;background:linear-gradient(to left,var(--hm-navy),transparent);}
+.hm-track{display:flex;gap:1.25rem;overflow-x:auto;padding:1.5rem 3rem 2rem;scrollbar-width:none;cursor:grab;-webkit-overflow-scrolling:touch;}
+.hm-track::-webkit-scrollbar{display:none;}
+.hm-track:active{cursor:grabbing;}
+.hm-card{flex:0 0 360px;background:var(--hm-card);border:1px solid var(--hm-border);border-radius:24px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.35s ease,opacity 0.35s ease,border-color 0.3s;will-change:transform,opacity;}
+.hm-card-featured{border-color:var(--hm-teal-border);}
+.hm-visual{height:200px;background:#070c14;display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--hm-border);position:relative;overflow:hidden;}
+.hm-visual-sm{height:165px;}
+.hm-browser{width:85%;background:#0d1522;border:1px solid rgba(62,207,207,0.12);border-radius:8px;overflow:hidden;}
+.hm-browser-bar{background:#080d16;border-bottom:1px solid rgba(255,255,255,0.05);padding:0.35rem 0.6rem;display:flex;align-items:center;gap:0.3rem;}
+.hm-bm-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0;}
+.hm-bm-url{flex:1;background:rgba(255,255,255,0.04);border-radius:3px;padding:0.15rem 0.4rem;font-size:0.55rem;color:var(--hm-muted);text-align:center;margin:0 0.4rem;font-family:'DM Sans',sans-serif;}
+.hm-browser-body{padding:0.75rem;}
+.hm-browser-body .hm-line{height:5px;background:rgba(255,255,255,0.07);border-radius:2px;margin-bottom:5px;}
+.hm-browser-body .hm-line.accent{background:rgba(62,207,207,0.25);width:60%;}
+.hm-browser-body .hm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-top:8px;}
+.hm-browser-body .hm-grid-tile{height:38px;background:rgba(62,207,207,0.06);border:1px solid rgba(62,207,207,0.12);border-radius:4px;}
+.hm-int-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px;width:85%;}
+.hm-int-tile{background:rgba(62,207,207,0.06);border:1px solid rgba(62,207,207,0.12);border-radius:8px;padding:0.5rem 0.6rem;display:flex;align-items:center;gap:0.4rem;font-size:0.65rem;color:var(--hm-text);font-family:'DM Sans',sans-serif;}
+.hm-int-tile svg{stroke:#3ECFCF;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.hm-int-plus{border-style:dashed;opacity:0.45;justify-content:center;gap:0.3rem;grid-column:span 2;color:var(--hm-muted);}
+.hm-social-mock{display:flex;flex-direction:column;gap:0.6rem;width:85%;align-items:center;}
+.hm-post{width:100%;background:#0d1420;border:1px solid rgba(255,255,255,0.06);border-radius:10px;overflow:hidden;}
+.hm-post-header{display:flex;align-items:center;gap:0.5rem;padding:0.5rem;}
+.hm-avatar{width:22px;height:22px;border-radius:50%;background:rgba(62,207,207,0.2);flex-shrink:0;}
+.hm-post-line{height:5px;background:rgba(255,255,255,0.12);border-radius:2px;width:60%;}
+.hm-post-img{height:65px;background:linear-gradient(135deg,rgba(62,207,207,0.07) 0%,rgba(62,207,207,0.02) 100%);border-top:1px solid rgba(255,255,255,0.04);}
+.hm-platform-row{display:flex;gap:0.5rem;}
+.hm-platform-chip{display:flex;align-items:center;gap:0.35rem;background:rgba(62,207,207,0.07);border:1px solid rgba(62,207,207,0.15);border-radius:100px;padding:0.25rem 0.65rem;font-size:0.65rem;color:var(--hm-text);font-family:'DM Sans',sans-serif;}
+.hm-platform-chip svg{stroke:#3ECFCF;fill:none;stroke-width:1.6;stroke-linecap:round;}
+.hm-addon-wrap{position:relative;display:flex;align-items:center;justify-content:center;width:100%;height:100%;}
+.hm-addon-icon{width:64px;height:64px;border-radius:18px;background:rgba(62,207,207,0.08);border:1px solid rgba(62,207,207,0.15);display:flex;align-items:center;justify-content:center;position:relative;z-index:1;}
+.hm-addon-icon svg{stroke:#3ECFCF;fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;}
+.hm-orbit{position:absolute;width:120px;height:120px;border-radius:50%;border:1px solid rgba(62,207,207,0.07);animation:hm-spin 12s linear infinite;}
+.hm-orbit-dot{position:absolute;width:5px;height:5px;border-radius:50%;background:rgba(62,207,207,0.35);top:50%;left:50%;transform:rotate(var(--a)) translateX(58px) translateY(-50%);}
+@keyframes hm-spin{to{transform:rotate(360deg);}}
+.hm-card-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;}
+.hm-card-type{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--hm-teal);margin-bottom:0.5rem;display:block;font-family:'DM Sans',sans-serif;}
+.hm-card-type.addon{color:var(--hm-muted);}
+.hm-card-name{font-family:'DM Serif Display',serif;font-size:1.3rem;letter-spacing:-0.02em;color:var(--hm-off-white);margin-bottom:0.5rem;}
+.hm-card-desc{font-size:0.8rem;color:var(--hm-text);line-height:1.6;flex:1;margin-bottom:1rem;font-family:'DM Sans',sans-serif;}
+.hm-card-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
+.hm-tag{font-size:0.62rem;padding:0.2rem 0.55rem;border-radius:100px;background:rgba(255,255,255,0.04);border:1px solid var(--hm-border);color:var(--hm-muted);font-family:'DM Sans',sans-serif;}
+.hm-dots{display:flex;justify-content:center;gap:6px;margin-top:1.75rem;}
+.hm-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;cursor:pointer;padding:0;transition:all 0.25s;}
+.hm-dot.active{background:var(--hm-teal);width:20px;border-radius:3px;}
+.hm-port-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:1rem;max-width:1200px;margin:0 auto;}
+.hm-port-card{background:var(--hm-card);border:1px solid var(--hm-border);border-radius:22px;overflow:hidden;transition:border-color 0.25s,transform 0.25s;}
+.hm-port-card:hover{border-color:rgba(255,255,255,0.18);transform:translateY(-3px);}
+.hm-browser-frame{background:#0a0e17;border-bottom:1px solid var(--hm-border);padding:0.55rem 0.75rem;display:flex;align-items:center;gap:0.4rem;}
+.hm-bdot{width:8px;height:8px;border-radius:50%;}
+.hm-burl{flex:1;background:rgba(255,255,255,0.06);border-radius:4px;padding:0.18rem 0.6rem;font-size:0.6rem;color:var(--hm-muted);margin:0 0.5rem;font-family:'DM Sans',sans-serif;}
+.hm-port-info{padding:1.25rem;}
+.hm-port-badge{display:inline-block;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.6rem;font-family:'DM Sans',sans-serif;}
+.hm-live{background:rgba(62,207,207,0.1);color:var(--hm-teal);border:1px solid rgba(62,207,207,0.2);}
+.hm-progress{background:rgba(255,185,50,0.1);color:#f0a850;border:1px solid rgba(255,185,50,0.2);}
+.hm-available{background:rgba(255,255,255,0.05);color:var(--hm-muted);border:1px solid var(--hm-border);}
+.hm-port-name{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:-0.02em;color:var(--hm-off-white);margin-bottom:0.25rem;}
+.hm-port-desc{font-size:0.78rem;color:var(--hm-muted);line-height:1.5;font-family:'DM Sans',sans-serif;}
+.hm-placeholder{min-height:190px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;border-bottom:1px solid var(--hm-border);}
+.hm-placeholder-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(237,243,247,0.2);}
+.hm-placeholder-sub{font-size:0.7rem;color:var(--hm-muted);font-family:'DM Sans',sans-serif;}
+.hm-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--hm-border);border:1px solid var(--hm-border);border-radius:22px;overflow:hidden;max-width:1200px;margin:0 auto;}
+.hm-step{background:#0f1622;padding:2rem 1.75rem;}
+.hm-step-num{font-family:'DM Serif Display',serif;font-size:3.5rem;letter-spacing:-0.04em;color:rgba(62,207,207,0.1);line-height:1;margin-bottom:1rem;display:block;}
+.hm-step-title{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:-0.02em;color:var(--hm-off-white);margin-bottom:0.5rem;}
+.hm-step-desc{font-size:0.8rem;color:var(--hm-muted);line-height:1.6;font-family:'DM Sans',sans-serif;}
+.hm-biz-grid{display:flex;flex-wrap:wrap;gap:0.6rem;max-width:1200px;margin:0 auto;}
+.hm-biz-chip{display:flex;align-items:center;gap:0.5rem;background:var(--hm-card);border:1px solid var(--hm-border);border-radius:100px;padding:0.6rem 1.25rem;font-size:0.825rem;color:var(--hm-text);transition:all 0.2s;cursor:default;font-family:'DM Sans',sans-serif;}
+.hm-biz-chip:hover{border-color:rgba(62,207,207,0.25);color:var(--hm-off-white);background:#111827;}
+.hm-biz-chip svg{stroke:#3ECFCF;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+.hm-cta{border-top:1px solid var(--hm-border);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden;}
+.hm-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,0.06) 0%,transparent 70%);pointer-events:none;}
+.hm-cta-wm{position:absolute;bottom:-2rem;left:50%;transform:translateX(-50%);font-family:'DM Serif Display',serif;font-size:clamp(6rem,18vw,14rem);color:transparent;-webkit-text-stroke:1px rgba(62,207,207,0.05);white-space:nowrap;letter-spacing:-0.04em;user-select:none;pointer-events:none;}
+.hm-cta-inner{position:relative;z-index:1;}
+.hm-cta-eyebrow{display:block;font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--hm-teal);margin-bottom:1rem;font-weight:500;font-family:'DM Sans',sans-serif;}
+.hm-cta-title{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;letter-spacing:-0.03em;color:var(--hm-off-white);margin-bottom:0.75rem;line-height:1.05;}
+.hm-cta-sub{font-size:1rem;color:var(--hm-muted);margin-bottom:2.5rem;font-family:'DM Sans',sans-serif;}
+.hm-cta-btn{display:inline-block;background:var(--hm-teal);color:#080C12;padding:1rem 3rem;border-radius:100px;font-weight:600;font-size:0.9rem;letter-spacing:0.02em;transition:all 0.2s;font-family:'DM Sans',sans-serif;text-decoration:none;}
+.hm-cta-btn:hover{background:#5ee0e0;transform:scale(1.02);}
+@media(max-width:1000px){.hm-port-grid{grid-template-columns:1fr;}.hm-steps{grid-template-columns:1fr 1fr;}}
+@media(max-width:700px){.hm-section{padding:4rem 1.5rem;}.hm-services{padding:4rem 0;}.hm-services-head{padding:0 1.5rem;}.hm-track{padding:1.5rem 1.5rem 2rem;}.hm-card{flex:0 0 300px;}.hm-steps{grid-template-columns:1fr;}.hm-cta{padding:5rem 1.5rem;}}
+</style>
 
-      <div class="services-right">
-        <div class="service-row reveal">
-          <span class="item-accent"></span>
-          <div class="service-info">
-            <h3>Website Design &amp; Build</h3>
-            <p>Custom websites built from scratch, designed around your business, not a template library.</p>
-          </div>
-        </div>
-        <div class="service-row reveal">
-          <span class="item-accent"></span>
-          <div class="service-info">
-            <h3>Monthly Support</h3>
-            <p>Ongoing support to keep your site secure, up to date, and running without you having to think about it.</p>
-          </div>
-        </div>
-        <div class="service-row reveal">
-          <span class="item-accent"></span>
-          <div class="service-info">
-            <h3>Shows up on Google</h3>
-            <p>Every site we build is set up to be found. Structured correctly from day one so search engines can rank you.</p>
-          </div>
-        </div>
-        <div class="service-row reveal">
-          <span class="item-accent"></span>
-          <div class="service-info">
-            <h3>Needs assessment included</h3>
-            <p>Before we design anything, we sit down with you to understand your business and your goals. No guessing, no assumptions.</p>
-          </div>
-        </div>
-        <div class="service-row reveal">
-          <span class="item-accent"></span>
-          <div class="service-info">
-            <h3>Social Media Management</h3>
-            <p>Quinn manages your Instagram and TikTok presence. Account setup, content creation, and monthly management, with every post approved by you first.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Conversation First -->
-  <section class="convo-section">
-    <div class="convo-inner">
-      <p class="reveal">We sit down with every client before we start. <a href="/how-it-works" class="text-link">Here's how it works <span class="arrow-char">→</span></a></p>
-    </div>
-  </section>
-
-  <!-- Why Us -->
-  <section class="why-us" id="why">
-    <span class="section-label reveal">Why choose us</span>
-    <h2 class="section-title reveal" style="transition-delay:0.1s">Built on trust,<br>rooted in community.</h2>
-
+<!-- ═══════════════════════════════════════════════
+     SERVICES CAROUSEL
+════════════════════════════════════════════════ -->
+<section class="hm-services">
+  <div class="hm-services-head">
     <div>
-      <div class="why-point reveal">
-        <div class="why-body">
-          <h3>We care about community</h3>
-          <p>We started R&amp;GD because we watched great businesses in our community lose customers online, and we knew we could fix that. That same care drives every project, wherever you're based.</p>
+      <span class="hm-label hm-reveal">What we offer</span>
+      <h2 class="hm-title hm-reveal hm-d1" style="margin-bottom:0;">From websites to waitlists.<br><em>We handle the digital side.</em></h2>
+    </div>
+    <div class="hm-carousel-nav hm-reveal hm-d2">
+      <button class="hm-arrow" id="hmPrev" aria-label="Previous">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 13L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="hm-arrow" id="hmNext" aria-label="Next">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 5L11 9L7 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div class="hm-carousel-wrap">
+    <div class="hm-track" id="hmTrack">
+      <div class="hm-card hm-card-featured">
+        <div class="hm-visual">
+          <div class="hm-browser">
+            <div class="hm-browser-bar">
+              <span class="hm-bm-dot" style="background:#ff5f57;"></span>
+              <span class="hm-bm-dot" style="background:#febc2e;"></span>
+              <span class="hm-bm-dot" style="background:#28c840;"></span>
+              <span class="hm-bm-url">yoursite.ca</span>
+            </div>
+            <div class="hm-browser-body">
+              <div class="hm-line accent"></div>
+              <div class="hm-line" style="width:90%;"></div>
+              <div class="hm-line" style="width:75%;"></div>
+              <div class="hm-line" style="width:85%;"></div>
+              <div class="hm-grid"><div class="hm-grid-tile"></div><div class="hm-grid-tile"></div><div class="hm-grid-tile"></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="hm-card-body">
+          <span class="hm-card-type">Core Service</span>
+          <h3 class="hm-card-name">Website Build</h3>
+          <p class="hm-card-desc">Custom-built from scratch. No templates, no shortcuts. Designed around your business and found on Google from day one.</p>
+          <div class="hm-card-tags"><span class="hm-tag">5 pages</span><span class="hm-tag">SEO setup</span><span class="hm-tag">Contact form</span><span class="hm-tag">Mobile-first</span><span class="hm-tag">Vercel hosting</span></div>
         </div>
       </div>
-      <div class="why-divider"></div>
-
-      <div class="why-point reveal">
-        <div class="why-body">
-          <h3>You deal with us directly</h3>
-          <p>You email Connor or Quinn and get a reply. No middlemen.</p>
+      <div class="hm-card hm-card-featured">
+        <div class="hm-visual">
+          <div class="hm-int-grid">
+            <div class="hm-int-tile"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Booking</div>
+            <div class="hm-int-tile"><svg width="13" height="13" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>POS</div>
+            <div class="hm-int-tile"><svg width="13" height="13" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Scheduling</div>
+            <div class="hm-int-tile"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>SNS</div>
+            <div class="hm-int-tile"><svg width="13" height="13" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>Invoicing</div>
+            <div class="hm-int-tile"><svg width="13" height="13" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>Waitlist</div>
+            <div class="hm-int-tile hm-int-plus"><svg width="13" height="13" viewBox="0 0 24 24" style="stroke:rgba(62,207,207,0.4);fill:none;stroke-width:1.6;stroke-linecap:round;"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>More on request</div>
+          </div>
+        </div>
+        <div class="hm-card-body">
+          <span class="hm-card-type">Core Service</span>
+          <h3 class="hm-card-name">Business Essentials</h3>
+          <p class="hm-card-desc">The digital tools your business actually needs. Bolt on integrations to any website, yours or someone else's.</p>
+          <div class="hm-card-tags"><span class="hm-tag">Any website</span><span class="hm-tag">Monthly support</span><span class="hm-tag">3 revisions/mo</span></div>
         </div>
       </div>
-      <div class="why-divider"></div>
-
-      <div class="why-point reveal">
-        <div class="why-body">
-          <h3>Unique every time</h3>
-          <p>We don't touch templates. Every site is designed from scratch around your business and no one else's.</p>
+      <div class="hm-card hm-card-featured">
+        <div class="hm-visual">
+          <div class="hm-social-mock">
+            <div class="hm-post">
+              <div class="hm-post-header"><div class="hm-avatar"></div><div class="hm-post-line"></div></div>
+              <div class="hm-post-img"></div>
+            </div>
+            <div class="hm-platform-row">
+              <div class="hm-platform-chip"><svg width="12" height="12" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</div>
+              <div class="hm-platform-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="#3ECFCF" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.81a4.85 4.85 0 01-1.07-.12z"/></svg>TikTok</div>
+            </div>
+          </div>
+        </div>
+        <div class="hm-card-body">
+          <span class="hm-card-type">Core Service</span>
+          <h3 class="hm-card-name">Social Media Management</h3>
+          <p class="hm-card-desc">We create the content. You approve it. Your brand stays active without you lifting a finger.</p>
+          <div class="hm-card-tags"><span class="hm-tag">Instagram</span><span class="hm-tag">TikTok</span><span class="hm-tag">You approve every post</span></div>
         </div>
       </div>
-      <div class="why-divider"></div>
-
-      <div class="why-point reveal">
-        <div class="why-body">
-          <h3>No lock-in</h3>
-          <p>You own your site outright. Cancel maintenance any time.</p>
-        </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="8" y1="14" x2="8" y2="18"/><line x1="12" y1="14" x2="12" y2="18"/><line x1="16" y1="14" x2="16" y2="18"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:0deg;"></div><div class="hm-orbit-dot" style="--a:120deg;"></div><div class="hm-orbit-dot" style="--a:240deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">Online Booking</h3><p class="hm-card-desc">Let clients book appointments directly from your site, 24/7, without a phone call.</p></div>
+      </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:60deg;"></div><div class="hm-orbit-dot" style="--a:180deg;"></div><div class="hm-orbit-dot" style="--a:300deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">Smart Scheduling</h3><p class="hm-card-desc">Manage your calendar without the back-and-forth. Clients pick a time, it is done.</p></div>
+      </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:30deg;"></div><div class="hm-orbit-dot" style="--a:150deg;"></div><div class="hm-orbit-dot" style="--a:270deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">POS &amp; E-commerce</h3><p class="hm-card-desc">Take payments and sell products online. Full point-of-sale connected to your website.</p></div>
+      </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:90deg;"></div><div class="hm-orbit-dot" style="--a:210deg;"></div><div class="hm-orbit-dot" style="--a:330deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">Digital Invoicing</h3><p class="hm-card-desc">Send professional invoices directly from your site. No more chasing payments manually.</p></div>
+      </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:45deg;"></div><div class="hm-orbit-dot" style="--a:165deg;"></div><div class="hm-orbit-dot" style="--a:285deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">SNS &amp; WhatsApp</h3><p class="hm-card-desc">Connect WhatsApp and social messaging to your business site. Customers reach you where they already are.</p></div>
+      </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:15deg;"></div><div class="hm-orbit-dot" style="--a:135deg;"></div><div class="hm-orbit-dot" style="--a:255deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">Calendar Management</h3><p class="hm-card-desc">Stay on top of every booking and appointment. Synced, organised, and always up to date.</p></div>
+      </div>
+      <div class="hm-card">
+        <div class="hm-visual hm-visual-sm"><div class="hm-addon-wrap"><div class="hm-addon-icon"><svg width="28" height="28" viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div><div class="hm-orbit"><div class="hm-orbit-dot" style="--a:75deg;"></div><div class="hm-orbit-dot" style="--a:195deg;"></div><div class="hm-orbit-dot" style="--a:315deg;"></div></div></div></div>
+        <div class="hm-card-body"><span class="hm-card-type addon">Integration</span><h3 class="hm-card-name">Waitlist System</h3><p class="hm-card-desc">Never lose a customer when you are fully booked. A waitlist keeps them in line and ready.</p></div>
       </div>
     </div>
+  </div>
+  <div class="hm-dots" id="hmDots"></div>
+</section>
 
-    <div style="margin-top:3rem;" class="reveal" style="transition-delay:0.5s">
-      <a class="text-link" href="/about">
-        Meet Connor &amp; Quinn
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6"
-            stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </a>
+<!-- ═══════════════════════════════════════════════
+     OUR WORK
+════════════════════════════════════════════════ -->
+<section class="hm-section">
+  <div style="max-width:1200px;margin:0 auto 2.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;">
+    <div>
+      <span class="hm-label hm-reveal">Our work</span>
+      <h2 class="hm-title hm-reveal hm-d1" style="margin-bottom:0;">Built for businesses <em>like yours.</em></h2>
     </div>
-  </section>
+    <a href="/portfolio" class="hm-reveal hm-d2" style="font-size:0.825rem;color:var(--hm-teal);display:flex;align-items:center;gap:0.35rem;text-decoration:none;font-family:'DM Sans',sans-serif;">View all work
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+  <div class="hm-port-grid">
+    <div class="hm-port-card hm-reveal">
+      <div class="hm-browser-frame">
+        <div class="hm-bdot" style="background:#ff5f57;"></div>
+        <div class="hm-bdot" style="background:#febc2e;"></div>
+        <div class="hm-bdot" style="background:#28c840;"></div>
+        <div class="hm-burl">badalimedia.com</div>
+      </div>
+      <img src="BM.webp" alt="Badali Media — built by RGD" style="width:100%;display:block;" />
+      <div class="hm-port-info">
+        <span class="hm-port-badge hm-live">Live</span>
+        <p class="hm-port-name">Badali Media</p>
+        <p class="hm-port-desc">Sports photography for athletes and teams across Northumberland County. Custom build, SEO, contact form, portfolio gallery.</p>
+      </div>
+    </div>
+    <div class="hm-port-card hm-reveal hm-d1">
+      <div class="hm-placeholder" style="background:#07090f;position:relative;overflow:hidden;">
+        <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,0.06) 0%,transparent 70%);pointer-events:none;"></div>
+        <div style="text-align:center;position:relative;z-index:1;">
+          <div style="font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(62,207,207,0.5);margin-bottom:0.6rem;font-family:'DM Sans',sans-serif;">Auto Detailing</div>
+          <div style="font-family:'DM Serif Display',serif;font-size:1.3rem;color:rgba(237,243,247,0.18);margin-bottom:0.5rem;">SP Detailing Co.</div>
+          <div style="display:inline-flex;align-items:center;gap:0.4rem;background:rgba(240,165,50,0.08);border:1px solid rgba(240,165,50,0.18);border-radius:100px;padding:0.3rem 0.75rem;">
+            <span style="width:6px;height:6px;border-radius:50%;background:#f0a850;display:inline-block;animation:hmBlink 1.5s ease-in-out infinite;"></span>
+            <span style="font-size:0.6rem;color:#f0a850;letter-spacing:0.1em;text-transform:uppercase;font-family:'DM Sans',sans-serif;">In Progress</span>
+          </div>
+        </div>
+      </div>
+      <div class="hm-port-info">
+        <span class="hm-port-badge hm-progress">In Progress</span>
+        <p class="hm-port-name">SP Detailing Co.</p>
+        <p class="hm-port-desc">Full rebrand from JOAT. Custom detailing packages, SEO targeting Cobourg searches. Launching soon.</p>
+      </div>
+    </div>
+    <div class="hm-port-card hm-reveal hm-d2">
+      <div class="hm-placeholder" style="background:var(--hm-card);">
+        <div style="text-align:center;">
+          <div style="width:40px;height:40px;border-radius:50%;border:1px dashed rgba(255,255,255,0.1);display:flex;align-items:center;justify-content:center;margin:0 auto 0.75rem;">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+          <p class="hm-placeholder-title">Your business</p>
+          <p class="hm-placeholder-sub">could be here next.</p>
+        </div>
+      </div>
+      <div class="hm-port-info">
+        <span class="hm-port-badge hm-available">Available</span>
+        <p class="hm-port-name">Taking on new clients.</p>
+        <p class="hm-port-desc">We build for local businesses across Cobourg and Northumberland County.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <!-- Who We Build For -->
-  <section class="who-section">
-    <span class="section-label reveal">Who we build for</span>
-    <h2 class="section-title reveal" style="transition-delay:0.1s">Built for businesses<br>like yours.</h2>
-    <div class="who-body">
-      <p class="reveal" style="transition-delay:0.15s">If someone searches your business right now and cannot find you, or finds something outdated, you are losing customers you do not even know about. Word of mouth is powerful, but most people will look you up online before they ever pick up the phone.</p>
-      <p class="reveal" style="transition-delay:0.2s">We build websites for the businesses that have been around for years and have never needed one before, and for the ones that have a site but have not touched it since it was built. Restaurants, hair salons, trades, retail shops, accountants, contractors, clinics, local offices. If you serve real people in your community, we can help you reach more of them.</p>
-      <p class="reveal" style="transition-delay:0.25s">You do not need to understand how websites work. You just need to show up when people are looking for you. That is exactly what we do.</p>
-    </div>
-  </section>
+<!-- ═══════════════════════════════════════════════
+     HOW IT WORKS
+════════════════════════════════════════════════ -->
+<section class="hm-section">
+  <div style="max-width:1200px;margin:0 auto 2.5rem;">
+    <span class="hm-label hm-reveal">How it works</span>
+    <h2 class="hm-title hm-reveal hm-d1">From first message <em>to live site.</em></h2>
+  </div>
+  <div class="hm-steps hm-reveal">
+    <div class="hm-step"><span class="hm-step-num">01</span><p class="hm-step-title">We talk.</p><p class="hm-step-desc">A quick call or coffee. We learn your business, your goals, and what you actually need.</p></div>
+    <div class="hm-step"><span class="hm-step-num">02</span><p class="hm-step-title">We design and build.</p><p class="hm-step-desc">Custom to your brand. No templates, no generic layouts. Built around you.</p></div>
+    <div class="hm-step"><span class="hm-step-num">03</span><p class="hm-step-title">You approve.</p><p class="hm-step-desc">Nothing goes live until you are happy. You see everything before we push the button.</p></div>
+    <div class="hm-step"><span class="hm-step-num">04</span><p class="hm-step-title">We launch.</p><p class="hm-step-desc">Your site is live, on Google, and in your hands. We handle the technical side.</p></div>
+  </div>
+</section>
 
-  <!-- CTA -->
-  <div class="cta-rule"></div>
-  <section class="cta-section">
-    <h2 class="cta-title reveal">You email us,<br>we answer.</h2>
-    <p class="cta-sub reveal" style="transition-delay:0.1s">No pressure, no commitment. Just a conversation about your business and what a better website could do for it.</p>
-    <div class="reveal" style="transition-delay:0.2s">
-      <a class="btn-outline" href="/contact"><span>Get in touch</span></a>
+<!-- ═══════════════════════════════════════════════
+     WHO WE BUILD FOR
+════════════════════════════════════════════════ -->
+<section class="hm-section">
+  <div style="max-width:1200px;margin:0 auto;">
+    <span class="hm-label hm-reveal">Who we build for</span>
+    <h2 class="hm-title hm-reveal hm-d1">If you run a local business<br><em>we can help.</em></h2>
+    <div class="hm-biz-grid hm-reveal hm-d2">
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M3 2l2 6h14l2-6"/><path d="M3 8v12a1 1 0 001 1h16a1 1 0 001-1V8"/><line x1="9" y1="14" x2="15" y2="14"/></svg>Restaurants &amp; Cafes</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 10-16 0"/></svg>Salons &amp; Spas</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Trades &amp; Services</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>Retail &amp; Boutiques</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>Health &amp; Wellness</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Fitness &amp; Studios</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>Real Estate</div>
+      <div class="hm-biz-chip"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>Professional Services</div>
+      <div class="hm-biz-chip" style="border-style:dashed;opacity:0.5;cursor:default;">...and more</div>
     </div>
-  </section>
-  <div class="cta-rule"></div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════
+     CTA
+════════════════════════════════════════════════ -->
+<section class="hm-cta">
+  <div class="hm-cta-glow"></div>
+  <div class="hm-cta-wm">R&amp;GD.</div>
+  <div class="hm-cta-inner hm-reveal">
+    <span class="hm-cta-eyebrow">Let's work together</span>
+    <h2 class="hm-cta-title">Ready to mean business?</h2>
+    <p class="hm-cta-sub">We reply the same day. Every day, 7 to 9 PM.</p>
+    <a href="/contact" class="hm-cta-btn">Get in touch</a>
+  </div>
+</section>
+
 
   <!-- Footer -->
   <footer role="contentinfo">
@@ -1736,6 +1947,64 @@
 
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
+
+  <script>
+  /* ── CAROUSEL ── */
+  (function(){
+    var track=document.getElementById('hmTrack');
+    var prev=document.getElementById('hmPrev');
+    var next=document.getElementById('hmNext');
+    var dotsWrap=document.getElementById('hmDots');
+    if(!track||!prev||!next||!dotsWrap)return;
+    var cards=Array.from(track.querySelectorAll('.hm-card'));
+    var total=cards.length;
+    var current=0;
+    var isDown=false,startX,scrollLeft,isDragging=false;
+    var autoTimer;
+    cards.forEach(function(_,i){
+      var d=document.createElement('button');
+      d.className='hm-dot'+(i===0?' active':'');
+      d.setAttribute('aria-label','Go to slide '+(i+1));
+      d.onclick=function(){goTo(i);};
+      dotsWrap.appendChild(d);
+    });
+    function goTo(idx){
+      current=((idx%total)+total)%total;
+      var card=cards[current];
+      var offset=card.offsetLeft-(track.offsetWidth/2-card.offsetWidth/2);
+      track.scrollTo({left:Math.max(0,offset),behavior:'smooth'});
+      dotsWrap.querySelectorAll('.hm-dot').forEach(function(d,i){d.classList.toggle('active',i===current);});
+      cards.forEach(function(c,i){
+        c.style.transform=i===current?'scale(1.03) translateY(-4px)':'scale(0.97)';
+        c.style.opacity=i===current?'1':'0.65';
+      });
+    }
+    function startAuto(){autoTimer=setInterval(function(){goTo(current+1);},4500);}
+    function stopAuto(){clearInterval(autoTimer);}
+    prev.onclick=function(){stopAuto();goTo(current-1);startAuto();};
+    next.onclick=function(){stopAuto();goTo(current+1);startAuto();};
+    track.addEventListener('mousedown',function(e){isDown=true;isDragging=false;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft;track.style.cursor='grabbing';stopAuto();});
+    document.addEventListener('mouseup',function(){if(!isDown)return;isDown=false;track.style.cursor='grab';if(isDragging)snapNearest();startAuto();});
+    track.addEventListener('mousemove',function(e){if(!isDown)return;var x=e.pageX-track.offsetLeft;var walk=(x-startX)*1.5;if(Math.abs(walk)>5)isDragging=true;track.scrollLeft=scrollLeft-walk;});
+    track.addEventListener('mouseenter',stopAuto);
+    track.addEventListener('mouseleave',startAuto);
+    function snapNearest(){var cx=track.scrollLeft+track.offsetWidth/2;var closest=0,minDist=Infinity;cards.forEach(function(c,i){var dist=Math.abs(c.offsetLeft+c.offsetWidth/2-cx);if(dist<minDist){minDist=dist;closest=i;}});goTo(closest);}
+    document.addEventListener('keydown',function(e){if(e.key==='ArrowRight')goTo(current+1);if(e.key==='ArrowLeft')goTo(current-1);});
+    goTo(0);
+    startAuto();
+  })();
+  /* ── HM SCROLL REVEAL ── */
+  (function(){
+    var obs=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('hm-visible');}});
+    },{threshold:0.1});
+    document.querySelectorAll('.hm-reveal').forEach(function(el){obs.observe(el);});
+    var style=document.createElement('style');
+    style.textContent='@keyframes hmBlink{0%,100%{opacity:1;}50%{opacity:0.3;}}';
+    document.head.appendChild(style);
+  })();
+  </script>
+
 </body>
 
 </html>
