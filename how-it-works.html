@@ -10,8 +10,8 @@
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#080C12">
 
-  <title>How It Works | Simple Web Design Process | Ross & Griffiths Digital</title>
-  <meta name="description" content="No complicated onboarding or project management software. You email us, we build your site. Simple, fast, and stress-free web design for small businesses.">
+  <title>How It Works | Ross & Griffiths Digital</title>
+  <meta name="description" content="A simple, honest process. From first conversation to launch day, here is exactly what working with Ross &amp; Griffiths Digital looks like.">
   <meta name="robots" content="index, follow">
   <meta property="og:title" content="How It Works | Simple Web Design Process | Ross & Griffiths Digital">
   <meta property="og:description" content="No complicated onboarding or project management software. You email us, we build your site. Simple, fast, and stress-free web design for small businesses.">
@@ -508,6 +508,7 @@
   </style>
 </head>
 <body>
+<div class="hiw-progress-wrap"><div class="hiw-progress-fill" id="hiwProgressFill"></div></div>
 
 <!-- NAV -->
 <nav role="navigation" aria-label="Main navigation" id="nav">
@@ -531,124 +532,289 @@
   <a href="/contact" class="overlay-cta">Get in touch</a>
 </div>
 
-<!-- PAGE HEADER -->
-<header class="page-header">
-  <span class="eyebrow">The process</span>
-  <h1>Simple from start <br><span class="muted-line">to finish.</span></h1>
-  <p>No complicated onboarding, no software to learn. Just a real conversation, real research, and a website that actually does something for your business.</p>
-</header>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Serif+Display:ital@0;1&display=swap');
 
-<!-- STEPS CALLOUT -->
-<section class="steps-section">
+/* ── HOW IT WORKS REDESIGN ── */
 
-  <div class="steps-timeline" id="steps-wrapper">
-    <div class="tl-track"><div class="tl-progress" id="tl-progress"></div></div>
+/* Progress bar */
+.hiw-progress-wrap{position:fixed;top:0;left:0;right:0;z-index:200;height:2px;background:rgba(255,255,255,0.04);pointer-events:none;}
+.hiw-progress-fill{height:100%;background:#3ECFCF;width:0%;transition:width 0.1s linear;}
 
-  <div class="step-row reveal">
-    <div class="step-number">01</div>
-    <div class="step-content">
-      <h2 class="step-title">You reach out</h2>
-      <p class="step-desc">Send us an email telling us a bit about your business and what you're looking for. No lengthy forms, no sign-ups. Just a straightforward email and we'll take it from there.</p>
-      <span class="step-tag">Zero pressure</span>
+/* Hero */
+.hiw-hero{padding:9rem 3rem 6rem;max-width:1100px;margin:0 auto;position:relative;}
+.hiw-eyebrow{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:#3ECFCF;margin-bottom:0.75rem;font-weight:500;display:block;}
+.hiw-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.75rem,5vw,4.5rem);font-weight:400;letter-spacing:-0.03em;line-height:1.0;margin-bottom:1.25rem;}
+.hiw-headline em{font-style:italic;color:rgba(237,243,247,0.45);}
+.hiw-sub{font-size:1rem;color:#5a7190;max-width:500px;line-height:1.65;margin-bottom:2.5rem;}
+
+/* 5-star badge */
+.hiw-star-badge{display:inline-flex;align-items:center;gap:0.75rem;background:#0f1622;border:1px solid rgba(255,215,80,0.2);border-radius:100px;padding:0.5rem 1.1rem 0.5rem 0.8rem;}
+.hiw-stars{display:flex;gap:2px;}
+.hiw-star{color:#FBBF24;font-size:0.9rem;}
+.hiw-star-text{font-size:0.75rem;color:#8ba5c0;}
+.hiw-star-text strong{color:#EDF3F7;font-weight:500;}
+
+/* Timeline section */
+.hiw-timeline-section{max-width:1000px;margin:0 auto;padding:2rem 3rem 6rem;position:relative;}
+.hiw-line-track{position:absolute;left:calc(3rem + 23px);top:0;bottom:0;width:1px;background:rgba(255,255,255,0.08);}
+.hiw-line-fill{position:absolute;top:0;left:0;width:1px;height:0%;background:linear-gradient(to bottom,transparent,#3ECFCF 15%,#3ECFCF 85%,transparent);transition:height 0.4s cubic-bezier(0.4,0,0.2,1);}
+
+/* Steps */
+.hiw-step{display:grid;grid-template-columns:48px 1fr;gap:0 2.5rem;margin-bottom:5rem;position:relative;}
+.hiw-step:last-child{margin-bottom:0;}
+.hiw-step-node{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;padding-top:0.2rem;}
+.hiw-node-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);transition:background 0.4s,border-color 0.4s,box-shadow 0.4s;flex-shrink:0;}
+.hiw-step.hiw-active .hiw-node-dot{background:#3ECFCF;border-color:#3ECFCF;box-shadow:0 0 0 4px rgba(62,207,207,0.15),0 0 20px rgba(62,207,207,0.3);}
+.hiw-node-connector{width:2.5rem;height:1px;background:rgba(255,255,255,0.08);position:absolute;top:0.7rem;left:10px;transition:background 0.4s;}
+.hiw-step.hiw-active .hiw-node-connector{background:rgba(62,207,207,0.3);}
+
+/* Step content */
+.hiw-step-content{opacity:0;transform:translateX(24px);transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1),transform 0.6s cubic-bezier(0.4,0,0.2,1);}
+.hiw-step.hiw-active .hiw-step-content{opacity:1;transform:translateX(0);}
+.hiw-step-inner{background:#0f1622;border:1px solid rgba(255,255,255,0.08);border-radius:20px;padding:2rem 2rem 2rem 2.25rem;position:relative;overflow:hidden;transition:border-color 0.3s;}
+.hiw-step.hiw-active .hiw-step-inner{border-color:rgba(62,207,207,0.18);}
+.hiw-step.hiw-active .hiw-step-inner::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(62,207,207,0.3),transparent);}
+
+/* Ghost numbers */
+.hiw-ghost{position:absolute;right:-0.5rem;top:50%;transform:translateY(-50%);font-family:'DM Serif Display',serif;font-size:7rem;letter-spacing:-0.05em;color:transparent;-webkit-text-stroke:1px rgba(62,207,207,0.06);line-height:1;user-select:none;pointer-events:none;transition:-webkit-text-stroke 0.4s;}
+.hiw-step.hiw-active .hiw-ghost{-webkit-text-stroke:1px rgba(62,207,207,0.11);}
+
+.hiw-step-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#3ECFCF;margin-bottom:0.5rem;display:block;font-weight:500;}
+.hiw-step-title{font-family:'DM Serif Display',serif;font-size:1.75rem;letter-spacing:-0.02em;margin-bottom:0.75rem;color:#EDF3F7;}
+.hiw-step-desc{font-size:0.9rem;color:#8ba5c0;line-height:1.7;max-width:520px;margin-bottom:1.25rem;}
+.hiw-meta{display:flex;gap:0.5rem;flex-wrap:wrap;}
+.hiw-chip{display:flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:0.3rem 0.75rem;font-size:0.7rem;color:#5a7190;font-family:'DM Sans',sans-serif;}
+.hiw-chip svg{stroke:#3ECFCF;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+/* Promise strip */
+.hiw-promise-wrap{max-width:1000px;margin:0 auto;padding:0 3rem 5rem;}
+.hiw-promise{background:linear-gradient(135deg,rgba(62,207,207,0.04) 0%,rgba(62,207,207,0.02) 100%);border:1px solid rgba(62,207,207,0.15);border-radius:20px;display:grid;grid-template-columns:repeat(3,1fr);position:relative;overflow:hidden;}
+.hiw-promise::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:40%;height:1px;background:linear-gradient(90deg,transparent,#3ECFCF,transparent);}
+.hiw-promise-item{padding:1.5rem;border-right:1px solid rgba(62,207,207,0.08);}
+.hiw-promise-item:last-child{border-right:none;}
+.hiw-promise-icon{width:32px;height:32px;border-radius:8px;background:rgba(62,207,207,0.08);display:flex;align-items:center;justify-content:center;margin-bottom:0.75rem;}
+.hiw-promise-icon svg{stroke:#3ECFCF;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.hiw-promise-label{font-size:0.825rem;color:#EDF3F7;font-weight:500;margin-bottom:0.2rem;}
+.hiw-promise-sub{font-size:0.75rem;color:#5a7190;line-height:1.45;}
+
+/* FAQ */
+.hiw-faq-wrap{max-width:720px;margin:0 auto;padding:0 3rem 6rem;}
+.hiw-faq-title{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);letter-spacing:-0.02em;margin-bottom:2rem;color:#EDF3F7;}
+.hiw-faq-item{border-bottom:1px solid rgba(255,255,255,0.08);}
+.hiw-faq-q{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:#EDF3F7;text-align:left;gap:1rem;transition:color 0.2s;}
+.hiw-faq-q:hover{color:#3ECFCF;}
+.hiw-faq-icon{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.25s;color:#5a7190;font-size:0.85rem;font-family:'DM Sans',sans-serif;}
+.hiw-faq-item.hiw-faq-open .hiw-faq-icon{background:rgba(62,207,207,0.1);border-color:rgba(62,207,207,0.3);color:#3ECFCF;transform:rotate(45deg);}
+.hiw-faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.3s;opacity:0;}
+.hiw-faq-item.hiw-faq-open .hiw-faq-a{max-height:300px;opacity:1;}
+.hiw-faq-a-inner{padding:0 0 1.25rem;font-size:0.85rem;color:#8ba5c0;line-height:1.7;}
+
+/* CTA */
+.hiw-cta{border-top:1px solid rgba(255,255,255,0.08);text-align:center;padding:7rem 3rem;position:relative;overflow:hidden;}
+.hiw-cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,0.06),transparent 70%);pointer-events:none;}
+.hiw-cta-wm{position:absolute;bottom:-2rem;left:50%;transform:translateX(-50%);font-family:'DM Serif Display',serif;font-size:clamp(6rem,18vw,14rem);color:transparent;-webkit-text-stroke:1px rgba(62,207,207,0.05);white-space:nowrap;letter-spacing:-0.04em;user-select:none;pointer-events:none;}
+.hiw-cta-inner{position:relative;z-index:1;}
+.hiw-cta-eyebrow{display:block;font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:#3ECFCF;margin-bottom:1rem;font-weight:500;}
+.hiw-cta-title{font-family:'DM Serif Display',serif;font-size:clamp(2.25rem,4vw,3.5rem);font-weight:400;letter-spacing:-0.03em;color:#EDF3F7;margin-bottom:0.6rem;}
+.hiw-cta-sub{color:#5a7190;font-size:0.95rem;margin-bottom:2.25rem;}
+.hiw-cta-btn{display:inline-block;background:#3ECFCF;color:#080C12;padding:0.9rem 2.75rem;border-radius:100px;font-weight:600;font-size:0.875rem;transition:all 0.2s;font-family:'DM Sans',sans-serif;text-decoration:none;}
+.hiw-cta-btn:hover{background:#5ee0e0;transform:scale(1.02);}
+
+/* Reveal */
+.hiw-reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s cubic-bezier(0.4,0,0.2,1),transform 0.6s cubic-bezier(0.4,0,0.2,1);}
+.hiw-reveal.hiw-visible{opacity:1;transform:translateY(0);}
+.hiw-d1{transition-delay:0.08s;}.hiw-d2{transition-delay:0.16s;}.hiw-d3{transition-delay:0.24s;}
+
+/* Responsive */
+@media(max-width:768px){
+  .hiw-hero,.hiw-timeline-section,.hiw-promise-wrap,.hiw-faq-wrap{padding-left:1.5rem;padding-right:1.5rem;}
+  .hiw-line-track{left:calc(1.5rem + 23px);}
+  .hiw-headline{font-size:2.5rem;}
+  .hiw-step{grid-template-columns:36px 1fr;gap:0 1.5rem;}
+  .hiw-ghost{font-size:4.5rem;}
+  .hiw-promise{grid-template-columns:1fr;}
+  .hiw-promise-item{border-right:none;border-bottom:1px solid rgba(62,207,207,0.08);}
+  .hiw-promise-item:last-child{border-bottom:none;}
+  .hiw-cta{padding:5rem 1.5rem;}
+}
+@media(max-width:520px){
+  .hiw-ghost{display:none;}
+  .hiw-hero{padding-top:7rem;}
+  .hiw-step-inner{padding:1.5rem;}
+}
+</style>
+
+<!-- HERO -->
+<div class="hiw-hero">
+  <span class="hiw-eyebrow hiw-reveal">How it works</span>
+  <h1 class="hiw-headline hiw-reveal hiw-d1">Simple process.<br><em>Real results.</em></h1>
+  <p class="hiw-sub hiw-reveal hiw-d2">We keep things straightforward. From the first conversation to launch day, here is exactly what working with RGD looks like.</p>
+  <div class="hiw-star-badge hiw-reveal hiw-d3">
+    <div class="hiw-stars">
+      <span class="hiw-star">&#9733;</span>
+      <span class="hiw-star">&#9733;</span>
+      <span class="hiw-star">&#9733;</span>
+      <span class="hiw-star">&#9733;</span>
+      <span class="hiw-star">&#9733;</span>
     </div>
+    <span class="hiw-star-text"><strong>5.0</strong> on Google &middot; 100% of clients recommend us</span>
   </div>
-
-  <div class="step-row reveal reveal-d1">
-    <div class="step-number">02</div>
-    <div class="step-content">
-      <h2 class="step-title">We research your market</h2>
-      <p class="step-desc">Before we ever talk strategy, we look into your business, your competitors, and what's already working in your space. We show up to every conversation prepared, not guessing.</p>
-      <span class="step-tag">We come prepared</span>
-    </div>
-  </div>
-
-  <div class="step-row reveal reveal-d2">
-    <div class="step-number">03</div>
-    <div class="step-content">
-      <h2 class="step-title">We sit down together</h2>
-      <p class="step-desc">This is a needs assessment, not a catch-up. We come prepared with research on your business, your industry, and your competitors, then we ask questions and listen. What do your customers need? What does success look like for you? What isn't working right now? Most agencies skip this step entirely and jump straight to design. We don't. Until we understand your business, we don't touch a design tool.</p>
-      <span class="step-tag">Needs assessment, not just a chat</span>
-    </div>
-  </div>
-
-  <div class="step-row reveal reveal-d3">
-    <div class="step-number">04</div>
-    <div class="step-content">
-      <h2 class="step-title">Custom design, built around you</h2>
-      <p class="step-desc">We put together a design tailored to your business specifically: your customers, your industry, your feel. You see it before we write a single line of code and we refine it until it's right.</p>
-      <span class="step-tag">You approve before we build</span>
-    </div>
-  </div>
-
-  <div class="step-row reveal reveal-d1">
-    <div class="step-number">05</div>
-    <div class="step-content">
-      <h2 class="step-title">We get you live</h2>
-      <p class="step-desc">Once the design is locked in, we build the full site and get it published. It will load fast, look sharp on any device, and be set up correctly for Google from day one.</p>
-      <span class="step-tag">Ready to rank</span>
-    </div>
-  </div>
-
-  <div class="step-row reveal reveal-d2">
-    <div class="step-number">06</div>
-    <div class="step-content">
-      <h2 class="step-title">Ongoing support, when you want it</h2>
-      <p class="step-desc">We don't disappear after launch. Questions, tweaks, updates, or full monthly maintenance, we're just an email away. You always deal with Connor or Quinn directly.</p>
-      <span class="step-tag">Optional monthly support</span>
-    </div>
-  </div>
-
-  </div>
-
-</section>
-
-<!-- ASK CALLOUT -->
-<section class="ask-callout">
-  <blockquote class="ask-quote">"We never assume we know what your business needs. <span>We ask.</span>"</blockquote>
-</section>
-
-<!-- COMMITMENT SECTION -->
-<section class="commitment-section">
-  <span class="section-label">Our commitment</span>
-  <h2 class="section-title">What you can always count on.</h2>
-  <div class="commitment-grid">
-    <div class="commitment-item reveal">
-      <span class="commit-num">01</span>
-      <h3 class="commit-title">Direct communication</h3>
-      <p class="commit-desc">You speak to Connor or Quinn directly at every stage. No middlemen, no miscommunication.</p>
-    </div>
-    <div class="commitment-item reveal reveal-d1">
-      <span class="commit-num">02</span>
-      <h3 class="commit-title">Fast responses</h3>
-      <p class="commit-desc">During our available hours (every day, 7am–9pm EST) you'll typically hear back within the hour.</p>
-    </div>
-    <div class="commitment-item reveal reveal-d2">
-      <span class="commit-num">03</span>
-      <h3 class="commit-title">No surprises</h3>
-      <p class="commit-desc">What we quote is what you pay. Always.</p>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO DIVIDER -->
-<div class="video-divider">
-  <video autoplay muted playsinline>
-    <source src="/assets/higgsfield/light-point.mp4" type="video/mp4">
-  </video>
-  <div class="video-divider-overlay"></div>
-  <p class="video-divider-text">From conversation to launch, we handle everything in between.</p>
 </div>
 
-<!-- CTA SECTION -->
-<section class="cta-section">
-  <div class="cta-rule"></div>
-  <h2 class="reveal">Like what you see?</h2>
-  <p class="reveal reveal-d1">Check out our pricing, it's straightforward.</p>
-  <div class="cta-actions reveal reveal-d2">
-    <a href="/pricing" class="btn-outline"><span>See pricing</span></a>
-    <a href="/contact" class="text-link">Or get in touch directly →</a>
+<!-- TIMELINE -->
+<div class="hiw-timeline-section" id="hiwTimeline">
+  <div class="hiw-line-track">
+    <div class="hiw-line-fill" id="hiwLineFill"></div>
   </div>
-  <div class="cta-rule bottom"></div>
+
+  <div class="hiw-step" id="hiwStep1">
+    <div class="hiw-step-node">
+      <div class="hiw-node-dot"></div>
+      <div class="hiw-node-connector"></div>
+    </div>
+    <div class="hiw-step-content">
+      <div class="hiw-step-inner">
+        <div class="hiw-ghost">01</div>
+        <span class="hiw-step-label">Step 01</span>
+        <h2 class="hiw-step-title">We talk.</h2>
+        <p class="hiw-step-desc">A quick call or sit-down. We learn your business, your goals, and what you actually need. No sales pitch. No pressure. Just a real conversation about where your business is and where it needs to go online.</p>
+        <div class="hiw-meta">
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>30&ndash;60 minutes</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Video call or in-person</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Free, no commitment</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hiw-step" id="hiwStep2">
+    <div class="hiw-step-node">
+      <div class="hiw-node-dot"></div>
+      <div class="hiw-node-connector"></div>
+    </div>
+    <div class="hiw-step-content">
+      <div class="hiw-step-inner">
+        <div class="hiw-ghost">02</div>
+        <span class="hiw-step-label">Step 02</span>
+        <h2 class="hiw-step-title">We design and build.</h2>
+        <p class="hiw-step-desc">Custom to your brand. No templates, no cookie-cutter layouts. We design and code your site from scratch around your business. You get progress updates as it comes together so nothing is a surprise.</p>
+        <div class="hiw-meta">
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>1&ndash;2 weeks</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Built for your brand</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Updates along the way</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hiw-step" id="hiwStep3">
+    <div class="hiw-step-node">
+      <div class="hiw-node-dot"></div>
+      <div class="hiw-node-connector"></div>
+    </div>
+    <div class="hiw-step-content">
+      <div class="hiw-step-inner">
+        <div class="hiw-ghost">03</div>
+        <span class="hiw-step-label">Step 03</span>
+        <h2 class="hiw-step-title">You approve.</h2>
+        <p class="hiw-step-desc">Nothing goes live until you say so. You review every page, every word, every detail before we push the button. Your feedback shapes the final product and we handle every revision included in your package.</p>
+        <div class="hiw-meta">
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>24&ndash;48hr review window</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Revisions included</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Your call, always</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hiw-step" id="hiwStep4">
+    <div class="hiw-step-node">
+      <div class="hiw-node-dot"></div>
+      <div class="hiw-node-connector"></div>
+    </div>
+    <div class="hiw-step-content">
+      <div class="hiw-step-inner">
+        <div class="hiw-ghost">04</div>
+        <span class="hiw-step-label">Step 04</span>
+        <h2 class="hiw-step-title">We launch.</h2>
+        <p class="hiw-step-desc">Your site goes live. Google-indexed, mobile-ready, and in your hands. We handle every technical detail so you can focus on running your business. And we stay in your corner after launch with ongoing support.</p>
+        <div class="hiw-meta">
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Live on your domain</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Found on Google</div>
+          <div class="hiw-chip"><svg width="12" height="12" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You own it outright</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PROMISE STRIP -->
+<div class="hiw-promise-wrap">
+  <div class="hiw-promise hiw-reveal">
+    <div class="hiw-promise-item">
+      <div class="hiw-promise-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+      <div class="hiw-promise-label">No lock-in contracts</div>
+      <div class="hiw-promise-sub">You own your site outright. No monthly fees just to keep it alive.</div>
+    </div>
+    <div class="hiw-promise-item">
+      <div class="hiw-promise-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="hiw-promise-label">Same-day replies</div>
+      <div class="hiw-promise-sub">We answer every message the day it is sent. No support tickets, no queues.</div>
+    </div>
+    <div class="hiw-promise-item">
+      <div class="hiw-promise-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div class="hiw-promise-label">5-star rated</div>
+      <div class="hiw-promise-sub">100% of our clients would recommend us. We keep it that way.</div>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="hiw-faq-wrap">
+  <h2 class="hiw-faq-title hiw-reveal">Common questions.</h2>
+
+  <div class="hiw-faq-item hiw-reveal hiw-d1">
+    <button class="hiw-faq-q" onclick="hiwToggleFaq(this)">How long does a website take to build?<span class="hiw-faq-icon">+</span></button>
+    <div class="hiw-faq-a"><div class="hiw-faq-a-inner">Most sites are done in 1&ndash;2 weeks from the day we start. The timeline depends on how quickly we get your content and how many revision rounds are needed. We will give you a clear estimate before we begin.</div></div>
+  </div>
+
+  <div class="hiw-faq-item hiw-reveal hiw-d1">
+    <button class="hiw-faq-q" onclick="hiwToggleFaq(this)">Do I own my website once it is done?<span class="hiw-faq-icon">+</span></button>
+    <div class="hiw-faq-a"><div class="hiw-faq-a-inner">Yes, completely. Once your site is live, it is yours. The code, the domain, the hosting account. We have no claim to it and there is no ongoing fee required to keep it running.</div></div>
+  </div>
+
+  <div class="hiw-faq-item hiw-reveal hiw-d1">
+    <button class="hiw-faq-q" onclick="hiwToggleFaq(this)">What if I already have a website?<span class="hiw-faq-icon">+</span></button>
+    <div class="hiw-faq-a"><div class="hiw-faq-a-inner">No problem. Our Business Essentials service works on any existing website regardless of who built it. We can add booking, payments, scheduling, or any of our integrations to what you already have.</div></div>
+  </div>
+
+  <div class="hiw-faq-item hiw-reveal hiw-d1">
+    <button class="hiw-faq-q" onclick="hiwToggleFaq(this)">Do I need to be local to work with you?<span class="hiw-faq-icon">+</span></button>
+    <div class="hiw-faq-a"><div class="hiw-faq-a-inner">Not at all. We are based in Cobourg but we build for businesses across Ontario. Everything can be handled remotely via video call, email, and shared documents. We work the way that is most convenient for you.</div></div>
+  </div>
+
+  <div class="hiw-faq-item hiw-reveal hiw-d1">
+    <button class="hiw-faq-q" onclick="hiwToggleFaq(this)">What is included in monthly support?<span class="hiw-faq-icon">+</span></button>
+    <div class="hiw-faq-a"><div class="hiw-faq-a-inner">Business Essentials support starts at $50/month and includes up to 3 revisions per month, priority email support, and access to add integrations like booking or invoicing at any time. There is no lock-in and you can cancel or adjust whenever you need.</div></div>
+  </div>
+
+  <div class="hiw-faq-item hiw-reveal hiw-d1">
+    <button class="hiw-faq-q" onclick="hiwToggleFaq(this)">I do not know what I need. Is that okay?<span class="hiw-faq-icon">+</span></button>
+    <div class="hiw-faq-a"><div class="hiw-faq-a-inner">Completely fine. Most of our clients come to us knowing they need something better online but are not sure what. That is exactly what the first conversation is for. We ask the right questions and figure it out together.</div></div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="hiw-cta">
+  <div class="hiw-cta-glow"></div>
+  <div class="hiw-cta-wm">R&amp;GD.</div>
+  <div class="hiw-cta-inner hiw-reveal">
+    <span class="hiw-cta-eyebrow">Ready to start?</span>
+    <h2 class="hiw-cta-title">Step one is a conversation.</h2>
+    <p class="hiw-cta-sub">No pitch. No pressure. Just a quick chat about your business. We reply the same day.</p>
+    <a href="/contact" class="hiw-cta-btn">Get in touch</a>
+  </div>
 </section>
 
 <!-- FOOTER -->
@@ -763,5 +929,52 @@
 
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
+
+<script>
+/* HOW IT WORKS — scroll fill, FAQ, reveal */
+(function(){
+  /* Progress bar */
+  window.addEventListener('scroll',function(){
+    var s=window.scrollY,m=document.body.scrollHeight-window.innerHeight;
+    var el=document.getElementById('hiwProgressFill');
+    if(el)el.style.width=(s/m*100)+'%';
+  });
+
+  /* Timeline fill + step activation */
+  var section=document.getElementById('hiwTimeline');
+  var fill=document.getElementById('hiwLineFill');
+  var stepIds=['hiwStep1','hiwStep2','hiwStep3','hiwStep4'];
+
+  function updateTimeline(){
+    if(!section||!fill)return;
+    var secRect=section.getBoundingClientRect();
+    var scrolled=Math.max(0,-secRect.top);
+    var pct=Math.min(100,(scrolled/(section.offsetHeight-window.innerHeight*0.3))*100);
+    fill.style.height=pct+'%';
+    stepIds.forEach(function(id){
+      var el=document.getElementById(id);
+      if(!el)return;
+      var r=el.getBoundingClientRect();
+      if(r.top+r.height/2<window.innerHeight*0.72)el.classList.add('hiw-active');
+    });
+  }
+
+  window.addEventListener('scroll',updateTimeline,{passive:true});
+  updateTimeline();
+
+  /* Scroll reveal */
+  var obs=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('hiw-visible');});
+  },{threshold:0.1});
+  document.querySelectorAll('.hiw-reveal').forEach(function(el){obs.observe(el);});
+})();
+
+function hiwToggleFaq(btn){
+  var item=btn.parentElement;
+  var isOpen=item.classList.contains('hiw-faq-open');
+  document.querySelectorAll('.hiw-faq-item.hiw-faq-open').forEach(function(i){i.classList.remove('hiw-faq-open');});
+  if(!isOpen)item.classList.add('hiw-faq-open');
+}
+</script>
 </body>
 </html>
