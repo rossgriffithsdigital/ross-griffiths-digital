@@ -685,9 +685,197 @@
       footer { padding: 3rem 1.5rem 0; }
       .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
+
+    /* ═══ POLISH UPGRADES ═══════════════════════════════════════════════════ */
+
+    /* 1 — Noise texture */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.028;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 180px 180px;
+    }
+
+    /* 2 — Scroll progress bar */
+    .scroll-bar {
+      position: fixed;
+      top: 0; left: 0;
+      height: 2px;
+      width: 0%;
+      background: #3ECFCF;
+      z-index: 9999;
+      pointer-events: none;
+      box-shadow: 0 0 8px rgba(62,207,207,0.5);
+    }
+
+    /* 3 — Custom cursor */
+    @media (min-width: 601px) {
+      body { cursor: none; }
+    }
+    .c-dot {
+      position: fixed;
+      width: 6px; height: 6px;
+      background: #3ECFCF;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10001;
+      transform: translate(-50%, -50%);
+      transition: width 0.18s cubic-bezier(0.16,1,0.3,1), height 0.18s cubic-bezier(0.16,1,0.3,1);
+      will-change: left, top;
+    }
+    .c-ring {
+      position: fixed;
+      width: 30px; height: 30px;
+      border: 1px solid rgba(62,207,207,0.45);
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 10000;
+      transform: translate(-50%, -50%);
+      transition: width 0.18s cubic-bezier(0.16,1,0.3,1), height 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s;
+      will-change: left, top;
+    }
+    .c-dot.hov { width: 10px; height: 10px; }
+    .c-ring.hov { width: 46px; height: 46px; border-color: rgba(62,207,207,0.75); }
+    @media (max-width: 600px) {
+      .c-dot, .c-ring { display: none; }
+    }
+
+    /* 4 — Aurora orbs */
+    .hero-section { position: relative; overflow: hidden; }
+    .orb-layer { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
+    .orb { position: absolute; border-radius: 50%; }
+    .orb-1 {
+      width: 580px; height: 580px;
+      top: -160px; left: -100px;
+      background: rgba(62,207,207,0.16);
+      filter: blur(100px);
+      animation: o1 16s ease-in-out infinite;
+    }
+    .orb-2 {
+      width: 420px; height: 420px;
+      bottom: -80px; right: -80px;
+      background: rgba(30,52,72,0.55);
+      filter: blur(90px);
+      animation: o2 22s ease-in-out infinite;
+    }
+    .orb-3 {
+      width: 320px; height: 320px;
+      background: rgba(62,207,207,0.09);
+      filter: blur(80px);
+      top: 50%; left: 50%;
+      transition: top 0.55s cubic-bezier(0.4,0,0.2,1), left 0.55s cubic-bezier(0.4,0,0.2,1);
+    }
+    .page-header { position: relative; z-index: 1; }
+    @keyframes o1 {
+      0%, 100% { transform: translate(0, 0); }
+      33%       { transform: translate(80px, 55px); }
+      66%       { transform: translate(-50px, 90px); }
+    }
+    @keyframes o2 {
+      0%, 100% { transform: translate(0, 0); }
+      50%       { transform: translate(-70px, -60px); }
+    }
+
+    /* 5 — Marquee strip */
+    .marquee-strip {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 0.85rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      align-items: center;
+      animation: marquee 38s linear infinite;
+    }
+    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .mq-item {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0 0.4rem;
+    }
+    .mq-dot {
+      display: inline-block;
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: #3ECFCF;
+      flex-shrink: 0;
+      margin: 0 0.6rem;
+      vertical-align: middle;
+    }
+
+    /* 6 — Clip-path headline reveals */
+    .reveal-clip .lw { display: block; overflow: hidden; }
+    .reveal-clip .li {
+      display: block;
+      transform: translateY(108%);
+      transition: transform 0.85s cubic-bezier(0.4,0,0.2,1);
+    }
+    .reveal-clip .li.d1 { transition-delay: 0.12s; }
+    .reveal-clip.in .li { transform: translateY(0); }
+
+    /* 7 — Card hover micro-animations */
+    .val-card, .team-card, .trust-card {
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s, border-color 0.3s;
+    }
+    .val-card:hover, .team-card:hover, .trust-card:hover {
+      transform: translateY(-6px) scale(1.015);
+      box-shadow: 0 18px 48px rgba(0,0,0,0.28);
+      border-color: rgba(62,207,207,0.3);
+    }
+    .location-tag {
+      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background 0.25s, border-color 0.25s;
+    }
+    .location-tag:hover {
+      transform: translateY(-3px);
+      background: rgba(62,207,207,0.08);
+      border-color: rgba(62,207,207,0.3);
+    }
+
+    /* 8 — Teal icon glow */
+    .icon-glow .val-icon {
+      filter: drop-shadow(0 0 8px rgba(62,207,207,0.55));
+      transition: filter 0.6s ease;
+    }
+
+    /* 9 — Section dividers */
+    .sec-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(62,207,207,0.25), transparent);
+      margin: 0 auto;
+      max-width: 800px;
+    }
+
+    /* 10 — Footer gradient rule */
+    footer { position: relative; }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: -1px; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, #3ECFCF 30%, #3ECFCF 70%, transparent 100%);
+      opacity: 0.35;
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
+  <div class="scroll-bar" id="scrollBar"></div>
+  <div class="c-dot" id="cDot" aria-hidden="true"></div>
+  <div class="c-ring" id="cRing" aria-hidden="true"></div>
 
   <!-- Nav -->
   <nav id="nav">
@@ -711,12 +899,45 @@
     <a href="/contact" class="overlay-cta">Get in touch</a>
   </div>
 
+  <!-- Hero Section -->
+  <div class="hero-section">
+    <div class="orb-layer" id="orbLayer" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3" id="mouseOrb"></div>
+    </div>
   <!-- Page Header -->
   <header class="page-header">
     <span class="page-eyebrow">Who we are</span>
     <h1 class="page-h1">Two friends. <span class="line2">One goal.</span></h1>
     <p class="page-intro">R&amp;GD is the result of years of friendship, shared skills, and a genuine belief that every business deserves a proper presence online.</p>
-  </header>
+  </div><!-- /hero-section -->
+
+  <!-- Marquee Strip -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="mq-dot"></span><span class="mq-item">Honest</span>
+      <span class="mq-dot"></span><span class="mq-item">Results first</span>
+      <span class="mq-dot"></span><span class="mq-item">Cobourg, Ontario</span>
+      <span class="mq-dot"></span><span class="mq-item">5-Star rated</span>
+      <span class="mq-dot"></span><span class="mq-item">Web design</span>
+      <span class="mq-dot"></span><span class="mq-item">SEO</span>
+      <span class="mq-dot"></span><span class="mq-item">Social media</span>
+      <span class="mq-dot"></span><span class="mq-item">No handoffs</span>
+      <span class="mq-dot"></span><span class="mq-item">Est. 2024</span>
+      <span class="mq-dot"></span><span class="mq-item">Honest</span>
+      <span class="mq-dot"></span><span class="mq-item">Results first</span>
+      <span class="mq-dot"></span><span class="mq-item">Cobourg, Ontario</span>
+      <span class="mq-dot"></span><span class="mq-item">5-Star rated</span>
+      <span class="mq-dot"></span><span class="mq-item">Web design</span>
+      <span class="mq-dot"></span><span class="mq-item">SEO</span>
+      <span class="mq-dot"></span><span class="mq-item">Social media</span>
+      <span class="mq-dot"></span><span class="mq-item">No handoffs</span>
+      <span class="mq-dot"></span><span class="mq-item">Est. 2024</span>
+    </div>
+  </div>
+
+  <div class="sec-divider"></div>
 
   <!-- Section 1: Story -->
   <section class="story">
@@ -728,7 +949,10 @@
 
         <!-- Left: text -->
         <div class="story-text">
-          <h2 class="story-h2 reveal">We've been friends for years, and frequent faces around Northumberland.</h2>
+          <h2 class="story-h2 reveal-clip">
+            <span class="lw"><span class="li">We've been friends for years,</span></span>
+            <span class="lw"><span class="li d1">and frequent faces around Northumberland.</span></span>
+          </h2>
           <p class="reveal" style="transition-delay: 0.08s;">We both grew up in Northumberland County. We've spent years as regulars at local shops, restaurants, and businesses across the area, places we genuinely care about and want to see thrive.</p>
           <p class="reveal" style="transition-delay: 0.14s;">The idea for R&amp;GD came naturally. We kept noticing great businesses in our community without a proper website, or with one that didn't reflect how good they actually were. Between our combined skills and a lot of time spent in this community, we knew we could help.</p>
           <p class="reveal" style="transition-delay: 0.2s;">So we built a service around that. Every client works directly with us, no handoffs, no account managers, no runaround. Just two people who take the work seriously and care about getting it right.</p>
@@ -771,11 +995,16 @@
     </div>
   </section>
 
+  <div class="sec-divider"></div>
+
   <!-- Section 2: Team -->
   <section class="team">
     <div class="section-inner">
       <span class="section-label reveal">The team</span>
-      <h2 class="section-h2 reveal" style="transition-delay: 0.08s;">Just the two of us. On every project.</h2>
+      <h2 class="section-h2 reveal-clip">
+        <span class="lw"><span class="li">Just the two of us.</span></span>
+        <span class="lw"><span class="li d1">On every project.</span></span>
+      </h2>
 
       <div class="team-grid">
 
@@ -943,5 +1172,84 @@
 
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
 <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
+
+<script>
+(function(){
+  /* 2 — Scroll progress bar */
+  var bar = document.getElementById('scrollBar');
+  if (bar) {
+    window.addEventListener('scroll', function(){
+      var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
+      bar.style.width = Math.min(100, pct) + '%';
+    }, { passive: true });
+  }
+
+  /* 3 — Custom cursor (desktop only) */
+  if (window.innerWidth > 600) {
+    var dot  = document.getElementById('cDot');
+    var ring = document.getElementById('cRing');
+    if (dot && ring) {
+      var mx = window.innerWidth / 2,  my = window.innerHeight / 2;
+      var rx = mx, ry = my;
+
+      document.addEventListener('mousemove', function(e){
+        mx = e.clientX; my = e.clientY;
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
+      });
+
+      (function rafLoop(){
+        rx += (mx - rx) * 0.11;
+        ry += (my - ry) * 0.11;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(rafLoop);
+      })();
+
+      var hoverTargets = document.querySelectorAll('a, button, .val-card, .team-card, .trust-card, .location-tag');
+      hoverTargets.forEach(function(el){
+        el.addEventListener('mouseenter', function(){ dot.classList.add('hov'); ring.classList.add('hov'); });
+        el.addEventListener('mouseleave', function(){ dot.classList.remove('hov'); ring.classList.remove('hov'); });
+      });
+    }
+  }
+
+  /* 4 — Aurora orb: mouse tracking + scroll parallax */
+  var heroSection = document.querySelector('.hero-section');
+  var orbLayer    = document.getElementById('orbLayer');
+  var mouseOrb    = document.getElementById('mouseOrb');
+  if (heroSection && mouseOrb && orbLayer) {
+    heroSection.addEventListener('mousemove', function(e){
+      var r = heroSection.getBoundingClientRect();
+      if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {
+        mouseOrb.style.left = (e.clientX - r.left) + 'px';
+        mouseOrb.style.top  = (e.clientY - r.top)  + 'px';
+      }
+    });
+    window.addEventListener('scroll', function(){
+      orbLayer.style.transform = 'translateY(' + (window.scrollY * 0.22) + 'px)';
+    }, { passive: true });
+  }
+
+  /* 6 — Reveal-clip IntersectionObserver */
+  var clipObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); clipObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.2 });
+  document.querySelectorAll('.reveal-clip').forEach(function(el){ clipObs.observe(el); });
+
+  /* 8 — Icon glow on scroll */
+  var glowObs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) {
+        (function(t){ setTimeout(function(){ t.classList.add('icon-glow'); }, 300); })(e.target);
+        glowObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.val-card').forEach(function(el){ glowObs.observe(el); });
+})();
+</script>
 </body>
 </html>
