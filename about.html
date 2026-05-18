@@ -1,1254 +1,634 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/x-icon" href="/favicon.ico">
-  <link rel="shortcut icon" href="/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <meta name="theme-color" content="#080C12">
-
-  <title>About Ross & Griffiths Digital | Web Design Studio, Cobourg ON</title>
-  <meta name="description" content="Connor Ross handles web design and SEO. Quinn Griffiths handles social media. Two specialists, one studio, working directly with you from day one.">
-  <meta name="robots" content="index, follow">
-  <meta property="og:title" content="About Ross & Griffiths Digital | Web Design Studio, Cobourg ON">
-  <meta property="og:description" content="Connor Ross handles web design and SEO. Quinn Griffiths handles social media. Two specialists, one studio, working directly with you from day one.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.rossgriffithsdigital.com/about">
-  <meta property="og:image" content="https://www.rossgriffithsdigital.com/og-image.png">
-  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About Ross & Griffiths Digital | Web Design Studio, Cobourg ON">
-  <meta name="twitter:description" content="Connor Ross handles web design and SEO. Quinn Griffiths handles social media. Two specialists, one studio, working directly with you from day one.">
-  <meta name="twitter:image" content="https://www.rossgriffithsdigital.com/og-image.png">
-  <link rel="canonical" href="https://www.rossgriffithsdigital.com/about">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Fonts: Space Grotesk + Outfit -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
-
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Ross & Griffiths Digital","description":"Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.","url":"https://www.rossgriffithsdigital.com","areaServed":"Worldwide"}</script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.rossgriffithsdigital.com"},
-      {"@type": "ListItem", "position": 2, "name": "About", "item": "https://www.rossgriffithsdigital.com/about"}
-    ]
-  }
-  </script>
-
-  <style>
-    /* ── Reset & Base ─────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --bg-primary:     #0a0a0c;
-      --bg-secondary:   #0D1520;
-      --bg-card:        #111820;
-      --text-primary:   #EDF3F7;
-      --text-secondary: #B0C4D0;
-      --text-muted:     #7A9BAF;
-      --border:         rgba(62, 207, 207, 0.15);
-      --accent:         #00d4ff;
-      --nav-bg:         rgba(10,10,12,0.95);
-      --bg:    var(--bg-primary);
-      --navy:  var(--bg-secondary);
-      --text:  var(--text-primary);
-      --muted: var(--text-secondary);
-    }
-
-    [data-theme="light"] {
-      --bg-primary:     #F4F4EF;
-      --bg-secondary:   #E8E8E2;
-      --bg-card:        #DEDED8;
-      --text-primary:   #0A0A0C;
-      --text-secondary: #1A1A1A;
-      --text-muted:     #3A3A3A;
-      --border:         rgba(0,0,0,0.12);
-      --accent:         #006688;
-      --nav-bg:         rgba(244,244,239,0.97);
-    }
-
-    [data-theme="light"] .reveal { opacity: 0.15; }
-    [data-theme="light"] .reveal.visible { opacity: 1; }
-    [data-theme="light"] .section-label,
-    [data-theme="light"] .eyebrow,
-    [data-theme="light"] [class*="label"],
-    [data-theme="light"] [class*="eyebrow"] { color: var(--accent); opacity: 1; }
-    [data-theme="light"] h2,
-    [data-theme="light"] h3 { color: var(--text-primary); opacity: 1; }
-    [data-theme="light"] .word,
-    [data-theme="light"] .hero-word { opacity: 0.1; }
-    [data-theme="light"] .word[style*="animation"],
-    [data-theme="light"] .hero-word[style*="animation"] { opacity: 1; }
-    [data-theme="light"] [class*="card"],
-    [data-theme="light"] [class*="feature"],
-    [data-theme="light"] [class*="item"],
-    [data-theme="light"] [class*="block"] { border-color: var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
-    [data-theme="light"] .section-label,
-    [data-theme="light"] .hero-eyebrow,
-    [data-theme="light"] .hbm-label,
-    [data-theme="light"] .eyebrow,
-    [data-theme="light"] [class*="label"],
-    [data-theme="light"] [class*="eyebrow"] { font-weight: 600; letter-spacing: 1.8px; }
-    [data-theme="light"] .text-link,
-    [data-theme="light"] a.text-link { font-weight: 500; text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
-    [data-theme="light"] .btn-outline { border-color: #006688; color: #006688; font-weight: 500; }
-    [data-theme="light"] .btn-outline:hover { background-color: #006688; color: #F4F4EF; }
-    [data-theme="light"] footer a,
-    [data-theme="light"] .footer-link,
-    [data-theme="light"] .footer-tagline,
-    [data-theme="light"] footer span,
-    [data-theme="light"] footer p { color: #2A2A2A; }
-    [data-theme="light"] footer a:hover { color: #006688; }
-    [data-theme="light"] .btn-outline.nav-cta { border-color: #006688; color: #006688; font-weight: 500; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Outfit', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      min-height: 100dvh;
-      overflow-x: hidden;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      transition: background-color 0.3s ease, color 0.3s ease;
-    }
-
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 1rem;
-      line-height: 1;
-      padding: 0.4rem 0.55rem;
-      border-radius: 4px;
-      transition: border-color 0.2s, color 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
-
-    ::-webkit-scrollbar { width: 4px; }
-    ::-webkit-scrollbar-track { background: var(--bg); }
-    ::-webkit-scrollbar-thumb { background: rgba(62,207,207,0.25); border-radius: 4px; }
-
-    /* ── Outlined button ─────────────────────────────────────────── */
-    .btn-outline {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.78rem;
-      font-variant: small-caps;
-      letter-spacing: 0.12em;
-      padding: 0.65rem 1.5rem;
-      color: var(--accent);
-      border: 1px solid var(--accent);
-      background: transparent;
-      text-decoration: none;
-      position: relative;
-      overflow: hidden;
-      transition: color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .btn-outline::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: var(--accent);
-      transform: translateX(-101%);
-      transition: transform 0.35s cubic-bezier(0.16,1,0.3,1);
-      z-index: 0;
-    }
-
-    .btn-outline:hover::before { transform: translateX(0); }
-    .btn-outline:hover { color: #080C12; }
-    .btn-outline > span { position: relative; z-index: 1; }
-    .btn-outline > svg  { position: relative; z-index: 1; }
-
-    /* ── Nav ─────────────────────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.6rem 3rem;
-      background: transparent;
-      border-bottom: 1px solid transparent;
-      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
-    }
-
-    nav.scrolled {
-      background: var(--nav-bg);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      padding: 1rem 3rem;
-      border-bottom-color: var(--border);
-    }
-
-    .nav-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.1rem;
-      letter-spacing: -0.01em;
-      color: var(--text);
-      text-decoration: none;
-    }
-
-    .nav-logo .dot { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.75rem;
-      font-variant: small-caps;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover { color: var(--text); }
-    .nav-links a.active { color: var(--text); }
-
-    /* Hamburger */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-      z-index: 201;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 22px;
-      height: 1.5px;
-      background: var(--text);
-      transition: all 0.3s ease;
-    }
-
-    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-    /* Mobile fullscreen overlay */
-    .nav-overlay {
-      position: fixed;
-      inset: 0;
-      background: var(--bg);
-      z-index: 190;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 2.75rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s ease;
-    }
-
-    .nav-overlay.open { opacity: 1; pointer-events: all; }
-
-    .nav-overlay a {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2rem;
-      font-weight: 600;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .nav-overlay a:hover,
-    .nav-overlay a.active { color: var(--text); }
-
-    /* ── Page Header ─────────────────────────────────────────────── */
-    .page-header {
-      padding: 11rem 3rem 6rem;
-      border-bottom: 1px solid var(--border);
-      max-width: 1200px;
-      margin: 0 auto;
-      animation: slideUp 0.9s cubic-bezier(0.16,1,0.3,1) both;
-    }
-
-    @keyframes slideUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-
-    .page-eyebrow {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.72rem;
-      font-variant: small-caps;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .page-h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.8rem, 5.5vw, 4.5rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      color: var(--text);
-      margin-bottom: 1.75rem;
-    }
-
-    .page-h1 .line2 { color: var(--muted); display: block; }
-
-    .page-intro {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 560px;
-      line-height: 1.8;
-    }
-
-    /* ── Scroll Reveal ───────────────────────────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ── Section common ──────────────────────────────────────────── */
-    .section-inner {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.72rem;
-      font-variant: small-caps;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .section-h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      line-height: 1.1;
-      margin-bottom: 3.5rem;
-    }
-
-    /* ── Section 1: Story ────────────────────────────────────────── */
-    .story {
-      padding: 6rem 3rem;
-      background: var(--bg);
-      position: relative;
-    }
-    .story-bg {
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-    .story-bg img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.2;
-      mix-blend-mode: luminosity;
-    }
-    [data-theme="light"] .story-bg img { mix-blend-mode: multiply; }
-    .story .section-inner { position: relative; z-index: 1; }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: start;
-    }
-
-    .story-h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.4rem, 2.2vw, 1.9rem);
-      font-weight: 700;
-      letter-spacing: -0.025em;
-      color: var(--text);
-      line-height: 1.2;
-      margin-bottom: 2rem;
-    }
-
-    .story-text p {
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.8;
-      margin-bottom: 1.25rem;
-    }
-
-    .story-text p:last-child { margin-bottom: 0; }
-
-    /* Values (right column) */
-    .values-rows {
-      border-top: 1px solid var(--border);
-    }
-
-    .value-row {
-      padding: 1.75rem 0;
-      border-bottom: 1px solid var(--border);
-      border-left: 2px solid transparent;
-      padding-left: 1.25rem;
-      margin-left: -1.25rem;
-      transition: border-color 0.3s ease;
-    }
-
-    .value-row.visible {
-      border-left-color: var(--accent);
-    }
-
-    .value-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--accent);
-      margin-bottom: 0.4rem;
-    }
-
-    .value-desc {
-      font-size: 0.875rem;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-
-    /* ── Section 2: Team ─────────────────────────────────────────── */
-    .team {
-      padding: 6rem 3rem;
-      background: var(--navy);
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-    }
-
-    .team-card {
-      border: 1px solid var(--border);
-      padding: 2.75rem;
-      background: var(--bg);
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
-    }
-
-    .team-initial {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 4.5rem;
-      font-weight: 700;
-      color: var(--accent);
-      line-height: 1;
-      opacity: 0.7;
-    }
-
-    .team-name {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.2rem;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .team-role {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.7rem;
-      font-variant: small-caps;
-      letter-spacing: 0.16em;
-      color: var(--accent);
-      margin-top: -0.75rem;
-    }
-
-    .team-bio {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.75;
-    }
-
-    /* ── CTA Section ─────────────────────────────────────────────── */
-    .cta-section {
-      padding: 6rem 3rem;
-      text-align: center;
-      border-top: 1px solid var(--accent);
-      border-bottom: 1px solid var(--accent);
-      background: var(--bg);
-    }
-
-    .cta-h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(1.8rem, 3vw, 2.75rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--text);
-      margin-bottom: 1rem;
-    }
-
-    .cta-sub {
-      font-size: 0.975rem;
-      color: var(--muted);
-      max-width: 480px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.75;
-    }
-
-    /* ── Footer ──────────────────────────────────────────────────── */
-    footer {
-      background: var(--navy);
-      border-top: 1px solid var(--border);
-      padding: 4rem 3rem 0;
-    }
-
-    .footer-grid {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: 1.4fr 1fr 1fr;
-      gap: 4rem;
-      padding-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .footer-logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 1.05rem;
-      color: var(--text);
-      text-decoration: none;
-      display: inline-block;
-      margin-bottom: 1rem;
-    }
-
-    .footer-logo .dot { color: var(--accent); }
-
-    .footer-tagline {
-      font-size: 0.83rem;
-      color: var(--muted);
-      line-height: 1.7;
-      max-width: 280px;
-    }
-
-    .footer-col-label {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.65rem;
-      font-variant: small-caps;
-      letter-spacing: 0.18em;
-      color: var(--accent);
-      margin-bottom: 1.25rem;
-      display: block;
-    }
-
-    .footer-nav {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .footer-nav a {
-      font-size: 0.85rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-nav a:hover { color: var(--text); }
-
-    .footer-contact-location {
-      font-size: 0.85rem;
-      color: var(--muted);
-      margin-bottom: 1rem;
-      line-height: 1.6;
-    }
-
-    .footer-contact-link {
-      font-size: 0.85rem;
-      color: var(--accent);
-      text-decoration: none;
-      transition: opacity 0.2s;
-    }
-
-    .footer-contact-link:hover { opacity: 0.75; }
-
-    .footer-bar {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 1.5rem 0;
-      flex-wrap: wrap;
-      gap: 0.75rem;
-    }
-
-    .footer-copy {
-      font-size: 0.78rem;
-      color: var(--muted);
-    }
-
-    .footer-privacy {
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-privacy:hover { color: var(--text); }
-
-    /* ── Team card hover ─────────────────────────────────────────── */
-    .team-card {
-      transition: border-color 0.35s cubic-bezier(0.16,1,0.3,1), box-shadow 0.35s cubic-bezier(0.16,1,0.3,1);
-    }
-    .team-card:hover {
-      border-color: rgba(62,207,207,0.4);
-      box-shadow: 0 0 40px rgba(62,207,207,0.1);
-    }
-    .team-initial {
-      transition: color 0.35s cubic-bezier(0.16,1,0.3,1), opacity 0.35s cubic-bezier(0.16,1,0.3,1);
-    }
-    .team-card:hover .team-initial {
-      color: #3ECFCF;
-      opacity: 1;
-    }
-
-    /* ── Value row alternating slides ────────────────────────────── */
-    .value-row.reveal { transform: translateX(-40px); }
-    .value-row.reveal:nth-child(even) { transform: translateX(40px); }
-    .value-row.reveal.visible { transform: translateX(0); }
-
-    /* ── Hero word entrance ──────────────────────────────────────── */
-    @keyframes wordIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    .hero-word {
-      display: inline-block;
-      opacity: 0;
-      animation: wordIn 0.5s cubic-bezier(0.16,1,0.3,1) both;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    /* ── Responsive ──────────────────────────────────────────────── */
-    @media (max-width: 900px) {
-      .story-grid { grid-template-columns: 1fr; gap: 3.5rem; }
-      .team-grid  { grid-template-columns: 1fr; }
-      .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; }
-    }
-
-    @media (max-width: 768px) {
-      nav { padding: 1.2rem 1.5rem; }
-      nav.scrolled { padding: 0.9rem 1.5rem; }
-      .nav-links, .nav-cta { display: none; }
-      .nav-hamburger { display: flex; }
-
-      .page-header { padding: 8rem 1.5rem 4rem; }
-      .story, .team { padding: 4rem 1.5rem; }
-      .cta-section { padding: 4rem 1.5rem; }
-      footer { padding: 3rem 1.5rem 0; }
-      .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    /* ═══ POLISH UPGRADES ═══════════════════════════════════════════════════ */
-
-    /* 1 — Noise texture */
-    body::after {
-      content: '';
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 9998;
-      opacity: 0.028;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-      background-repeat: repeat;
-      background-size: 180px 180px;
-    }
-
-    /* 2 — Scroll progress bar */
-    .scroll-bar {
-      position: fixed;
-      top: 0; left: 0;
-      height: 2px;
-      width: 0%;
-      background: #3ECFCF;
-      z-index: 9999;
-      pointer-events: none;
-      box-shadow: 0 0 8px rgba(62,207,207,0.5);
-    }
-
-    /* 3 — Custom cursor */
-    @media (min-width: 601px) {
-      body { cursor: none; }
-    }
-    .c-dot {
-      position: fixed;
-      width: 6px; height: 6px;
-      background: #3ECFCF;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 10001;
-      transform: translate(-50%, -50%);
-      transition: width 0.18s cubic-bezier(0.16,1,0.3,1), height 0.18s cubic-bezier(0.16,1,0.3,1);
-      will-change: left, top;
-    }
-    .c-ring {
-      position: fixed;
-      width: 30px; height: 30px;
-      border: 1px solid rgba(62,207,207,0.45);
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 10000;
-      transform: translate(-50%, -50%);
-      transition: width 0.18s cubic-bezier(0.16,1,0.3,1), height 0.18s cubic-bezier(0.16,1,0.3,1), border-color 0.18s;
-      will-change: left, top;
-    }
-    .c-dot.hov { width: 10px; height: 10px; }
-    .c-ring.hov { width: 46px; height: 46px; border-color: rgba(62,207,207,0.75); }
-    @media (max-width: 600px) {
-      .c-dot, .c-ring { display: none; }
-    }
-
-    /* 4 — Aurora orbs */
-    .hero-section { position: relative; overflow: hidden; }
-    .orb-layer { position: absolute; inset: 0; pointer-events: none; z-index: 0; }
-    .orb { position: absolute; border-radius: 50%; }
-    .orb-1 {
-      width: 580px; height: 580px;
-      top: -160px; left: -100px;
-      background: rgba(62,207,207,0.16);
-      filter: blur(100px);
-      animation: o1 16s ease-in-out infinite;
-    }
-    .orb-2 {
-      width: 420px; height: 420px;
-      bottom: -80px; right: -80px;
-      background: rgba(30,52,72,0.55);
-      filter: blur(90px);
-      animation: o2 22s ease-in-out infinite;
-    }
-    .orb-3 {
-      width: 320px; height: 320px;
-      background: rgba(62,207,207,0.09);
-      filter: blur(80px);
-      top: 50%; left: 50%;
-      transition: top 0.55s cubic-bezier(0.4,0,0.2,1), left 0.55s cubic-bezier(0.4,0,0.2,1);
-    }
-    .page-header { position: relative; z-index: 1; }
-    @keyframes o1 {
-      0%, 100% { transform: translate(0, 0); }
-      33%       { transform: translate(80px, 55px); }
-      66%       { transform: translate(-50px, 90px); }
-    }
-    @keyframes o2 {
-      0%, 100% { transform: translate(0, 0); }
-      50%       { transform: translate(-70px, -60px); }
-    }
-
-    /* 5 — Marquee strip */
-    .marquee-strip {
-      border-top: 1px solid rgba(255,255,255,0.08);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      padding: 0.85rem 0;
-      overflow: hidden;
-      white-space: nowrap;
-    }
-    .marquee-track {
-      display: inline-flex;
-      align-items: center;
-      animation: marquee 38s linear infinite;
-    }
-    .marquee-strip:hover .marquee-track { animation-play-state: paused; }
-    @keyframes marquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .mq-item {
-      font-family: 'Outfit', sans-serif;
-      font-size: 0.68rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      padding: 0 0.4rem;
-    }
-    .mq-dot {
-      display: inline-block;
-      width: 3px; height: 3px;
-      border-radius: 50%;
-      background: #3ECFCF;
-      flex-shrink: 0;
-      margin: 0 0.6rem;
-      vertical-align: middle;
-    }
-
-    /* 6 — Clip-path headline reveals */
-    .reveal-clip .lw { display: block; overflow: hidden; }
-    .reveal-clip .li {
-      display: block;
-      transform: translateY(108%);
-      transition: transform 0.85s cubic-bezier(0.4,0,0.2,1);
-    }
-    .reveal-clip .li.d1 { transition-delay: 0.12s; }
-    .reveal-clip.in .li { transform: translateY(0); }
-
-    /* 7 — Card hover micro-animations */
-    .val-card, .team-card, .trust-card {
-      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s, border-color 0.3s;
-    }
-    .val-card:hover, .team-card:hover, .trust-card:hover {
-      transform: translateY(-6px) scale(1.015);
-      box-shadow: 0 18px 48px rgba(0,0,0,0.28);
-      border-color: rgba(62,207,207,0.3);
-    }
-    .location-tag {
-      transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), background 0.25s, border-color 0.25s;
-    }
-    .location-tag:hover {
-      transform: translateY(-3px);
-      background: rgba(62,207,207,0.08);
-      border-color: rgba(62,207,207,0.3);
-    }
-
-    /* 8 — Teal icon glow */
-    .icon-glow .val-icon {
-      filter: drop-shadow(0 0 8px rgba(62,207,207,0.55));
-      transition: filter 0.6s ease;
-    }
-
-    /* 9 — Section dividers */
-    .sec-divider {
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(62,207,207,0.25), transparent);
-      margin: 0 auto;
-      max-width: 800px;
-    }
-
-    /* 10 — Footer gradient rule */
-    footer { position: relative; }
-    footer::before {
-      content: '';
-      position: absolute;
-      top: -1px; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, #3ECFCF 30%, #3ECFCF 70%, transparent 100%);
-      opacity: 0.35;
-      pointer-events: none;
-    }
-  </style>
+<meta charset="UTF-8" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#080C12">
+<title>About Ross &amp; Griffiths Digital | Web Design Studio, Cobourg ON</title>
+<meta name="description" content="Connor Ross handles web design and SEO. Quinn Griffiths handles social media. Two specialists, one studio, working directly with you from day one.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="About Ross &amp; Griffiths Digital | Web Design Studio, Cobourg ON">
+<meta property="og:description" content="Connor Ross handles web design and SEO. Quinn Griffiths handles social media. Two specialists, one studio, working directly with you from day one.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.rossgriffithsdigital.com/about">
+<meta property="og:image" content="https://www.rossgriffithsdigital.com/og-image.png">
+<link rel="sitemap" type="application/xml" href="/sitemap.xml">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About Ross &amp; Griffiths Digital | Web Design Studio, Cobourg ON">
+<meta name="twitter:description" content="Connor Ross handles web design and SEO. Quinn Griffiths handles social media. Two specialists, one studio, working directly with you from day one.">
+<meta name="twitter:image" content="https://www.rossgriffithsdigital.com/og-image.png">
+<link rel="canonical" href="https://www.rossgriffithsdigital.com/about">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Ross & Griffiths Digital","description":"Custom web design for small businesses, restaurants, non-profits, and more — anywhere in the world. Based in Northumberland County, Ontario, Canada.","url":"https://www.rossgriffithsdigital.com","areaServed":"Worldwide"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.rossgriffithsdigital.com"},{"@type":"ListItem","position":2,"name":"About","item":"https://www.rossgriffithsdigital.com/about"}]}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{
+  --navy:#080C12;--card:#0f1622;--teal:#3ECFCF;
+  --off-white:#EDF3F7;--muted:#6b8aaa;--text:#8ba5c0;
+  --border:rgba(255,255,255,0.08);
+  --navy-alpha:rgba(8,12,18,0.95);--card-alpha:rgba(15,22,34,.85);--red:#CC4444;
+}
+html{scroll-behavior:smooth;}
+body{background:var(--navy);color:var(--off-white);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none;-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+.skip-link{position:absolute;left:-9999px;top:.5rem;background:var(--teal);color:var(--navy);padding:.5rem 1rem;border-radius:4px;font-weight:600;font-size:.875rem;z-index:20000;}
+.skip-link:focus{left:.5rem;}
+a:focus-visible,button:focus-visible{outline:2px solid var(--teal);outline-offset:3px;border-radius:3px;}
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:var(--navy);}
+::-webkit-scrollbar-thumb{background:rgba(62,207,207,0.25);border-radius:4px;}
+
+/* NOISE */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;opacity:0.028;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:180px;}
+
+/* SCROLL BAR */
+.scroll-bar{position:fixed;top:0;left:0;height:2px;width:0%;background:var(--teal);z-index:9999;pointer-events:none;box-shadow:0 0 8px rgba(62,207,207,0.5);}
+
+/* CURSOR */
+.c-dot{position:fixed;width:6px;height:6px;border-radius:50%;background:var(--teal);pointer-events:none;z-index:10001;transform:translate(-50%,-50%);transition:width .18s,height .18s;}
+.c-ring{position:fixed;width:30px;height:30px;border-radius:50%;border:1px solid rgba(62,207,207,0.45);pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .3s cubic-bezier(.4,0,.2,1),height .3s cubic-bezier(.4,0,.2,1),border-color .3s;}
+.c-dot.hov{width:10px;height:10px;}.c-ring.hov{width:46px;height:46px;border-color:rgba(62,207,207,.75);}
+@media(min-width:601px){body{cursor:none;}}
+@media(max-width:600px){.c-dot,.c-ring{display:none;}}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:transparent;border-bottom:1px solid transparent;transition:background .4s,padding .4s,border-color .4s;}
+nav.scrolled{background:var(--navy-alpha);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);padding:1rem 3rem;border-bottom-color:var(--border);}
+.nav-logo{font-family:'DM Serif Display',serif;font-size:1.35rem;color:var(--off-white);}
+.nav-links{display:flex;list-style:none;gap:2.5rem;align-items:center;}
+.nav-links a{color:var(--muted);font-size:.825rem;letter-spacing:.03em;transition:color .2s;}
+.nav-links a:hover,.nav-links a.active{color:var(--off-white);}
+.nav-cta{background:var(--teal)!important;color:var(--navy)!important;padding:.45rem 1.25rem;border-radius:100px;font-weight:600;font-size:.825rem;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:11px;z-index:201;}
+.nav-hamburger span{display:block;width:22px;height:1.5px;background:var(--off-white);transition:all .3s ease;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg);}
+.nav-overlay{position:fixed;inset:0;background:var(--navy);z-index:190;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2.75rem;opacity:0;pointer-events:none;transition:opacity .3s ease;}
+.nav-overlay.open{opacity:1;pointer-events:all;}
+.nav-overlay a{font-family:'DM Serif Display',serif;font-size:2.5rem;font-weight:400;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-overlay a:hover,.nav-overlay a.active{color:var(--off-white);}
+@media(max-width:768px){.nav-links{display:none;}.nav-cta{display:none;}.nav-hamburger{display:flex;}}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px) scale(.975);transition:opacity .65s cubic-bezier(.4,0,.2,1),transform .65s cubic-bezier(.4,0,.2,1);}
+.reveal.visible{opacity:1;transform:translateY(0) scale(1);}
+.d1{transition-delay:.08s;}.d2{transition-delay:.16s;}.d3{transition-delay:.24s;}
+
+/* CLIP-PATH REVEAL */
+.reveal-clip .lw{display:block;overflow:hidden;}
+.reveal-clip .li{display:block;transform:translateY(108%);transition:transform .85s cubic-bezier(.4,0,.2,1);}
+.reveal-clip .li.d1{transition-delay:.12s;}
+.reveal-clip.in .li{transform:translateY(0);}
+
+/* WORD STAGGER */
+.w{display:inline-block;opacity:0;transform:translateY(18px);filter:blur(7px);transition:opacity .55s cubic-bezier(.4,0,.2,1),transform .55s cubic-bezier(.4,0,.2,1),filter .55s cubic-bezier(.4,0,.2,1);}
+.hero-headline.visible .w{opacity:1;transform:translateY(0);filter:blur(0);}
+.w1{transition-delay:.05s;}.w2{transition-delay:.13s;}.w3{transition-delay:.22s;}.w4{transition-delay:.31s;}
+
+/* KEYFRAMES */
+@keyframes floatCard{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes featuredPulse{0%,100%{border-color:rgba(62,207,207,.15);box-shadow:none;}50%{border-color:rgba(62,207,207,.35);box-shadow:0 0 24px -6px rgba(62,207,207,.1);}}
+@keyframes o1{0%,100%{transform:translate(0,0);}33%{transform:translate(80px,55px);}66%{transform:translate(-50px,90px);}}
+@keyframes o2{0%,100%{transform:translate(0,0);}50%{transform:translate(-70px,-60px);}}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* HERO SECTION + ORBS */
+.hero-section{position:relative;overflow:hidden;}
+.orb-layer{position:absolute;inset:0;pointer-events:none;z-index:0;}
+.orb{position:absolute;border-radius:50%;}
+.orb-1{width:580px;height:580px;top:-160px;left:-100px;background:rgba(62,207,207,.16);filter:blur(100px);animation:o1 16s ease-in-out infinite;will-change:transform;transform:translateZ(0);}
+.orb-2{width:420px;height:420px;bottom:-80px;right:-80px;background:rgba(30,52,72,.55);filter:blur(90px);animation:o2 22s ease-in-out infinite;will-change:transform;transform:translateZ(0);}
+.orb-3{width:320px;height:320px;background:rgba(62,207,207,.09);filter:blur(80px);top:50%;left:50%;transition:top .55s cubic-bezier(.4,0,.2,1),left .55s cubic-bezier(.4,0,.2,1);}
+.about-hero{position:relative;z-index:1;padding:10rem 3rem 6rem;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;}
+
+/* HERO CONTENT */
+.eyebrow{font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:.75rem;font-weight:500;display:block;}
+.hero-headline{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;letter-spacing:-.03em;line-height:1.1;margin-bottom:1.5rem;}
+.hero-headline em{font-style:italic;color:rgba(237,243,247,.4);}
+.hero-sub{font-size:.95rem;color:var(--muted);line-height:1.7;margin-bottom:2rem;}
+.location-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:100px;padding:.4rem .9rem;font-size:.72rem;color:var(--text);margin-bottom:2rem;}
+.location-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;box-shadow:0 0 6px rgba(204,68,68,.4);}
+
+/* TRUST CARD */
+.trust-card{background:var(--card-alpha);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(62,207,207,.18);border-radius:22px;padding:2rem;position:relative;overflow:hidden;animation:floatCard 5.5s ease-in-out infinite;}
+.trust-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:60%;height:1px;background:linear-gradient(90deg,transparent,rgba(62,207,207,.5),transparent);}
+.trust-card-glow{position:absolute;top:-60px;right:-60px;width:180px;height:180px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,.12),transparent 70%);pointer-events:none;}
+.trust-quote{font-family:'DM Serif Display',serif;font-size:1.15rem;font-style:italic;line-height:1.55;color:var(--off-white);margin-bottom:1.25rem;}
+.trust-source{font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);}
+
+/* MARQUEE */
+.marquee-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:.85rem 0;overflow:hidden;white-space:nowrap;position:relative;z-index:1;}
+.marquee-track{display:inline-flex;align-items:center;animation:marquee 38s linear infinite;}
+.marquee-strip:hover .marquee-track{animation-play-state:paused;}
+.mq-item{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);padding:0 .4rem;font-weight:500;}
+.mq-dot{display:inline-block;width:3px;height:3px;border-radius:50%;background:var(--teal);opacity:.7;margin:0 .6rem;vertical-align:middle;}
+
+/* STORY */
+.story-section{max-width:1100px;margin:0 auto;padding:2rem 3rem 5rem;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.story-label{font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;font-weight:500;display:block;}
+.story-pull{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);font-style:italic;letter-spacing:-.02em;line-height:1.3;color:var(--off-white);position:relative;padding-top:.5rem;}
+.story-pull::before{content:'\201C';position:absolute;left:-.05em;top:-.1em;font-size:3.5em;color:var(--teal);opacity:.2;line-height:1;pointer-events:none;font-family:'DM Serif Display',serif;}
+.story-body p{font-size:.9rem;color:var(--text);line-height:1.8;margin-bottom:1.1rem;}
+.story-body p:last-child{margin-bottom:0;}
+.story-body strong{color:var(--off-white);font-weight:500;}
+
+/* VALUES BENTO */
+.values-section{max-width:1100px;margin:0 auto;padding:0 3rem 5rem;}
+.section-head{margin-bottom:2.25rem;}
+.section-h2{font-family:'DM Serif Display',serif;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;letter-spacing:-.02em;line-height:1.2;}
+.section-h2 em{font-style:italic;color:rgba(237,243,247,.4);}
+.values-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;}
+.val-card{background:var(--card);border:1px solid var(--border);border-radius:20px;padding:1.75rem;position:relative;overflow:hidden;transition:border-color .3s;}
+.val-card:hover{border-color:rgba(255,255,255,.15);}
+.val-card::before{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(350px circle at var(--mx,50%) var(--my,50%),rgba(62,207,207,.07),transparent 60%);opacity:0;transition:opacity .4s;pointer-events:none;z-index:0;}
+.val-card:hover::before{opacity:1;}
+.val-card > *{position:relative;z-index:1;}
+.val-span3{grid-column:span 3;}.val-span2{grid-column:span 2;}
+.val-icon{width:36px;height:36px;border-radius:10px;background:rgba(62,207,207,.08);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;}
+.val-icon svg{stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;}
+.val-name{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:-.02em;margin-bottom:.4rem;color:var(--off-white);}
+.val-desc{font-size:.8rem;color:var(--muted);line-height:1.6;}
+.val-card.featured{border-color:rgba(62,207,207,.15);background:linear-gradient(145deg,#0a1825,var(--card));animation:featuredPulse 4s ease-in-out infinite;}
+.val-card.featured::after{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:45%;height:1px;background:linear-gradient(90deg,transparent,rgba(62,207,207,.3),transparent);}
+.val-card.featured .val-name{font-size:1.5rem;}
+.val-card.featured .val-desc{font-size:.875rem;}
+
+/* TEAM */
+.team-section{max-width:1100px;margin:0 auto;padding:0 3rem 5rem;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.25rem;}
+.team-card{background:var(--card);border:1px solid rgba(62,207,207,.2);border-radius:24px;padding:2.25rem;position:relative;overflow:hidden;transition:border-color .3s,transform .3s;transform-style:preserve-3d;}
+.team-card::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:55%;height:1px;background:linear-gradient(90deg,transparent,rgba(62,207,207,.4),transparent);}
+.team-card:hover{border-color:rgba(62,207,207,.38);}
+.team-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(62,207,207,.07),transparent 55%);opacity:0;transition:opacity .4s;pointer-events:none;}
+.team-card:hover::after{opacity:1;}
+.team-ghost{position:absolute;bottom:-1.75rem;right:-.75rem;font-family:'DM Serif Display',serif;font-size:10rem;color:transparent;-webkit-text-stroke:1px rgba(62,207,207,.055);line-height:1;pointer-events:none;user-select:none;z-index:0;letter-spacing:-.04em;}
+.team-card-bg{position:absolute;top:-80px;right:-80px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,.08),transparent 70%);pointer-events:none;}
+.team-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,rgba(62,207,207,.2),rgba(62,207,207,.06));border:1px solid rgba(62,207,207,.3);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;position:relative;z-index:1;}
+.team-avatar-letter{font-family:'DM Serif Display',serif;font-size:1.75rem;color:var(--teal);line-height:1;}
+.team-name{font-family:'DM Serif Display',serif;font-size:1.4rem;letter-spacing:-.02em;margin-bottom:.2rem;position:relative;z-index:1;}
+.team-role{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;position:relative;z-index:1;}
+.team-divider{height:1px;background:rgba(62,207,207,.1);margin-bottom:1.25rem;position:relative;z-index:1;}
+.team-desc{font-size:.85rem;color:var(--text);line-height:1.7;margin-bottom:1.25rem;position:relative;z-index:1;}
+.team-owns{display:flex;flex-wrap:wrap;gap:.4rem;position:relative;z-index:1;}
+.owns-chip{display:flex;align-items:center;gap:.35rem;background:rgba(62,207,207,.06);border:1px solid rgba(62,207,207,.14);border-radius:100px;padding:.22rem .6rem;font-size:.67rem;color:var(--text);}
+.owns-chip svg{stroke:var(--teal);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
+
+/* STATS */
+.stats-section{max-width:1100px;margin:0 auto;padding:0 3rem 5rem;}
+.stats-inner{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.stat-col{padding:2.5rem 2rem;border-right:1px solid var(--border);}
+.stat-col:last-child{border-right:none;}
+.stat-num{font-family:'DM Serif Display',serif;font-size:clamp(3rem,5vw,4.5rem);letter-spacing:-.04em;color:var(--off-white);line-height:1;margin-bottom:.4rem;display:flex;align-items:baseline;gap:.06em;}
+.stat-suffix{font-size:.55em;color:var(--teal);}
+.stat-label{font-size:.82rem;color:var(--off-white);font-weight:500;margin-bottom:.3rem;}
+.stat-sub{font-size:.75rem;color:var(--muted);line-height:1.55;}
+
+/* CTA */
+.about-cta{border-top:1px solid var(--border);text-align:center;padding:7rem 3rem;position:relative;overflow:hidden;}
+.cta-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,.06),transparent 70%);pointer-events:none;}
+.cta-wm{position:absolute;bottom:-2rem;left:50%;transform:translateX(-50%);font-family:'DM Serif Display',serif;font-size:clamp(6rem,18vw,14rem);color:transparent;-webkit-text-stroke:1px rgba(62,207,207,.05);white-space:nowrap;letter-spacing:-.04em;user-select:none;pointer-events:none;}
+.cta-inner{position:relative;z-index:1;}
+.cta-eyebrow{display:block;font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1rem;font-weight:500;}
+.cta-title{font-family:'DM Serif Display',serif;font-size:clamp(2.25rem,4vw,3.5rem);font-weight:400;letter-spacing:-.03em;margin-bottom:.6rem;}
+.cta-sub{color:var(--muted);font-size:.95rem;margin-bottom:2.25rem;}
+.cta-btn{display:inline-block;background:var(--teal);color:var(--navy);padding:.9rem 2.75rem;border-radius:100px;font-weight:600;font-size:.875rem;transition:background .2s;}
+.cta-btn:hover{background:#5ee0e0;}
+
+/* FOOTER */
+footer{background:var(--card);border-top:1px solid var(--border);padding:4rem 3rem 0;position:relative;}
+footer::before{content:'';position:absolute;top:-1px;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,var(--teal) 30%,var(--teal) 70%,transparent 100%);opacity:.3;pointer-events:none;}
+.footer-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:4rem;padding-bottom:3rem;border-bottom:1px solid var(--border);}
+.footer-logo{font-family:'DM Serif Display',serif;font-size:1.2rem;color:var(--off-white);margin-bottom:1rem;display:inline-block;}
+.footer-tagline{font-size:.83rem;color:var(--muted);line-height:1.7;max-width:280px;}
+.footer-col-label{font-size:.63rem;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:1.25rem;display:block;font-weight:500;}
+.footer-nav{list-style:none;display:flex;flex-direction:column;gap:.7rem;}
+.footer-nav a{font-size:.85rem;color:var(--muted);transition:color .2s;}
+.footer-nav a:hover{color:var(--off-white);}
+.footer-location{font-size:.85rem;color:var(--muted);margin-bottom:1rem;line-height:1.6;}
+.footer-contact-link{font-size:.85rem;color:var(--teal);transition:opacity .2s;}
+.footer-contact-link:hover{opacity:.75;}
+.footer-bar{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 0;flex-wrap:wrap;gap:.75rem;}
+.footer-copy{font-size:.78rem;color:var(--muted);}
+.footer-privacy{font-size:.78rem;color:var(--muted);transition:color .2s;}
+.footer-privacy:hover{color:var(--off-white);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .about-hero,.story-section{grid-template-columns:1fr;gap:2.5rem;}
+  .values-grid{grid-template-columns:repeat(2,1fr);}
+  .val-span3,.val-span2{grid-column:span 2;}
+  .team-grid{grid-template-columns:1fr;}
+  .stats-inner{grid-template-columns:1fr;}
+  .stat-col{border-right:none;border-bottom:1px solid var(--border);}
+  .stat-col:last-child{border-bottom:none;}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:3rem;}
+}
+@media(max-width:600px){
+  nav{padding:1.2rem 1.5rem;}
+  nav.scrolled{padding:.9rem 1.5rem;}
+  .about-hero,.story-section,.values-section,.team-section,.stats-section{padding-left:1.25rem;padding-right:1.25rem;}
+  .about-hero{padding-top:7rem;}
+  .values-grid{grid-template-columns:1fr;}
+  .val-span3,.val-span2{grid-column:span 1;}
+  .about-cta{padding:5rem 1.5rem;}
+  footer{padding:3rem 1.25rem 0;}
+  .footer-grid{grid-template-columns:1fr;gap:2.5rem;}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;}}
+</style>
 </head>
 <body>
-  <div class="scroll-bar" id="scrollBar"></div>
-  <div class="c-dot" id="cDot" aria-hidden="true"></div>
-  <div class="c-ring" id="cRing" aria-hidden="true"></div>
 
-  <!-- Nav -->
-  <nav id="nav">
-    <a href="/" class="nav-logo">R&amp;GD<span class="dot">.</span></a>
-    <ul class="nav-links">
-      <li><a href="/how-it-works">How it works</a></li>
-      <li><a href="/pricing">Pricing</a></li>
-      <li><a href="/about" class="active">About</a></li>
-    </ul>
-    <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
-    <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
+<div class="c-dot" id="cDot" aria-hidden="true"></div>
+<div class="c-ring" id="cRing" aria-hidden="true"></div>
+<div class="scroll-bar" id="scrollBar"></div>
 
-  <!-- Mobile overlay -->
-  <div class="nav-overlay" id="nav-overlay" role="dialog" aria-label="Navigation menu">
-    <a href="/how-it-works">How it works</a>
-    <a href="/pricing">Pricing</a>
-    <a href="/about">About</a>
-    <a href="/contact" class="overlay-cta">Get in touch</a>
+<a href="#main" class="skip-link">Skip to content</a>
+<nav id="mainNav">
+  <a href="/" class="nav-logo">R&amp;GD.</a>
+  <ul class="nav-links">
+    <li><a href="/how-it-works">How it works</a></li>
+    <li><a href="/pricing">Pricing</a></li>
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/contact" class="nav-cta">Get in touch</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-overlay" id="navOverlay" role="dialog" aria-label="Navigation menu">
+  <a href="/how-it-works">How it works</a>
+  <a href="/pricing">Pricing</a>
+  <a href="/about" class="active">About</a>
+  <a href="/contact">Get in touch</a>
+</div>
+
+<main id="main">
+<!-- HERO -->
+<div class="hero-section">
+  <div class="orb-layer" id="orbLayer" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3" id="mouseOrb"></div>
   </div>
 
-  <!-- Hero Section -->
-  <div class="hero-section">
-    <div class="orb-layer" id="orbLayer" aria-hidden="true">
-      <div class="orb orb-1"></div>
-      <div class="orb orb-2"></div>
-      <div class="orb orb-3" id="mouseOrb"></div>
+  <div class="about-hero">
+    <div class="hero-left">
+      <div class="location-tag reveal">
+        <span class="location-dot"></span>
+        Cobourg, Ontario, Canada
+      </div>
+      <span class="eyebrow reveal d1">Who we are</span>
+      <h1 class="hero-headline reveal d2">
+        <span class="w w1">Two</span> <span class="w w2">friends.</span><br>
+        <em><span class="w w3">One</span> <span class="w w4">mission.</span></em>
+      </h1>
+      <p class="hero-sub reveal d3">R&amp;GD is a small web design studio built on the belief that every business deserves a proper presence online. We started in our community. We work everywhere.</p>
     </div>
-  <!-- Page Header -->
-  <header class="page-header">
-    <span class="page-eyebrow">Who we are</span>
-    <h1 class="page-h1">Two friends. <span class="line2">One goal.</span></h1>
-    <p class="page-intro">R&amp;GD is the result of years of friendship, shared skills, and a genuine belief that every business deserves a proper presence online.</p>
-  </div><!-- /hero-section -->
 
-  <!-- Marquee Strip -->
-  <div class="marquee-strip" aria-hidden="true">
-    <div class="marquee-track">
-      <span class="mq-dot"></span><span class="mq-item">Honest</span>
-      <span class="mq-dot"></span><span class="mq-item">Results first</span>
-      <span class="mq-dot"></span><span class="mq-item">Cobourg, Ontario</span>
-      <span class="mq-dot"></span><span class="mq-item">5-Star rated</span>
-      <span class="mq-dot"></span><span class="mq-item">Web design</span>
-      <span class="mq-dot"></span><span class="mq-item">SEO</span>
-      <span class="mq-dot"></span><span class="mq-item">Social media</span>
-      <span class="mq-dot"></span><span class="mq-item">No handoffs</span>
-      <span class="mq-dot"></span><span class="mq-item">Est. 2024</span>
-      <span class="mq-dot"></span><span class="mq-item">Honest</span>
-      <span class="mq-dot"></span><span class="mq-item">Results first</span>
-      <span class="mq-dot"></span><span class="mq-item">Cobourg, Ontario</span>
-      <span class="mq-dot"></span><span class="mq-item">5-Star rated</span>
-      <span class="mq-dot"></span><span class="mq-item">Web design</span>
-      <span class="mq-dot"></span><span class="mq-item">SEO</span>
-      <span class="mq-dot"></span><span class="mq-item">Social media</span>
-      <span class="mq-dot"></span><span class="mq-item">No handoffs</span>
-      <span class="mq-dot"></span><span class="mq-item">Est. 2024</span>
+    <div class="trust-card reveal d2">
+      <div class="trust-card-glow"></div>
+      <p class="trust-quote">"We kept noticing great businesses without a proper website, or with one that didn't reflect how good they actually were. Between our skills and a lot of time in this community, we knew we could help."</p>
+      <span class="trust-source">Connor Ross, Co-founder</span>
     </div>
   </div>
+</div>
 
-  <div class="sec-divider"></div>
+<!-- MARQUEE -->
+<div class="marquee-strip" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="mq-dot"></span><span class="mq-item">Honest</span>
+    <span class="mq-dot"></span><span class="mq-item">Results first</span>
+    <span class="mq-dot"></span><span class="mq-item">Cobourg, Ontario</span>
+    <span class="mq-dot"></span><span class="mq-item">5-Star rated</span>
+    <span class="mq-dot"></span><span class="mq-item">Web design</span>
+    <span class="mq-dot"></span><span class="mq-item">SEO</span>
+    <span class="mq-dot"></span><span class="mq-item">Social media</span>
+    <span class="mq-dot"></span><span class="mq-item">No handoffs</span>
+    <span class="mq-dot"></span><span class="mq-item">Est. 2024</span>
+    <span class="mq-dot"></span><span class="mq-item">Honest</span>
+    <span class="mq-dot"></span><span class="mq-item">Results first</span>
+    <span class="mq-dot"></span><span class="mq-item">Cobourg, Ontario</span>
+    <span class="mq-dot"></span><span class="mq-item">5-Star rated</span>
+    <span class="mq-dot"></span><span class="mq-item">Web design</span>
+    <span class="mq-dot"></span><span class="mq-item">SEO</span>
+    <span class="mq-dot"></span><span class="mq-item">Social media</span>
+    <span class="mq-dot"></span><span class="mq-item">No handoffs</span>
+    <span class="mq-dot"></span><span class="mq-item">Est. 2024</span>
+  </div>
+</div>
 
-  <!-- Section 1: Story -->
-  <section class="story">
-    <div class="story-bg">
-      <img src="/assets/higgsfield/about-workspace.png" alt="Dark creative studio workspace with teal accent lighting" loading="lazy" width="5504" height="3072">
+<!-- STORY -->
+<div class="story-section">
+  <div class="reveal">
+    <span class="story-label">Our story</span>
+    <p class="story-pull">"Every client works directly with us. No handoffs, no account managers, no runaround."</p>
+  </div>
+  <div class="story-body reveal d1">
+    <p>We both grew up in Northumberland County. We've spent years as regulars at local shops, restaurants, and businesses across the area &mdash; places we genuinely care about and want to see thrive.</p>
+    <p>The idea for R&amp;GD came naturally. We kept seeing the same problem everywhere. Great businesses with no digital presence, or a website that didn't do them justice. We had the skills to fix that, so we did.</p>
+    <p>We started close to home. But <strong>good work travels.</strong> We now work with businesses across Canada and beyond &mdash; and the approach is the same wherever you are: direct, honest, and built around your actual goals.</p>
+  </div>
+</div>
+
+<!-- VALUES BENTO -->
+<div class="values-section">
+  <div class="section-head">
+    <span class="eyebrow reveal">How we operate</span>
+    <h2 class="section-h2 reveal-clip">
+      <span class="lw"><span class="li">What you can expect</span></span>
+      <span class="lw"><em><span class="li d1">from every project.</span></em></span>
+    </h2>
+  </div>
+  <div class="values-grid">
+    <div class="val-card val-span3 featured reveal">
+      <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <p class="val-name">Honest</p>
+      <p class="val-desc">We give you straight feedback, even when it's not what you were hoping to hear. If something won't work, we'll say so. You deserve advice that actually helps, not a yes-man.</p>
     </div>
-    <div class="section-inner">
-      <div class="story-grid">
-
-        <!-- Left: text -->
-        <div class="story-text">
-          <h2 class="story-h2 reveal-clip">
-            <span class="lw"><span class="li">We've been friends for years,</span></span>
-            <span class="lw"><span class="li d1">and frequent faces around Northumberland.</span></span>
-          </h2>
-          <p class="reveal" style="transition-delay: 0.08s;">We both grew up in Northumberland County. We've spent years as regulars at local shops, restaurants, and businesses across the area, places we genuinely care about and want to see thrive.</p>
-          <p class="reveal" style="transition-delay: 0.14s;">The idea for R&amp;GD came naturally. We kept noticing great businesses in our community without a proper website, or with one that didn't reflect how good they actually were. Between our combined skills and a lot of time spent in this community, we knew we could help.</p>
-          <p class="reveal" style="transition-delay: 0.2s;">So we built a service around that. Every client works directly with us, no handoffs, no account managers, no runaround. Just two people who take the work seriously and care about getting it right.</p>
-          <p class="reveal" style="transition-delay: 0.26s;">We started close to home, but we work with businesses everywhere. Whether you're in Northumberland or on the other side of the world, we're just an email away.</p>
-        </div>
-
-        <!-- Right: values -->
-        <div>
-          <div class="values-rows">
-
-            <div class="value-row reveal" style="transition-delay: 0.12s;">
-              <div class="value-name">Honest</div>
-              <div class="value-desc">We give you straight feedback, even when it's not what you were hoping to hear. You deserve advice that actually helps.</div>
-            </div>
-
-            <div class="value-row reveal" style="transition-delay: 0.2s;">
-              <div class="value-name">Community-rooted</div>
-              <div class="value-desc">We started this because community matters to us. That same care for the people behind every business shapes how we work with every client, everywhere.</div>
-            </div>
-
-            <div class="value-row reveal" style="transition-delay: 0.28s;">
-              <div class="value-name">Simple</div>
-              <div class="value-desc">No jargon, no unnecessary complexity. We explain what we're doing and why, in plain language, every time.</div>
-            </div>
-
-            <div class="value-row reveal" style="transition-delay: 0.36s;">
-              <div class="value-name">Real Results</div>
-              <div class="value-desc">A website that looks great but doesn't drive customers isn't a good website. We build sites that work.</div>
-            </div>
-
-            <div class="value-row reveal" style="transition-delay: 0.44s;">
-              <div class="value-name">Invested</div>
-              <div class="value-desc">We treat every project like it's our own business on the line. Because our reputation depends on yours doing well.</div>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
+    <div class="val-card val-span3 featured reveal d1">
+      <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+      <p class="val-name">Real Results</p>
+      <p class="val-desc">A website that looks great but doesn't drive customers isn't a good website. We build sites designed to actually work for your business &mdash; found online, converting visitors into clients.</p>
     </div>
-  </section>
-
-  <div class="sec-divider"></div>
-
-  <!-- Section 2: Team -->
-  <section class="team">
-    <div class="section-inner">
-      <span class="section-label reveal">The team</span>
-      <h2 class="section-h2 reveal-clip">
-        <span class="lw"><span class="li">Just the two of us.</span></span>
-        <span class="lw"><span class="li d1">On every project.</span></span>
-      </h2>
-
-      <div class="team-grid">
-
-        <div class="team-card reveal" style="transition-delay: 0.12s;">
-          <div class="team-initial">C</div>
-          <div>
-            <div class="team-name">Connor Ross</div>
-            <div class="team-role">Co-founder</div>
-          </div>
-          <p class="team-bio">Connor leads website builds and SEO. He handles everything from design and development to making sure your site actually shows up when people search for you.</p>
-        </div>
-
-        <div class="team-card reveal" style="transition-delay: 0.2s;">
-          <div class="team-initial">Q</div>
-          <div>
-            <div class="team-name">Quinn Griffiths</div>
-            <div class="team-role">Co-founder</div>
-          </div>
-          <p class="team-bio">Quinn runs social media. He sets up your accounts, creates your content, and manages your Instagram and TikTok presence. Every post goes to you for approval before it goes anywhere else.</p>
-        </div>
-
-      </div>
+    <div class="val-card val-span2 reveal d1">
+      <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <p class="val-name">Community-rooted</p>
+      <p class="val-desc">We started this because community matters to us. That care shapes how we work with every client, everywhere.</p>
     </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="section-inner">
-      <h2 class="cta-h2 reveal">Want to know exactly how we work?</h2>
-      <p class="cta-sub reveal" style="transition-delay: 0.1s;">Start with our process page.</p>
-      <div class="cta-actions reveal" style="transition-delay: 0.18s;">
-        <a href="/how-it-works" class="btn-outline"><span>See how it works</span></a>
-        <a href="/contact" style="color:var(--accent);text-decoration:none;font-size:0.875rem;">Or get in touch directly →</a>
-      </div>
+    <div class="val-card val-span2 reveal d2">
+      <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+      <p class="val-name">Simple</p>
+      <p class="val-desc">No jargon, no unnecessary complexity. We explain what we're doing and why, in plain language, every time.</p>
     </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="footer-grid">
-      <div>
-        <a href="/" class="footer-logo">R&amp;GD<span class="dot">.</span></a>
-        <p class="footer-tagline">Custom web design for small businesses, restaurants, non-profits, and more, anywhere in the world.</p>
-      </div>
-      <div>
-        <span class="footer-col-label">Navigate</span>
-        <ul class="footer-nav">
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/pricing">Pricing</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <span class="footer-col-label">Contact</span>
-        <p class="footer-contact-location">Northumberland County, ON, Canada</p>
-        <a href="/contact" class="footer-contact-link">Get in touch &rarr;</a>
-      </div>
-    </div>
-    <div class="footer-bar">
-      <span class="footer-copy">&copy; 2026 Ross &amp; Griffiths Digital</span>
-      <a href="/privacy" class="footer-privacy">Privacy Policy</a>
-    </div>
-  </footer>
-
-  <!-- Cookie banner -->
-  <div id="cookie-banner">
-    <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p>
-    <div class="cookie-btns">
-      <button id="cookie-decline">Decline</button>
-      <button id="cookie-accept">Accept</button>
+    <div class="val-card val-span2 reveal d3">
+      <div class="val-icon"><svg width="18" height="18" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <p class="val-name">Invested</p>
+      <p class="val-desc">We treat every project like it's our own business on the line. Because our reputation depends on yours doing well.</p>
     </div>
   </div>
-  <style>
-    #cookie-banner { position:fixed; bottom:1.5rem; left:50%; transform:translateX(-50%) translateY(100px); z-index:9999; display:flex; align-items:center; justify-content:space-between; gap:2rem; width:calc(100% - 3rem); max-width:720px; background:#0D1520; border:1px solid rgba(62,207,207,0.2); border-radius:6px; padding:1rem 1.5rem; opacity:0; pointer-events:none; transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s ease; font-family:'Outfit',sans-serif; font-size:0.82rem; color:#7A9BAF; }
-    #cookie-banner.visible { transform:translateX(-50%) translateY(0); opacity:1; pointer-events:all; }
-    #cookie-banner a { color:#00d4ff; text-decoration:underline; text-underline-offset:2px; }
-    .cookie-btns { display:flex; gap:0.6rem; flex-shrink:0; }
-    .cookie-btns button { font-family:'Outfit',sans-serif; font-size:0.75rem; font-weight:500; letter-spacing:0.06em; text-transform:uppercase; padding:0.5rem 1.1rem; border-radius:3px; cursor:pointer; border:none; transition:all 0.2s ease; }
-    #cookie-decline { background:transparent; color:#7A9BAF; border:1px solid rgba(122,155,175,0.3) !important; }
-    #cookie-decline:hover { color:#EDF3F7; border-color:rgba(122,155,175,0.7) !important; }
-    #cookie-accept { background:#00d4ff; color:#0a0a0c; }
-    #cookie-accept:hover { background:#33ddff; }
-    @media (max-width:560px) { #cookie-banner { flex-direction:column; align-items:flex-start; gap:1rem; bottom:0; left:0; right:0; width:100%; max-width:100%; border-radius:12px 12px 0 0; transform:translateY(100px); } #cookie-banner.visible { transform:translateY(0); } .cookie-btns { width:100%; } .cookie-btns button { flex:1; } }
-  </style>
-  <script>
-    (function(){ const KEY='rgd_cookie_consent'; const banner=document.getElementById('cookie-banner'); if(!localStorage.getItem(KEY)){ setTimeout(()=>banner.classList.add('visible'),800); } document.getElementById('cookie-accept').addEventListener('click',()=>{ localStorage.setItem(KEY,'accepted'); banner.classList.remove('visible'); }); document.getElementById('cookie-decline').addEventListener('click',()=>{ localStorage.setItem(KEY,'declined'); banner.classList.remove('visible'); }); })();
-  </script>
+</div>
 
-  <script>
-    // Nav scroll
-    const nav = document.getElementById('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 30);
-    }, { passive: true });
+<!-- TEAM -->
+<div class="team-section">
+  <div class="section-head">
+    <span class="eyebrow reveal">The team</span>
+    <h2 class="section-h2 reveal-clip">
+      <span class="lw"><span class="li">Just the two of us.</span></span>
+      <span class="lw"><em><span class="li d1">On every project.</span></em></span>
+    </h2>
+  </div>
+  <div class="team-grid">
+    <div class="team-card reveal" data-tilt>
+      <div class="team-ghost">C</div>
+      <div class="team-card-bg"></div>
+      <div class="team-avatar"><span class="team-avatar-letter">C</span></div>
+      <p class="team-name">Connor Ross</p>
+      <p class="team-role">Co-founder &mdash; Websites &amp; SEO</p>
+      <div class="team-divider"></div>
+      <p class="team-desc">Connor leads every website build from design through to deployment. He handles development, SEO setup, and making sure your site shows up when people search for you. When you work with RGD, you're working directly with Connor.</p>
+      <div class="team-owns">
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Website builds</div>
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>SEO</div>
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>Development</div>
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Integrations</div>
+      </div>
+    </div>
+    <div class="team-card reveal d1" data-tilt>
+      <div class="team-ghost">Q</div>
+      <div class="team-card-bg"></div>
+      <div class="team-avatar"><span class="team-avatar-letter">Q</span></div>
+      <p class="team-name">Quinn Griffiths</p>
+      <p class="team-role">Co-founder &mdash; Social Media</p>
+      <div class="team-divider"></div>
+      <p class="team-desc">Quinn runs all things social media. He sets up accounts, creates content tailored to your brand, and manages your Instagram and TikTok presence. Every post goes to you for approval before it goes anywhere.</p>
+      <div class="team-owns">
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</div>
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24" fill="rgba(62,207,207,0.8)" stroke="none"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.81a4.85 4.85 0 01-1.07-.12z"/></svg>TikTok</div>
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Content creation</div>
+        <div class="owns-chip"><svg width="11" height="11" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>You approve first</div>
+      </div>
+    </div>
+  </div>
+</div>
 
-    // Hamburger
-    const hamburger = document.getElementById('hamburger');
-    const overlay = document.getElementById('nav-overlay');
-    hamburger.addEventListener('click', () => {
-      const open = hamburger.classList.toggle('open');
-      overlay.classList.toggle('open', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
-    overlay.querySelectorAll('a').forEach(a => {
-      a.addEventListener('click', () => {
-        hamburger.classList.remove('open');
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-inner">
+    <div class="stat-col reveal">
+      <div class="stat-num"><span class="count-up" data-to="100">0</span><span class="stat-suffix">%</span></div>
+      <p class="stat-label">Client satisfaction</p>
+      <p class="stat-sub">100% of our clients would recommend us on Google. We keep it that way on every single project.</p>
+    </div>
+    <div class="stat-col reveal d1">
+      <div class="stat-num"><span class="count-up" data-to="2">0</span></div>
+      <p class="stat-label">Founders on every project</p>
+      <p class="stat-sub">No account managers, no handoffs. Just Connor and Quinn, wherever you are.</p>
+    </div>
+    <div class="stat-col reveal d2">
+      <div class="stat-num"><span class="count-up" data-to="5">0</span><span class="stat-suffix">&#9733;</span></div>
+      <p class="stat-label">Google rating</p>
+      <p class="stat-sub">Based in Cobourg, Ontario. Two people who grew up here and know what local businesses actually need.</p>
+    </div>
+  </div>
+</div>
 
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.12 });
+<!-- CTA -->
+<section class="about-cta">
+  <div class="cta-glow"></div>
+  <div class="cta-wm" id="ctaWm">R&amp;GD.</div>
+  <div class="cta-inner reveal">
+    <span class="cta-eyebrow">Work with us</span>
+    <h2 class="cta-title">You talk directly to us.<br><em style="font-style:italic;color:rgba(237,243,247,.4);">Every time.</em></h2>
+    <p class="cta-sub">No account managers. No handoffs. Just Connor and Quinn, start to finish.</p>
+    <a href="/contact" class="cta-btn" id="ctaBtn">Get in touch</a>
+  </div>
+</section>
 
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</main>
 
-  // Word-by-word entrance on page-h1
-  (function() {
-    var h1 = document.querySelector('.page-h1');
-    if (!h1) return;
-    var delay = 0.2;
-    var newNodes = [];
-    h1.childNodes.forEach(function(node) {
-      if (node.nodeType === 3) {
-        var words = node.textContent.trim().split(/\s+/).filter(Boolean);
-        words.forEach(function(w, i) {
-          var span = document.createElement('span');
-          span.className = 'hero-word';
-          span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
-          span.style.animationDelay = delay + 's';
-          delay += 0.08;
-          newNodes.push(span);
-        });
-      } else if (node.nodeType === 1) {
-        var lineSpan = document.createElement('span');
-        lineSpan.className = node.className;
-        var words = node.textContent.trim().split(/\s+/).filter(Boolean);
-        words.forEach(function(w, i) {
-          var span = document.createElement('span');
-          span.className = 'hero-word';
-          span.textContent = w + (i < words.length - 1 ? '\u00A0' : '');
-          span.style.animationDelay = delay + 's';
-          delay += 0.08;
-          lineSpan.appendChild(span);
-        });
-        newNodes.push(lineSpan);
-      }
-    });
-    h1.innerHTML = '';
-    newNodes.forEach(function(n) { h1.appendChild(n); });
-  })();
-  </script>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="/" class="footer-logo">R&amp;GD.</a>
+      <p class="footer-tagline">Custom web design for small businesses, restaurants, non-profits, and more &mdash; anywhere in the world.</p>
+    </div>
+    <div>
+      <span class="footer-col-label">Navigate</span>
+      <ul class="footer-nav">
+        <li><a href="/portfolio">Portfolio</a></li>
+        <li><a href="/pricing">Pricing</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <span class="footer-col-label">Contact</span>
+      <p class="footer-location">Northumberland County, ON, Canada</p>
+      <a href="/contact" class="footer-contact-link">Get in touch &rarr;</a>
+    </div>
+  </div>
+  <div class="footer-bar">
+    <span class="footer-copy">&copy; 2026 Ross &amp; Griffiths Digital</span>
+    <a href="/privacy" class="footer-privacy">Privacy Policy</a>
+  </div>
+</footer>
 
-<script>
-  (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
-</script>
+<!-- Cookie banner -->
+<div id="cookie-banner">
+  <p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p>
+  <div class="cookie-btns">
+    <button id="cookie-decline">Decline</button>
+    <button id="cookie-accept">Accept</button>
+  </div>
+</div>
+<style>
+#cookie-banner{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(100px);z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:2rem;width:calc(100% - 3rem);max-width:720px;background:var(--card);border:1px solid rgba(62,207,207,0.2);border-radius:6px;padding:1rem 1.5rem;opacity:0;pointer-events:none;transition:transform .5s cubic-bezier(.16,1,.3,1),opacity .5s ease;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--text);}
+#cookie-banner.visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all;}
+#cookie-banner a{color:var(--teal);text-decoration:underline;text-underline-offset:2px;}
+.cookie-btns{display:flex;gap:.6rem;flex-shrink:0;}
+.cookie-btns button{font-family:'DM Sans',sans-serif;font-size:.75rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;padding:.5rem 1.1rem;border-radius:3px;cursor:pointer;border:none;transition:all .2s ease;}
+#cookie-decline{background:transparent;color:#7A9BAF;border:1px solid rgba(122,155,175,0.3)!important;}
+#cookie-decline:hover{color:#EDF3F7;border-color:rgba(122,155,175,0.7)!important;}
+#cookie-accept{background:var(--teal);color:var(--navy);}
+#cookie-accept:hover{background:#5ee0e0;}
+@media(max-width:560px){#cookie-banner{flex-direction:column;align-items:flex-start;gap:1rem;bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:12px 12px 0 0;transform:translateY(100px);}#cookie-banner.visible{transform:translateY(0);}.cookie-btns{width:100%;}.cookie-btns button{flex:1;}}
+</style>
 
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
-<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-QVZ1ZBWT41");</script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QVZ1ZBWT41');</script>
 
 <script>
 (function(){
-  /* 2 — Scroll progress bar */
-  var bar = document.getElementById('scrollBar');
-  if (bar) {
-    window.addEventListener('scroll', function(){
-      var pct = window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100;
-      bar.style.width = Math.min(100, pct) + '%';
-    }, { passive: true });
-  }
+/* COOKIE */
+var KEY='rgd_cookie_consent';
+var banner=document.getElementById('cookie-banner');
+if(!localStorage.getItem(KEY)){setTimeout(function(){banner.classList.add('visible');},800);}
+document.getElementById('cookie-accept').addEventListener('click',function(){localStorage.setItem(KEY,'accepted');banner.classList.remove('visible');});
+document.getElementById('cookie-decline').addEventListener('click',function(){localStorage.setItem(KEY,'declined');banner.classList.remove('visible');});
 
-  /* 3 — Custom cursor (desktop only) */
-  if (window.innerWidth > 600) {
-    var dot  = document.getElementById('cDot');
-    var ring = document.getElementById('cRing');
-    if (dot && ring) {
-      var mx = window.innerWidth / 2,  my = window.innerHeight / 2;
-      var rx = mx, ry = my;
+/* NAV SCROLL */
+var mainNav=document.getElementById('mainNav');
+window.addEventListener('scroll',function(){mainNav.classList.toggle('scrolled',window.scrollY>30);},{passive:true});
 
-      document.addEventListener('mousemove', function(e){
-        mx = e.clientX; my = e.clientY;
-        dot.style.left = mx + 'px';
-        dot.style.top  = my + 'px';
-      });
+/* HAMBURGER */
+var hamburger=document.getElementById('hamburger');
+var navOverlay=document.getElementById('navOverlay');
+hamburger.addEventListener('click',function(){
+  var open=hamburger.classList.toggle('open');
+  navOverlay.classList.toggle('open',open);
+  document.body.style.overflow=open?'hidden':'';
+  hamburger.setAttribute('aria-expanded',open);
+  if(open){var first=navOverlay.querySelector('a');if(first)setTimeout(function(){first.focus();},50);}
+});
+navOverlay.addEventListener('keydown',function(e){
+  if(!navOverlay.classList.contains('open'))return;
+  var links=Array.from(navOverlay.querySelectorAll('a'));
+  var first=links[0],last=links[links.length-1];
+  if(e.key==='Tab'){if(e.shiftKey){if(document.activeElement===first){e.preventDefault();last.focus();}}else{if(document.activeElement===last){e.preventDefault();first.focus();}}}
+  if(e.key==='Escape'){hamburger.classList.remove('open');navOverlay.classList.remove('open');document.body.style.overflow='';hamburger.setAttribute('aria-expanded','false');hamburger.focus();}
+});
+navOverlay.querySelectorAll('a').forEach(function(a){
+  a.addEventListener('click',function(){hamburger.classList.remove('open');navOverlay.classList.remove('open');document.body.style.overflow='';hamburger.setAttribute('aria-expanded','false');});
+});
 
-      (function rafLoop(){
-        rx += (mx - rx) * 0.11;
-        ry += (my - ry) * 0.11;
-        ring.style.left = rx + 'px';
-        ring.style.top  = ry + 'px';
-        requestAnimationFrame(rafLoop);
-      })();
+/* CURSOR */
+if(window.innerWidth>600){
+  var dot=document.getElementById('cDot'),ring=document.getElementById('cRing');
+  var mx=window.innerWidth/2,my=window.innerHeight/2,rx=mx,ry=my;
+  document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function loop(){var lx=rx,ly=ry;rx+=(mx-rx)*.11;ry+=(my-ry)*.11;if(Math.abs(rx-lx)>.05||Math.abs(ry-ly)>.05){ring.style.left=rx+'px';ring.style.top=ry+'px';}requestAnimationFrame(loop);})();
+  document.querySelectorAll('a,button,.val-card,.team-card,.trust-card,.location-tag').forEach(function(el){
+    el.addEventListener('mouseenter',function(){dot.classList.add('hov');ring.classList.add('hov');});
+    el.addEventListener('mouseleave',function(){dot.classList.remove('hov');ring.classList.remove('hov');});
+  });
+}
 
-      var hoverTargets = document.querySelectorAll('a, button, .val-card, .team-card, .trust-card, .location-tag');
-      hoverTargets.forEach(function(el){
-        el.addEventListener('mouseenter', function(){ dot.classList.add('hov'); ring.classList.add('hov'); });
-        el.addEventListener('mouseleave', function(){ dot.classList.remove('hov'); ring.classList.remove('hov'); });
-      });
+/* SCROLL BAR */
+var bar=document.getElementById('scrollBar');
+window.addEventListener('scroll',function(){bar.style.width=Math.min(window.scrollY/(document.body.scrollHeight-window.innerHeight)*100,100)+'%';},{passive:true});
+
+/* ORB TRACKING */
+var heroSection=document.querySelector('.hero-section');
+var orbLayer=document.getElementById('orbLayer');
+var mouseOrb=document.getElementById('mouseOrb');
+if(heroSection&&mouseOrb){
+  document.addEventListener('mousemove',function(e){
+    var r=heroSection.getBoundingClientRect();
+    if(e.clientY>r.top&&e.clientY<r.bottom){mouseOrb.style.left=(e.clientX-r.left)+'px';mouseOrb.style.top=(e.clientY-r.top)+'px';}
+  });
+}
+/* SCROLL PARALLAX */
+var ctaWm=document.getElementById('ctaWm');
+window.addEventListener('scroll',function(){
+  var sy=window.scrollY;
+  if(orbLayer)orbLayer.style.transform='translateY('+(sy*.22)+'px)';
+  if(ctaWm)ctaWm.style.transform='translateX(-50%) translateY('+(-sy*.03)+'px)';
+},{passive:true});
+
+/* CARD SPOTLIGHT */
+document.querySelectorAll('.val-card,.team-card').forEach(function(c){
+  c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();c.style.setProperty('--mx',(e.clientX-r.left)+'px');c.style.setProperty('--my',(e.clientY-r.top)+'px');});
+});
+
+/* 3D TILT */
+if(window.innerWidth>768){
+  document.querySelectorAll('[data-tilt]').forEach(function(c){
+    c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect();var x=(e.clientX-r.left-r.width/2)/r.width;var y=(e.clientY-r.top-r.height/2)/r.height;c.style.transition='transform .08s ease';c.style.transform='perspective(900px) rotateX('+(-(y*6))+'deg) rotateY('+(x*6)+'deg)';});
+    c.addEventListener('mouseleave',function(){c.style.transition='transform .5s ease';c.style.transform='perspective(900px) rotateX(0) rotateY(0)';});
+  });
+}
+
+/* MAGNETIC CTA */
+var ctaBtn=document.getElementById('ctaBtn');
+if(ctaBtn){
+  ctaBtn.addEventListener('mousemove',function(e){var r=ctaBtn.getBoundingClientRect();var dx=e.clientX-(r.left+r.width/2);var dy=e.clientY-(r.top+r.height/2);ctaBtn.style.transition='transform .08s';ctaBtn.style.transform='translate('+(dx*.28)+'px,'+(dy*.28)+'px) scale(1.04)';});
+  ctaBtn.addEventListener('mouseleave',function(){ctaBtn.style.transition='transform .5s cubic-bezier(.34,1.56,.64,1)';ctaBtn.style.transform='translate(0,0) scale(1)';});
+}
+
+/* COUNT-UP */
+function animCount(el){
+  if(el.dataset.done)return;el.dataset.done='1';
+  var target=parseFloat(el.dataset.to),dur=1500,start=null;
+  requestAnimationFrame(function step(ts){
+    if(!start)start=ts;
+    var p=Math.min((ts-start)/dur,1),ease=1-Math.pow(1-p,3);
+    el.textContent=Math.round(ease*target);
+    if(p<1)requestAnimationFrame(step);
+  });
+}
+
+/* REVEAL OBSERVER */
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.count-up').forEach(animCount);
     }
-  }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal,.stat-col').forEach(function(el){obs.observe(el);});
 
-  /* 4 — Aurora orb: mouse tracking + scroll parallax */
-  var heroSection = document.querySelector('.hero-section');
-  var orbLayer    = document.getElementById('orbLayer');
-  var mouseOrb    = document.getElementById('mouseOrb');
-  if (heroSection && mouseOrb && orbLayer) {
-    heroSection.addEventListener('mousemove', function(e){
-      var r = heroSection.getBoundingClientRect();
-      if (e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom) {
-        mouseOrb.style.left = (e.clientX - r.left) + 'px';
-        mouseOrb.style.top  = (e.clientY - r.top)  + 'px';
-      }
-    });
-    window.addEventListener('scroll', function(){
-      orbLayer.style.transform = 'translateY(' + (window.scrollY * 0.22) + 'px)';
-    }, { passive: true });
-  }
-
-  /* 6 — Reveal-clip IntersectionObserver */
-  var clipObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) { e.target.classList.add('in'); clipObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.2 });
-  document.querySelectorAll('.reveal-clip').forEach(function(el){ clipObs.observe(el); });
-
-  /* 8 — Icon glow on scroll */
-  var glowObs = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if (e.isIntersecting) {
-        (function(t){ setTimeout(function(){ t.classList.add('icon-glow'); }, 300); })(e.target);
-        glowObs.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.val-card').forEach(function(el){ glowObs.observe(el); });
+/* CLIP-PATH OBSERVER */
+var clipObs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');clipObs.unobserve(e.target);}});
+},{threshold:.2});
+document.querySelectorAll('.reveal-clip').forEach(function(el){clipObs.observe(el);});
 })();
 </script>
 </body>
