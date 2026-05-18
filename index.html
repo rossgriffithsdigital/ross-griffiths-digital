@@ -175,6 +175,11 @@
 
     html { scroll-behavior: smooth; }
 
+    /* ── Skip link + focus-visible ───────────────────────────────── */
+    .skip-link { position: absolute; left: -9999px; top: 0.5rem; background: var(--accent); color: var(--bg-primary); padding: 0.5rem 1rem; border-radius: 4px; font-weight: 600; font-size: 0.875rem; z-index: 20000; }
+    .skip-link:focus { left: 0.5rem; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
     body {
       font-family: 'Outfit', system-ui, sans-serif;
       background: var(--bg);
@@ -254,7 +259,7 @@
       padding: 1.6rem 3rem;
       background: transparent;
       border-bottom: 1px solid transparent;
-      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
 
     nav.scrolled {
@@ -316,7 +321,7 @@
       cursor: pointer;
       background: none;
       border: none;
-      padding: 4px;
+      padding: 11px;
       z-index: 201;
     }
 
@@ -325,7 +330,7 @@
       width: 22px;
       height: 1.5px;
       background: var(--text);
-      transition: all 0.3s ease;
+      transition: transform 0.3s ease, opacity 0.3s ease;
     }
 
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -608,21 +613,7 @@
       transition-delay: 0s;
     }
 
-    /* Left accent border — animates in on scroll */
-    .why-point::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 2px;
-      background: var(--accent);
-      transform: scaleY(0);
-      transform-origin: top;
-      transition: transform 0.65s cubic-bezier(0.16,1,0.3,1);
-    }
-
-    .why-point.visible::before { transform: scaleY(1); }
+    .why-point.visible::before { }
 
     .why-body { padding-top: 0.2rem; }
 
@@ -1127,6 +1118,7 @@
 
 <body>
 
+  <a href="#main" class="skip-link">Skip to content</a>
   <!-- Nav -->
   <nav role="navigation" aria-label="Main navigation" id="nav">
     <a class="nav-logo" href="/">R&amp;GD<span class="dot">.</span></a>
@@ -1149,6 +1141,7 @@
     <a href="/contact" class="overlay-cta">Get in touch</a>
   </div>
 
+  <main id="main">
   <!-- Hero -->
   <section class="hero" aria-label="Hero">
     <canvas id="particle-canvas" aria-hidden="true"></canvas>
@@ -1156,8 +1149,8 @@
     <div class="hero-content">
       <p class="hero-eyebrow">Northumberland County, Ontario</p>
       <h1 class="hero-title" id="hero-title">
-        <span class="line-1"></span>
-        <span class="line-2"></span>
+        <span class="line-1">Your business deserves</span>
+        <span class="line-2">a better website.</span>
       </h1>
       <div class="hero-cta">
         <a class="btn-outline" href="/contact"><span>Get in touch</span></a>
@@ -1239,7 +1232,7 @@
 .hm-services{padding:6rem 0;border-top:1px solid var(--hm-border);}
 .hm-services-head{padding:0 3rem;max-width:1200px;margin:0 auto 2.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem;}
 .hm-carousel-nav{display:flex;gap:0.5rem;}
-.hm-arrow{width:40px;height:40px;border-radius:50%;background:var(--hm-card);border:1px solid var(--hm-border);color:var(--hm-off-white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.hm-arrow{width:44px;height:44px;border-radius:50%;background:var(--hm-card);border:1px solid var(--hm-border);color:var(--hm-off-white);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:border-color 0.2s,color 0.2s;flex-shrink:0;}
 .hm-arrow:hover{border-color:rgba(255,255,255,0.25);background:#111827;}
 .hm-carousel-wrap{position:relative;}
 .hm-carousel-wrap::before,.hm-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:100px;z-index:2;pointer-events:none;}
@@ -1288,7 +1281,7 @@
 .hm-card-tags{display:flex;flex-wrap:wrap;gap:0.3rem;}
 .hm-tag{font-size:0.62rem;padding:0.2rem 0.55rem;border-radius:100px;background:rgba(255,255,255,0.04);border:1px solid var(--hm-border);color:var(--hm-muted);font-family:'DM Sans',sans-serif;}
 .hm-dots{display:flex;justify-content:center;gap:6px;margin-top:1.75rem;}
-.hm-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;cursor:pointer;padding:0;transition:all 0.25s;}
+.hm-dot{width:6px;height:6px;border-radius:50%;background:rgba(255,255,255,0.15);border:none;cursor:pointer;padding:0;transition:background 0.25s,width 0.25s;}
 .hm-dot.active{background:var(--hm-teal);width:20px;border-radius:3px;}
 .hm-port-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:1rem;max-width:1200px;margin:0 auto;}
 .hm-port-card{background:var(--hm-card);border:1px solid var(--hm-border);border-radius:22px;overflow:hidden;transition:border-color 0.25s,transform 0.25s;}
@@ -1312,7 +1305,7 @@
 .hm-step-title{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:-0.02em;color:var(--hm-off-white);margin-bottom:0.5rem;}
 .hm-step-desc{font-size:0.8rem;color:var(--hm-muted);line-height:1.6;font-family:'DM Sans',sans-serif;}
 .hm-biz-grid{display:flex;flex-wrap:wrap;gap:0.6rem;max-width:1200px;margin:0 auto;}
-.hm-biz-chip{display:flex;align-items:center;gap:0.5rem;background:var(--hm-card);border:1px solid var(--hm-border);border-radius:100px;padding:0.6rem 1.25rem;font-size:0.825rem;color:var(--hm-text);transition:all 0.2s;cursor:default;font-family:'DM Sans',sans-serif;}
+.hm-biz-chip{display:flex;align-items:center;gap:0.5rem;background:var(--hm-card);border:1px solid var(--hm-border);border-radius:100px;padding:0.6rem 1.25rem;font-size:0.825rem;color:var(--hm-text);transition:border-color 0.2s,color 0.2s;cursor:default;font-family:'DM Sans',sans-serif;}
 .hm-biz-chip:hover{border-color:rgba(62,207,207,0.25);color:var(--hm-off-white);background:#111827;}
 .hm-biz-chip svg{stroke:#3ECFCF;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
 .hm-cta{border-top:1px solid var(--hm-border);text-align:center;padding:8rem 3rem;position:relative;overflow:hidden;}
@@ -1322,7 +1315,7 @@
 .hm-cta-eyebrow{display:block;font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--hm-teal);margin-bottom:1rem;font-weight:500;font-family:'DM Sans',sans-serif;}
 .hm-cta-title{font-family:'DM Serif Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:400;letter-spacing:-0.03em;color:var(--hm-off-white);margin-bottom:0.75rem;line-height:1.05;}
 .hm-cta-sub{font-size:1rem;color:var(--hm-muted);margin-bottom:2.5rem;font-family:'DM Sans',sans-serif;}
-.hm-cta-btn{display:inline-block;background:var(--hm-teal);color:#080C12;padding:1rem 3rem;border-radius:100px;font-weight:600;font-size:0.9rem;letter-spacing:0.02em;transition:all 0.2s;font-family:'DM Sans',sans-serif;text-decoration:none;}
+.hm-cta-btn{display:inline-block;background:var(--hm-teal);color:#080C12;padding:1rem 3rem;border-radius:100px;font-weight:600;font-size:0.9rem;letter-spacing:0.02em;transition:background 0.2s,transform 0.2s;font-family:'DM Sans',sans-serif;text-decoration:none;}
 .hm-cta-btn:hover{background:#5ee0e0;transform:scale(1.02);}
 @media(max-width:1000px){.hm-port-grid{grid-template-columns:1fr;}.hm-steps{grid-template-columns:1fr 1fr;}}
 @media(max-width:700px){.hm-section{padding:4rem 1.5rem;}.hm-services{padding:4rem 0;}.hm-services-head{padding:0 1.5rem;}.hm-track{padding:1.5rem 1.5rem 2rem;}.hm-card{flex:0 0 300px;}.hm-steps{grid-template-columns:1fr;}.hm-cta{padding:5rem 1.5rem;}}
@@ -1454,25 +1447,22 @@
       <span class="hm-label hm-reveal">Our work</span>
       <h2 class="hm-title hm-reveal hm-d1" style="margin-bottom:0;">Built for businesses <em>like yours.</em></h2>
     </div>
-    <a href="/portfolio" class="hm-reveal hm-d2" style="font-size:0.825rem;color:var(--hm-teal);display:flex;align-items:center;gap:0.35rem;text-decoration:none;font-family:'DM Sans',sans-serif;">View all work
-      <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
   </div>
   <div class="hm-port-grid">
-    <div class="hm-port-card hm-reveal">
+    <a href="https://badalimedia.com" target="_blank" rel="noopener noreferrer" style="display:block;text-decoration:none;color:inherit;cursor:pointer;"><div class="hm-port-card hm-reveal">
       <div class="hm-browser-frame">
         <div class="hm-bdot" style="background:#ff5f57;"></div>
         <div class="hm-bdot" style="background:#febc2e;"></div>
         <div class="hm-bdot" style="background:#28c840;"></div>
         <div class="hm-burl">badalimedia.com</div>
       </div>
-      <img src="BM.webp" alt="Badali Media — built by RGD" style="width:100%;display:block;" />
+      <img src="BM.webp" alt="Badali Media, built by RGD" loading="lazy" style="width:100%;display:block;" />
       <div class="hm-port-info">
         <span class="hm-port-badge hm-live">Live</span>
         <p class="hm-port-name">Badali Media</p>
         <p class="hm-port-desc">Sports photography for athletes and teams across Northumberland County. Custom build, SEO, contact form, portfolio gallery.</p>
       </div>
-    </div>
+    </div></a>
     <div class="hm-port-card hm-reveal hm-d1">
       <div class="hm-placeholder" style="background:#07090f;position:relative;overflow:hidden;">
         <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,0.06) 0%,transparent 70%);pointer-events:none;"></div>
@@ -1561,6 +1551,8 @@
   </div>
 </section>
 
+
+  </main>
 
   <!-- Footer -->
   <footer role="contentinfo">
@@ -1692,13 +1684,19 @@
           }
         }
 
-        requestAnimationFrame(draw);
+        if (running) requestAnimationFrame(draw);
       }
 
+      var running = false;
       readColors();
       resize();
       createDots();
-      draw();
+
+      var canvasObserver = new IntersectionObserver(function (entries) {
+        running = entries[0].isIntersecting;
+        if (running) draw();
+      }, { threshold: 0 });
+      canvasObserver.observe(canvas);
 
       window.addEventListener('resize', function () {
         resize();
@@ -1713,6 +1711,8 @@
       var title = document.getElementById('hero-title');
       var l1    = title.querySelector('.line-1');
       var l2    = title.querySelector('.line-2');
+      l1.textContent = '';
+      l2.textContent = '';
       var delay = 0.45;
 
       line1Words.forEach(function (w) {
@@ -1869,11 +1869,11 @@
       font-weight: 500;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      padding: 0.5rem 1.1rem;
+      padding: 0.75rem 1.25rem;
       border-radius: 3px;
       cursor: pointer;
       border: none;
-      transition: all 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
     }
 
     #cookie-decline {
@@ -1888,8 +1888,8 @@
     }
 
     #cookie-accept {
-      background: #00d4ff;
-      color: #0a0a0c;
+      background: var(--accent);
+      color: var(--bg-primary);
     }
 
     #cookie-accept:hover {
