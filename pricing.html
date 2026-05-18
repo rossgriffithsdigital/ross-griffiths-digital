@@ -156,6 +156,9 @@
     [data-theme="light"] footer a:hover { color: #006688; }
     [data-theme="light"] .btn-outline.nav-cta { border-color: #006688; color: #006688; font-weight: 500; }
 
+    .skip-link{position:absolute;left:-9999px;top:.5rem;background:var(--accent);color:var(--bg-primary);padding:.5rem 1rem;border-radius:4px;font-weight:600;font-size:.875rem;z-index:20000;}
+    .skip-link:focus{left:.5rem;}
+    a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px;}
     html { scroll-behavior: smooth; }
     body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--text); min-height: 100dvh; overflow-x: hidden; line-height: 1.6; -webkit-font-smoothing: antialiased; transition: background-color 0.3s ease, color 0.3s ease; }
 
@@ -170,7 +173,7 @@
       padding: 1.6rem 3rem;
       background: transparent;
       border-bottom: 1px solid transparent;
-      transition: background 0.4s ease, padding 0.4s ease, border-color 0.4s ease;
+      transition: background 0.4s ease, border-color 0.4s ease;
     }
     nav.scrolled {
       background: var(--nav-bg);
@@ -199,7 +202,7 @@
     .btn-outline:hover { color: #080C12; }
     .btn-outline > span, .btn-outline > svg { position: relative; z-index: 1; }
 
-    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 201; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 11px; z-index: 201; }
     .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.3s ease; }
     .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
     .nav-hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
@@ -353,6 +356,7 @@
 <body>
 
 <!-- NAV -->
+<a href="#main" class="skip-link">Skip to content</a>
 <nav role="navigation" aria-label="Main navigation" id="nav">
   <a class="nav-logo" href="/">R&amp;GD<span class="dot">.</span></a>
   <ul class="nav-links">
@@ -377,7 +381,6 @@
 <style>
 /* PRICING PAGE */
 .pricing-pg{position:relative;padding:6rem 2rem 3rem;overflow:hidden;font-family:'DM Sans',sans-serif;}
-#pricing-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;}
 .pricing-content{position:relative;z-index:1;}
 
 .pr-head{text-align:center;margin-bottom:1.75rem;}
@@ -385,16 +388,7 @@
 .pr-head h1{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.6rem);font-weight:400;letter-spacing:-0.02em;color:#EDF3F7;margin-bottom:0.35rem;}
 .pr-head p{color:#5a7190;font-size:0.85rem;}
 
-.pr-breadcrumb{display:flex;align-items:center;gap:0.6rem;justify-content:center;margin-bottom:2.25rem;opacity:0;transform:translateY(8px);transition:opacity 0.3s,transform 0.3s;pointer-events:none;font-size:0.8rem;}
-.pr-breadcrumb.visible{opacity:1;transform:translateY(0);pointer-events:all;}
-.pr-bc-back{color:#3ECFCF;cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;font-size:0.8rem;display:flex;align-items:center;gap:0.3rem;transition:opacity 0.2s;padding:0;}
-.pr-bc-back:hover{opacity:0.7;}
-.pr-bc-sep{color:rgba(255,255,255,0.18);}
-.pr-bc-cur{color:#EDF3F7;}
 
-.pr-view{transition:opacity 0.4s cubic-bezier(0.4,0,0.2,1),transform 0.4s cubic-bezier(0.4,0,0.2,1);}
-.pr-view.out-up{opacity:0;transform:translateY(-22px);pointer-events:none;position:absolute;left:0;right:0;padding:0 2rem;}
-.pr-view.out-down{opacity:0;transform:translateY(22px);pointer-events:none;position:absolute;left:0;right:0;padding:0 2rem;}
 
 .pr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;align-items:start;}
 
@@ -407,12 +401,9 @@
   box-shadow:inset 0 1px 0 rgba(255,255,255,0.05),2px 5px 0 #020610,4px 10px 0 #010408,0 20px 50px rgba(0,0,0,0.5),0 8px 20px rgba(0,0,0,0.3);
 }
 .pr-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--lx,50%) var(--ly,-20%),rgba(255,255,255,var(--li,0)) 0%,transparent 65%);pointer-events:none;z-index:2;}
-.pr-card.featured{background:#0a1825;border:1.5px solid rgba(62,207,207,0.55);animation:pr-glow 4s ease-in-out infinite;}
+.pr-card.featured{background:#0a1825;border:2px solid rgba(62,207,207,0.6);}
 .pr-card.featured::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:50%;height:1px;background:linear-gradient(90deg,transparent,#3ECFCF,transparent);}
-@keyframes pr-glow{
-  0%,100%{box-shadow:inset 0 1px 0 rgba(62,207,207,0.1),2px 5px 0 rgba(4,18,28,0.95),4px 10px 0 rgba(2,10,18,0.8),0 0 35px rgba(62,207,207,0.07),0 20px 50px rgba(0,0,0,0.5);}
-  50%{box-shadow:inset 0 1px 0 rgba(62,207,207,0.16),2px 5px 0 rgba(4,18,28,0.95),4px 10px 0 rgba(2,10,18,0.8),0 0 70px rgba(62,207,207,0.17),0 20px 50px rgba(0,0,0,0.5);}
-}
+
 
 .pr-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#3ECFCF;color:#080C12;font-size:0.57rem;font-weight:700;letter-spacing:0.17em;text-transform:uppercase;padding:0.28rem 1rem;border-radius:100px;white-space:nowrap;}
 
@@ -442,15 +433,11 @@
 .pr-int-name{font-size:0.7rem;color:#EDF3F7;line-height:1.2;}
 .pr-int-note{font-size:0.68rem;color:#5a7190;margin-bottom:1.1rem;}
 
-.pr-btn{width:100%;padding:0.78rem 1rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.825rem;cursor:pointer;letter-spacing:0.02em;transition:all 0.2s;border:none;}
+.pr-btn{width:100%;padding:0.78rem 1rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.825rem;cursor:pointer;letter-spacing:0.02em;transition:background 0.2s,color 0.2s;border:none;}
 .pr-btn-outline{background:transparent;color:#EDF3F7;border:1px solid rgba(255,255,255,0.14);}
 .pr-btn-outline:hover{border-color:rgba(255,255,255,0.32);background:rgba(255,255,255,0.04);}
 .pr-btn-primary{background:#3ECFCF;color:#080C12;font-weight:600;}
 .pr-btn-primary:hover{background:#5ee0e0;}
-.pr-btn-explore{width:100%;padding:0.7rem 1rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.8rem;cursor:pointer;letter-spacing:0.02em;background:transparent;color:#3ECFCF;border:1px solid rgba(62,207,207,0.2);display:flex;align-items:center;justify-content:center;gap:0.5rem;transition:all 0.2s;}
-.pr-btn-explore:hover{border-color:rgba(62,207,207,0.4);background:rgba(62,207,207,0.06);}
-.pr-btn-explore .pr-arrow{transition:transform 0.25s;display:flex;}
-.pr-btn-explore:hover .pr-arrow{transform:translateX(4px);}
 
 .pr-addons{max-width:1200px;margin:0 auto;}
 .pr-base-box{background:rgba(62,207,207,0.04);border:1px solid rgba(62,207,207,0.14);border-radius:18px;padding:1.4rem 1.75rem;margin-bottom:1.75rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;}
@@ -475,7 +462,7 @@
 .pr-tier-feats{list-style:none;display:flex;flex-direction:column;gap:0.48rem;margin-bottom:1.35rem;}
 .pr-tier-feats li{display:flex;align-items:flex-start;gap:0.42rem;font-size:0.8rem;color:#8ba5c0;}
 .pr-tier-feats .pr-chk{margin-top:1px;flex-shrink:0;}
-.pr-tier-btn{width:100%;padding:0.75rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.8rem;cursor:pointer;letter-spacing:0.02em;transition:all 0.2s;}
+.pr-tier-btn{width:100%;padding:0.75rem;border-radius:100px;font-family:'DM Sans',sans-serif;font-size:0.8rem;cursor:pointer;letter-spacing:0.02em;transition:background 0.2s,color 0.2s,border-color 0.2s;}
 .pr-tier-btn.outline{background:transparent;color:#EDF3F7;border:1px solid rgba(255,255,255,0.13);}
 .pr-tier-btn.outline:hover{border-color:rgba(255,255,255,0.28);}
 .pr-tier-btn.primary{background:#3ECFCF;color:#080C12;border:none;font-weight:600;}
@@ -484,12 +471,54 @@
 .pr-tier-btn.ghost:hover{background:rgba(62,207,207,0.16);}
 
 @media(max-width:1024px){.pricing-pg{padding:6rem 1.5rem 5rem;}.pr-cards{gap:1.25rem;}.pr-card{padding:1.5rem;}.pr-card-price{font-size:clamp(2.25rem,4vw,3rem);}}
-@media(max-width:860px){.pr-cards{grid-template-columns:1fr;max-width:480px;margin:0 auto;}.pr-tiers{grid-template-columns:1fr;max-width:480px;margin:0 auto;}.pr-view.out-up,.pr-view.out-down{padding:0 1.5rem;}.pr-base-box{flex-direction:column;align-items:flex-start;}}
-@media(max-width:520px){.pricing-pg{padding:5rem 1rem 4rem;}.pr-card{padding:1.5rem 1.25rem;border-radius:20px;}.pr-card-price{font-size:2.25rem;}.pr-card-title{font-size:1.25rem;}.pr-tier{padding:1.25rem;}.pr-view.out-up,.pr-view.out-down{padding:0 1rem;}}
+@media(max-width:860px){.pr-cards{grid-template-columns:1fr;max-width:480px;margin:0 auto;}.pr-tiers{grid-template-columns:1fr;max-width:480px;margin:0 auto;}.pr-base-box{flex-direction:column;align-items:flex-start;}}
+@media(max-width:520px){.pricing-pg{padding:5rem 1rem 4rem;}.pr-card{padding:1.5rem 1.25rem;border-radius:20px;}.pr-card-price{font-size:2.25rem;}.pr-card-title{font-size:1.25rem;}.pr-tier{padding:1.25rem;}}
+
+[data-theme="light"] .pr-card{background:var(--bg-card);border-color:var(--border);box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+[data-theme="light"] .pr-card.featured{background:var(--bg-secondary);border-color:var(--accent);}
+[data-theme="light"] .pr-card-label{color:var(--text-muted);}
+[data-theme="light"] .pr-card.featured .pr-card-label{color:var(--accent);}
+[data-theme="light"] .pr-card-title{color:var(--text-primary);}
+[data-theme="light"] .pr-card-price{color:var(--text-primary);text-shadow:none;}
+[data-theme="light"] .pr-card-price sub{color:var(--text-muted);}
+[data-theme="light"] .pr-price-note{color:var(--text-muted);}
+[data-theme="light"] .pr-divider{background:var(--border);}
+[data-theme="light"] .pr-facts li{color:var(--text-secondary);}
+[data-theme="light"] .pr-chk{color:var(--accent);}
+[data-theme="light"] .pr-int-label{color:var(--text-muted);}
+[data-theme="light"] .pr-int-name{color:var(--text-primary);}
+[data-theme="light"] .pr-int-item{background:rgba(0,0,0,0.03);border-color:var(--border);}
+[data-theme="light"] .pr-int-item:hover{border-color:rgba(0,136,170,0.3);background:rgba(0,136,170,0.05);}
+[data-theme="light"] .pr-int-icon{background:rgba(0,136,170,0.08);}
+[data-theme="light"] .pr-int-icon svg{stroke:var(--accent);}
+[data-theme="light"] .pr-badge{background:var(--accent);color:var(--bg-primary);}
+[data-theme="light"] .pr-tier{background:var(--bg-secondary);border-color:var(--border);}
+[data-theme="light"] .pr-tier.feat{background:var(--bg-card);border-color:var(--accent);}
+[data-theme="light"] .pr-tier-title,[data-theme="light"] .pr-tier-feats li{color:var(--text-primary);}
+[data-theme="light"] .pr-tier-hook{color:var(--text-secondary);}
+[data-theme="light"] .pr-tier-name{color:var(--text-muted);}
+[data-theme="light"] .pr-tier.feat .pr-tier-name{color:var(--accent);}
+[data-theme="light"] .pr-tier-badge{background:var(--accent);color:var(--bg-primary);}
+[data-theme="light"] .pr-base-box{background:rgba(0,136,170,0.04);border-color:rgba(0,136,170,0.15);}
+[data-theme="light"] .pr-base-title{color:var(--text-primary);}
+[data-theme="light"] .pr-base-feat{color:var(--text-secondary);}
+[data-theme="light"] .pr-base-price{color:var(--accent);}
+[data-theme="light"] .pr-tiers-label{color:var(--text-muted);}
+[data-theme="light"] .pr-int-badge{color:var(--accent);background:rgba(0,136,170,0.08);border-color:rgba(0,136,170,0.2);}
+[data-theme="light"] .pr-int-note{color:var(--text-muted);}
+
+.pricing-tabs{display:flex;justify-content:center;margin-bottom:2.5rem;}
+.pricing-tab{font-family:'DM Sans',sans-serif;font-size:0.82rem;letter-spacing:0.04em;padding:0.65rem 1.75rem;background:transparent;border:1px solid rgba(62,207,207,0.2);color:#5a7190;cursor:pointer;transition:background 0.2s,color 0.2s,border-color 0.2s;}
+.pricing-tab:first-child{border-radius:100px 0 0 100px;}
+.pricing-tab:last-child{border-radius:0 100px 100px 0;margin-left:-1px;}
+.pricing-tab.active{background:rgba(62,207,207,0.1);border-color:rgba(62,207,207,0.45);color:#EDF3F7;}
+.pricing-tab:hover:not(.active){color:#EDF3F7;border-color:rgba(62,207,207,0.35);}
+.pricing-panel{display:none;}
+.pricing-panel.active{display:block;}
 </style>
 
+<main id="main">
 <section class="pricing-pg" id="pricingSection">
-  <canvas id="pricing-canvas"></canvas>
   <div class="pricing-content">
 
     <div class="pr-head" id="prHead">
@@ -498,16 +527,14 @@
       <p id="prSub">No hidden fees. No lock-in. All prices in CAD.</p>
     </div>
 
-    <div class="pr-breadcrumb" id="prBreadcrumb">
-      <button class="pr-bc-back" onclick="prShowMain()">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M9 11L5 7L9 3" stroke="#3ECFCF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        Pricing
-      </button>
-      <span class="pr-bc-sep">/</span>
-      <span class="pr-bc-cur">Website Add-Ons</span>
+    <div class="pricing-tabs" id="pricingTabs" role="tablist" aria-label="Pricing categories">
+      <button class="pricing-tab active" data-tab="pricing-core" role="tab" id="tab-core" aria-selected="true" aria-controls="pricing-core">Core Services</button>
+      <button class="pricing-tab" data-tab="pricing-integrations" role="tab" id="tab-integrations" aria-selected="false" aria-controls="pricing-integrations">Integrations</button>
     </div>
 
+
     <div class="pr-view" id="prMainView">
+      <div class="pricing-panel active" id="pricing-core" role="tabpanel" aria-labelledby="tab-core" tabindex="0">
       <div class="pr-cards">
 
         <div class="pr-card" data-pr-tilt>
@@ -526,10 +553,6 @@
           </ul>
           <div class="pr-btn-stack">
             <a href="/contact" class="pr-btn pr-btn-primary" style="text-align:center;text-decoration:none;display:block;">Get started</a>
-            <button class="pr-btn-explore" onclick="prShowAddons()">
-              Add booking, payments and more
-              <span class="pr-arrow"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 7H11M11 7L7.5 3.5M11 7L7.5 10.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </button>
           </div>
         </div>
 
@@ -575,179 +598,99 @@
         </div>
 
       </div>
-    </div>
+      </div>
 
-    <div class="pr-view out-down" id="prAddonsView">
-      <div class="pr-addons">
-        <div class="pr-base-box">
-          <div>
-            <p class="pr-base-title">Base Website</p>
-            <div class="pr-base-feats">
-              <span class="pr-base-feat"><span class="pr-dot"></span>Up to 5 pages</span>
-              <span class="pr-base-feat"><span class="pr-dot"></span>Contact form</span>
-              <span class="pr-base-feat"><span class="pr-dot"></span>Basic SEO</span>
-              <span class="pr-base-feat"><span class="pr-dot"></span>Mobile responsive</span>
-              <span class="pr-base-feat"><span class="pr-dot"></span>You own it outright</span>
+      <div class="pricing-panel" id="pricing-integrations" role="tabpanel" aria-labelledby="tab-integrations" tabindex="0">
+        <div class="pr-addons">
+          <div class="pr-base-box">
+            <div>
+              <p class="pr-base-title">Base Website</p>
+              <div class="pr-base-feats">
+                <span class="pr-base-feat"><span class="pr-dot"></span>Up to 5 pages</span>
+                <span class="pr-base-feat"><span class="pr-dot"></span>Contact form</span>
+                <span class="pr-base-feat"><span class="pr-dot"></span>Basic SEO</span>
+                <span class="pr-base-feat"><span class="pr-dot"></span>Mobile responsive</span>
+                <span class="pr-base-feat"><span class="pr-dot"></span>You own it outright</span>
+              </div>
             </div>
+            <p class="pr-base-price">$999 <span>CAD, flat</span></p>
           </div>
-          <p class="pr-base-price">$999 <span>CAD, flat</span></p>
-        </div>
-        <p class="pr-tiers-label">Monthly Add-On Packages</p>
-        <div class="pr-tiers">
-          <div class="pr-tier" id="prt1">
-            <p class="pr-tier-name">Basic</p>
-            <p class="pr-tier-title">Starter</p>
-            <p class="pr-tier-hook">One integration. The one your business needs most.</p>
-            <ul class="pr-tier-feats">
-              <li><span class="pr-chk">&#10003;</span>1 integration of your choice</li>
-              <li><span class="pr-chk">&#10003;</span>Monthly support included</li>
-              <li><span class="pr-chk">&#10003;</span>Up to 3 revisions per month</li>
-            </ul>
-            <a href="/contact" class="pr-tier-btn outline" style="text-align:center;text-decoration:none;display:block;">Get a Quote</a>
-          </div>
-          <div class="pr-tier feat" id="prt2">
-            <div class="pr-tier-badge">Most Popular</div>
-            <p class="pr-tier-name">Premium</p>
-            <p class="pr-tier-title">Growth</p>
-            <p class="pr-tier-hook">Two integrations at a rate that makes both a no-brainer.</p>
-            <ul class="pr-tier-feats">
-              <li><span class="pr-chk">&#10003;</span>2 integrations of your choice</li>
-              <li><span class="pr-chk">&#10003;</span>Priority support</li>
-              <li><span class="pr-chk">&#10003;</span>Monthly check-in with Connor</li>
-              <li><span class="pr-chk">&#10003;</span>Up to 3 revisions per month</li>
-            </ul>
-            <a href="/contact" class="pr-tier-btn primary" style="text-align:center;text-decoration:none;display:block;">Get a Quote</a>
-          </div>
-          <div class="pr-tier" id="prt3">
-            <p class="pr-tier-name">Enterprise</p>
-            <p class="pr-tier-title">Custom</p>
-            <p class="pr-tier-hook">Your full digital operation, built and managed end to end.</p>
-            <ul class="pr-tier-feats">
-              <li><span class="pr-chk">&#10003;</span>Unlimited integrations</li>
-              <li><span class="pr-chk">&#10003;</span>Dedicated consultation</li>
-              <li><span class="pr-chk">&#10003;</span>Custom development scope</li>
-              <li><span class="pr-chk">&#10003;</span>Full ongoing support</li>
-            </ul>
-            <a href="/contact" class="pr-tier-btn ghost" style="text-align:center;text-decoration:none;display:block;">Book a Consult</a>
+          <p class="pr-tiers-label">Monthly Add-On Packages</p>
+          <div class="pr-tiers">
+            <div class="pr-tier visible" id="tab-prt1">
+              <p class="pr-tier-name">Basic</p>
+              <p class="pr-tier-title">Starter</p>
+              <p class="pr-tier-hook">One integration. The one your business needs most.</p>
+              <ul class="pr-tier-feats">
+                <li><span class="pr-chk">&#10003;</span>1 integration of your choice</li>
+                <li><span class="pr-chk">&#10003;</span>Monthly support included</li>
+                <li><span class="pr-chk">&#10003;</span>Up to 3 revisions per month</li>
+              </ul>
+              <a href="/contact" class="pr-tier-btn outline" style="text-align:center;text-decoration:none;display:block;">Get a Quote</a>
+            </div>
+            <div class="pr-tier feat visible" id="tab-prt2">
+              <div class="pr-tier-badge">Most Popular</div>
+              <p class="pr-tier-name">Premium</p>
+              <p class="pr-tier-title">Growth</p>
+              <p class="pr-tier-hook">Two integrations at a rate that makes both a no-brainer.</p>
+              <ul class="pr-tier-feats">
+                <li><span class="pr-chk">&#10003;</span>2 integrations of your choice</li>
+                <li><span class="pr-chk">&#10003;</span>Priority support</li>
+                <li><span class="pr-chk">&#10003;</span>Monthly check-in with Connor</li>
+                <li><span class="pr-chk">&#10003;</span>Up to 3 revisions per month</li>
+              </ul>
+              <a href="/contact" class="pr-tier-btn primary" style="text-align:center;text-decoration:none;display:block;">Get a Quote</a>
+            </div>
+            <div class="pr-tier visible" id="tab-prt3">
+              <p class="pr-tier-name">Enterprise</p>
+              <p class="pr-tier-title">Custom</p>
+              <p class="pr-tier-hook">Your full digital operation, built and managed end to end.</p>
+              <ul class="pr-tier-feats">
+                <li><span class="pr-chk">&#10003;</span>Unlimited integrations</li>
+                <li><span class="pr-chk">&#10003;</span>Dedicated consultation</li>
+                <li><span class="pr-chk">&#10003;</span>Custom development scope</li>
+                <li><span class="pr-chk">&#10003;</span>Full ongoing support</li>
+              </ul>
+              <a href="/contact" class="pr-tier-btn ghost" style="text-align:center;text-decoration:none;display:block;">Book a Consult</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
+
   </div>
 </section>
 
 <script>
-/* PARTICLE CANVAS */
-(function(){
-  var canvas=document.getElementById('pricing-canvas');
-  var section=document.getElementById('pricingSection');
-  var ctx=canvas.getContext('2d');
-  var particles=[];
-  var mouse={x:-9999,y:-9999};
-  var COUNT,CONNECT;
-  function resize(){canvas.width=section.offsetWidth;canvas.height=section.offsetHeight;}
-  function init(){
-    var mob=window.innerWidth<600;
-    COUNT=mob?45:80;CONNECT=mob?110:140;
-    particles=[];
-    for(var i=0;i<COUNT;i++){
-      particles.push({
-        x:Math.random()*canvas.width,y:Math.random()*canvas.height,
-        vx:(Math.random()-0.5)*0.35,vy:(Math.random()-0.5)*0.35,
-        r:Math.random()*1.4+0.4,o:Math.random()*0.4+0.15
-      });
-    }
-  }
-  function loop(){
-    ctx.clearRect(0,0,canvas.width,canvas.height);
-    for(var i=0;i<particles.length;i++){
-      for(var j=i+1;j<particles.length;j++){
-        var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
-        if(d<CONNECT){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(62,207,207,'+(1-d/CONNECT)*0.18+')';ctx.lineWidth=0.6;ctx.stroke();}
-      }
-    }
-    for(var i=0;i<particles.length;i++){
-      var p=particles[i];
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>canvas.width)p.vx*=-1;
-      if(p.y<0||p.y>canvas.height)p.vy*=-1;
-      var dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.sqrt(dx*dx+dy*dy);
-      if(d<120){var f=(120-d)/120*0.015;p.vx+=(dx/d)*f;p.vy+=(dy/d)*f;}
-      var sp=Math.sqrt(p.vx*p.vx+p.vy*p.vy);if(sp>0.8){p.vx=(p.vx/sp)*0.8;p.vy=(p.vy/sp)*0.8;}
-      ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle='rgba(62,207,207,'+p.o+')';ctx.fill();
-    }
-    requestAnimationFrame(loop);
-  }
-  section.addEventListener('mousemove',function(e){var r=section.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;});
-  section.addEventListener('mouseleave',function(){mouse.x=-9999;mouse.y=-9999;});
-  window.addEventListener('resize',function(){resize();init();});
-  resize();init();loop();
-})();
 
 /* GLOBAL LIGHT SOURCE */
 (function(){
   var cards=document.querySelectorAll('.pr-card');
   var sec=document.getElementById('pricingSection');
+  var lightTick=false;
   sec.addEventListener('mousemove',function(e){
-    cards.forEach(function(card){
-      var cr=card.getBoundingClientRect();
-      var lx=((e.clientX-cr.left)/cr.width)*100;
-      var ly=((e.clientY-cr.top)/cr.height)*100;
-      var cx=cr.left+cr.width/2,cy=cr.top+cr.height/2;
-      var dist=Math.sqrt(Math.pow(e.clientX-cx,2)+Math.pow(e.clientY-cy,2));
-      card.style.setProperty('--lx',lx+'%');
-      card.style.setProperty('--ly',ly+'%');
-      card.style.setProperty('--li',Math.max(0,(1-dist/520)*0.11));
-    });
+    if(!lightTick){lightTick=true;
+      var cx_=e.clientX,cy_=e.clientY;
+      requestAnimationFrame(function(){
+        cards.forEach(function(card){
+          var cr=card.getBoundingClientRect();
+          var lx=((cx_-cr.left)/cr.width)*100;
+          var ly=((cy_-cr.top)/cr.height)*100;
+          var dist=Math.sqrt(Math.pow(cx_-(cr.left+cr.width/2),2)+Math.pow(cy_-(cr.top+cr.height/2),2));
+          card.style.setProperty('--lx',lx+'%');
+          card.style.setProperty('--ly',ly+'%');
+          card.style.setProperty('--li',Math.max(0,(1-dist/520)*0.11));
+        });
+        lightTick=false;
+      });
+    }
   });
   sec.addEventListener('mouseleave',function(){
     cards.forEach(function(c){c.style.setProperty('--li',0);});
   });
 })();
 
-/* VIEW TRANSITIONS */
-var prMain=document.getElementById('prMainView');
-var prAddons=document.getElementById('prAddonsView');
-var prBc=document.getElementById('prBreadcrumb');
-var prTitle=document.getElementById('prTitle');
-var prSub=document.getElementById('prSub');
-var prEyebrow=document.getElementById('prEyebrow');
-
-function prShowAddons(){
-  prMain.classList.add('out-up');
-  setTimeout(function(){
-    prMain.style.display='none';
-    prAddons.style.display='block';
-    prAddons.classList.remove('out-down');
-    prTitle.textContent='Website Add-Ons';
-    prSub.textContent='Build on your $999 site. Pick the package that fits where your business is going.';
-    prEyebrow.textContent='Website Build';
-    prBc.classList.add('visible');
-    window.scrollTo({top:document.getElementById('pricingSection').offsetTop-80,behavior:'smooth'});
-    setTimeout(function(){
-      ['prt1','prt2','prt3'].forEach(function(id,i){
-        setTimeout(function(){document.getElementById(id).classList.add('visible');},i*90);
-      });
-    },80);
-  },380);
-}
-
-function prShowMain(){
-  prAddons.classList.add('out-down');
-  prBc.classList.remove('visible');
-  setTimeout(function(){
-    prAddons.style.display='none';
-    prAddons.classList.remove('out-down');
-    ['prt1','prt2','prt3'].forEach(function(id){document.getElementById(id).classList.remove('visible');});
-    prMain.style.display='block';
-    prMain.classList.remove('out-up');
-    prTitle.textContent='What it costs to mean business.';
-    prSub.textContent='No hidden fees. No lock-in. All prices in CAD.';
-    prEyebrow.textContent='Simple. Transparent.';
-    window.scrollTo({top:document.getElementById('pricingSection').offsetTop-80,behavior:'smooth'});
-  },380);
-}
 
 /* 3D TILT — desktop only */
 if(window.innerWidth>860){
@@ -765,7 +708,24 @@ if(window.innerWidth>860){
     });
   });
 }
+
+/* TAB SWITCHING */
+(function(){
+  document.querySelectorAll('.pricing-tab').forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var target=tab.getAttribute('data-tab');
+      document.querySelectorAll('.pricing-tab').forEach(function(t){t.classList.remove('active');t.setAttribute('aria-selected','false');});
+      document.querySelectorAll('.pricing-panel').forEach(function(p){p.classList.remove('active');});
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected','true');
+      var panel=document.getElementById(target);
+      if(panel)panel.classList.add('active');
+    });
+  });
+})();
 </script>
+
+</main>
 
 <!-- FOOTER -->
 <footer>
@@ -798,7 +758,7 @@ if(window.innerWidth>860){
 
 <!-- COOKIE BANNER -->
 <div id="cookie-banner"><p>We use cookies to improve your experience. <a href="https://policies.google.com/technologies/cookies" target="_blank" rel="noopener" aria-label="Learn more about Google's cookie policy">Learn more</a></p><div class="cookie-btns"><button id="cookie-decline">Decline</button><button id="cookie-accept">Accept</button></div></div>
-<style>#cookie-banner{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(100px);z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:2rem;width:calc(100% - 3rem);max-width:720px;background:#0D1520;border:1px solid rgba(62,207,207,0.2);border-radius:6px;padding:1rem 1.5rem;opacity:0;pointer-events:none;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s ease;font-family:'Outfit',sans-serif;font-size:0.82rem;color:#7A9BAF;}#cookie-banner.visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all;}#cookie-banner a{color:#00d4ff;text-decoration:underline;text-underline-offset:2px;}.cookie-btns{display:flex;gap:0.6rem;flex-shrink:0;}.cookie-btns button{font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:0.5rem 1.1rem;border-radius:3px;cursor:pointer;border:none;transition:all 0.2s ease;}#cookie-decline{background:transparent;color:#7A9BAF;border:1px solid rgba(122,155,175,0.3)!important;}#cookie-decline:hover{color:#EDF3F7;border-color:rgba(122,155,175,0.7)!important;}#cookie-accept{background:#00d4ff;color:#0a0a0c;}#cookie-accept:hover{background:#33ddff;}@media(max-width:560px){#cookie-banner{flex-direction:column;align-items:flex-start;gap:1rem;bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:12px 12px 0 0;transform:translateY(100px);}#cookie-banner.visible{transform:translateY(0);}.cookie-btns{width:100%;}.cookie-btns button{flex:1;}}</style>
+<style>#cookie-banner{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%) translateY(100px);z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:2rem;width:calc(100% - 3rem);max-width:720px;background:#0D1520;border:1px solid rgba(62,207,207,0.2);border-radius:6px;padding:1rem 1.5rem;opacity:0;pointer-events:none;transition:transform 0.5s cubic-bezier(0.16,1,0.3,1),opacity 0.5s ease;font-family:'Outfit',sans-serif;font-size:0.82rem;color:#7A9BAF;}#cookie-banner.visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all;}#cookie-banner a{color:#00d4ff;text-decoration:underline;text-underline-offset:2px;}.cookie-btns{display:flex;gap:0.6rem;flex-shrink:0;}.cookie-btns button{font-family:'Outfit',sans-serif;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;padding:0.75rem 1.25rem;border-radius:3px;cursor:pointer;border:none;transition:background 0.2s,color 0.2s,border-color 0.2s;}#cookie-decline{background:transparent;color:#7A9BAF;border:1px solid rgba(122,155,175,0.3)!important;}#cookie-decline:hover{color:#EDF3F7;border-color:rgba(122,155,175,0.7)!important;}#cookie-accept{background:#00d4ff;color:#0a0a0c;}#cookie-accept:hover{background:#33ddff;}@media(max-width:560px){#cookie-banner{flex-direction:column;align-items:flex-start;gap:1rem;bottom:0;left:0;right:0;width:100%;max-width:100%;border-radius:12px 12px 0 0;transform:translateY(100px);}#cookie-banner.visible{transform:translateY(0);}.cookie-btns{width:100%;}.cookie-btns button{flex:1;}}</style>
 <script>(function(){const KEY='rgd_cookie_consent';const banner=document.getElementById('cookie-banner');if(!localStorage.getItem(KEY)){setTimeout(()=>banner.classList.add('visible'),800);}document.getElementById('cookie-accept').addEventListener('click',()=>{localStorage.setItem(KEY,'accepted');banner.classList.remove('visible');});document.getElementById('cookie-decline').addEventListener('click',()=>{localStorage.setItem(KEY,'declined');banner.classList.remove('visible');});})();</script>
 
 <script>
