@@ -1280,8 +1280,7 @@ body{font-size:1rem;line-height:1.65;}
 .hm-bdot{width:8px;height:8px;border-radius:50%;}
 .hm-burl{flex:1;background:rgba(255,255,255,0.06);border-radius:4px;padding:0.18rem 0.6rem;font-size:0.6rem;color:var(--hm-muted);margin:0 0.5rem;font-family:'DM Sans',sans-serif;}
 .hm-port-info{padding:1.25rem;}
-.hm-port-card img{height:300px;object-fit:cover;}
-@media(max-width:767px){.hm-port-card img{height:auto;}}
+@media(min-width:768px){.hm-port-img{max-height:320px;overflow:hidden;}}
 .hm-port-badge{display:inline-block;font-size:0.58rem;letter-spacing:0.14em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.6rem;font-family:'DM Sans',sans-serif;}
 .hm-live{background:rgba(62,207,207,0.1);color:var(--hm-teal);border:1px solid rgba(62,207,207,0.2);}
 .hm-progress{background:rgba(255,185,50,0.1);color:#f0a850;border:1px solid rgba(255,185,50,0.2);}
@@ -1448,7 +1447,7 @@ body{font-size:1rem;line-height:1.65;}
         <div class="hm-bdot" style="background:#28c840;"></div>
         <div class="hm-burl">badalimedia.com</div>
       </div>
-      <img src="BM.webp" alt="Badali Media, built by RGD" loading="lazy" width="2940" height="1912" style="width:100%;display:block;" />
+      <div class="hm-port-img"><img src="BM.webp" alt="Badali Media, built by RGD" loading="lazy" style="width:100%;height:auto;object-fit:cover;display:block;" /></div>
       <div class="hm-port-info">
         <span class="hm-port-badge hm-live">Live</span>
         <p class="hm-port-name">Badali Media</p>
