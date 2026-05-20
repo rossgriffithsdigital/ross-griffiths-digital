@@ -152,6 +152,9 @@
       .policy-body { padding: 3rem 1.5rem 4rem; }
       footer { flex-direction: column; gap: 0.75rem; text-align: center; padding: 2rem 1.5rem; }
     }
+body{font-size:1rem;line-height:1.65;}
+@media(min-width:769px){body{font-size:1.0625rem;}}
+@media(max-width:479px){h1{font-size:2.2rem!important;}h2{font-size:1.6rem!important;}h3{font-size:1.3rem!important;}}
   </style>
   <script type="application/ld+json">
   {
@@ -167,15 +170,13 @@
 <body>
 
   <nav role="navigation" aria-label="Main navigation">
-    <a class="nav-logo" href="/"><img src="/logo.png" alt="Ross &amp; Griffiths Digital logo" class="nav-logo-img" width="256" height="256">R&amp;GD<span>.</span></a>
+    <a class="nav-logo" href="/"><img src="/logo.png" alt="Ross &amp; Griffiths Digital logo" class="nav-logo-img" width="256" height="256" loading="lazy">R&amp;GD<span>.</span></a>
     <ul class="nav-links">
-      <li><a href="/services">Services</a></li>
       <li><a href="/how-it-works">How it works</a></li>
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/about">About</a></li>
-      <li><a href="/portfolio">Portfolio</a></li>
     </ul>
-    <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">☽</button>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
     <a class="nav-cta" href="/contact">Get in touch</a>
   </nav>
 
