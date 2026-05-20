@@ -70,6 +70,7 @@
   }
   </script>
 
+  <script src="/assets/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -152,7 +153,7 @@
 
     /* ===== NAV ===== */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.6rem 3rem;
       background: transparent;
@@ -522,6 +523,7 @@
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
   <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -586,7 +588,7 @@
 
 .hiw-step-label{font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:#3ECFCF;margin-bottom:0.5rem;display:block;font-weight:500;}
 .hiw-step-title{font-family:'DM Serif Display',serif;font-size:1.75rem;letter-spacing:-0.02em;margin-bottom:0.75rem;color:#EDF3F7;}
-.hiw-step-desc{font-size:0.9rem;color:#8ba5c0;line-height:1.7;max-width:520px;margin-bottom:1.25rem;}
+.hiw-step-desc{font-size:1rem;color:#8ba5c0;line-height:1.7;max-width:520px;margin-bottom:1.25rem;}
 .hiw-meta{display:flex;gap:0.5rem;flex-wrap:wrap;}
 .hiw-chip{display:flex;align-items:center;gap:0.4rem;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:100px;padding:0.3rem 0.75rem;font-size:0.7rem;color:#5a7190;font-family:'DM Sans',sans-serif;}
 .hiw-chip svg{stroke:#3ECFCF;fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0;}
@@ -606,13 +608,13 @@
 .hiw-faq-wrap{max-width:720px;margin:0 auto;padding:0 3rem 6rem;}
 .hiw-faq-title{font-family:'DM Serif Display',serif;font-size:clamp(1.5rem,2.5vw,2rem);letter-spacing:-0.02em;margin-bottom:2rem;color:#EDF3F7;}
 .hiw-faq-item{border-bottom:1px solid rgba(255,255,255,0.08);}
-.hiw-faq-q{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:0.9rem;color:#EDF3F7;text-align:left;gap:1rem;transition:color 0.2s;}
+.hiw-faq-q{width:100%;background:none;border:none;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:1rem;color:#EDF3F7;text-align:left;gap:1rem;transition:color 0.2s;}
 .hiw-faq-q:hover{color:#3ECFCF;}
 .hiw-faq-icon{width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:color 0.25s,background 0.25s;color:#5a7190;font-size:0.85rem;font-family:'DM Sans',sans-serif;}
 .hiw-faq-item.hiw-faq-open .hiw-faq-icon{background:rgba(62,207,207,0.1);border-color:rgba(62,207,207,0.3);color:#3ECFCF;transform:rotate(45deg);}
 .hiw-faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s cubic-bezier(0.4,0,0.2,1),opacity 0.3s;opacity:0;}
 .hiw-faq-item.hiw-faq-open .hiw-faq-a{max-height:300px;opacity:1;}
-.hiw-faq-a-inner{padding:0 0 1.25rem;font-size:0.85rem;color:#8ba5c0;line-height:1.7;}
+.hiw-faq-a-inner{padding:0 0 1.25rem;font-size:1rem;color:#8ba5c0;line-height:1.7;}
 
 /* CTA */
 .hiw-cta{border-top:1px solid rgba(255,255,255,0.08);text-align:center;padding:7rem 3rem;position:relative;overflow:hidden;}
@@ -846,8 +848,7 @@
         <li><a href="/how-it-works">How it works</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Get in touch</a></li>
       </ul>
     </div>
     <div>
@@ -915,10 +916,6 @@
   window.addEventListener('scroll', updateTimeline, { passive: true });
   window.addEventListener('resize', updateTimeline, { passive: true });
   updateTimeline();
-</script>
-
-<script>
-  (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
 </script>
 
 <script>

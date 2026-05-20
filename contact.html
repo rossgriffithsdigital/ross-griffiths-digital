@@ -108,6 +108,7 @@
   }
   </script>
 
+  <script src="/assets/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -187,7 +188,7 @@
 
     /* ===== NAV ===== */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.6rem 3rem;
       background: transparent;
@@ -308,7 +309,7 @@
     }
     .detail-value {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.92rem; color: var(--text); line-height: 1.4;
+      font-size: 1rem; color: var(--text); line-height: 1.6;
     }
     .detail-value a { color: var(--accent); text-decoration: none; }
     .detail-value a:hover { text-decoration: underline; text-underline-offset: 3px; }
@@ -319,7 +320,7 @@
       border-left: 2px solid var(--accent);
       padding: 1.25rem 1.5rem;
       font-family: 'Outfit', sans-serif;
-      font-size: 0.88rem;
+      font-size: 1rem;
       color: var(--muted);
       line-height: 1.7;
     }
@@ -796,6 +797,7 @@
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
   <a class="btn-outline nav-cta active" href="/contact"><span>Get in touch</span></a>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -1006,8 +1008,7 @@
         <li><a href="/how-it-works">How it works</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Get in touch</a></li>
       </ul>
     </div>
     <div>
@@ -1180,10 +1181,6 @@
       btn.innerHTML = '<span>Send message</span><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h10M7.5 2.5L12 7l-4.5 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>';
     }
   });
-</script>
-
-<script>
-  (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
 </script>
 
 <script>

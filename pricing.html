@@ -86,6 +86,7 @@
   }
   </script>
 
+  <script src="/assets/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -168,7 +169,7 @@
 
     /* ===== NAV ===== */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.6rem 3rem;
       background: transparent;
@@ -262,7 +263,7 @@
     .card-subprice { font-family: 'Outfit', sans-serif; font-size: 0.82rem; color: var(--muted); margin-top: -0.5rem; }
     .card-divider { height: 1px; background: var(--border); }
     .card-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; flex: 1; }
-    .card-features li { font-family: 'Outfit', sans-serif; font-size: 0.87rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.45; }
+    .card-features li { font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.6; }
     .card-features li::before { content: '—'; color: var(--accent); font-weight: 600; flex-shrink: 0; }
     .card-cta { margin-top: auto; width: 100%; justify-content: center; }
     .pricing-note { text-align: center; padding: 2rem 0 0; font-family: 'Outfit', sans-serif; font-size: 0.85rem; color: var(--text-muted); }
@@ -274,9 +275,9 @@
     .included-header { margin-bottom: 3rem; }
     .included-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 3rem; }
     .included-col h3 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.1rem; color: var(--text); margin-bottom: 0.5rem; letter-spacing: -0.02em; }
-    .included-col > p { font-family: 'Outfit', sans-serif; font-size: 0.88rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.65; }
+    .included-col > p { font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--muted); margin-bottom: 1.25rem; line-height: 1.65; }
     .included-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
-    .included-list li { font-family: 'Outfit', sans-serif; font-size: 0.87rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem; }
+    .included-list li { font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--muted); display: flex; align-items: flex-start; gap: 0.5rem; line-height: 1.6; }
     .included-list li::before { content: '—'; color: var(--accent); font-weight: 600; flex-shrink: 0; }
 
     /* ===== VIDEO DIVIDER ===== */
@@ -295,7 +296,7 @@
     .faq-list { display: flex; flex-direction: column; border-top: 1px solid var(--border); }
     .faq-item { padding: 2rem 0; border-bottom: 1px solid var(--border); }
     .faq-q { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 1.05rem; color: var(--text); margin-bottom: 0.85rem; letter-spacing: -0.01em; }
-    .faq-a { font-family: 'Outfit', sans-serif; font-size: 0.95rem; color: var(--muted); line-height: 1.75; max-width: 680px; }
+    .faq-a { font-family: 'Outfit', sans-serif; font-size: 1rem; color: var(--muted); line-height: 1.75; max-width: 680px; }
 
     /* ===== CTA SECTION ===== */
     .cta-section { background: var(--bg); padding: 6rem 3rem; text-align: center; }
@@ -364,6 +365,7 @@
     <li><a href="/pricing" class="active" style="color:#EDF3F7;font-weight:500;">Pricing</a></li>
     <li><a href="/about">About</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
   <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -386,7 +388,7 @@
 .pr-head{text-align:center;margin-bottom:1.75rem;}
 .pr-eyebrow{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:#3ECFCF;margin-bottom:0.5rem;font-weight:500;display:block;}
 .pr-head h1{font-family:'DM Serif Display',serif;font-size:clamp(1.7rem,3vw,2.6rem);font-weight:400;letter-spacing:-0.02em;color:#EDF3F7;margin-bottom:0.35rem;}
-.pr-head p{color:#5a7190;font-size:0.85rem;}
+.pr-head p{color:#5a7190;font-size:1rem;line-height:1.6;}
 
 
 
@@ -457,7 +459,7 @@
 .pr-tier-name{font-size:0.58rem;letter-spacing:0.2em;text-transform:uppercase;color:#5a7190;margin-bottom:0.38rem;}
 .pr-tier.feat .pr-tier-name{color:#3ECFCF;}
 .pr-tier-title{font-family:'DM Serif Display',serif;font-size:1.35rem;letter-spacing:-0.02em;color:#EDF3F7;margin-bottom:0.38rem;}
-.pr-tier-hook{font-family:'DM Serif Display',serif;font-style:italic;font-size:0.9rem;color:rgba(237,243,247,0.52);line-height:1.45;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.05);}
+.pr-tier-hook{font-family:'DM Serif Display',serif;font-style:italic;font-size:1rem;color:rgba(237,243,247,0.52);line-height:1.6;margin-bottom:1rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,0.05);}
 .pr-tier.feat .pr-tier-hook{border-bottom-color:rgba(62,207,207,0.08);}
 .pr-tier-feats{list-style:none;display:flex;flex-direction:column;gap:0.48rem;margin-bottom:1.35rem;}
 .pr-tier-feats li{display:flex;align-items:flex-start;gap:0.42rem;font-size:0.8rem;color:#8ba5c0;}
@@ -740,8 +742,7 @@ if(window.innerWidth>860){
         <li><a href="/how-it-works">How it works</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Get in touch</a></li>
       </ul>
     </div>
     <div>
@@ -796,10 +797,6 @@ if(window.innerWidth>860){
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-<script>
-  (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
 </script>
 
 <script>

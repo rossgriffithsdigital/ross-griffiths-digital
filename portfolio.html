@@ -38,6 +38,7 @@
   }
   </script>
 
+  <script src="/assets/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -111,7 +112,7 @@
 
     /* ===== NAV ===== */
     nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      position: fixed; top: 0; left: 0; right: 0; z-index: 9998;
       display: flex; align-items: center; justify-content: space-between;
       padding: 1.6rem 3rem;
       background: transparent;
@@ -251,7 +252,7 @@
     }
     .standard-desc {
       font-family: 'Outfit', sans-serif;
-      font-size: 0.97rem; color: var(--muted); line-height: 1.75;
+      font-size: 1rem; color: var(--muted); line-height: 1.75;
       max-width: 520px;
     }
 
@@ -450,6 +451,7 @@
     <li><a href="/pricing">Pricing</a></li>
     <li><a href="/about">About</a></li>
   </ul>
+  <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
   <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
   <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
     <span></span><span></span><span></span>
@@ -566,8 +568,7 @@
         <li><a href="/how-it-works">How it works</a></li>
         <li><a href="/pricing">Pricing</a></li>
         <li><a href="/about">About</a></li>
-        <li><a href="/portfolio">Portfolio</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="/contact">Get in touch</a></li>
       </ul>
     </div>
     <div>
@@ -622,11 +623,6 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-
-
-<script>
-  (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
 </script>
 
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>

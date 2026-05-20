@@ -27,6 +27,7 @@
   <link rel="canonical" href="https://www.rossgriffithsdigital.com/">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <script src="/assets/theme.js"></script>
   <!-- Fonts: Space Grotesk + Outfit -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -191,22 +192,7 @@
       transition: background-color 0.3s ease, color 0.3s ease;
     }
 
-    /* ── Theme toggle ─────────────────────────────────────────────── */
-    .theme-toggle {
-      background: none;
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      cursor: pointer;
-      font-size: 1rem;
-      line-height: 1;
-      padding: 0.4rem 0.55rem;
-      border-radius: 4px;
-      transition: border-color 0.2s, color 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    /* ── Theme toggle — circular style injected by /assets/theme.js ── */
 
     ::-webkit-scrollbar { width: 4px; }
     ::-webkit-scrollbar-track { background: var(--bg); }
@@ -252,7 +238,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 200;
+      z-index: 9998;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -582,7 +568,7 @@
     }
 
     .service-info p {
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: var(--muted);
       line-height: 1.65;
     }
@@ -627,7 +613,7 @@
     }
 
     .why-body p {
-      font-size: 0.9rem;
+      font-size: 1rem;
       color: var(--muted);
       line-height: 1.75;
     }
@@ -1127,6 +1113,7 @@
       <li><a href="/pricing">Pricing</a></li>
       <li><a href="/about">About</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
     <a class="btn-outline nav-cta" href="/contact"><span>Get in touch</span></a>
     <button class="nav-hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -1567,8 +1554,7 @@
           <li><a href="/how-it-works">How it works</a></li>
           <li><a href="/pricing">Pricing</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/portfolio">Portfolio</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/contact">Get in touch</a></li>
         </ul>
       </div>
       <div>
@@ -1731,27 +1717,6 @@
         span.style.animation = 'fadeUp 0.6s ease-out ' + delay + 's forwards';
         l2.appendChild(span);
         delay += 0.12;
-      });
-    })();
-
-    // ── Theme toggle ────────────────────────────────────────────────
-    (function () {
-      var THEME_KEY = 'rgd-theme';
-      var html      = document.documentElement;
-      var btn       = document.getElementById('theme-toggle');
-      var saved     = localStorage.getItem(THEME_KEY);
-      if (saved) html.setAttribute('data-theme', saved);
-      function sync() {
-        var isDark = html.getAttribute('data-theme') !== 'light';
-        btn.textContent = isDark ? '☽' : '☀︎';
-      }
-      sync();
-      btn.addEventListener('click', function () {
-        var next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        html.setAttribute('data-theme', next);
-        localStorage.setItem(THEME_KEY, next);
-        sync();
-        if (typeof window.recolorParticles === 'function') window.recolorParticles();
       });
     })();
 

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico">
@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="noindex, nofollow">
   <title>Ross &amp; Griffiths Digital — Web Design for Northumberland Businesses</title>
+  <script src="/assets/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
@@ -34,6 +35,18 @@
       --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
       --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
     }
+
+    [data-theme="light"] {
+      --accent:     #006688;
+      --accent-dim: rgba(0, 102, 136, 0.1);
+      --bg:         #EDF3F7;
+      --surface:    #DEDED8;
+      --border:     rgba(0,0,0,0.1);
+      --text-1:     #080C12;
+      --text-2:     #3A3A3A;
+      --text-3:     #666666;
+    }
+    [data-theme="light"] body { background: #EDF3F7; color: #080C12; }
 
     html { scroll-behavior: smooth; }
 
@@ -59,7 +72,7 @@
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 100;
+      z-index: 9998;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -615,7 +628,7 @@
     }
 
     .feature-desc {
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: var(--text-2);
       line-height: 1.7;
     }
@@ -682,7 +695,7 @@
     }
 
     .step-desc {
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: var(--text-2);
       line-height: 1.65;
     }
@@ -755,7 +768,7 @@
     }
 
     .about-body {
-      font-size: 0.95rem;
+      font-size: 1rem;
       color: var(--text-2);
       line-height: 1.75;
     }
@@ -866,8 +879,9 @@
       display: flex;
       align-items: center;
       gap: 0.7rem;
-      font-size: 0.875rem;
+      font-size: 1rem;
       color: var(--text-2);
+      line-height: 1.6;
     }
 
     .check {
@@ -1038,6 +1052,7 @@
       <li><a href="about.html">About</a></li>
       <li><a href="portfolio.html">Portfolio</a></li>
     </ul>
+    <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode"></button>
     <a class="nav-cta" href="contact.html">Get in touch</a>
   </nav>
 

@@ -23,6 +23,7 @@
   <link rel="canonical" href="https://www.rossgriffithsdigital.com/privacy">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Privacy Policy — Ross & Griffiths Digital</title>
+  <script src="/assets/theme.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap">
@@ -101,7 +102,7 @@
     .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
     ::-webkit-scrollbar { width: 4px; } ::-webkit-scrollbar-track { background: var(--bg); } ::-webkit-scrollbar-thumb { background: var(--text-3); border-radius: 4px; }
 
-    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: var(--nav-bg); border-bottom: 1px solid var(--border); transition: background-color 0.3s ease; }
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 9998; display: flex; align-items: center; justify-content: space-between; padding: 1.25rem 3rem; backdrop-filter: blur(18px) saturate(160%); background: var(--nav-bg); border-bottom: 1px solid var(--border); transition: background-color 0.3s ease; }
     .nav-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -119,9 +120,9 @@
 
     .policy-body h2 { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--text-1); margin: 3rem 0 1rem; }
     .policy-body h2:first-child { margin-top: 0; }
-    .policy-body p { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 1rem; }
+    .policy-body p { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 1rem; max-width: 65ch; }
     .policy-body ul { margin: 0.5rem 0 1rem 1.25rem; }
-    .policy-body li { font-size: 0.95rem; color: var(--text-2); line-height: 1.85; margin-bottom: 0.4rem; }
+    .policy-body li { font-size: 1rem; color: var(--text-2); line-height: 1.85; margin-bottom: 0.4rem; }
     .policy-body a { color: var(--accent); text-decoration: none; }
     .policy-body a:hover { text-decoration: underline; }
 
@@ -299,10 +300,6 @@
         banner.classList.remove('visible');
       });
     })();
-  </script>
-
-  <script>
-    (function(){var THEME_KEY='rgd-theme';var html=document.documentElement;var btn=document.getElementById('theme-toggle');var saved=localStorage.getItem(THEME_KEY);if(saved)html.setAttribute('data-theme',saved);function sync(){var isDark=html.getAttribute('data-theme')!=='light';btn.textContent=isDark?'☽':'☀︎';}sync();btn.addEventListener('click',function(){var next=html.getAttribute('data-theme')==='light'?'dark':'light';html.setAttribute('data-theme',next);localStorage.setItem(THEME_KEY,next);sync();});})();
   </script>
 
 <script defer src="https://www.googletagmanager.com/gtag/js?id=G-QVZ1ZBWT41"></script>
