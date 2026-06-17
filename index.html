@@ -1287,6 +1287,8 @@ body{font-size:1rem;line-height:1.65;}
 .hm-available{background:rgba(255,255,255,0.05);color:var(--hm-muted);border:1px solid var(--hm-border);}
 .hm-port-name{font-family:'DM Serif Display',serif;font-size:1.2rem;letter-spacing:-0.02em;color:var(--hm-off-white);margin-bottom:0.25rem;}
 .hm-port-desc{font-size:0.78rem;color:var(--hm-muted);line-height:1.5;font-family:'DM Sans',sans-serif;}
+.hm-port-view{display:inline-flex;align-items:center;font-family:'DM Sans',sans-serif;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;color:#3ECFCF;border:1px solid rgba(62,207,207,0.4);border-radius:100px;padding:0.25rem 0.7rem;transition:background 0.2s,color 0.2s;}
+.hm-port-card:hover .hm-port-view{background:#3ECFCF;color:#080C12;}
 .hm-placeholder{min-height:190px;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:0.5rem;border-bottom:1px solid var(--hm-border);}
 .hm-placeholder-title{font-family:'DM Serif Display',serif;font-size:1.1rem;color:rgba(237,243,247,0.2);}
 .hm-placeholder-sub{font-size:0.7rem;color:var(--hm-muted);font-family:'DM Sans',sans-serif;}
@@ -1473,7 +1475,12 @@ body{font-size:1rem;line-height:1.65;}
       </div>
       <div class="hm-port-img"><img src="BM.webp" alt="Badali Media, built by RGD" loading="lazy" style="width:100%;height:auto;object-fit:cover;display:block;" /></div>
       <div class="hm-port-info">
-        <span class="hm-port-badge hm-live">Live</span>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;margin-bottom:0.25rem;">
+          <span class="hm-port-badge hm-live" style="margin-bottom:0;">Live</span>
+          <span class="hm-port-view">View site
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-left:3px;vertical-align:-1px;"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
+          </span>
+        </div>
         <p class="hm-port-name">Badali Media</p>
         <p class="hm-port-desc">Sports photography for athletes and teams across Northumberland County. Custom build, SEO, contact form, portfolio gallery.</p>
       </div>
@@ -1493,7 +1500,7 @@ body{font-size:1rem;line-height:1.65;}
       <div class="hm-port-info">
         <span class="hm-port-badge hm-progress">In Progress</span>
         <p class="hm-port-name">SP Detailing Co.</p>
-        <p class="hm-port-desc">Full rebrand from JOAT. Custom detailing packages, SEO targeting Cobourg searches. Launching soon.</p>
+        <p class="hm-port-desc">A custom site for a local auto detailing business. Detailing packages, booking, and SEO targeting Cobourg searches. Launching soon.</p>
       </div>
     </div>
     <div class="hm-port-card hm-reveal hm-d2">
