@@ -655,7 +655,7 @@ body{font-size:1rem;line-height:1.65;}
 
       </div>
 
-      <div id="integrationsReveal" style="display:none;">
+      <div id="integrationsReveal">
         <div class="pr-addons pr-reveal-wrap">
           <div class="pr-base-box">
             <div>
@@ -877,11 +877,13 @@ if(window.innerWidth>860){
 
 /* INTEGRATIONS REVEAL */
 try {
-  document.getElementById('exploreIntegrations').addEventListener('click', function() {
-    var reveal = document.getElementById('integrationsReveal');
-    reveal.style.display = 'block';
-    reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  });
+  var exploreBtn = document.getElementById('exploreIntegrations');
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', function() {
+      var target = document.getElementById('integrationsReveal');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 } catch(e) {}
 
 /* TOOLKIT ACCORDION */
