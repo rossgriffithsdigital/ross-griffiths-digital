@@ -525,6 +525,24 @@ body{font-size:1rem;line-height:1.65;}
 .pr-custom-box{margin-top:2rem;padding:1.5rem 2rem;border:1px solid rgba(62,207,207,0.18);border-radius:16px;background:rgba(62,207,207,0.03);}
 .pr-custom-box h3{font-family:'DM Serif Display',serif;font-size:1.1rem;color:#EDF3F7;margin-bottom:0.5rem;}
 .pr-custom-box p{font-size:0.82rem;color:#8ba5c0;line-height:1.6;margin-bottom:1rem;}
+
+.pr-toolkit-label{font-size:0.6rem;letter-spacing:0.22em;text-transform:uppercase;color:#8ba5c0;margin-bottom:1rem;}
+.pr-toolkit-intro{font-size:0.85rem;color:var(--text-secondary);margin-bottom:1.1rem;max-width:60ch;}
+.pr-acc-item{border:1px solid var(--border);border-radius:12px;margin-bottom:0.6rem;overflow:hidden;transition:border-color 0.2s;}
+.pr-acc-item:hover{border-color:rgba(62,207,207,0.4);}
+.pr-acc-head{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:0.95rem 1.15rem;cursor:pointer;font-size:0.95rem;color:var(--text-primary);font-weight:500;user-select:none;}
+.pr-acc-icon{flex-shrink:0;width:18px;height:18px;position:relative;transition:transform 0.25s ease;}
+.pr-acc-icon::before,.pr-acc-icon::after{content:'';position:absolute;top:50%;left:50%;background:#3ECFCF;border-radius:1px;}
+.pr-acc-icon::before{width:14px;height:2px;transform:translate(-50%,-50%);}
+.pr-acc-icon::after{width:2px;height:14px;transform:translate(-50%,-50%);}
+.pr-acc-item.open .pr-acc-icon{transform:rotate(45deg);}
+.pr-acc-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+.pr-acc-item.open .pr-acc-body{max-height:320px;}
+.pr-acc-body-inner{padding:0 1.15rem 1.05rem;}
+.pr-acc-lead{font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.6rem;line-height:1.5;}
+.pr-acc-list{list-style:none;display:flex;flex-direction:column;gap:0.4rem;padding:0;}
+.pr-acc-list li{display:flex;align-items:flex-start;gap:0.5rem;font-size:0.8rem;color:var(--text-muted);line-height:1.45;}
+.pr-acc-list li::before{content:'→';color:#3ECFCF;flex-shrink:0;}
 </style>
 
 <main id="main">
@@ -539,33 +557,6 @@ body{font-size:1rem;line-height:1.65;}
 
     <div class="pr-view" id="prMainView">
       <div class="pr-cards">
-
-        <div class="pr-card" data-pr-tilt>
-          <span class="pr-card-label">Website</span>
-          <p class="pr-card-title">Website Build</p>
-          <span class="pr-struck">$1,499</span>
-          <p class="pr-card-price">$999</p>
-          <p class="pr-price-note">CAD, one-time flat rate</p>
-          <p class="pr-founding-note">Founding rate · first 10 clients</p>
-          <div class="pr-divider"></div>
-          <ul class="pr-facts">
-            <li><span class="pr-chk">&#10003;</span>Custom built, no templates</li>
-            <li><span class="pr-chk">&#10003;</span>Shows up on Google from day one</li>
-            <li><span class="pr-chk">&#10003;</span>You own it outright, no lock-in</li>
-            <li><span class="pr-chk">&#10003;</span>Up to 5 pages, designed around you</li>
-            <li><span class="pr-chk">&#10003;</span>Contact form live on launch</li>
-            <li><span class="pr-chk">&#10003;</span>Mobile-first and fast loading</li>
-          </ul>
-          <div class="pr-maintenance-addon">
-            <span class="pr-addon-label">Optional add-on</span>
-            <p class="pr-addon-title">Monthly Maintenance</p>
-            <p class="pr-addon-price">from $50/mo</p>
-            <p class="pr-addon-desc">For a site that evolves — photo updates, promotions, and revisions, handled.</p>
-          </div>
-          <div class="pr-btn-stack" style="margin-top:1.1rem;">
-            <a href="/contact" class="pr-btn pr-btn-primary" style="text-align:center;text-decoration:none;display:block;">Get started</a>
-          </div>
-        </div>
 
         <div class="pr-card featured" data-pr-tilt>
           <div class="pr-badge">Most Popular</div>
@@ -620,6 +611,33 @@ body{font-size:1rem;line-height:1.65;}
         </div>
 
         <div class="pr-card" data-pr-tilt>
+          <span class="pr-card-label">Website</span>
+          <p class="pr-card-title">Website Build</p>
+          <span class="pr-struck">$1,499</span>
+          <p class="pr-card-price">$999</p>
+          <p class="pr-price-note">CAD, one-time flat rate</p>
+          <p class="pr-founding-note">Founding rate · first 10 clients</p>
+          <div class="pr-divider"></div>
+          <ul class="pr-facts">
+            <li><span class="pr-chk">&#10003;</span>Custom built, no templates</li>
+            <li><span class="pr-chk">&#10003;</span>Shows up on Google from day one</li>
+            <li><span class="pr-chk">&#10003;</span>You own it outright, no lock-in</li>
+            <li><span class="pr-chk">&#10003;</span>Up to 5 pages, designed around you</li>
+            <li><span class="pr-chk">&#10003;</span>Contact form live on launch</li>
+            <li><span class="pr-chk">&#10003;</span>Mobile-first and fast loading</li>
+          </ul>
+          <div class="pr-maintenance-addon">
+            <span class="pr-addon-label">Optional add-on</span>
+            <p class="pr-addon-title">Monthly Maintenance</p>
+            <p class="pr-addon-price">from $50/mo</p>
+            <p class="pr-addon-desc">For a site that evolves — photo updates, promotions, and revisions, handled.</p>
+          </div>
+          <div class="pr-btn-stack" style="margin-top:1.1rem;">
+            <a href="/contact" class="pr-btn pr-btn-primary" style="text-align:center;text-decoration:none;display:block;">Get started</a>
+          </div>
+        </div>
+
+        <div class="pr-card" data-pr-tilt>
           <span class="pr-card-label">Social Media</span>
           <p class="pr-card-title">Social Media Mgmt.</p>
           <p class="pr-card-price">$300</p>
@@ -652,6 +670,109 @@ body{font-size:1rem;line-height:1.65;}
             </div>
             <p class="pr-base-price">$999 <span>CAD, flat</span></p>
           </div>
+
+          <p class="pr-toolkit-label">The Toolkit</p>
+          <p class="pr-toolkit-intro">Everything we can connect to your site. Tap any tool to see how it works.</p>
+          <div class="pr-acc">
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Online booking <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">Let clients book you without the back-and-forth.</p>
+                <ul class="pr-acc-list">
+                  <li>Kills the phone tag and DM threads that eat your day</li>
+                  <li>Takes bookings 24/7, even while you sleep</li>
+                  <li>Cuts no-shows with automatic confirmations</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Smart scheduling <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">A calendar that manages itself and syncs to yours.</p>
+                <ul class="pr-acc-list">
+                  <li>No more double-bookings or manual calendar juggling</li>
+                  <li>Buffers, availability, and time zones handled for you</li>
+                  <li>Syncs with Google Calendar so you have one source of truth</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Digital invoicing <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">Send invoices and get paid faster.</p>
+                <ul class="pr-acc-list">
+                  <li>Stop chasing late payments with automatic reminders</li>
+                  <li>Look professional with branded, itemized invoices</li>
+                  <li>Accept payment online so clients can pay in one click</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">POS &amp; e-commerce <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">Take payments and sell online, right from your site.</p>
+                <ul class="pr-acc-list">
+                  <li>Sell products or services without a separate platform fee</li>
+                  <li>One system for in-person and online sales</li>
+                  <li>Real-time inventory so you never oversell</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Custom client portals <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">A private space for clients to see updates, files, and progress.</p>
+                <ul class="pr-acc-list">
+                  <li>Stop emailing the same files back and forth</li>
+                  <li>Clients self-serve answers instead of calling you</li>
+                  <li>Looks high-end and sets you apart from competitors</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Reminders <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">Automatic nudges so clients never miss an appointment or payment.</p>
+                <ul class="pr-acc-list">
+                  <li>Slash no-shows and late payments without lifting a finger</li>
+                  <li>Reaches clients by text or email, whichever they read</li>
+                  <li>Frees you from being the human reminder system</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Waitlist <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">Fill cancellations automatically instead of chasing people.</p>
+                <ul class="pr-acc-list">
+                  <li>Turn last-minute gaps into booked revenue</li>
+                  <li>Auto-notifies the next person in line the moment a slot opens</li>
+                  <li>Captures demand even when you're fully booked</li>
+                </ul>
+              </div></div>
+            </div>
+
+            <div class="pr-acc-item">
+              <div class="pr-acc-head">Client management <span class="pr-acc-icon"></span></div>
+              <div class="pr-acc-body"><div class="pr-acc-body-inner">
+                <p class="pr-acc-lead">Keep every client conversation and detail in one place.</p>
+                <ul class="pr-acc-list">
+                  <li>No more digging through texts, emails, and sticky notes</li>
+                  <li>See each client's full history at a glance</li>
+                  <li>Never drop a follow-up or forget a detail again</li>
+                </ul>
+              </div></div>
+            </div>
+
+          </div>
+
           <p class="pr-tiers-label">Monthly Add-On Packages</p>
           <div class="pr-tiers">
             <div class="pr-tier visible" id="tab-prt1">
@@ -760,6 +881,15 @@ try {
     var reveal = document.getElementById('integrationsReveal');
     reveal.style.display = 'block';
     reveal.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+} catch(e) {}
+
+/* TOOLKIT ACCORDION */
+try {
+  document.querySelectorAll('.pr-acc-head').forEach(function(head) {
+    head.addEventListener('click', function() {
+      head.closest('.pr-acc-item').classList.toggle('open');
+    });
   });
 } catch(e) {}
 </script>
