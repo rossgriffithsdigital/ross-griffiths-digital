@@ -521,6 +521,12 @@
     @media (max-width: 560px) {
       .service-cards { grid-template-columns: 1fr; }
     }
+    .essentials-detail{margin-top:1rem;padding:1rem 1.15rem;border:1px solid rgba(62,207,207,0.25);border-radius:12px;background:rgba(62,207,207,0.04);}
+    .essentials-detail-label{font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:#3ECFCF;margin-bottom:0.75rem;}
+    .essentials-checks{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem 1rem;}
+    .essentials-check{display:flex;align-items:center;gap:0.5rem;font-size:0.85rem;color:var(--text-secondary,#a9c0d6);cursor:pointer;}
+    .essentials-check input{accent-color:#3ECFCF;width:16px;height:16px;cursor:pointer;}
+    @media(max-width:520px){.essentials-checks{grid-template-columns:1fr;}}
 
     /* ===== FOOTER ===== */
     footer {
@@ -937,6 +943,19 @@ body{font-size:1rem;line-height:1.65;}
             <span class="service-card-desc">No problem, tell us what you're thinking and we'll figure it out together.</span>
           </button>
         </div>
+        <div class="essentials-detail" id="essentialsDetail" style="display:none;">
+          <p class="essentials-detail-label">Which tools are you interested in? <span class="label-optional">(optional, pick any)</span></p>
+          <div class="essentials-checks">
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Online Booking"> <span>Online Booking</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Smart Scheduling"> <span>Smart Scheduling</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Digital Invoicing"> <span>Digital Invoicing</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="POS &amp; E-commerce"> <span>POS &amp; E-commerce</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Client Portals"> <span>Client Portals</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Reminders"> <span>Reminders</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Waitlist"> <span>Waitlist</span></label>
+            <label class="essentials-check"><input type="checkbox" class="ess-cb" value="Client Management"> <span>Client Management</span></label>
+          </div>
+        </div>
         <input type="hidden" id="service" name="service">
         <div class="package-summary" id="packageSummary" style="display:none;">
           <p class="package-summary-label">Your package</p>
@@ -1090,7 +1109,14 @@ body{font-size:1rem;line-height:1.65;}
       li.textContent = price ? name + ' — ' + price : name;
       packageList.appendChild(li);
     });
-    serviceInput.value = selected.map(c => c.dataset.value).join(', ');
+    const essCard = document.getElementById('service-essentials');
+    serviceInput.value = selected.map(c => {
+      if (c === essCard) {
+        const ticked = [...document.querySelectorAll('.ess-cb:checked')].map(cb => cb.value);
+        return ticked.length ? c.dataset.value + ': ' + ticked.join(', ') : c.dataset.value;
+      }
+      return c.dataset.value;
+    }).join(', ');
   }
 
   serviceCards.forEach(card => {
@@ -1107,8 +1133,20 @@ body{font-size:1rem;line-height:1.65;}
         exploreCard.classList.remove('selected');
         card.classList.toggle('selected');
       }
+      const essDetail = document.getElementById('essentialsDetail');
+      const essCard = document.getElementById('service-essentials');
+      if (essCard && essCard.classList.contains('selected')) {
+        essDetail.style.display = 'block';
+      } else {
+        essDetail.style.display = 'none';
+        essDetail.querySelectorAll('.ess-cb').forEach(cb => { cb.checked = false; });
+      }
       updatePackage();
     });
+  });
+
+  document.querySelectorAll('.ess-cb').forEach(cb => {
+    cb.addEventListener('change', updatePackage);
   });
 
   // Form submission
