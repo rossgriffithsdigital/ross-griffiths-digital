@@ -31,7 +31,7 @@
     "@context": "https://schema.org",
     "@type": ["LocalBusiness", "ProfessionalService"],
     "name": "Ross & Griffiths Digital",
-    "description": "Custom website design and development for small businesses in Cobourg and Northumberland County, Ontario. Flat-fee builds, monthly support, digital marketing, and local SEO.",
+    "description": "Custom website builds, business integrations, and social media management for small businesses in Cobourg and Northumberland County, Ontario.",
     "url": "https://www.rossgriffithsdigital.com",
     "email": "cq@rossgriffithsdigital.com",
     "address": {
@@ -904,21 +904,21 @@ body{font-size:1rem;line-height:1.65;}
       <div class="form-group">
         <p class="form-group-label">What are you looking for?</p>
         <div class="service-cards" id="serviceCards">
-          <button type="button" id="service-website" class="service-card" data-value="Website Build ($999 CAD)" data-price="$999 CAD">
+          <button type="button" id="service-website" class="service-card" data-value="Website Build (founding rate, $999 CAD)" data-price="$999 CAD">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div class="service-card-body">
               <span class="service-card-name">Website Build</span>
-              <span class="service-card-price">$999 CAD</span>
+              <span class="service-card-price"><span style="color:#8ba5c0;text-decoration:line-through;margin-right:0.3rem;">$1,499</span><span style="color:#3ECFCF;">$999 CAD</span> <span style="font-size:0.65rem;color:#3ECFCF;border:1px solid rgba(62,207,207,0.3);border-radius:100px;padding:0.1rem 0.5rem;text-transform:uppercase;letter-spacing:0.08em;white-space:nowrap;">Founding rate</span></span>
             </div>
-            <span class="service-card-desc">Custom site built from scratch: up to 5 pages, contact form, SEO, analytics.</span>
+            <span class="service-card-desc">A custom site built around your business. Up to 5 pages, contact form, SEO, analytics. You own it outright.</span>
           </button>
-          <button type="button" id="service-support" class="service-card" data-value="Monthly Support ($50–$150/month)" data-price="from $50/mo">
+          <button type="button" id="service-essentials" class="service-card" data-value="Business Essentials (from $100/mo)" data-price="from $100/mo">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <div class="service-card-body">
-              <span class="service-card-name">Monthly Support</span>
-              <span class="service-card-price">from $50/mo</span>
+              <span class="service-card-name">Business Essentials</span>
+              <span class="service-card-price">from $100/mo <span style="color:#8ba5c0;font-size:0.75em;">· depending on scale</span></span>
             </div>
-            <span class="service-card-desc">Security updates, backups, uptime monitoring, and priority support. Optional add-on. <span class="label-optional">(up to $150 depending on scope)</span></span>
+            <span class="service-card-desc">Booking, payments, client portals, reminders, and more. The tools that make your business run, connected to your site.</span>
           </button>
           <button type="button" id="service-digital-marketing" class="service-card" data-value="Social Media Management ($300 setup, then $250–$500/month)" data-price="$300 setup, then $250–$500/month">
             <div class="service-card-check"><svg width="12" height="9" viewBox="0 0 12 9" fill="none"><path d="M1 4.5L4.5 8 11 1" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -1111,34 +1111,6 @@ body{font-size:1rem;line-height:1.65;}
     });
   });
 
-  // Pre-select card from URL ?plan= param
-  (function() {
-    const planMap = { 'website': 'Website Build', 'monthly-support': 'Monthly Support', 'business-cards': 'Business Cards' };
-    const plan = new URLSearchParams(location.search).get('plan');
-    const label = planMap[plan];
-    if (!label) return;
-    const match = [...serviceCards].find(c => c.querySelector('.service-card-name').textContent === label);
-    if (!match) return;
-    exploreCard.classList.remove('selected');
-    match.classList.add('selected');
-    updatePackage();
-  })();
-
-  // Pre-populate textarea from pricing page URL params (?package=, ?monthly=, ?onetime=)
-  (function() {
-    const params = new URLSearchParams(location.search);
-    const pkg = params.get('package');
-    const monthly = params.get('monthly');
-    const onetime = params.get('onetime');
-    if (!pkg && !monthly && !onetime) return;
-    const parts = [];
-    if (pkg) parts.push('I\'m interested in: ' + pkg + '.');
-    if (monthly && monthly !== '0') parts.push('Monthly total: $' + monthly + '/mo.');
-    if (onetime) parts.push('One-time total: $' + onetime + ' CAD.');
-    const textarea = document.getElementById('message');
-    if (textarea && parts.length) textarea.value = parts.join(' ');
-  })();
-
   // Form submission
   const form = document.getElementById('contactForm');
   const btn = document.getElementById('submitBtn');
@@ -1196,7 +1168,7 @@ body{font-size:1rem;line-height:1.65;}
     }
 
     if (params.get('support') === 'true') {
-      selectCard('service-support');
+      selectCard('service-essentials');
     }
 
     if (params.get('marketing') === 'true') {
