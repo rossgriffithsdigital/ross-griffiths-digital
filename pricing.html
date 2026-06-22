@@ -395,19 +395,29 @@ body{font-size:1rem;line-height:1.65;}
 
 
 
-.pr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;align-items:start;}
+.pr-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;align-items:stretch;}
 
 .pr-card{
   background:#0f1622;
   border:1.5px solid rgba(255,255,255,0.18);
   border-radius:26px;padding:1.75rem;
-  position:relative;transform-style:preserve-3d;
+  position:relative;overflow:hidden;transform-style:preserve-3d;
   will-change:transform;transition:box-shadow 0.3s,transform 0.5s;
+  display:flex;flex-direction:column;
   box-shadow:inset 0 1px 0 rgba(255,255,255,0.05),2px 5px 0 #020610,4px 10px 0 #010408,0 20px 50px rgba(0,0,0,0.5),0 8px 20px rgba(0,0,0,0.3);
 }
 .pr-card::after{content:'';position:absolute;inset:0;border-radius:inherit;background:radial-gradient(circle at var(--lx,50%) var(--ly,-20%),rgba(255,255,255,var(--li,0)) 0%,transparent 65%);pointer-events:none;z-index:2;}
-.pr-card.featured{background:#0a1825;border:2px solid rgba(62,207,207,0.6);}
+.pr-card.featured{background:#0a1825;border:2px solid rgba(62,207,207,0.6);overflow:visible;}
 .pr-card.featured::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:50%;height:1px;background:linear-gradient(90deg,transparent,#3ECFCF,transparent);}
+.pr-spot{position:absolute;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(62,207,207,0.16),transparent 65%);opacity:0;transition:opacity 0.3s;pointer-events:none;z-index:0;transform:translate(-50%,-50%);}
+.pr-card:hover .pr-spot{opacity:1;}
+.pr-card > *:not(.pr-spot){position:relative;z-index:1;}
+.pr-card .pr-badge{position:absolute;z-index:3;}
+.pr-ess-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0.55rem;padding:0.9rem;background:rgba(62,207,207,0.04);border:1px solid rgba(62,207,207,0.12);border-radius:12px;margin-bottom:0.6rem;}
+.pr-ess-ico{display:flex;align-items:center;justify-content:center;aspect-ratio:1;}
+.pr-ess-ico svg{width:60%;height:60%;stroke:#3ECFCF;fill:none;stroke-width:1.6;}
+.pr-ess-caption{font-size:0.8rem;color:var(--text-secondary,#a9c0d6);text-align:center;margin:0.5rem 0 1.1rem;}
+.pr-card > .pr-btn:last-child,.pr-card > .pr-btn-stack:last-child,.pr-card > a.pr-btn:last-child{margin-top:auto;}
 
 
 .pr-badge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:#3ECFCF;color:#080C12;font-size:0.57rem;font-weight:700;letter-spacing:0.17em;text-transform:uppercase;padding:0.28rem 1rem;border-radius:100px;white-space:nowrap;}
@@ -561,58 +571,29 @@ body{font-size:1rem;line-height:1.65;}
       <div class="pr-cards">
 
         <div class="pr-card featured" data-pr-tilt>
+          <div class="pr-spot"></div>
           <div class="pr-badge">Most Popular</div>
           <span class="pr-card-label">Essentials</span>
           <p class="pr-card-title">Business Essentials</p>
           <p class="pr-card-price">$100<sub>/mo</sub></p>
           <p class="pr-price-note">depending on scale</p>
           <div class="pr-divider"></div>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 210" width="100%" style="display:block;margin:0 auto;">
-            <ellipse cx="140" cy="105" rx="96" ry="78" fill="none" stroke="rgba(62,207,207,0.12)" stroke-width="1"/>
-            <ellipse cx="140" cy="105" rx="62" ry="50" fill="none" stroke="rgba(62,207,207,0.18)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="140" y2="34" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="218" y2="64" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="238" y2="120" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="200" y2="172" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="80" y2="172" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="42" y2="120" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="105" x2="62" y2="64" stroke="rgba(62,207,207,0.45)" stroke-width="1"/>
-            <line x1="140" y1="34" x2="218" y2="64" stroke="rgba(62,207,207,0.15)" stroke-width="1"/>
-            <line x1="238" y1="120" x2="200" y2="172" stroke="rgba(62,207,207,0.15)" stroke-width="1"/>
-            <line x1="80" y1="172" x2="42" y2="120" stroke="rgba(62,207,207,0.15)" stroke-width="1"/>
-            <line x1="62" y1="64" x2="42" y2="120" stroke="rgba(62,207,207,0.15)" stroke-width="1"/>
-            <circle cx="140" cy="34" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="140" cy="34" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="140" cy="34" r="5" fill="#3ECFCF"/>
-            <circle cx="218" cy="64" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="218" cy="64" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="218" cy="64" r="5" fill="#5fe3e3"/>
-            <circle cx="238" cy="120" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="238" cy="120" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="238" cy="120" r="5" fill="#3ECFCF"/>
-            <circle cx="200" cy="172" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="200" cy="172" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="200" cy="172" r="5" fill="#5fe3e3"/>
-            <circle cx="80" cy="172" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="80" cy="172" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="80" cy="172" r="5" fill="#3ECFCF"/>
-            <circle cx="42" cy="120" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="42" cy="120" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="42" cy="120" r="5" fill="#5fe3e3"/>
-            <circle cx="62" cy="64" r="13" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="62" cy="64" r="8" fill="rgba(62,207,207,0.2)"/>
-            <circle cx="62" cy="64" r="5" fill="#3ECFCF"/>
-            <circle cx="140" cy="105" r="44" fill="rgba(62,207,207,0.12)"/>
-            <circle cx="140" cy="105" r="36" fill="rgba(62,207,207,0.18)"/>
-            <circle cx="140" cy="105" r="30" fill="#0a121b" stroke="#3ECFCF" stroke-width="1.5"/>
-            <text x="140" y="101" text-anchor="middle" fill="#EDF3F7" font-size="11" font-family="system-ui,sans-serif">Your</text>
-            <text x="140" y="115" text-anchor="middle" fill="#EDF3F7" font-size="11" font-family="system-ui,sans-serif">site</text>
-          </svg>
-          <p class="pr-constellation-caption">Tools that connect to your site and do the work for you.</p>
+          <div class="pr-ess-grid">
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 14"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></span>
+            <span class="pr-ess-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 22h14M5 2h14M17 22v-4l-5-4-5 4v4M7 2v4l5 4 5-4V2"/></svg></span>
+          </div>
+          <p class="pr-ess-caption">Tools that connect to your site and do the work for you.</p>
           <button id="exploreIntegrations" class="pr-btn pr-btn-primary" style="width:100%;text-align:center;cursor:pointer;">Explore integrations</button>
         </div>
 
         <div class="pr-card" data-pr-tilt>
+          <div class="pr-spot"></div>
           <span class="pr-card-label">Website</span>
           <p class="pr-card-title">Website Build</p>
           <span class="pr-struck">$1,499</span>
@@ -634,12 +615,13 @@ body{font-size:1rem;line-height:1.65;}
             <p class="pr-addon-price">from $50/mo</p>
             <p class="pr-addon-desc">For a site that evolves — photo updates, promotions, and revisions, handled.</p>
           </div>
-          <div class="pr-btn-stack" style="margin-top:1.1rem;">
+          <div class="pr-btn-stack">
             <a href="/contact" class="pr-btn pr-btn-primary" style="text-align:center;text-decoration:none;display:block;">Get started</a>
           </div>
         </div>
 
         <div class="pr-card" data-pr-tilt>
+          <div class="pr-spot"></div>
           <span class="pr-card-label">Social Media</span>
           <p class="pr-card-title">Social Media Mgmt.</p>
           <p class="pr-card-price">$300</p>
@@ -838,6 +820,18 @@ if(window.innerWidth>860){
     });
   });
 }
+
+/* SPOTLIGHT FOLLOW */
+try {
+  document.querySelectorAll('.pr-card').forEach(function(card){
+    var spot=card.querySelector('.pr-spot'); if(!spot) return;
+    card.addEventListener('pointermove',function(e){
+      var r=card.getBoundingClientRect();
+      spot.style.left=(e.clientX-r.left)+'px';
+      spot.style.top=(e.clientY-r.top)+'px';
+    });
+  });
+} catch(e) {}
 
 /* INTEGRATIONS REVEAL */
 try {
