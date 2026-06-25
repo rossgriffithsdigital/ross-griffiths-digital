@@ -412,10 +412,14 @@ p + p { margin-top: 1em; }
 }
 
 .hero__title {
-  font-size: clamp(2.75rem, 6vw, 4.25rem);
+  font-size: clamp(2.5rem, 6vw, 4rem);
   color: #fff;
   margin-bottom: 1.25rem;
   overflow: hidden;
+  text-wrap: balance;
+}
+.hero__title-line {
+  display: block;
 }
 .hero__title .word {
   display: inline-block;
@@ -424,7 +428,6 @@ p + p { margin-top: 1em; }
   animation: wordReveal 0.6s var(--ease-out) forwards;
 }
 .hero__title .word + .word { margin-left: 0.25em; }
-.hero__title .word.break { display: block; margin-left: 0; }
 
 .hero__sub {
   max-width: 52ch;
@@ -493,6 +496,48 @@ p + p { margin-top: 1em; }
   color: #FFD166;
   font-size: 0.875rem;
   letter-spacing: 0.05em;
+}
+
+/* Review stat card — solid navy, clickable */
+.glass-card--review {
+  background: rgba(8, 18, 30, 0.96);
+  border-color: rgba(255,255,255,0.18);
+  text-decoration: none;
+  display: block;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.35);
+}
+.glass-card--review:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+  border-color: rgba(255,255,255,0.28);
+}
+.glass-card__review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+.glass-card__review-header .glass-card__label {
+  margin: 0;
+}
+.glass-card__rating {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 0.1rem;
+}
+.glass-card--review .glass-card__value {
+  font-size: 2.75rem;
+  line-height: 1;
+}
+.glass-card--review .glass-card__stars {
+  font-size: 1.125rem;
+  letter-spacing: 0.08em;
+}
+.glass-card__sub--strong {
+  color: rgba(255,255,255,0.92);
+  font-weight: 500;
+  margin-top: 0.5rem;
 }
 
 .glass-card--service {
