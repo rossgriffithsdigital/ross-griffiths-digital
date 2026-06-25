@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://jmhomeservices.ca/sitemap.xml
