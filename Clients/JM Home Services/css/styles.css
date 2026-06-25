@@ -993,7 +993,7 @@ p + p { margin-top: 1em; }
   font-size: 1.25rem;
   margin-bottom: 0.875rem;
 }
-.footer__brand-logo img { height: 40px; width: auto; }
+.footer__brand-logo img { width: 150px; height: auto; }
 .footer__brand-logo .logo-jm { color: var(--orange); font-size: 1.4rem; }
 
 .footer__tagline {
