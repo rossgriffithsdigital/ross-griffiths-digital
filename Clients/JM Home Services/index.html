@@ -120,14 +120,6 @@
 <!-- ── HERO ─────────────────────────────────────────────── -->
 <section class="hero" aria-label="Hero">
   <div class="hero__bg" aria-hidden="true">
-    <!-- TODO: replace hero.mp4 with JM's own footage when provided -->
-    <video
-      class="hero__bg-video"
-      autoplay muted loop playsinline
-      poster="assets/video/hero-poster.jpg"
-      preload="metadata">
-      <source src="assets/video/hero.mp4" type="video/mp4">
-    </video>
     <picture class="hero__bg-fallback">
       <source srcset="assets/images/hero-house.webp" type="image/webp">
       <img src="assets/images/hero-house.jpg"
@@ -136,6 +128,14 @@
            loading="eager"
            fetchpriority="high">
     </picture>
+    <!-- TODO: replace hero.mp4 with JM's own footage when provided -->
+    <video
+      class="hero__bg-video"
+      autoplay muted loop playsinline
+      poster="assets/video/hero-poster.jpg"
+      preload="metadata">
+      <source src="assets/video/hero.mp4" type="video/mp4">
+    </video>
   </div>
   <div class="hero__scrim" aria-hidden="true"></div>
 
