@@ -256,3 +256,113 @@
     }, 700);
   });
 })();
+
+/* ── FAN CAROUSEL ───────────────────────────────────────── */
+(function initFanCarousel() {
+  const layout = document.querySelector('.fan-layout');
+  if (!layout) return;
+
+  const N = 9;
+  const SLOTS = [
+    { rotate: -21, scale: 0.776, tx: -30, ty:  7.3, z:  1 },
+    { rotate: -14, scale: 0.850, tx: -22, ty:  4.0, z:  2 },
+    { rotate:  -7, scale: 0.935, tx: -11, ty:  1.3, z:  3 },
+    { rotate:   0, scale: 1.000, tx:   0, ty:  0.0, z: 10 },
+    { rotate:   7, scale: 0.935, tx:  11, ty:  1.3, z:  3 },
+    { rotate:  14, scale: 0.850, tx:  22, ty:  4.0, z:  2 },
+    { rotate:  21, scale: 0.776, tx:  30, ty:  7.3, z:  1 },
+    { rotate:  28, scale: 0.700, tx:  38, ty:  9.5, z:  0 },
+    { rotate: -28, scale: 0.700, tx: -38, ty:  9.5, z:  0 },
+  ];
+
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    layout.classList.add('fan-layout--reduced');
+    return;
+  }
+
+  const stage   = layout.querySelector('.fan-stage');
+  const cards   = [...stage.querySelectorAll('.fan-card')];
+  const dots    = [...layout.querySelectorAll('.fan-dot')];
+  const prevBtn = layout.querySelector('.fan-prev');
+  const nextBtn = layout.querySelector('.fan-next');
+
+  let center  = 0;
+  let hovered = -1;
+
+  function getFactor() {
+    const w = window.innerWidth;
+    if (w < 480)  return 0.28;
+    if (w < 640)  return 0.38;
+    if (w < 768)  return 0.50;
+    if (w < 1024) return 0.75;
+    return 1.0;
+  }
+
+  function slotOf(idx) {
+    return (idx - center + 3 + N) % N;
+  }
+
+  function place() {
+    const f = getFactor();
+    cards.forEach((card, i) => {
+      const slot    = slotOf(i);
+      const s       = SLOTS[slot];
+      const offStage = slot === 7 || slot === 8;
+
+      let tx    = s.tx * f;
+      let ty    = s.ty * f;
+      let scale = s.scale;
+      let z     = s.z;
+
+      if (!offStage && hovered >= 0) {
+        const hovSlot = slotOf(hovered);
+        if (i === hovered) {
+          ty    -= 1.5 * f;
+          scale *= 1.08;
+          z     += 10;
+        } else if (Math.abs(slot - hovSlot) === 1) {
+          tx += (slot > hovSlot ? 1 : -1) * 0.5 * f;
+        }
+      }
+
+      card.style.transform    = `translate(calc(-50% + ${tx}rem), calc(-50% + ${ty}rem)) rotate(${s.rotate}deg) scale(${scale})`;
+      card.style.zIndex       = z;
+      card.style.opacity      = offStage ? '0' : '1';
+      card.style.pointerEvents = offStage ? 'none' : 'auto';
+      card.dataset.slot       = slot;
+    });
+
+    dots.forEach((dot, i) => dot.classList.toggle('active', i === center));
+  }
+
+  place();
+  requestAnimationFrame(() => layout.classList.add('fan-active'));
+
+  function go(delta) {
+    center  = (center + delta + N) % N;
+    hovered = -1;
+    place();
+  }
+
+  prevBtn && prevBtn.addEventListener('click', () => go(-1));
+  nextBtn && nextBtn.addEventListener('click', () => go(1));
+
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => { center = i; hovered = -1; place(); });
+  });
+
+  cards.forEach((card, i) => {
+    card.addEventListener('click', () => {
+      if (parseInt(card.dataset.slot, 10) === 3) return;
+      center = i; hovered = -1; place();
+    });
+    card.addEventListener('mouseenter', () => { hovered = i; place(); });
+    card.addEventListener('mouseleave', () => { hovered = -1; place(); });
+  });
+
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(place, 150);
+  }, { passive: true });
+})();
