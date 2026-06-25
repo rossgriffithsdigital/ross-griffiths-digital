@@ -1012,7 +1012,7 @@ p + p { margin-top: 1em; }
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 38px; height: 38px;
+  width: 44px; height: 44px;
   border-radius: 50%;
   background: rgba(255,255,255,0.08);
   color: rgba(255,255,255,0.7);
@@ -1502,7 +1502,7 @@ p + p { margin-top: 1em; }
 }
 .video-slot__label {
   font-size: 0.8125rem;
-  color: var(--text-muted);
+  color: rgba(255,255,255,0.55);
   font-family: 'Outfit', sans-serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -1633,8 +1633,8 @@ p + p { margin-top: 1em; }
   padding: 0;
 }
 .fan-dot {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: rgba(255,255,255,0.25);
   border: none;
@@ -1670,7 +1670,6 @@ p + p { margin-top: 1em; }
 @media (max-width: 640px) {
   .work-videos { gap: 1.25rem; }
   .video-placeholder { border-radius: 0.5rem; }
-  .fan-layout { height: clamp(280px, 80vw, 380px); }
   .fan-stage {
     width: clamp(140px, 52vw, 220px);
     height: clamp(180px, 65vw, 280px);
@@ -1732,6 +1731,13 @@ p + p { margin-top: 1em; }
   to   { opacity: 1; transform: none; }
 }
 
+/* About page team grid (responsive 2-col → 1-col) */
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
 /* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 960px) {
   .nav__links { display: none; }
@@ -1790,6 +1796,8 @@ p + p { margin-top: 1em; }
   .hero__ctas { flex-direction: column; }
   .hero__ctas .btn { justify-content: center; }
 
+  .team-grid { grid-template-columns: 1fr; }
+
   .footer__grid { grid-template-columns: 1fr; }
   .footer__bottom { flex-direction: column; text-align: center; }
 }
@@ -1798,6 +1806,17 @@ p + p { margin-top: 1em; }
   .trust-bar__item { border-right: none; padding: 0.25rem 0.75rem; }
   .hero__cards { flex-direction: column; }
   .glass-card { min-width: 0; max-width: 100%; }
+
+  /* Areas list: 1 column so long city names ("Prince Edward County") don't overflow */
+  .areas__list { grid-template-columns: 1fr; }
+
+  /* Fan controls: tighten spacing to fit in narrow viewports */
+  .fan-controls { gap: 1rem; }
+  .fan-prev,
+  .fan-next { width: 40px; height: 40px; }
+
+  /* Allow long button text to wrap rather than overflow the viewport */
+  .btn { white-space: normal; justify-content: center; text-align: center; }
 }
 
 /* ── PREFERS REDUCED MOTION ─────────────────────────────── */
