@@ -7,12 +7,13 @@ import HeroShowcase from "@/components/HeroShowcase";
 import EssentialsGrid from "@/components/EssentialsGrid";
 import { Reveal, SplitHeading, MagneticButton } from "@/components/Motion";
 import {
+  HOME_TOWNS,
   BUILD,
   SUPPORT,
   ESSENTIALS,
   ESSENTIALS_PRICE,
   PROJECTS,
-  TOWNS,
+
   HOURS,
 } from "@/lib/content";
 
@@ -330,9 +331,15 @@ export default function Home() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-[13px] text-mute-dim">We build for</p>
+                  <p className="text-[13px] text-mute-dim">Home turf</p>
                   <p className="mt-1 text-[1.05rem] text-paper">
-                    {TOWNS.join(", ")}.
+                    {HOME_TOWNS.join(", ")}.
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[13px] text-mute-dim">Also building in</p>
+                  <p className="mt-1 text-[1.05rem] text-paper">
+                    Kingston, Waterloo and London.
                   </p>
                 </div>
               </div>

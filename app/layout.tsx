@@ -59,6 +59,9 @@ const schema = {
     "Colborne",
     "Trenton",
     "Campbellford",
+    "Kingston",
+    "Waterloo",
+    "London",
     "Northumberland County",
   ].map((n) => ({ "@type": "City", name: n })),
   address: {

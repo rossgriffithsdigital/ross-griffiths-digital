@@ -7,7 +7,14 @@ export const TOWNS = [
   "Colborne",
   "Trenton",
   "Campbellford",
+  "Kingston",
+  "Waterloo",
+  "London",
 ];
+
+/* Home turf — used where a short, local-SEO-weighted list reads better
+   than the full nine. */
+export const HOME_TOWNS = TOWNS.slice(0, 6);
 
 /* ── Core build ───────────────────────────────────────────── */
 

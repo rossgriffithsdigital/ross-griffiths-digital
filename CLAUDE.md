@@ -8,7 +8,7 @@ Vercel. Contains a dynamic API route — do NOT add `output: 'export'` to
 
 ## Business facts (never invent or change)
 - **Name:** Ross & Griffiths Digital, Cobourg, Ontario
-- **Service area:** Cobourg, Port Hope, Brighton, Colborne, Trenton, Campbellford
+- **Service area:** Cobourg, Port Hope, Brighton, Colborne, Trenton, Campbellford (home turf), plus Kingston, Waterloo and London
 - **Rate:** $999 CAD flat (founding rate — described as temporary in copy)
 - **Reply window:** Same day, 9 AM – 7 PM, every day
 - **Live client:** badalimedia.com — sports photography portfolio

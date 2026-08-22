@@ -49,6 +49,11 @@ export default function ProjectCarousel({
   const [i, setI] = useState(0);
   const current = projects[i % projects.length];
 
+  /* Swiper's loop needs more slides than are visible at once, or it stalls
+     at the ends. Three projects across a coverflow viewport isn't enough,
+     so the set is repeated — realIndex still maps back to the original. */
+  const slides = [...projects, ...projects, ...projects];
+
   return (
     <div>
       <style>{CSS}</style>
@@ -62,7 +67,8 @@ export default function ProjectCarousel({
         loop
         slidesPerView="auto"
         spaceBetween={28}
-        autoplay={{ delay: 3800, disableOnInteraction: true }}
+        autoplay={{ delay: 3800, disableOnInteraction: false, pauseOnMouseEnter: true }}
+        loopAdditionalSlides={projects.length}
         coverflowEffect={{
           rotate: 0,
           stretch: 0,
@@ -71,10 +77,10 @@ export default function ProjectCarousel({
           slideShadows: false,
         }}
         pagination={{ clickable: true }}
-        onSlideChange={(s) => setI(s.realIndex)}
+        onSlideChange={(s) => setI(s.realIndex % projects.length)}
       >
-        {projects.map((p) => (
-          <SwiperSlide key={p.slug}>
+        {slides.map((p, idx) => (
+          <SwiperSlide key={`${p.slug}-${idx}`}>
             <Link href="/work" className="group block">
               <div
                 className="relative aspect-[16/10] overflow-hidden rounded-sm"

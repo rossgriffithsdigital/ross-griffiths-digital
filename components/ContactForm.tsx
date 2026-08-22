@@ -5,7 +5,7 @@ import { useState } from "react";
 type State = "idle" | "sending" | "sent" | "error";
 
 const FIELD =
-  "w-full border-b border-[rgba(10,10,12,0.2)] bg-transparent py-3 text-ink placeholder:text-ink-55 focus:border-ink focus:outline-none";
+  "w-full border-b border-[var(--color-hair)] bg-transparent py-3 text-paper placeholder:text-mute-dim/60 focus:border-teal focus:outline-none transition-colors";
 
 export default function ContactForm() {
   const [state, setState] = useState<State>("idle");
@@ -54,9 +54,9 @@ export default function ContactForm() {
 
   if (state === "sent") {
     return (
-      <div className="border-l-2 border-teal bg-[rgba(62,207,207,0.08)] p-7">
-        <p className="display text-[1.75rem] text-ink">Message received.</p>
-        <p className="mt-2 text-ink-70">
+      <div className="border-l-2 border-teal bg-[rgba(62,207,207,0.07)] p-7">
+        <p className="display text-[1.75rem] text-paper">Message received.</p>
+        <p className="mt-2 text-mute">
           You&apos;ll hear back from us today. We answer between 9 AM and
           7 PM, every day — that&apos;s a person, not an autoresponder.
         </p>
@@ -68,13 +68,13 @@ export default function ContactForm() {
     <form onSubmit={onSubmit} noValidate className="space-y-7">
       <div className="grid gap-7 sm:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-[13px] text-ink-55">
+          <label htmlFor="name" className="text-[13px] text-mute-dim">
             Your name
           </label>
           <input id="name" name="name" className={FIELD} placeholder="Sam Patel" />
         </div>
         <div>
-          <label htmlFor="business" className="text-[13px] text-ink-55">
+          <label htmlFor="business" className="text-[13px] text-mute-dim">
             Business <span className="opacity-60">(optional)</span>
           </label>
           <input
@@ -88,7 +88,7 @@ export default function ContactForm() {
 
       <div className="grid gap-7 sm:grid-cols-2">
         <div>
-          <label htmlFor="email" className="text-[13px] text-ink-55">
+          <label htmlFor="email" className="text-[13px] text-mute-dim">
             Email
           </label>
           <input
@@ -100,7 +100,7 @@ export default function ContactForm() {
           />
         </div>
         <div>
-          <label htmlFor="phone" className="text-[13px] text-ink-55">
+          <label htmlFor="phone" className="text-[13px] text-mute-dim">
             Phone
           </label>
           <input
@@ -114,7 +114,7 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="text-[13px] text-ink-55">
+        <label htmlFor="message" className="text-[13px] text-mute-dim">
           What are you trying to do?
         </label>
         <textarea
@@ -126,9 +126,9 @@ export default function ContactForm() {
         />
       </div>
 
-      {err && <p className="text-[14px] text-[#b3382b]">{err}</p>}
+      {err && <p className="text-[14px] text-[#ff8b7d]">{err}</p>}
       {state === "error" && (
-        <p className="text-[14px] text-[#b3382b]">
+        <p className="text-[14px] text-[#ff8b7d]">
           Something broke on our end. Email us directly instead.
         </p>
       )}
@@ -136,7 +136,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={state === "sending"}
-        className="rounded-sm bg-ink px-8 py-4 text-[15px] font-medium text-paper transition-opacity hover:opacity-85 disabled:opacity-50"
+        className="rounded-sm bg-teal px-8 py-4 text-[15px] font-medium text-ink transition-opacity hover:opacity-85 disabled:opacity-50"
       >
         {state === "sending" ? "Sending…" : "Send it"}
       </button>

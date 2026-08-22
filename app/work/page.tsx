@@ -3,7 +3,7 @@ import Link from "next/link";
 import Nav from "@/components/Nav";
 import WorkGallery from "@/components/WorkGallery";
 import { Reveal } from "@/components/Motion";
-import { PROJECTS, TOWNS } from "@/lib/content";
+import { PROJECTS, HOME_TOWNS } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Our work",
@@ -41,9 +41,11 @@ export default function WorkPage() {
           <div className="shell max-w-[720px] text-center">
             <h2 className="display text-h2">Yours could be next.</h2>
             <p className="mt-5 text-ink-70">
-              We build for {TOWNS.slice(0, -1).join(", ")} and{" "}
-              {TOWNS[TOWNS.length - 1]}. Tell us what you need and we&apos;ll
-              tell you straight whether we&apos;re the right people for it.
+              We build across {HOME_TOWNS.slice(0, -1).join(", ")} and{" "}
+              {HOME_TOWNS[HOME_TOWNS.length - 1]} — and further afield in
+              Kingston, Waterloo and London. Tell us what you need and
+              we&apos;ll tell you straight whether we&apos;re the right people
+              for it.
             </p>
             <Link
               href="/#contact"
