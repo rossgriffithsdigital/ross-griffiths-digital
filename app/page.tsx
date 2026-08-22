@@ -2,13 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import Nav from "@/components/Nav";
 import ContactForm from "@/components/ContactForm";
-import WorkCarousel from "@/components/WorkCarousel";
-import {
-  Reveal,
-  SplitHeading,
-  MagneticButton,
-  Marquee,
-} from "@/components/Motion";
+import ProjectCarousel from "@/components/ProjectCarousel";
+import HeroShowcase from "@/components/HeroShowcase";
+import EssentialsGrid from "@/components/EssentialsGrid";
+import { Reveal, SplitHeading, MagneticButton } from "@/components/Motion";
 import {
   BUILD,
   SUPPORT,
@@ -105,42 +102,9 @@ export default function Home() {
               </dl>
             </div>
 
-            <Link
-              href="/work"
-              className="group relative block overflow-hidden rounded-sm border border-[var(--color-hair)]"
-            >
-              <Image
-                src={featured.image!}
-                alt="The Badali Media website"
-                width={1600}
-                height={904}
-                priority
-                className="w-full transition-transform duration-700 group-hover:scale-[1.03]"
-              />
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/80 to-transparent px-6 pb-5 pt-16">
-                <p className="text-[13px] text-teal">
-                  Live · Sports photography
-                </p>
-                <p className="display mt-1 text-[1.5rem] text-paper">
-                  Badali Media
-                </p>
-              </div>
-            </Link>
+            <HeroShowcase projects={PROJECTS} />
           </div>
         </section>
-
-        <div className="border-y border-[var(--color-hair)]">
-          <Marquee
-            items={[
-              ...TOWNS,
-              "Online booking",
-              "Digital invoicing",
-              "E-commerce",
-              "Local SEO",
-              "Waitlists",
-            ]}
-          />
-        </div>
 
         {/* ───────────── The offer ───────────── */}
         <section id="services" className="bg-paper py-28 text-ink">
@@ -227,27 +191,8 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="mt-16 space-y-px">
-              {ESSENTIALS.map((e, i) => (
-                <Reveal
-                  key={e.name}
-                  delay={i * 45}
-                  className="grid gap-4 border-t border-[var(--color-hair)] py-9 md:grid-cols-[auto_1fr_1.3fr] md:gap-10"
-                >
-                  <span className="display text-[1.1rem] text-mute-dim opacity-50">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <div>
-                    <h3 className="display text-[1.5rem] text-paper">
-                      {e.name}
-                    </h3>
-                    <p className="mt-2 text-[15px] italic text-teal opacity-90">
-                      {e.problem}
-                    </p>
-                  </div>
-                  <p className="text-mute">{e.detail}</p>
-                </Reveal>
-              ))}
+            <div className="mt-16">
+              <EssentialsGrid items={ESSENTIALS} />
             </div>
 
             <div className="mt-14 border-t border-[var(--color-hair)] pt-10">
@@ -264,19 +209,11 @@ export default function Home() {
         {/* ───────────── Work teaser ───────────── */}
         <section className="bg-paper py-24 text-ink">
           <div className="shell">
-            <div className="flex flex-wrap items-end justify-between gap-6">
-              <h2 className="display text-h2 max-w-[14ch]">
-                Things we&apos;ve built.
-              </h2>
-              <Link
-                href="/work"
-                className="border-b border-ink pb-1 font-medium transition-opacity hover:opacity-60"
-              >
-                See the full portfolio →
-              </Link>
-            </div>
+            <h2 className="display text-h2 max-w-[14ch]">
+              Things we&apos;ve built.
+            </h2>
             <div className="mt-12">
-              <WorkCarousel projects={PROJECTS} />
+              <ProjectCarousel projects={PROJECTS} />
             </div>
           </div>
         </section>

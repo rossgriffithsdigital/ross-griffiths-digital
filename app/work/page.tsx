@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Nav from "@/components/Nav";
 import WorkGallery from "@/components/WorkGallery";
-import { Marquee, Reveal } from "@/components/Motion";
+import { Reveal } from "@/components/Motion";
 import { PROJECTS, TOWNS } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -32,13 +32,6 @@ export default function WorkPage() {
             three real things than pad a page with logos.
           </p>
         </section>
-
-        <div className="border-y border-[var(--color-hair)]">
-          <Marquee
-            items={["Custom builds", "E-commerce", "Local SEO", "Booking systems", "Invoicing", "No templates"]}
-            speed={36}
-          />
-        </div>
 
         <section className="shell py-24">
           <WorkGallery projects={PROJECTS} />
