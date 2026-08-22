@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { EMAIL, PHONE, PHONE_HREF } from "@/lib/content";
 
 type State = "idle" | "sending" | "sent" | "error";
 
@@ -54,12 +55,63 @@ export default function ContactForm() {
 
   if (state === "sent") {
     return (
-      <div className="border-l-2 border-teal bg-[rgba(62,207,207,0.07)] p-7">
-        <p className="display text-[1.75rem] text-paper">Message received.</p>
-        <p className="mt-2 text-mute">
-          You&apos;ll hear back from us today. We answer between 9 AM and
-          7 PM, every day — that&apos;s a person, not an autoresponder.
+      <div className="border-l-2 border-teal bg-[rgba(62,207,207,0.07)] p-9">
+        <p className="display text-[1.9rem] text-paper">Message received.</p>
+        <p className="mt-3 max-w-[52ch] text-mute">
+          You&apos;ll hear back from us today. We answer between 9 AM and 7 PM,
+          every day — that&apos;s a person, not an autoresponder.
         </p>
+
+        <div className="mt-9 space-y-6">
+          <p className="text-[13px] text-mute-dim">What happens next</p>
+          {[
+            [
+              "01",
+              "We read it properly",
+              "Not a template reply. If we've got a question about your business, we'll ask it.",
+            ],
+            [
+              "02",
+              "A conversation, not a pitch",
+              "A phone call or a coffee in Cobourg. We work out what's actually costing you time.",
+            ],
+            [
+              "03",
+              "A straight answer",
+              "Including whether we're the wrong people for it. If we are, we'll point you somewhere better.",
+            ],
+          ].map(([n, t, d]) => (
+            <div key={n} className="flex gap-5">
+              <span className="display text-[1rem] text-teal opacity-70">
+                {n}
+              </span>
+              <div>
+                <p className="text-paper">{t}</p>
+                <p className="mt-1 max-w-[46ch] text-[15px] text-mute">{d}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-9 border-t border-[var(--color-hair)] pt-6">
+          <p className="text-[13px] text-mute-dim">
+            In a hurry? Skip the queue.
+          </p>
+          <div className="mt-3 flex flex-wrap gap-x-8 gap-y-2">
+            <a
+              href={`tel:${PHONE_HREF}`}
+              className="display text-[1.4rem] text-teal transition-opacity hover:opacity-75"
+            >
+              {PHONE}
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="self-center text-mute underline decoration-[var(--color-hair)] underline-offset-4 transition-colors hover:decoration-teal"
+            >
+              {EMAIL}
+            </a>
+          </div>
+        </div>
       </div>
     );
   }

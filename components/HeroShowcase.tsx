@@ -28,7 +28,7 @@ export default function HeroShowcase({ projects }: { projects: Project[] }) {
         href="/work"
         className="group relative block overflow-hidden rounded-sm border border-[var(--color-hair)]"
       >
-        <div className="relative aspect-[16/10]">
+        <div className="relative aspect-[16/10] lg:aspect-[4/5]">
           {shown.map((p, idx) => (
             <Image
               key={p.slug}
@@ -37,7 +37,7 @@ export default function HeroShowcase({ projects }: { projects: Project[] }) {
               fill
               priority={idx === 0}
               sizes="(max-width: 1024px) 100vw, 46vw"
-              className="object-cover object-left-top transition-opacity duration-[900ms] ease-out"
+              className="object-cover object-top transition-opacity duration-[900ms] ease-out"
               style={{ opacity: idx === i ? 1 : 0 }}
             />
           ))}

@@ -20,6 +20,8 @@ Vercel. Contains a dynamic API route — do NOT add `output: 'export'` to
 - **Contact:** Phone 905 207-3396. Email is defined once in lib/content.ts as EMAIL — never hardcode it elsewhere.
 - **Reviews:** Google rating is displayed with the honest review count. Never inflate the count and never add aggregateRating JSON-LD.
 - **Hero headline:** "Your business deserves a better website." This is the client's chosen line and is FINAL. Note the spelling is "Your", not "You're".
+- **Analytics:** Google Analytics 4 via components/Analytics.tsx, gated behind Consent Mode v2. analytics_storage and ad_storage both default to DENIED; analytics_storage flips to granted only when the visitor clicks Accept. Requires NEXT_PUBLIC_GA_ID in Vercel (the NEXT_PUBLIC_ prefix is mandatory — without it the value never reaches the browser). Never load GA unconditionally and never enable ad_storage.
+- **Legal:** /privacy is a live legal page describing real data handling. If the contact form fields change, or a new third party touches user data, /privacy must be updated in the same commit.
 
 ## Locked design tokens
 Match printed business cards. **Never change values or variable names.**
@@ -141,3 +143,5 @@ npm audit         security check — run after any dep change
 - [ ] No particle/canvas/glow/glassmorphism effect added
 - [ ] Section alternation: at least every third section is `bg-paper`
 - [ ] All copy matches business facts listed above
+- [ ] Privacy policy still matches what the site actually collects
+- [ ] No analytics or tracking fires before consent

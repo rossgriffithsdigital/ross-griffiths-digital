@@ -336,6 +336,44 @@ export default function Home() {
               <div className="mt-8">
                 <GoogleRating tone="ink" />
               </div>
+
+              <div className="mt-10 border-t border-[rgba(10,10,12,.14)] pt-8">
+                <p className="display text-[1.4rem]">Still not sure?</p>
+                <p className="mt-3 max-w-[32ch] text-[15px] text-ink-70">
+                  Ask us anything, including whether we&apos;re the wrong people
+                  for the job. We&apos;d rather tell you that now than take your
+                  money and find out later.
+                </p>
+
+                <div className="mt-7 space-y-4">
+                  <div>
+                    <p className="text-[13px] text-ink-55">Call or text</p>
+                    <a
+                      href={`tel:${PHONE_HREF}`}
+                      className="display text-[1.55rem] transition-opacity hover:opacity-60"
+                    >
+                      {PHONE}
+                    </a>
+                  </div>
+                  <div>
+                    <p className="text-[13px] text-ink-55">Email</p>
+                    <a
+                      href={`mailto:${EMAIL}`}
+                      className="break-all border-b border-[rgba(10,10,12,.25)] pb-0.5 text-[15px] transition-colors hover:border-ink"
+                    >
+                      {EMAIL}
+                    </a>
+                  </div>
+                </div>
+
+                <div className="mt-8 rounded-sm bg-[rgba(10,10,12,.05)] p-5">
+                  <p className="text-[13px] text-ink-55">Reply time</p>
+                  <p className="mt-1 text-[15px] text-ink-70">
+                    Same day, 9 AM – 7 PM, every day. From one of us, not a
+                    ticketing system.
+                  </p>
+                </div>
+              </div>
             </div>
             <Faq items={FAQS} />
           </div>
@@ -410,6 +448,9 @@ export default function Home() {
               <a href="#pricing" className="hover:text-teal">
                 Pricing
               </a>
+              <Link href="/privacy" className="hover:text-teal">
+                Privacy
+              </Link>
             </nav>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px]">
               <a

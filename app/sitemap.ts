@@ -9,6 +9,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: "https://rossgriffithsdigital.com/privacy",
+      lastModified: new Date(),
+      changeFrequency: "yearly",
+      priority: 0.3,
+    },
+    {
       url: "https://rossgriffithsdigital.com/work",
       lastModified: new Date(),
       changeFrequency: "monthly",

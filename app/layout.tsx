@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
 import { EMAIL, PHONE, FAQS } from "@/lib/content";
+import Analytics from "@/components/Analytics";
 
 const instrument = Instrument_Serif({
   subsets: ["latin"],
@@ -117,6 +118,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
