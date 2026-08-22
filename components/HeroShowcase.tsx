@@ -26,9 +26,25 @@ export default function HeroShowcase({ projects }: { projects: Project[] }) {
     >
       <Link
         href="/work"
-        className="group relative block overflow-hidden rounded-sm border border-[var(--color-hair)]"
+        className="group relative block overflow-hidden rounded-sm border border-[var(--color-hair)] bg-card"
       >
-        <div className="relative aspect-[16/10] lg:aspect-[4/5]">
+        {/* browser chrome — adds height honestly instead of cropping the shot */}
+        <div className="flex items-center gap-3 border-b border-[var(--color-hair)] px-4 py-3">
+          <span className="flex gap-1.5">
+            {["#3ecfcf", "#b0c4d0", "#93aec0"].map((c) => (
+              <span
+                key={c}
+                className="h-2 w-2 rounded-full opacity-40"
+                style={{ background: c }}
+              />
+            ))}
+          </span>
+          <span className="flex-1 truncate rounded-sm bg-ink/60 px-3 py-1 text-[11px] text-mute-dim">
+            {active.href ? active.href.replace("https://", "") : "preview"}
+          </span>
+        </div>
+
+        <div className="relative aspect-[16/10]">
           {shown.map((p, idx) => (
             <Image
               key={p.slug}
@@ -42,19 +58,16 @@ export default function HeroShowcase({ projects }: { projects: Project[] }) {
             />
           ))}
 
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink via-ink/85 to-transparent px-6 pb-5 pt-20">
-            <p
-              className="text-[13px]"
-              style={{ color: active.accent === "#3ecfcf" ? "#3ecfcf" : undefined }}
-            >
-              <span className="text-teal">
-                {active.status} · {active.sector}
-              </span>
-            </p>
-            <p className="display mt-1 text-[1.5rem] text-paper">
-              {active.name}
-            </p>
-          </div>
+        </div>
+
+        <div className="border-t border-[var(--color-hair)] px-6 py-5">
+          <p className="text-[13px] text-teal">
+            {active.status} · {active.sector}
+          </p>
+          <p className="display mt-1 text-[1.5rem] text-paper">{active.name}</p>
+          <p className="mt-2 max-w-[46ch] text-[14px] leading-relaxed text-mute">
+            {active.summary}
+          </p>
         </div>
       </Link>
 
