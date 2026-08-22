@@ -10,10 +10,14 @@ Vercel. Contains a dynamic API route — do NOT add `output: 'export'` to
 - **Name:** Ross & Griffiths Digital, Cobourg, Ontario
 - **Service area:** Cobourg, Port Hope, Brighton, Colborne, Trenton, Campbellford
 - **Rate:** $999 CAD flat (founding rate — described as temporary in copy)
-- **Reply window:** Same day, 7–9 PM, every day
+- **Reply window:** Same day, 9 AM – 7 PM, every day
 - **Live client:** badalimedia.com — sports photography portfolio
 - **Integrations partner:** Software engineer at Microsoft (day job)
 - **Process:** Talk → Design & build → Client approves → Launch
+- **Currency:** All prices are CAD. Always write the currency explicitly — "$999 CAD", never a bare "$999".
+- **Services:** (1) Website build $999 CAD flat. (2) Monthly support $50 CAD/mo, up to 3 revisions; extras quoted. (3) Business Essentials from $100 CAD/mo, priced on scale. **Social media management was DISCONTINUED — never reintroduce it.**
+- **Hosting:** Never name the host publicly. Say "hosting configured and the backend secured".
+- **Hero headline:** "Your business deserves a better website." This is the client's chosen line and is FINAL. Note the spelling is "Your", not "You're".
 
 ## Locked design tokens
 Match printed business cards. **Never change values or variable names.**
@@ -41,8 +45,10 @@ Derived tokens (`paper-2`, `ink-70`, `ink-55`, `hair`, `hair-dark`) may be tuned
 1. **No particle/constellation/animated-canvas backgrounds.** Ever.
 2. **No uppercase letter-spaced eyebrow labels** above section headings.
    Use numerals (`01/02/03`) and `.rule` hairlines for hierarchy instead.
-3. **No glow, gradient-mesh, neon, or glassmorphism.** The teal radial in the
-   hero at `opacity-[0.07]` is the ceiling — do not exceed it.
+3. **Motion and interaction ARE wanted** — scroll reveals, marquees, carousels,
+   magnetic buttons. All motion must respect `prefers-reduced-motion`. Still
+   banned: glow, gradient-mesh, neon, glassmorphism, particle canvases. The
+   teal radial in the hero at `opacity-[0.07]` is the ceiling — do not exceed it.
 4. **Alternate light and dark sections so the page is never wall-to-wall dark.**
    `bg-navy` counts as a tonal break between two ink sections, not as a light
    section. At least every third section should be `bg-paper`.
@@ -63,11 +69,17 @@ app/
   globals.css           @theme tokens, @layer base/utilities, keyframes
   layout.tsx            Fonts, metadata, ProfessionalService JSON-LD schema
   page.tsx              Single-page site (all sections inline)
+  work/page.tsx         Portfolio gallery + carousel
   robots.ts / sitemap.ts
   api/contact/route.ts  POST handler — wire to Resend before launch (see TODO)
 components/
   Nav.tsx               Sticky nav, scroll-solidify, mobile hamburger
   ContactForm.tsx       Client form, inline validation, 4-state machine
+  Motion.tsx            Scroll-reveal, reduced-motion system
+  WorkGallery.tsx       Portfolio grid
+  WorkCarousel.tsx      Portfolio carousel
+lib/
+  content.ts            Case study / work data
 ```
 
 ## Copy status — NOT FINAL
@@ -77,12 +89,12 @@ particular is unresolved and pending rewrite. Do not treat existing copy as
 approved. Business facts listed above ARE accurate and must be preserved
 through any rewrite.
 
-## Planned routes — not yet built
+## Planned routes
 ```
-/work/badali-media            full case study
+/work                         BUILT — portfolio gallery + carousel
+/work/badali-media            full case study (not yet built)
 /services/website-build
 /services/business-essentials
-/services/social-media
 /web-design/[town]            generated: cobourg, port-hope, brighton,
                               colborne, trenton, campbellford
 /pricing

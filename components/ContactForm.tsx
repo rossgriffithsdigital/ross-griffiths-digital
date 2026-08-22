@@ -16,14 +16,19 @@ export default function ContactForm() {
     const fd = new FormData(e.currentTarget);
     const name = String(fd.get("name") || "").trim();
     const email = String(fd.get("email") || "").trim();
+    const phone = String(fd.get("phone") || "").trim();
     const message = String(fd.get("message") || "").trim();
 
-    if (!name || !email || !message) {
-      setErr("Fill in your name, email, and a short message.");
+    if (!name || !email || !phone || !message) {
+      setErr("Fill in your name, email, phone number, and a short message.");
       return;
     }
     if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
       setErr("That email address doesn't look right.");
+      return;
+    }
+    if (phone.replace(/\D/g, "").length < 10) {
+      setErr("That phone number looks too short — include the area code.");
       return;
     }
 
@@ -36,6 +41,7 @@ export default function ContactForm() {
         body: JSON.stringify({
           name,
           email,
+          phone,
           business: fd.get("business"),
           message,
         }),
@@ -51,8 +57,8 @@ export default function ContactForm() {
       <div className="border-l-2 border-teal bg-[rgba(62,207,207,0.08)] p-7">
         <p className="display text-[1.75rem] text-ink">Message received.</p>
         <p className="mt-2 text-ink-70">
-          You&apos;ll hear back from us tonight between 7 and 9 PM. That&apos;s
-          not a form response — it&apos;s just when we reply.
+          You&apos;ll hear back from us today. We answer between 9 AM and
+          7 PM, every day — that&apos;s a person, not an autoresponder.
         </p>
       </div>
     );
@@ -80,17 +86,31 @@ export default function ContactForm() {
         </div>
       </div>
 
-      <div>
-        <label htmlFor="email" className="text-[13px] text-ink-55">
-          Email
-        </label>
-        <input
-          id="email"
-          name="email"
-          type="email"
-          className={FIELD}
-          placeholder="sam@patelauto.ca"
-        />
+      <div className="grid gap-7 sm:grid-cols-2">
+        <div>
+          <label htmlFor="email" className="text-[13px] text-ink-55">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            className={FIELD}
+            placeholder="sam@patelauto.ca"
+          />
+        </div>
+        <div>
+          <label htmlFor="phone" className="text-[13px] text-ink-55">
+            Phone
+          </label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            className={FIELD}
+            placeholder="905 555 0134"
+          />
+        </div>
       </div>
 
       <div>

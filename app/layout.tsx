@@ -50,7 +50,7 @@ const schema = {
   "@type": "ProfessionalService",
   name: "Ross & Griffiths Digital",
   description:
-    "Custom web design and digital integrations for small businesses in Northumberland County, Ontario.",
+    "Custom web design, e-commerce and business integrations for small businesses in Northumberland County, Ontario.",
   url: SITE,
   areaServed: [
     "Cobourg",
@@ -79,8 +79,8 @@ const schema = {
       "Saturday",
       "Sunday",
     ],
-    opens: "19:00",
-    closes: "21:00",
+    opens: "09:00",
+    closes: "19:00",
   },
 };
 

@@ -3,10 +3,10 @@
 import { useEffect, useState } from "react";
 
 const LINKS = [
-  { href: "#work", label: "Work" },
-  { href: "#services", label: "Services" },
-  { href: "#pricing", label: "Pricing" },
-  { href: "#process", label: "Process" },
+  { href: "/work", label: "Work" },
+  { href: "/#services", label: "Services" },
+  { href: "/#essentials", label: "Essentials" },
+  { href: "/#pricing", label: "Pricing" },
 ];
 
 export default function Nav() {
@@ -27,7 +27,7 @@ export default function Nav() {
       }`}
     >
       <nav className="shell flex h-[72px] items-center justify-between">
-        <a href="#top" className="display text-[1.6rem] text-paper">
+        <a href="/" className="display text-[1.6rem] text-paper">
           R<span className="text-teal">&</span>GD
         </a>
 
@@ -42,7 +42,7 @@ export default function Nav() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="rounded-sm bg-teal px-5 py-2.5 text-[15px] font-medium text-ink transition-opacity hover:opacity-85"
           >
             Start a project
@@ -62,7 +62,7 @@ export default function Nav() {
 
       {open && (
         <div className="border-t border-[var(--color-hair)] bg-ink px-6 py-5 md:hidden">
-          {LINKS.concat({ href: "#contact", label: "Get in touch" }).map((l) => (
+          {LINKS.concat({ href: "/#contact", label: "Get in touch" }).map((l) => (
             <a
               key={l.href}
               href={l.href}
