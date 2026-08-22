@@ -52,23 +52,29 @@ export type Essential = {
   name: string;
   problem: string;
   detail: string;
+  featured?: boolean;
+  popular?: boolean;
 };
 
 export const ESSENTIALS: Essential[] = [
   {
     name: "Online booking",
+    featured: true,
+    popular: true,
     problem: "You lose the booking because you were under a car.",
     detail:
       "Customers pick a slot themselves, it lands in your calendar, and they get the reminder. No phone tag, no double-bookings, no evenings spent returning calls.",
   },
   {
     name: "Payments & e-commerce",
+    featured: true,
     problem: "You're chasing people for money you already earned.",
     detail:
       "Take card payments, deposits, or sell products directly. Connects to the till you already use rather than replacing it.",
   },
   {
     name: "Digital invoicing",
+    featured: true,
     problem: "Invoices written twice — once on paper, once in the books.",
     detail:
       "Invoices generated, sent, and chased automatically. Paid ones reconcile themselves. You stop being your own accounts department.",

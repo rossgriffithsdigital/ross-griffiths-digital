@@ -16,7 +16,7 @@ Vercel. Contains a dynamic API route — do NOT add `output: 'export'` to
 - **Process:** Talk → Design & build → Client approves → Launch
 - **Currency:** All prices are CAD. Always write the currency explicitly — "$999 CAD", never a bare "$999".
 - **Services:** (1) Website build $999 CAD flat. (2) Monthly support $50 CAD/mo, up to 3 revisions; extras quoted. (3) Business Essentials from $100 CAD/mo, priced on scale. **Social media management was DISCONTINUED — never reintroduce it.**
-- **Hosting:** Never name the host publicly. Say "hosting configured and the backend secured".
+- **Hosting:** Never name the host publicly. Say "hosting configured and the backend secured". Contact form sends via Amazon SES; required env vars are AWS_REGION, AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, CONTACT_FROM, CONTACT_TO.
 - **Hero headline:** "Your business deserves a better website." This is the client's chosen line and is FINAL. Note the spelling is "Your", not "You're".
 
 ## Locked design tokens
