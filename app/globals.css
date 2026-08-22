@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── LOCKED. Matches printed business cards. Do not change. ── */
+  --color-ink: #0a0a0c;
+  --color-navy: #0d1520;
+  --color-card: #111820;
+  --color-paper: #edf3f7;
+  --color-teal: #3ecfcf;
+  --color-mute: #b0c4d0;
+  --color-mute-dim: #93aec0;
+
+  /* Derived — safe to tune */
+  --color-paper-2: #e2eaf0;
+  --color-ink-70: rgba(10, 10, 12, 0.7);
+  --color-ink-55: rgba(10, 10, 12, 0.55);
+  --color-hair: rgba(62, 207, 207, 0.18);
+  --color-hair-dark: rgba(10, 10, 12, 0.14);
+
+  --font-display: var(--font-instrument), Georgia, serif;
+  --font-sans: var(--font-dm), system-ui, sans-serif;
+
+  --text-hero: clamp(2.75rem, 7vw, 5.5rem);
+  --text-h2: clamp(2rem, 4.2vw, 3.25rem);
+  --text-h3: clamp(1.35rem, 2.2vw, 1.75rem);
+  --text-lede: clamp(1.05rem, 1.5vw, 1.25rem);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+  body {
+    background: var(--color-ink);
+    color: var(--color-paper);
+    font-family: var(--font-sans);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+  ::selection {
+    background: var(--color-teal);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-teal);
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    line-height: 1.02;
+  }
+  .shell {
+    width: 100%;
+    max-width: 1180px;
+    margin-inline: auto;
+    padding-inline: 1.5rem;
+  }
+  .rule {
+    height: 1px;
+    background: var(--color-hair);
+  }
+  .rule-dark {
+    height: 1px;
+    background: var(--color-hair-dark);
+  }
+  .lift {
+    animation: lift 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes wordUp {
+  from { opacity: 0; transform: translateY(105%) rotate(2deg); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes lift {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lift,
+  [style*="wordUp"],
+  [style*="marquee"] {
+    animation: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
