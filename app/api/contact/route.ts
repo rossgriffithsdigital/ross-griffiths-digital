@@ -5,22 +5,22 @@ import { SESv2Client, SendEmailCommand } from "@aws-sdk/client-sesv2";
  * Contact form handler — Amazon SES.
  *
  * Required environment variables (Vercel → Settings → Environment Variables):
- *   AWS_REGION              e.g. ca-central-1
+ *   SES_REGION              e.g. us-east-2  (matches Lambda stack — already set in Vercel)
  *   AWS_ACCESS_KEY_ID       IAM user with ses:SendEmail only
  *   AWS_SECRET_ACCESS_KEY
- *   CONTACT_FROM            a verified SES sender, e.g. site@rossgriffithsdigital.com
- *   CONTACT_TO              where enquiries land, e.g. hello@rossgriffithsdigital.com
+ *   FROM_EMAIL              a verified SES sender  (matches Lambda stack)
+ *   TO_EMAIL                where enquiries land   (matches Lambda stack)
  *
- * If SES is still in the sandbox, CONTACT_TO must also be verified.
+ * If SES is still in the sandbox, TO_EMAIL must also be verified.
  * Request production access before launch or real enquiries will bounce.
  */
 
 const REQUIRED = [
-  "AWS_REGION",
+  "SES_REGION",
   "AWS_ACCESS_KEY_ID",
   "AWS_SECRET_ACCESS_KEY",
-  "CONTACT_FROM",
-  "CONTACT_TO",
+  "FROM_EMAIL",
+  "TO_EMAIL",
 ] as const;
 
 export async function POST(req: Request) {
@@ -39,17 +39,19 @@ export async function POST(req: Request) {
   if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(String(email))) {
     return NextResponse.json({ error: "Invalid email" }, { status: 400 });
   }
+  if (!/\d{10,}/.test(String(phone).replace(/\D/g, ""))) {
+    return NextResponse.json({ error: "Invalid phone" }, { status: 400 });
+  }
 
   const missing = REQUIRED.filter((k) => !process.env[k]);
   if (missing.length) {
-    // Fail loudly in the logs rather than silently swallowing a real enquiry.
     console.error("[contact] SES not configured. Missing:", missing.join(", "));
     console.error("[contact] LOST ENQUIRY:", { name, email, phone, business, message });
     return NextResponse.json({ error: "Mail not configured" }, { status: 500 });
   }
 
   const ses = new SESv2Client({
-    region: process.env.AWS_REGION,
+    region: process.env.SES_REGION,
     credentials: {
       accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
       secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
@@ -68,8 +70,8 @@ export async function POST(req: Request) {
   try {
     await ses.send(
       new SendEmailCommand({
-        FromEmailAddress: process.env.CONTACT_FROM,
-        Destination: { ToAddresses: [process.env.CONTACT_TO!] },
+        FromEmailAddress: process.env.FROM_EMAIL,
+        Destination: { ToAddresses: [process.env.TO_EMAIL!] },
         ReplyToAddresses: [String(email)],
         Content: {
           Simple: {

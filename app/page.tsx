@@ -6,8 +6,14 @@ import ProjectCarousel from "@/components/ProjectCarousel";
 import HeroShowcase from "@/components/HeroShowcase";
 import EssentialsGrid from "@/components/EssentialsGrid";
 import { Reveal, SplitHeading, MagneticButton } from "@/components/Motion";
+import Faq from "@/components/Faq";
+import GoogleRating from "@/components/GoogleRating";
 import {
   HOME_TOWNS,
+  FAQS,
+  EMAIL,
+  PHONE,
+  PHONE_HREF,
   BUILD,
   SUPPORT,
   ESSENTIALS,
@@ -101,6 +107,10 @@ export default function Home() {
                   </div>
                 ))}
               </dl>
+
+              <div className="mt-8">
+                <GoogleRating />
+              </div>
             </div>
 
             <HeroShowcase projects={PROJECTS} />
@@ -312,6 +322,25 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ───────────── FAQ ───────────── */}
+        <section id="faq" className="bg-paper py-28 text-ink">
+          <div className="shell grid gap-14 lg:grid-cols-[0.75fr_1.25fr]">
+            <div>
+              <h2 className="display text-h2 max-w-[12ch]">
+                Common questions.
+              </h2>
+              <p className="mt-5 max-w-[34ch] text-ink-70">
+                The things people actually ask before they get in touch. If
+                yours isn&apos;t here, just ask us.
+              </p>
+              <div className="mt-8">
+                <GoogleRating tone="ink" />
+              </div>
+            </div>
+            <Faq items={FAQS} />
+          </div>
+        </section>
+
         {/* ───────────── Contact ───────────── */}
         <section id="contact" className="py-28">
           <div className="shell grid gap-16 lg:grid-cols-[0.8fr_1.2fr]">
@@ -324,6 +353,24 @@ export default function Home() {
                 we&apos;ll say so and point you somewhere better.
               </p>
               <div className="mt-10 space-y-6">
+                <div>
+                  <p className="text-[13px] text-mute-dim">Call or text</p>
+                  <a
+                    href={`tel:${PHONE_HREF}`}
+                    className="display mt-1 block text-[1.75rem] text-teal transition-opacity hover:opacity-75"
+                  >
+                    {PHONE}
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[13px] text-mute-dim">Email</p>
+                  <a
+                    href={`mailto:${EMAIL}`}
+                    className="mt-1 block break-all text-[1.05rem] text-paper underline decoration-[var(--color-hair)] underline-offset-4 transition-colors hover:decoration-teal"
+                  >
+                    {EMAIL}
+                  </a>
+                </div>
                 <div>
                   <p className="text-[13px] text-mute-dim">We reply</p>
                   <p className="mt-1 text-[1.05rem] text-paper">
@@ -364,7 +411,21 @@ export default function Home() {
                 Pricing
               </a>
             </nav>
-            <p className="text-[14px] text-mute-dim">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[14px]">
+              <a
+                href={`tel:${PHONE_HREF}`}
+                className="text-mute transition-colors hover:text-teal"
+              >
+                {PHONE}
+              </a>
+              <a
+                href={`mailto:${EMAIL}`}
+                className="text-mute transition-colors hover:text-teal"
+              >
+                {EMAIL}
+              </a>
+            </div>
+            <p className="w-full text-[14px] text-mute-dim md:w-auto">
               © {new Date().getFullYear()} Ross &amp; Griffiths Digital —
               Cobourg, Ontario
             </p>

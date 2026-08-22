@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Instrument_Serif, DM_Sans } from "next/font/google";
 import "./globals.css";
+import { EMAIL, PHONE, FAQS } from "@/lib/content";
 
 const instrument = Instrument_Serif({
   subsets: ["latin"],
@@ -71,6 +72,8 @@ const schema = {
     addressCountry: "CA",
   },
   priceRange: "$999",
+  telephone: PHONE,
+  email: EMAIL,
   openingHoursSpecification: {
     "@type": "OpeningHoursSpecification",
     dayOfWeek: [
@@ -87,6 +90,16 @@ const schema = {
   },
 };
 
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function RootLayout({
   children,
 }: {
@@ -98,6 +111,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
         />
         {children}
       </body>

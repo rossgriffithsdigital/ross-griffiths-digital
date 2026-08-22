@@ -1,5 +1,21 @@
 export const HOURS = "9 AM – 7 PM, every day";
 
+/* ── Contact ──────────────────────────────────────────────
+   Single source of truth. Never hardcode these anywhere else. */
+export const EMAIL = "cq@rossgriffithsdigital.com";
+export const PHONE = "905 207-3396";
+export const PHONE_HREF = "+19052073396";
+
+/* ── Google reviews ───────────────────────────────────────
+   REVIEW_COUNT is stated openly on the page. Do not inflate it, and do not
+   add aggregateRating JSON-LD until there are several genuine reviews —
+   Google penalises self-serving review markup. */
+export const GOOGLE = {
+  rating: "5.0",
+  count: 1,
+  url: "https://www.google.com/search?q=Ross+%26+Griffiths+Digital+Cobourg",
+};
+
 export const TOWNS = [
   "Cobourg",
   "Port Hope",
@@ -110,6 +126,44 @@ export const ESSENTIALS_PRICE = {
   unit: "CAD per month, from",
   note: "Priced on scale and how many systems need to talk to each other. Quoted before anything is built — never a surprise.",
 };
+
+/* ── FAQ ──────────────────────────────────────────────────
+   Also emitted as FAQPage JSON-LD, so answers must stay truthful. */
+
+export const FAQS = [
+  {
+    q: "What does the $999 actually cover?",
+    a: "Five custom pages designed around your business, built mobile-first, with local SEO configured, a working contact form, hosting set up and the backend secured. No template, no page-builder. It's a flat fee, not a deposit — there is no second invoice at the end.",
+  },
+  {
+    q: "Do I actually own the website?",
+    a: "Yes, completely — the code, the domain, the accounts. It all sits in your name. If you decide to work with someone else next year, you hand them the keys and walk away. Nothing is held hostage, and there's no monthly fee you have to keep paying to keep your own site online.",
+  },
+  {
+    q: "How long does it take?",
+    a: "Usually two to three weeks from the first conversation to going live, depending on how quickly you can get us your content — photos, service descriptions, prices. The build itself is rarely the slow part.",
+  },
+  {
+    q: "I already have a website. Can you just add the booking system?",
+    a: "Yes. Business Essentials bolt onto whatever you already have — Wix, Squarespace, WordPress, something a nephew built in 2016. We don't need to rebuild your site to give you online booking or digital invoicing.",
+  },
+  {
+    q: "Do I have to take the monthly support?",
+    a: "No. It's optional and you can cancel whenever. It's there for businesses whose site changes often — a restaurant updating menus, a shop running promotions. If your site is going to sit largely unchanged, you probably don't need it.",
+  },
+  {
+    q: "Why is it so much cheaper than other agencies?",
+    a: "Because we're new and building a portfolio. $999 is a founding rate and it will go up. If you come on now, your price stays your price. We'd rather have real work to show than charge full rate for an empty portfolio.",
+  },
+  {
+    q: "What if I don't like it?",
+    a: "Nothing goes live until you've seen it and said yes. Changes during the build are expected and aren't billed as extras — that's what the approval step is for. We'd rather spend an extra afternoon getting it right than launch something you're quietly unhappy with.",
+  },
+  {
+    q: "Are you actually local?",
+    a: "Yes — we're in Cobourg and we'll meet you for a coffee. We build across Northumberland County, and further afield in Kingston, Waterloo and London. You'll get a reply the same day, between 9 AM and 7 PM, from one of us rather than a ticketing system.",
+  },
+];
 
 /* ── Portfolio ────────────────────────────────────────────── */
 
