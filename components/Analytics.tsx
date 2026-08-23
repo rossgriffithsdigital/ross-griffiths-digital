@@ -27,6 +27,15 @@ export default function Analytics() {
   useEffect(() => {
     setChoice(localStorage.getItem(KEY));
     setReady(true);
+    if (!GA_ID) {
+      // Silent failure is worse than a noisy one: without this you get no
+      // banner, no tracking, and no clue why.
+      console.warn(
+        "[analytics] NEXT_PUBLIC_GA_ID is not set — Google Analytics and the " +
+          "cookie banner are disabled. Add it in Vercel (all environments) " +
+          "and redeploy.",
+      );
+    }
   }, []);
 
   function decide(value: "granted" | "denied") {
@@ -42,7 +51,7 @@ export default function Analytics() {
 
   return (
     <>
-      <Script id="ga-consent-default" strategy="beforeInteractive">
+      <Script id="ga-consent-default" strategy="afterInteractive">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
