@@ -40,7 +40,10 @@ export default function HeroShowcase({ projects }: { projects: Project[] }) {
             ))}
           </span>
           <span className="flex-1 truncate rounded-sm bg-ink/60 px-3 py-1 text-[11px] text-mute-dim">
-            {active.href ? active.href.replace("https://", "") : "preview"}
+            {active.chromeUrl ??
+              (active.href?.startsWith("http")
+                ? active.href.replace("https://", "")
+                : "preview")}
           </span>
         </div>
 

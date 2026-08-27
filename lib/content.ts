@@ -175,6 +175,9 @@ export type Project = {
   status: "Live" | "In progress" | "Concept";
   image: string | null;
   href: string | null;
+  /** Overrides the auto-derived chrome bar URL in HeroShowcase. Use for
+   *  anonymised or not-yet-launched projects where href is null or internal. */
+  chromeUrl?: string;
   summary: string;
   detail: string;
   tags: string[];
@@ -219,7 +222,8 @@ export const PROJECTS: Project[] = [
     year: "2026",
     status: "Concept",
     image: "/work/exterior-cleaning.jpg",
-    href: "https://jm-home-services-9l4n7507d-rossgriffithsdigitals-projects.vercel.app/",
+    href: null,
+    chromeUrl: "exteriorcleaningco.com",
     summary:
       "A five-page site for a window and exterior cleaning business — quote requests, service areas, and a review wall.",
     detail:
