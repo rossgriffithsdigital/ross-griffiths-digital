@@ -4,11 +4,23 @@ import { useState } from "react";
 import { EMAIL, PHONE, PHONE_HREF } from "@/lib/content";
 
 type State = "idle" | "sending" | "sent" | "error";
+type Plan = "build" | "support" | "essentials" | "";
+
+const PLAN_LABELS: Record<Plan, string> = {
+  build: "Website build ($999 CAD)",
+  support: "Monthly support ($50 CAD/mo)",
+  essentials: "Business Essentials (from $100 CAD/mo)",
+  "": "Not sure yet — I'll describe below",
+};
 
 const FIELD =
   "w-full border-b border-[var(--color-hair)] bg-transparent py-3 text-paper placeholder:text-mute-dim/60 focus:border-teal focus:outline-none transition-colors";
 
-export default function ContactForm() {
+export default function ContactForm({
+  initialPlan = "",
+}: {
+  initialPlan?: Plan;
+}) {
   const [state, setState] = useState<State>("idle");
   const [err, setErr] = useState("");
 
@@ -19,6 +31,7 @@ export default function ContactForm() {
     const email = String(fd.get("email") || "").trim();
     const phone = String(fd.get("phone") || "").trim();
     const message = String(fd.get("message") || "").trim();
+    const plan = String(fd.get("plan") || "").trim();
 
     if (!name || !email || !phone || !message) {
       setErr("Fill in your name, email, phone number, and a short message.");
@@ -44,6 +57,7 @@ export default function ContactForm() {
           email,
           phone,
           business: fd.get("business"),
+          plan: plan || undefined,
           message,
         }),
       });
@@ -163,6 +177,26 @@ export default function ContactForm() {
             placeholder="905 555 0134"
           />
         </div>
+      </div>
+
+      <div>
+        <label htmlFor="plan" className="text-[13px] text-mute-dim">
+          What are you interested in?
+        </label>
+        <select
+          id="plan"
+          name="plan"
+          defaultValue={initialPlan}
+          className={`${FIELD} cursor-pointer appearance-none`}
+        >
+          {(Object.entries(PLAN_LABELS) as [Plan, string][]).map(
+            ([value, label]) => (
+              <option key={value} value={value} className="bg-navy text-paper">
+                {label}
+              </option>
+            ),
+          )}
+        </select>
       </div>
 
       <div>

@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Bad request" }, { status: 400 });
   }
 
-  const { name, email, phone, business, message } = payload ?? {};
+  const { name, email, phone, business, plan, message } = payload ?? {};
 
   if (!name || !email || !phone || !message) {
     return NextResponse.json({ error: "Missing fields" }, { status: 400 });
@@ -46,7 +46,7 @@ export async function POST(req: Request) {
   const missing = REQUIRED.filter((k) => !process.env[k]);
   if (missing.length) {
     console.error("[contact] SES not configured. Missing:", missing.join(", "));
-    console.error("[contact] LOST ENQUIRY:", { name, email, phone, business, message });
+    console.error("[contact] LOST ENQUIRY:", { name, email, phone, business, plan, message });
     return NextResponse.json({ error: "Mail not configured" }, { status: 500 });
   }
 
@@ -63,6 +63,7 @@ export async function POST(req: Request) {
     `Business: ${business || "—"}`,
     `Email:    ${email}`,
     `Phone:    ${phone}`,
+    `Plan:     ${plan || "—"}`,
     "",
     message,
   ].join("\n");
@@ -84,7 +85,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ ok: true });
   } catch (err) {
     console.error("[contact] SES send failed:", err);
-    console.error("[contact] LOST ENQUIRY:", { name, email, phone, business, message });
+    console.error("[contact] LOST ENQUIRY:", { name, email, phone, business, plan, message });
     return NextResponse.json({ error: "Send failed" }, { status: 500 });
   }
 }

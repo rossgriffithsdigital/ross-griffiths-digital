@@ -268,54 +268,80 @@ export default function Home() {
               your price.
             </p>
 
-            <div className="mt-14 grid gap-px overflow-hidden rounded-sm border border-[rgba(10,10,12,0.15)] md:grid-cols-3">
-              {[
-                {
-                  t: "The build",
-                  p: BUILD.price,
-                  u: "one time",
-                  d: "Five custom pages, mobile-first, local SEO, contact form, hosting configured and the backend secured. You own all of it.",
-                },
-                {
-                  t: "Monthly support",
-                  p: SUPPORT.price,
-                  u: "per month",
-                  d: "Up to 3 revisions a month for promos, menus and content. Extra revisions quoted per job. Optional, cancel whenever.",
-                },
-                {
-                  t: "Business Essentials",
-                  p: ESSENTIALS_PRICE.from,
-                  u: "per month, from",
-                  d: "Booking, payments, invoicing, waitlists and more. Priced on scale, quoted before anything gets built.",
-                },
-              ].map((c, i) => (
-                <Reveal
-                  key={c.t}
-                  delay={i * 90}
-                  className={`p-9 ${i === 2 ? "bg-ink text-paper" : "bg-paper"}`}
-                >
-                  <h3 className="display text-[1.4rem]">{c.t}</h3>
-                  <p
-                    className={`display mt-4 text-[2.75rem] leading-none ${
-                      i === 2 ? "text-teal" : ""
-                    }`}
+            <div className="mt-14 grid gap-4 md:grid-cols-3">
+              {(
+                [
+                  {
+                    slug: "build",
+                    t: "The build",
+                    p: BUILD.price,
+                    u: BUILD.unit,
+                    items: BUILD.includes.slice(0, 4),
+                    cta: "Start with the build →",
+                    dark: false,
+                  },
+                  {
+                    slug: "support",
+                    t: "Monthly support",
+                    p: SUPPORT.price,
+                    u: SUPPORT.unit,
+                    items: SUPPORT.includes.slice(0, 4),
+                    cta: "Add monthly support →",
+                    dark: false,
+                  },
+                  {
+                    slug: "essentials",
+                    t: "Business Essentials",
+                    p: ESSENTIALS_PRICE.from,
+                    u: ESSENTIALS_PRICE.unit,
+                    items: [
+                      "Booking and scheduling",
+                      "Payments and invoicing",
+                      "Waitlists and automations",
+                      "Quoted before anything is built",
+                    ],
+                    cta: "Get Essentials quoted →",
+                    dark: true,
+                  },
+                ] as const
+              ).map((c, i) => (
+                <Reveal key={c.t} delay={i * 90} className="flex">
+                  <Link
+                    href={`/contact?plan=${c.slug}`}
+                    className={[
+                      "group flex w-full flex-col rounded-sm border p-9",
+                      "transition-[border-color,transform] duration-150 ease-out",
+                      "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2",
+                      "hover:-translate-y-[2px] hover:border-teal",
+                      c.dark
+                        ? "border-[rgba(255,255,255,0.12)] bg-ink text-paper focus-visible:ring-offset-[#0a0a0c]"
+                        : "border-[rgba(10,10,12,0.15)] bg-paper text-ink focus-visible:ring-offset-[#edf3f7]",
+                    ].join(" ")}
                   >
-                    {c.p}
-                  </p>
-                  <p
-                    className={`mt-2 text-[14px] ${
-                      i === 2 ? "text-mute-dim" : "text-ink-55"
-                    }`}
-                  >
-                    {c.u}
-                  </p>
-                  <p
-                    className={`mt-6 text-[15px] ${
-                      i === 2 ? "text-mute" : "text-ink-70"
-                    }`}
-                  >
-                    {c.d}
-                  </p>
+                    <h3 className="display text-[1.4rem]">{c.t}</h3>
+                    <p
+                      className={`display mt-4 text-[2.75rem] leading-none ${c.dark ? "text-teal" : ""}`}
+                    >
+                      {c.p}
+                    </p>
+                    <p
+                      className={`mt-2 text-[14px] ${c.dark ? "text-mute-dim" : "text-ink-55"}`}
+                    >
+                      {c.u}
+                    </p>
+                    <ul
+                      className={`mt-6 space-y-1.5 text-[14px] ${c.dark ? "text-mute" : "text-ink-70"}`}
+                    >
+                      {c.items.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                    <p
+                      className={`mt-auto flex min-h-[44px] items-end pt-8 text-[14px] font-medium ${c.dark ? "text-teal" : "text-ink"}`}
+                    >
+                      {c.cta}
+                    </p>
+                  </Link>
                 </Reveal>
               ))}
             </div>
