@@ -269,42 +269,43 @@ export default function Home() {
             </p>
 
             <div className="mt-14 grid gap-4 md:grid-cols-3">
-              {(
-                [
-                  {
-                    slug: "build",
-                    t: "The build",
-                    p: BUILD.price,
-                    u: BUILD.unit,
-                    items: BUILD.includes.slice(0, 4),
-                    cta: "Start with the build →",
-                    dark: false,
-                  },
-                  {
-                    slug: "support",
-                    t: "Monthly support",
-                    p: SUPPORT.price,
-                    u: SUPPORT.unit,
-                    items: SUPPORT.includes.slice(0, 4),
-                    cta: "Add monthly support →",
-                    dark: false,
-                  },
-                  {
-                    slug: "essentials",
-                    t: "Business Essentials",
-                    p: ESSENTIALS_PRICE.from,
-                    u: ESSENTIALS_PRICE.unit,
-                    items: [
-                      "Booking and scheduling",
-                      "Payments and invoicing",
-                      "Waitlists and automations",
-                      "Quoted before anything is built",
-                    ],
-                    cta: "Get Essentials quoted →",
-                    dark: true,
-                  },
-                ] as const
-              ).map((c, i) => (
+              {[
+                {
+                  slug: "build",
+                  t: "The build",
+                  featured: false,
+                  p: BUILD.price,
+                  u: BUILD.unit,
+                  items: BUILD.includes.slice(0, 4) as string[],
+                  cta: "Start with the build →",
+                  dark: false,
+                },
+                {
+                  slug: "support",
+                  t: "Monthly support",
+                  featured: false,
+                  p: SUPPORT.price,
+                  u: SUPPORT.unit,
+                  items: SUPPORT.includes.slice(0, 4) as string[],
+                  cta: "Add monthly support →",
+                  dark: false,
+                },
+                {
+                  slug: "essentials",
+                  t: "Business Essentials",
+                  featured: true,
+                  p: ESSENTIALS_PRICE.from,
+                  u: ESSENTIALS_PRICE.unit,
+                  items: [
+                    "Booking and scheduling",
+                    "Payments and invoicing",
+                    "Waitlists and automations",
+                    "Quoted before anything is built",
+                  ] as string[],
+                  cta: "Get Essentials quoted →",
+                  dark: true,
+                },
+              ].map((c, i) => (
                 <Reveal key={c.t} delay={i * 90} className="flex">
                   <Link
                     href={`/contact?plan=${c.slug}`}
@@ -314,30 +315,54 @@ export default function Home() {
                       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal focus-visible:ring-offset-2",
                       "hover:-translate-y-[2px] hover:border-teal",
                       c.dark
-                        ? "border-[rgba(255,255,255,0.12)] bg-ink text-paper focus-visible:ring-offset-[#0a0a0c]"
+                        ? "border-[rgba(255,255,255,0.12)] border-t-2 border-t-[#3ecfcf] bg-ink text-paper focus-visible:ring-offset-[#0a0a0c]"
                         : "border-[rgba(10,10,12,0.15)] bg-paper text-ink focus-visible:ring-offset-[#edf3f7]",
                     ].join(" ")}
                   >
+                    {c.featured && (
+                      <p className="mb-4 text-[11px] font-medium text-teal">
+                        Most flexible
+                      </p>
+                    )}
                     <h3 className="display text-[1.4rem]">{c.t}</h3>
                     <p
-                      className={`display mt-4 text-[2.75rem] leading-none ${c.dark ? "text-teal" : ""}`}
+                      className={`display mt-5 text-[2.75rem] leading-none ${c.dark ? "text-teal" : ""}`}
                     >
                       {c.p}
                     </p>
                     <p
-                      className={`mt-2 text-[14px] ${c.dark ? "text-mute-dim" : "text-ink-55"}`}
+                      className={`mt-1 text-[14px] ${c.dark ? "text-mute-dim" : "text-ink-55"}`}
                     >
                       {c.u}
                     </p>
-                    <ul
-                      className={`mt-6 space-y-1.5 text-[14px] ${c.dark ? "text-mute" : "text-ink-70"}`}
-                    >
+                    <div
+                      className={`mt-5 border-t ${c.dark ? "border-[rgba(255,255,255,0.08)]" : "border-[rgba(10,10,12,0.08)]"}`}
+                    />
+                    <ul className={`mt-4 space-y-2 text-[14px] ${c.dark ? "text-mute" : "text-ink-70"}`}>
                       {c.items.map((item) => (
-                        <li key={item}>{item}</li>
+                        <li key={item} className="flex items-start gap-2.5">
+                          <svg
+                            width="14"
+                            height="14"
+                            viewBox="0 0 14 14"
+                            fill="none"
+                            aria-hidden="true"
+                            className="mt-0.5 shrink-0 text-teal"
+                          >
+                            <path
+                              d="M2.5 7L5.5 10L11.5 4"
+                              stroke="currentColor"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            />
+                          </svg>
+                          <span>{item}</span>
+                        </li>
                       ))}
                     </ul>
                     <p
-                      className={`mt-auto flex min-h-[44px] items-end pt-8 text-[14px] font-medium ${c.dark ? "text-teal" : "text-ink"}`}
+                      className={`mt-auto flex min-h-[44px] items-end pt-7 text-[14px] font-medium ${c.dark ? "text-teal" : "text-ink"}`}
                     >
                       {c.cta}
                     </p>
