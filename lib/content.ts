@@ -223,7 +223,7 @@ export const PROJECTS: Project[] = [
     status: "Concept",
     image: "/work/exterior-cleaning.jpg",
     href: null,
-    chromeUrl: "exteriorcleaningco.com",
+    chromeUrl: "yours could be next",
     summary:
       "A five-page site for a window and exterior cleaning business — quote requests, service areas, and a review wall.",
     detail:
